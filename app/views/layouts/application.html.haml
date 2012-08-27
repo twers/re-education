@@ -1,5 +1,5 @@
 !!!
-%html
+%html{ :lang => "en"}
 	%head
 		%meta{ :charset => "utf-8" }
 		%title 开放课堂
@@ -11,22 +11,7 @@
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body
-		.navbar.navbar-inverse.navbar-fixed-top
-			.navbar-inner
-				.container
-					%button.btn.btn-navbar{ :type => "button", :'data-toggle' => "collapse",  'data-target' => ".nav-collapse" }
-						%span.icon-bar
-						%span.icon-bar
-						%span.icon-bar
-					%a.brand{ :href => "./index.html" } 开放课堂
-					.nav-collapse.collapse
-						%ul.nav
-							%li
-								%a{ :href => "./index.html" } 首页
-							%li
-								%a{ :href => "./getting-started.html" } 关于
-							%li
-								%a{ :href => "./scaffolding.html" } 联系我们
-		= yield
-		%footer.footer
-			%small Powered by ThoughtWorks Inc. China
+		= render 'shared/header'
+		.page.container
+			= yield
+		= render 'shared/footer'

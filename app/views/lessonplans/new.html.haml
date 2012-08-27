@@ -1,152 +1,21 @@
-%fieldset
-	= form_for @lessonplan, :url => { :action => 'create' } do |f|
-		= f.text_field :title
-		= f.text_field :student_count
-		= f.text_area :content
-		= f.submit 'Create'
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
-
-<body>
-  <div class="page container edit">
-    <div class="course-header clearfix">
-        <img src="assets/img/logo.png" class="logo img-rounded">
-        <h1>我的家乡</h1>
-    </div>
-
-  <div class="row">
-    <div class="span9">
-      <div class="page-action"><a href="#">保存</a></div>
-      <div class="row">
-        <div class="span4">
-          <div class="section">
-          <h5>基础信息</h5>
-          <form>
-            <label>教案名称</label>
-            <input type="text" placeholder="给你的教案起一个名字...">
-            <label>教学对象</label>
-            <input type="text" placeholder="教案适应什么样的学生人群...">
-            <label>学生人数</label>
-            <input type="text" placeholder="这个教案适合多少学生...">
-            <label>教案内容</label>
-            <textarea rows="20"></textarea>
-          </form>
-          </div>
-          <hr class="soften">
-        </div>
-        <div class="span5">
-          <div class="section">
-           <h5>合作者</h5>
-            <div class="input-append">
-              <input class="span2" id="appendedInputButton" size="16" placeholder="邀请一个合作者..." type="text"><button class="btn" type="button"><i class="icon-plus-sign"></i></button>
-            </div>
-           </div>
-          <hr class="softten">
-          <div class="section">
-            <h5>教学条目</h5>
-            <ul class="task-list">
-             <li class="task" data-toggle="collapse" data-target="#task1">
-                <form>
-                  <label>条目名</label>
-                    <input type="text" placeholder="例如给家乡的火车站拍一张照片...">
-                  <label>类型</label>
-                  <select class="span2">
-                    <option>照相类</option>
-                    <option>收集类</option>
-                    <option>采访类</option>
-                  </select>
-                  <label>条目内容</label>
-                  <textarea rows="5"></textarea>
-                 
-                </form>
-             </li>
-              <a href="#">添加一条 <i class="icon-plus-sign"></i> </a>
-        </ul>
-        </div>
-          <hr class="soften">
-        </div>
-      </div>
-   </div>
-    <div class="span3">
-      <div class="right-content">
-        <div class="section">
-          <div class="plan">
-              
-            <a href="#" class="plan-avatar-placehoder" data-toggle="modal" data-target="#myModal">
-              <img src="assets/img/image-placeholder.png" >
-              <p>给教案添加标志图</p>
-            </a>
-
-            <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">选择一个头像</h3>
-              </div>
-              <div class="modal-body">
-                <ul class="avatar-list clearfix">
-                  <li><img src="assets/img/image1.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image2.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image3.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image4.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image5.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image6.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image7.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image8.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image9.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image10.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image11.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image12.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li class="selected"><img src="assets/img/image13.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image14.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image15.jpeg" class="img-rounded"><i class="icon-ok"></i></li>
-                  <li><img src="assets/img/image1.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image2.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image3.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image4.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image5.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image6.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image7.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image8.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image9.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image10.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image11.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image12.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image13.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image14.jpeg" class="img-rounded"></li>
-                  <li><img src="assets/img/image15.jpeg" class="img-rounded"></li>
-
-
-
-                </ul>
-              </div>
-              <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        
-        <hr class="soften">
-        
-        
-      </div>
-    </div>
-  </div>
-
-	
+.course-header.clearfix
+	%img.logo.img-rounded{ :src => "/assets/logo.png" }
+	%h1 我的家乡
+.row
+	.span9
+		/ .page-action
+		/ 	%a{ :href => "#" } 保存
+		.row
+			.span4
+				%section
+					%h5 基础信息
+					= form_for :lessonplan, :url => { :action => 'create' } do |f|
+						= label_tag 'lessonplan[title]', '教案名称'
+						= f.text_field :title, :placeholder => '给你的教案起一个名字...'
+						= label_tag 'lessonplan[student_count]', '学生人数'
+						= f.text_field :student_count, :placeholder => '这个教案适合多少学生...'
+						= label_tag 'lessonplan[content]', '教案内容'
+						= f.text_area :content, :cols => 40
+						%p
+							= f.submit '保存', :class => 'btn btn-primary'
+					

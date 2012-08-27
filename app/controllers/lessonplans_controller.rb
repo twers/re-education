@@ -1,15 +1,15 @@
 class LessonplansController < ApplicationController
 	def index
-		
+		@lessonplans = Lessonplan.find(:all)
 	end
 
 	def new
-		@lessonplan = Lessonplan.new
+
 	end
 
 	def create
 		@lessonplan = Lessonplan.new(params[:lessonplan])
 		@lessonplan.save
-		render :json => Lessonplan.find(:all)
+		redirect_to :action => 'index'
 	end
 end
