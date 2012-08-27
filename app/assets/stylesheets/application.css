@@ -11,5 +11,7 @@
  *= require_self
  *= require_tree .
  *= require bootstrap
- *= require bootstrap-responsive.css
+ *= require bootstrap-responsive
+ *= require prettify
+ *= require style
 */
