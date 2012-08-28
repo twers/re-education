@@ -1,3 +1,5 @@
+= javascript_include_tag "ckeditor/init"
+= javascript_include_tag "ckeditor/config"
 .course-header.clearfix
 	%img.logo.img-rounded{ :src => "/assets/logo.png" }
 	%h1 我的家乡
@@ -15,7 +17,7 @@
 						= label_tag 'lessonplan[student_count]', '学生人数'
 						= f.text_field :student_count, :placeholder => '这个教案适合多少学生...'
 						= label_tag 'lessonplan[content]', '教案内容'
-						= f.text_area :content, :cols => 40
+						= f.cktext_area :content, :cols => 40
 					%hr.soften
 				.span5
 					.section
