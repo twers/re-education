@@ -1,4 +1,5 @@
-body {background: url(/assets/bg.png) #F5F5F5 repeat-x -15px 10px; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
+body {background: url(../img/bg.png) #F5F5F5 repeat-x -15px 10px; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
+body.home {background: url(../img/front-bg.png) #F5F5F5 repeat-x}
 a {color: #0e7684;}
 a:hover {color: #309BAB}
 .page {background: #FFF; padding: 40px 20px 0 20px;}
@@ -15,17 +16,21 @@ button.btn-new-plan i{position: relative; top: 4px;}
 button.btn-like, button.btn-like:hover {background: #FA6900; color: #FFF;text-shadow: none;}
 button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 
-.hero {width: 500px; margin: 20px 120px 0 0; }
-.new-plan h1{font-size: 28px; line-height: 28px;}
-.new-plan {background: url(/assets/tiny_grid.png); padding: 40px 40px 0 0; position: relative; width: 100%; left: -20px; border-bottom: 1px solid #EEE}
+.hero {width: 640px; margin: 52px 0 0 0; }
+.new-plan {background: url(../img/hero-bg.png);color: #FFF;}
+.new-plan h1{font-size: 32px; line-height: 28px;}
+.new-plan {padding: 100px 0 0 0; position: absolute; width: 100%; left: 0; border-bottom: 1px solid #EEE; height: 320px;}
 .new-plan button.btn-new-plan {border-radius: 5px; height: 60px; width: 200px; font-size: 20px; font-weight: bold; background: #FA6900; color: #FFF; text-shadow: none; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
-.new-plan .pull-left {position: relative; top: 50px; left: 120px; width: 340px;}
+.new-plan .pull-left {position: relative; top: 50px; left: 20px; width: 400px;}
 
+.ongoing-plan {margin-top: 440px;}
 .ongoing-plan .plan-avatar {width: 100px;}
+
+.weibo-textbox {width: 300px;}
 
 .plan-list {margin: 0; padding: 0}
 .plan {list-style: none; float: left; width: 81.5px; height: 81.5px; padding: 5px 5px 20px 5px; border-radius: 6px; margin: 10px 10px 0 0; background: #F5F5F5; border: 1px solid #EEE; }
-.plan-avatar {width: 100%; height: 100%; background: #FFF;}
+.avatar {width: 100%; height: 100%; background: #FFF;}
 .plan .progress {height: 10px; margin-top: 5px;}
 
 .plan-intro {width: 160px; height: 160px;}
@@ -41,7 +46,7 @@ button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 .feature .plan-intro ul > li + li {border-top: 1px dotted #EEE; margin-top: 5px; padding-top: 5px;}
 
 
-h2.plan-name {font-size: 18px; margin-top: 20px;}
+h2.name {font-size: 18px; margin-top: 20px;}
 .right-content { background: red; box-shadow: 0px -10px 0 #5DBBCE; width: 230px; padding: 10px; border-radius: 4px 4px 0 0; position: relative; top: -60px; background: #FFF;}
 .right-content .plan{float: none; width: 217.5px; height: 217.5px; margin: 0 0 10px 0;}
 .right-content .section {margin: 0 0 20px 0; padding: 0}
@@ -57,7 +62,7 @@ h2.plan-name {font-size: 18px; margin-top: 20px;}
 
 
 .task-content {padding-left: 10px;}
-.task-content.camera {background: url(/assets/camera.png) 15px 5px no-repeat;  padding-left: 80px;}
+.task-content.camera {background: url(../img/camera.png) 15px 5px no-repeat;  padding-left: 80px;}
 
 .task-content-action {text-align: right;}
 
@@ -83,5 +88,31 @@ h2.plan-name {font-size: 18px; margin-top: 20px;}
 
 .like-box {border-radius: 2px; background: #dce9d3; color: #fff; font-style: italic; padding: 5px 10px;}
 
+.case-item-list {padding-top: 10px;}
+.case-picture-img img{width: 100%}
+.case-picture-img {padding: 5px 5px 20px 5px; border-radius: 6px; margin: 0; background: #F5F5F5; border: 1px solid #EEE;}
+
 .footer {height: 200px; background: #FFF;}
 .footer small {position: relative; color: #DDD; left: 20px; top: 170px;}
+
+
+
+/*Responsive*/
+
+@media (min-width: 979px) and (max-width: 1200px) {
+  .hero {width: 500px; margin-top: 110px;}
+}
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .navbar-fixed-top {margin-bottom: 0}
+  .course-header {padding: 20px 20px 10px;}
+  .page {padding: 0 20px 0 20px;}
+  .new-plan {padding-top: 20px;}
+  .new-plan .pull-left {width: 200px; position: inherit;}
+  .new-plan .pull-left h1 {line-height: 40px;}
+  .new-plan .pull-right {}
+  .hero {width: 410px; margin: 148px 0 0 0}
+  .ongoing-plan {margin-top: 330px;}
+}
+
