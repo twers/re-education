@@ -1,0 +1,75 @@
+.course-header.clearfix
+	%img.logo.img-rounded{ :src => "/assets/logo.png" }
+	%h1 我的家乡
+.row
+	.span9
+		.row
+			.span4
+				.section
+					%h2
+						= @lessonplan.title
+					%p 
+						= @lessonplan.content
+				.soften
+			.span5
+				.section
+					%h5 合作者
+					%ul.member-list.clearfix
+						%li 
+							%img.img-rounded{ :src => "/assets/image10.jpeg" }
+						%li 
+							%img.img-rounded{ :src => "/assets/image8.jpeg" }
+						%li 
+							%img.img-rounded{ :src => "/assets/image4.jpeg" }
+						%li 
+							%img.img-rounded{ :src => "/assets/image5.jpeg" }
+					%button.btn.btn-add-task{ :type => "button" }
+						申请加入 
+						%i.icon-plus-sign
+				%hr.soften
+				.section
+					%h5 正在投票的教学条目
+					.task-list
+						%li.task{ 'data-toggle' => "collapse", 'data-target' => "#task1" }
+							拍摄一张湖的照片
+							%label.like-number.pull-right 1872人喜欢
+						#task1.collapse.in.task-content.camera.clearfix
+							.task-content-text
+								%p 你的家乡的湖有不同的美，拍摄一张湖的照片看看每个人家乡的湖有什么区别。
+							.task-content-action
+								%a{ :href => "#" } 喜欢(1872)
+								| 
+								%a{ :href => "#" } 评论(12)
+	.span3
+		.right-content
+			.section
+				.plan
+					%img.avatar.img-rounded{ :src => "/assets/image2.jpeg" }
+				%h2.name 
+					= @lessonplan.title
+				%p 每个家乡也许都有一个湖，她的故事就是我家乡的故事。
+				%button.btn.btn-like{ :type => "button" } 
+					我关注
+					%i.icon-heart.icon-white
+    
+		%hr.soften
+		.section
+			%h5 关注者
+			%ul.member-list.clearfix
+				%li
+					%img.img-rounded{ :src => "/assets/image1.jpeg" }
+				%li
+					%img.img-rounded{ :src => "/assets/image2.jpeg" }
+				%li
+					%img.img-rounded{ :src => "/assets/image6.jpeg" }
+				%li
+					%img.img-rounded{ :src => "/assets/image7.jpeg" }
+				%li
+					%img.img-rounded{ :src => "/assets/image9.jpeg" }
+				%li
+					%img.img-rounded{ :src => "/assets/image15.jpeg" }
+				%li
+					%img.img-rounded{ :src => "/assets/image8.jpeg" }
+				%li
+					%img.img-rounded{ :src => "/assets/image10.jpeg" }
+            

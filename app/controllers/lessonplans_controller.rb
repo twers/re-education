@@ -7,9 +7,13 @@ class LessonplansController < ApplicationController
 
 	end
 
+	def show
+		@lessonplan = Lessonplan.find(params[:id])
+	end
+
 	def create
 		@lessonplan = Lessonplan.new(params[:lessonplan])
 		@lessonplan.save
-		redirect_to :action => 'index'
+		redirect_to :action => 'show', :id => @lessonplan.id
 	end
 end

@@ -7,7 +7,7 @@
 		/ 	%a{ :href => "#" } 保存
 		.row
 			.span4
-				%section
+				.section
 					%h5 基础信息
 					= form_for :lessonplan, :url => { :action => 'create' } do |f|
 						= label_tag 'lessonplan[title]', '教案名称'
