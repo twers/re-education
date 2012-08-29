@@ -1,5 +1,5 @@
-body {background: url(../img/bg.png) #F5F5F5 repeat-x -15px 10px; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
-body.home {background: url(../img/front-bg.png) #F5F5F5 repeat-x}
+body {background: url(../assets/bg.png) #F5F5F5 repeat-x -15px 10px; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
+body.home {background: url(../assets/front-bg.png) #F5F5F5 repeat-x}
 a {color: #0e7684;}
 a:hover {color: #309BAB}
 .page {background: #FFF; padding: 40px 20px 0 20px;}
@@ -17,7 +17,7 @@ button.btn-like, button.btn-like:hover {background: #FA6900; color: #FFF;text-sh
 button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 
 .hero {width: 640px; margin: 52px 0 0 0; }
-.new-plan {background: url(../img/hero-bg.png);color: #FFF;}
+.new-plan {background: url(../assets/hero-bg.png);color: #FFF;}
 .new-plan h1{font-size: 32px; line-height: 28px;}
 .new-plan {padding: 100px 0 0 0; position: absolute; width: 100%; left: 0; border-bottom: 1px solid #EEE; height: 320px;}
 .new-plan button.btn-new-plan {border-radius: 5px; height: 60px; width: 200px; font-size: 20px; font-weight: bold; background: #FA6900; color: #FFF; text-shadow: none; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
