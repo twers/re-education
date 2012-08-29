@@ -62,7 +62,7 @@ h2.name {font-size: 18px; margin-top: 20px;}
 
 
 .task-content {padding-left: 10px;}
-.task-content.camera {background: url(../img/camera.png) 15px 5px no-repeat;  padding-left: 80px;}
+.task-content.camera {background: url(../assets/camera.png) 15px 5px no-repeat;  padding-left: 80px;}
 
 .task-content-action {text-align: right;}
 
