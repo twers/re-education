@@ -3,15 +3,16 @@
 	%h1 我的家乡
 
 .new-plan.section.clearfix
-	.pull-left
-		%h1 让孩子获得更有意思的课程
-		%p 为“我的家乡”这个主题建立一个有意思的课程计划。
-		%p
-			%button.btn.btn-new-plan{ :onclick => 'window.location.href="/lessonplans/new"' }
-				新的课程计划 
-				%i.icon-plus-sign.icon-white
-  
-	%img.pull-right.hero{ :src => "assets/hero.png" }
+	.container
+		.pull-left
+			%h1 让孩子获得更有意思的课程
+			%p 为“我的家乡”这个主题建立一个有意思的课程计划。
+			%p 
+				%button.btn.btn-new-plan{ :onclick => "window.location.href='plan.html'" , :type => "button" }
+					新的课程计划 
+					%i.icon-plus-sign.icon-white
+      
+		%img.pull-right.hero{ :src => "assets/hero.png" }
 .ongoing-plan.row.clearfix
 	.span12
 		%section
