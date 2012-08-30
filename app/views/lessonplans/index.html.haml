@@ -18,28 +18,17 @@
 		%section
 			%h3 设计中的
 			%p 为这些正在计划中的开放课堂提供你的观点和建议吧。
-		- @lessonplans.each do |lessonplan|
-			.span3
-				%span.plan.pull-left
-					%img.plan-avatar.img-rounded{ :src => "assets/image2.jpeg" }
-				%span.plan-intro.pull-left
-					%h5 
-						= lessonplan.title
-						%small.like-box
-							%i.icon-heart.icon-white
-							1293
-					%p
-						= lessonplan.content
-
+	- @lessonplans.each_index do |idx|
 		.span3
 			%span.plan.pull-left
-				%img.plan-avatar.img-rounded{ :src => "assets/image2.jpeg" }
+				%img.plan-avatar.img-rounded{ :src => @lessonplans[idx].symbol_img_url }
 			%span.plan-intro.pull-left
 				%h5 
-					家乡的湖
+					= @lessonplans[idx].title
 					%small.like-box
 						%i.icon-heart.icon-white
 						1293
-				%p 让孩子去发现家乡的湖，让不同地方的孩子完成一个关于“家乡的湖”的作业
+				%p
+					= @lessonplans[idx].short_description
 %hr.soften
 .ongoing-plan.row.clearfix

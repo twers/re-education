@@ -80,7 +80,8 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .modal {width: 585px;}
 .avatar-list {margin: 0; padding-left: 5px; }
 .avatar-list li {float: left; list-style: none; margin-right: 5px; margin-bottom: 5px; position: relative;}
-.avatar-list img {width: 50px; height:50px;}
+.avatar-list [type="radio"] { display: none; }
+.avatar-list img {width: 50px; height:50px; cursor: pointer;}
 .avatar-list i { position: absolute; top: 20px; left: 20px; background-color: rgba(255,255,255,.5); display: none; }
 .avatar-list .selected i {display: block;}
 

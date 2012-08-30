@@ -14,8 +14,8 @@
 						%h5 基础信息
 						= label_tag 'lessonplan[title]', '教案名称'
 						= f.text_field :title, :placeholder => '给你的教案起一个名字...'
-						= label_tag 'lessonplan[student_count]', '学生人数'
-						= f.text_field :student_count, :placeholder => '这个教案适合多少学生...'
+						= label_tag 'lessonplan[short_description]', '简短描述'
+						= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50
 						= label_tag 'lessonplan[content]', '教案内容'
 						= f.cktext_area :content, :cols => 40
 					%hr.soften
@@ -59,18 +59,20 @@
 
 						#myModal.modal{ :tabindex => "-1", :role => "dialog", 'aria-labelledby' => "myModalLabel", 'aria-hidden' => "true", :style => "display: none; "}
 							.modal-header
-								%button{ :type => "button", :class => "close", 'data-dismiss' => "modal", 'aria-hidden' => "true" }
-								%h3#myModalLabel 选择一个头像
+								%button.close{ :type => "button", 'data-dismiss' => "modal", 'aria-hidden' => "true" } &times;
+								%h3#myModalLabel 选择一个标志图
 							.modal-body
 								%ul.avatar-list.clearfix
-									- 2.times.each do
-										- (1..15).each do |num|
-											%li 
-												%img{ :src => "/assets/image#{num}.jpeg", :class => "img-rounded" }
+									- (1..16).each do |num|
+										- url = "/assets/image#{num}.jpeg"
+										%li
+											%label
+												%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}" }
+												%img.img-rounded{ :src => url }
 													%i.icon-ok
 							.modal-footer
-								%button.btn.btn-link{ 'data-dismiss' => "modal", 'aria-hidden' => "true" } 关闭
-								%button.btn.btn-primary 选好了
+								%button.btn{ 'data-dismiss' => "modal", 'aria-hidden' => "true" } 关闭
+								%button.btn.btn-primary{ 'data-dismiss' => "modal", 'aria-hidden' => "true" } 选好了
 
 					%h2.name 教学课件
 					%p 每个家乡也许都有一个湖，她的故事就是我家乡的故事。
@@ -82,19 +84,6 @@
 				.section
 					%h5 关注者
 					%ul.member-list.clearfix
-						%li
-							%img.img-rounded{ :src => "/assets/image1.jpeg" }
-						%li
-							%img.img-rounded{ :src => "/assets/image2.jpeg" }
-						%li
-							%img.img-rounded{ :src => "/assets/image6.jpeg" }
-						%li
-							%img.img-rounded{ :src => "/assets/image7.jpeg" }
-						%li
-							%img.img-rounded{ :src => "/assets/image9.jpeg" }
-						%li
-							%img.img-rounded{ :src => "/assets/image15.jpeg" }
-						%li
-							%img.img-rounded{ :src => "/assets/image8.jpeg" }
-						%li
-							%img.img-rounded{ :src => "/assets/image10.jpeg" }				
+						- (1..8).each do |num|
+							%li
+								%img.img-rounded{ :src => "/assets/image#{num}.jpeg" }

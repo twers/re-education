@@ -44,10 +44,9 @@
 		.right-content
 			.section
 				.plan
-					%img.avatar.img-rounded{ :src => "/assets/image2.jpeg" }
-				%h2.name 
-					= @lessonplan.title
-				%p 每个家乡也许都有一个湖，她的故事就是我家乡的故事。
+					%img.avatar.img-rounded{ :src => @lessonplan.symbol_img_url }
+				%h2.name= @lessonplan.title
+				%p= @lessonplan.short_description
 				%button.btn.btn-like{ :type => "button" } 
 					我关注
 					%i.icon-heart.icon-white

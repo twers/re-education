@@ -1,6 +1,6 @@
 class LessonplansController < ApplicationController
 	def index
-		@lessonplans = Lessonplan.find(:all)
+		@lessonplans = Lessonplan.limit(4).order('created_at DESC');
 	end
 
 	def new
