@@ -52,8 +52,26 @@
 		.span3
 			.right-content
 				.section
-					.plan
-						%img.avatar.img-rounded{ :src => "/assets/image2.jpeg" }
+					.plan  
+						%a.plan-avatar-placehoder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
+							%img{ :src => "/assets/image-placeholder.png" }
+							%p 给教案添加标志图
+
+						#myModal.modal{ :tabindex => "-1", :role => "dialog", 'aria-labelledby' => "myModalLabel", 'aria-hidden' => "true", :style => "display: none; "}
+							.modal-header
+								%button{ :type => "button", :class => "close", 'data-dismiss' => "modal", 'aria-hidden' => "true" }
+								%h3#myModalLabel 选择一个头像
+							.modal-body
+								%ul.avatar-list.clearfix
+									- 2.times.each do
+										- (1..15).each do |num|
+											%li 
+												%img{ :src => "/assets/image#{num}.jpeg", :class => "img-rounded" }
+													%i.icon-ok
+							.modal-footer
+								%button.btn.btn-link{ 'data-dismiss' => "modal", 'aria-hidden' => "true" } 关闭
+								%button.btn.btn-primary 选好了
+
 					%h2.name 教学课件
 					%p 每个家乡也许都有一个湖，她的故事就是我家乡的故事。
 					%button.btn.btn-like{ :type => "button" } 
