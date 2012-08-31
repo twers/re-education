@@ -35,19 +35,20 @@
 							申请加入 
 							%i.icon-plus-sign
 					%hr.soften
+
 					.section
 						%h5 正在投票的教学条目
 						.task-list
 							%li.task{ 'data-toggle' => "collapse", 'data-target' => "#task1" }
-								拍摄一张湖的照片
-								%label.like-number.pull-right 1872人喜欢
-							#task1.collapse.in.task-content.camera.clearfix
-								.task-content-text
-									%p 你的家乡的湖有不同的美，拍摄一张湖的照片看看每个人家乡的湖有什么区别。
-								.task-content-action
-									%a{ :href => "#" } 喜欢(1872)
-									| 
-									%a{ :href => "#" } 评论(12)
+								= form_for :task, :url => { :action => 'create' } do |f|	
+									%lable 条目名
+									%br
+									= f.text_field :title, :placeholder => '例如给家乡的火车站拍一张照片...'
+									%label 条目内容
+									= f.text_area :content, :placeholder => '你的家乡的湖有不同的美...'
+									%br
+									%a{ :href=> "#" } 添加一条 
+									%i.icon-plus-sign
 
 		.span3
 			.right-content

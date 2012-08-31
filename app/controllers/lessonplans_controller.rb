@@ -16,4 +16,5 @@ class LessonplansController < ApplicationController
 		@lessonplan.save
 		redirect_to :action => 'show', :id => @lessonplan.id
 	end
+
 end
