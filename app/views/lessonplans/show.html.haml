@@ -28,18 +28,28 @@
 						%i.icon-plus-sign
 				%hr.soften
 				.section
-					%h5 正在投票的教学条目
-					.task-list
-						%li.task{ 'data-toggle' => "collapse", 'data-target' => "#task1" }
-							拍摄一张湖的照片
-							%label.like-number.pull-right 1872人喜欢
-						#task1.collapse.in.task-content.camera.clearfix
-							.task-content-text
-								%p 你的家乡的湖有不同的美，拍摄一张湖的照片看看每个人家乡的湖有什么区别。
-							.task-content-action
-								%a{ :href => "#" } 喜欢(1872)
-								| 
-								%a{ :href => "#" } 评论(12)
+					%h5 
+						正在投票的教学条目
+					= javascript_include_tag "jquery.form"
+					= javascript_include_tag "controllers/tasks.controller"
+					.task-list{ 'ng-controller' => 'TasksController' }
+						.task-group{ 'ng-repeat' => 'task in tasks' }
+							.task{ 'data-toggle' => "collapse", 'data-target' => "#task1" }
+								{{task.title}}
+								%label.like-number.pull-right 1872人喜欢
+							.collapse.in.task-content.camera.clearfix{ :id => "task1"}
+								.task-content-text
+									%p {{task.content}}
+								.task-content-action
+									%a{ :href => "#" } 喜欢(1872)
+									| 
+									%a{ :href => "#" } 评论(12)
+						= form_for :task, :url => lessonplan_tasks_url(@lessonplan),  :html => { :id => 'add-task-form' } do |f|
+							%label 条目名
+							= f.text_field :title, :placeholder => '例如给家乡的火车站拍一张照片...'
+							%label 条目内容
+							= f.text_area :content, :placeholder => '你的家乡的湖有不同的美...', :rows => 3, :maxlength => 100
+							= f.submit '添加一条', :class => 'btn'
 	.span3
 		.right-content
 			.section
@@ -47,7 +57,7 @@
 					%img.avatar.img-rounded{ :src => @lessonplan.symbol_img_url }
 				%h2.name= @lessonplan.title
 				%p= @lessonplan.short_description
-				%button.btn.btn-like{ :type => "button" } 
+				%button.btn.btn-like{ :type => "button" }
 					我关注
 					%i.icon-heart.icon-white
     

@@ -7,6 +7,9 @@ a:hover {color: #309BAB}
 .section textarea {width: 90%;}
 .course-header {background: #69D2E7; height: 80px; padding: 20px; border-bottom: #5DBBCE solid 10px;position: relative;width: 100%; left: -20px;}
 .course-header * {margin-right: 10px; display: inline-block; vertical-align: middle;}
+.corner-radius {border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px;}
+.box-shadow {box-shadow: 0px 2px 2px #444; -webkit-box-shadow: 0px 2px 2px #444; -moz-box-shadow: 0px 2px 2px #444;}
+
 img.logo {width: 80px; height: 80px; background: #FFF;}
 hr{margin: 0;}
 form {margin: 0;}
@@ -48,7 +51,8 @@ button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 
 h2.name {font-size: 18px; margin-top: 20px;}
 .right-content { background: red; box-shadow: 0px -10px 0 #5DBBCE; width: 230px; padding: 10px; border-radius: 4px 4px 0 0; position: relative; top: -60px; background: #FFF;}
-.right-content .plan{float: none; width: 217.5px; height: 217.5px; margin: 0 0 10px 0;}
+.right-content .plan{float: none; width: 217.5px; height: 217.5px; margin: 0 0 10px 0;position:relative;}
+.right-content .plan .avatar{width: 100%;}
 .right-content .section {margin: 0 0 20px 0; padding: 0}
 .right-content hr {margin-bottom: 20px;}
 
@@ -76,13 +80,15 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .comment-user {color: #111}
 .comment-time {color: #999; font-style: italic;}
 
-.plan-avatar-placehoder {width: 100%; padding-top: 100px; text-align: center; display: block;}
+.plan-avatar-placehoder {color:white;width: 100%;text-align: center; display: block; position: absolute;bottom:0;left: 0;background:rgba(77, 144, 254, .9);background:rgba(250, 105, 0, .9);padding:5px 0;}
+.plan-avatar-placehoder:hover {color:white;}
 .modal {width: 585px;}
 .avatar-list {margin: 0; padding-left: 5px; }
 .avatar-list li {float: left; list-style: none; margin-right: 5px; margin-bottom: 5px; position: relative;}
 .avatar-list [type="radio"] { display: none; }
-.avatar-list img {width: 50px; height:50px; cursor: pointer;}
-.avatar-list i { position: absolute; top: 20px; left: 20px; background-color: rgba(255,255,255,.5); display: none; }
+.avatar-list label{margin: 0;}
+.avatar-list img {width: 50px; height:50px; cursor: pointer;box-shadow: inset 0 2px 2px #ccc;}
+.avatar-list i { position: absolute; top: 0px; left: 0px; display: none;width:40px;height:40px;z-index:999;border:5px solid #0074ea;}
 .avatar-list .selected i {display: block;}
 
 .page-action {background:#E4F1F3; margin: 10px 0 0 0; padding: 10px 310px 10px 10px; position: relative; width: 100%; left: -10px;}

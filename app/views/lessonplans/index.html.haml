@@ -24,7 +24,7 @@
 				%img.plan-avatar.img-rounded{ :src => @lessonplans[idx].symbol_img_url }
 			%span.plan-intro.pull-left
 				%h5 
-					= @lessonplans[idx].title
+					=link_to @lessonplans[idx].title, "/lessonplans/#{@lessonplans[idx].id}"
 					%small.like-box
 						%i.icon-heart.icon-white
 						1293

@@ -40,40 +40,42 @@
 						%h5 正在投票的教学条目
 						.task-list
 							%li.task{ 'data-toggle' => "collapse", 'data-target' => "#task1" }
-								= form_for :task, :url => { :action => 'create' } do |f|	
-									%lable 条目名
-									%br
+								= form_for :task, :url => { :action => 'create' } do |f|
+									%label 条目名
 									= f.text_field :title, :placeholder => '例如给家乡的火车站拍一张照片...'
 									%label 条目内容
-									= f.text_area :content, :placeholder => '你的家乡的湖有不同的美...'
-									%br
-									%a{ :href=> "#" } 添加一条 
-									%i.icon-plus-sign
+									= f.text_area :content, :placeholder => '你的家乡的湖有不同的美...', :rows => 5, :maxlength => 140
+									/ %p
+									/ 	%a{ :href=> "#" } 添加一条 
+									/ 	%i.icon-plus-sign
 
 		.span3
 			.right-content
 				.section
-					.plan  
+					= javascript_include_tag "controllers/avatar.picker.controller"
+					.plan{ 'ng-controller' => 'AvatarPickerController' }
+						%img.avatar{ 'ng-show' => 'selectedImgUrl', 'ng-src' => '{{selectedImgUrl}}' }
 						%a.plan-avatar-placehoder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
-							%img{ :src => "/assets/image-placeholder.png" }
-							%p 给教案添加标志图
+							/ %img{ :src => "/assets/image-placeholder.png" }
+							%i.icon-camera
+							给教案添加标志图
 
 						#myModal.modal{ :tabindex => "-1", :role => "dialog", 'aria-labelledby' => "myModalLabel", 'aria-hidden' => "true", :style => "display: none; "}
 							.modal-header
-								%button.close{ :type => "button", 'data-dismiss' => "modal", 'aria-hidden' => "true" } &times;
+								%button.close{ :type => "button", 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } &times;
 								%h3#myModalLabel 选择一个标志图
 							.modal-body
 								%ul.avatar-list.clearfix
 									- (1..16).each do |num|
 										- url = "/assets/image#{num}.jpeg"
-										%li
+										%li.avatar-item
 											%label
-												%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}" }
+												%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}", 'ng-model' => 'currentImgUrl', 'ng-click' => 'select()' }
 												%img.img-rounded{ :src => url }
-													%i.icon-ok
+													%i
 							.modal-footer
-								%button.btn{ 'data-dismiss' => "modal", 'aria-hidden' => "true" } 关闭
-								%button.btn.btn-primary{ 'data-dismiss' => "modal", 'aria-hidden' => "true" } 选好了
+								%button.btn{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } 关闭
+								%button.btn.btn-primary{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'choose()' } 选好了
 
 					%h2.name 教学课件
 					%p 每个家乡也许都有一个湖，她的故事就是我家乡的故事。
