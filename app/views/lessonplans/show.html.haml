@@ -9,7 +9,7 @@
 					%h2
 						= @lessonplan.title
 					%p 
-						= @lessonplan.content.html_safe
+						/ = @lessonplan.content.html_safe
 				.soften
 			.span5
 				.section
@@ -32,7 +32,7 @@
 						正在投票的教学条目
 					= javascript_include_tag "jquery.form"
 					= javascript_include_tag "controllers/tasks.controller"
-					.task-list{ 'ng-controller' => 'TasksController' }
+					.task-list{ 'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})" }
 						.task-group{ 'ng-repeat' => 'task in tasks' }
 							.task{ 'data-toggle' => "collapse", 'data-target' => "#task1" }
 								{{task.title}}
