@@ -3,10 +3,7 @@ source 'http://ruby.taobao.org'
 gem 'rails', '3.2.2'
 gem 'jquery-rails'
 gem 'mailhopper'
-gem 'delayed_mailhopper'
-gem 'delayed_job_active_record'
 gem 'database_cleaner'
-gem 'sqlite3'
 gem 'compass'
 gem 'compass-colors'
 gem 'haml'
@@ -23,7 +20,7 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails', :require => false
   gem 'cucumber'
   gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
@@ -36,5 +33,9 @@ end
 group :test, :development do
   gem 'rspec-rails', '~> 2.6'
   gem 'jasmine'
+end
+
+group :production do
+  gem 'pg'
 end
 
