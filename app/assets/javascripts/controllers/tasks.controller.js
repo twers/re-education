@@ -1,14 +1,27 @@
-function TasksController($scope, $element, $http) {
+angular.module('OpenClass', ['ngResource']);
 
-	var addTaskForm = $element.find('#add-task-form');
-	addTaskForm.ajaxForm($scope.submitForm);
-
-	$scope.submitForm = function(json){
-		$scope.tasks.concat([json]);
-	};
+function TasksController($scope, $element, $resource) {
 
 	$scope.init = function(lessonplanId){
-		$scope.Tasks = $resource('/lessonplans/:lessonplanId/tasks/:taskId', 
-			{ lessonplanId : lessonplanId, taskId : '@id' });
+		$scope.Tasks = 
+			$resource(
+				'/lessonplans/:lessonplanId/tasks/:taskId',
+				{ lessonplanId : lessonplanId, taskId : '@id' });
+
+		$scope.Tasks.query(function(tasks){
+			$scope.tasks = tasks;
+		});
+
+		$element.find('#add-task-form').submit(function(){ return false; });
+	};
+
+	$scope.submitForm = function(){
+		$scope.Tasks.save({
+			title : $scope.new_task_title, 
+			content : $scope.new_task_content 
+		}, function(savedTask){
+			$scope.tasks.push(savedTask);
+			$scope.new_task_title = $scope.new_task_content = '';
+		});
 	};
 }

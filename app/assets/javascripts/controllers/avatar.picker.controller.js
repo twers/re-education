@@ -1,3 +1,5 @@
+angular.module('OpenClass', []);
+
 function AvatarPickerController($scope, $element){
 
 	$scope.choose = function(){

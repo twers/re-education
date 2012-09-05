@@ -1,5 +1,5 @@
 !!!
-%html{ :lang => "en", 'ng-app' => ''}
+%html{ :lang => "en", 'ng-app' => 'OpenClass'}
 	%head
 		%meta{ :charset => "utf-8" }
 		%title 开放课堂
@@ -10,7 +10,7 @@
 		= stylesheet_link_tag    "application", :media => "all"
 		= javascript_include_tag "application"
 		= csrf_meta_tags
-	%body.home
+	%body
 		= render 'shared/header'
 		.page.container
 			= yield
