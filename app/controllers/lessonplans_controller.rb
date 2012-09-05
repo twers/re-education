@@ -14,6 +14,16 @@ class LessonplansController < ApplicationController
 	def create
 		@lessonplan = Lessonplan.new(params[:lessonplan])
 		@lessonplan.save
+
+		unless params[:tasks].nil? then
+			tasks = params[:tasks]
+			tasks.each do |c|
+				t = Task.new c
+				t.lessonplan = @lessonplan
+				t.save
+			end
+		end	
+
 		redirect_to :action => 'show', :id => @lessonplan.id
 	end
 

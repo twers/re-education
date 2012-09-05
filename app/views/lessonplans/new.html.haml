@@ -1,8 +1,7 @@
 = javascript_include_tag "ckeditor/init"
 = javascript_include_tag "ckeditor/config"
 .course-header.clearfix
-	%img.logo.img-rounded{ :src => "/assets/logo.png" }
-	%h1 我的家乡
+	%h1 家乡
 = form_for :lessonplan, :url => { :action => 'create' } do |f|	
 	.page-action
 		= f.submit '保存', :class => 'btn btn-link'
@@ -17,27 +16,38 @@
 				= label_tag 'lessonplan[content]', '教案内容'
 				= f.cktext_area :content, :cols => 40
 			%hr.soften
-			.section
+
+			= javascript_include_tag "controllers/cached.tasks.controller"
+			.section{ 'ng-controller' => 'CachedTasksController' }
 				%h5 正在投票的教学条目
-				.task-list
-					%li.task{ 'data-toggle' => "collapse", 'data-target' => "#task1" }
-						= form_for :task, :url => { :action => 'create' } do |f|
-							%label 条目名
-							= f.text_field :title, :placeholder => '例如给家乡的火车站拍一张照片...'
-							%label 条目内容
-							= f.text_area :content, :placeholder => '你的家乡的湖有不同的美...', :rows => 5, :maxlength => 140
-							/ %p
-							/ 	%a{ :href=> "#" } 添加一条 
-							/ 	%i.icon-plus-sign
-			%hr.soften
+				%ul.task-list
+					%li.task.clearfix{ 'ng-repeat' => 'task in cachedTasks' }
+						.task-content.pull-left
+							%input{ :type => 'text', :value => "{{task.title}}", :readonly => 'readonly', :name => 'tasks[][title]' } 
+							%small
+								%img{ :src => "/assets/image1.jpeg" }
+								%a{ :href => "#" } 马东
+								上海 宝山
+							%p.task-content-text 
+								%textarea{ :value => "{{task.content}}", :readonly => 'readonly', :name => 'tasks[][content]' }
+
+				.task-adding-form
+					%label 条目名
+					%input{ :placeholder => '例如给家乡的火车站拍一张照片...', 'ng-model' => 'currentTaskTitle' }
+					%label 条目内容
+					%textarea{ :placeholder => '你的家乡的湖有不同的美...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent' }
+					%p
+						%a{ :href=> "#", 'ng-click' => 'addTask()' } 添加一条
+						%i.icon-plus-sign
+
 		.span3
 			.right-content
 				.section
 					= javascript_include_tag "controllers/avatar.picker.controller"
 					.plan{ 'ng-controller' => 'AvatarPickerController' }
-						%a.plan-icon-holder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal", 'ng-show' => 'selectedImgUrl', 'ng-src' => '{{selectedImgUrl}}' }
-							%img{ :src => "/assets/plan-icon-holder.png" }
-							给教案添加标志图
+						%a.plan-icon-holder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
+							%img{ 'ng-src' => '{{ selectedImgUrl || "/assets/plan-icon-holder.png"}} ' }
+							/ 给教案添加标志图
 
 						#myModal.modal{ :tabindex => "-1", :role => "dialog", 'aria-labelledby' => "myModalLabel", 'aria-hidden' => "true", :style => "display: none; "}
 							.modal-header
@@ -55,13 +65,6 @@
 							.modal-footer
 								%button.btn{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } 关闭
 								%button.btn.btn-primary{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'choose()' } 选好了
-	    
-				%hr.soften
-				.section
-					%h5 关注者
-					%ul.member-list.clearfix
-						- (1..8).each do |num|
-							%li
-								%img.img-rounded{ :src => "/assets/image#{num}.jpeg" }
+	   
 
 

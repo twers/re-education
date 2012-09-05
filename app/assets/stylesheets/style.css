@@ -112,6 +112,9 @@ h2.name {font-size: 18px; margin-top: 20px;}
 
 .plan-icon-holder{color:white;width: 100%;text-align: center; display: block; padding:0;}
 .plan-icon-holder:hover {color:white;}
+.plan-icon-holder img{width: 200px; height: 200px}
+
+
 .modal {width: 585px;}
 .avatar-list {margin: 0; padding-left: 5px; }
 .avatar-list [type="radio"]{display:none;}

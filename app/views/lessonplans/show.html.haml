@@ -6,11 +6,11 @@
 			%h2= @lessonplan.title
 			%p= @lessonplan.content.html_safe
 		%hr.soften
-		.section.clearfix
-			= javascript_include_tag "controllers/tasks.controller"
-			.task-list{ 'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})" }
-				%h5 教学条目[{{tasks.length}}]
-				.task.clearfix{ 'data-toggle' => "collapse", 'data-target' => "#task1", 'ng-repeat' => 'task in tasks' }
+		= javascript_include_tag "controllers/tasks.controller"
+		.section.clearfix{'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})"}
+			%h5 教学条目[{{tasks.length}}]
+			%ul.task-list
+				%li.task.clearfix{ 'data-toggle' => "collapse", 'data-target' => "#task1", 'ng-repeat' => 'task in tasks' }
 					.task-like.pull-left
 						%label.like-number 1872
 					.task-content.pull-left
