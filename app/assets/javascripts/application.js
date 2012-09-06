@@ -16,4 +16,3 @@
 // = require bootstrap.min
 // = require angular/angular.min
 // = require angular/angular-resource.min
-
