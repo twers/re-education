@@ -1,0 +1,1 @@
+CKEDITOR.editorConfig=function(e){e.toolbar="MyToolbar",e.toolbar_MyToolbar=[{name:"styles",items:["Format","RemoveFormat"]},{name:"basicstyles",items:["Bold","Italic","Strike"]},{name:"paragraph",items:["NumberedList","BulletedList","-","Outdent","Indent","-","Blockquote"]},{name:"links",items:["Link","Unlink"]}]};
