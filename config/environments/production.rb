@@ -66,5 +66,5 @@ ReEducation::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   #precomplie
-  config.assets.precompile += %w( ckeditor/* )
+  config.assets.precompile += %w( ckeditor/* controllers/* )
 end
