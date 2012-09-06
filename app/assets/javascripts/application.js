@@ -16,3 +16,6 @@
 // = require bootstrap.min
 // = require angular/angular.min
 // = require angular/angular-resource.min
+
+// = require_tree ./controllers
+

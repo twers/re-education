@@ -6,7 +6,7 @@
 			%h2= @lessonplan.title
 			%p= @lessonplan.content.html_safe
 		%hr.soften
-		= javascript_include_tag "controllers/tasks.controller"
+		
 		.section.clearfix{'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})"}
 			%h5 教学条目[{{tasks.length}}]
 			%ul.task-list
