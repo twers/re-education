@@ -1,1 +1,0 @@
-function CachedTasksController(e){e.cachedTasks=[],e.addTask=function(){e.cachedTasks.push({title:e.currentTaskTitle,content:e.currentTaskContent}),e.currentTaskTitle=e.currentTaskContent=""}}angular.module("OpenClass",[]);
