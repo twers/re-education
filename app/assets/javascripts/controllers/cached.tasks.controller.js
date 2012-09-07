@@ -1,5 +1,3 @@
-angular.module('OpenClass', []);
-
 function CachedTasksController($scope){
 
 	$scope.cachedTasks = [];

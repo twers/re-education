@@ -16,9 +16,11 @@
 			%hr.soften
 
 			.section{ 'ng-controller' => 'CachedTasksController' }
-				%h5 正在投票的教学条目
+				%h5 教学活动
 				%ul.task-list
-					%li.task.clearfix{ 'ng-repeat' => 'task in cachedTasks' }
+					%li.task.edit.clearfix{ 'ng-repeat' => 'task in cachedTasks' }
+						.task-content.pull-left
+							%label.task-order
 						.task-content.pull-left
 							%input{ :type => 'text', :value => "{{task.title}}", :readonly => 'readonly', :name => 'tasks[][title]' } 
 							%small
@@ -34,11 +36,12 @@
 					%label 条目内容
 					%textarea{ :placeholder => '你的家乡的湖有不同的美...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent' }
 					%p
-						%a{ :href=> "#", 'ng-click' => 'addTask()' } 添加一条
-						%i.icon-plus-sign
+						%a{ :href=> "javascript:;", 'ng-click' => 'addTask()' } 
+							添加一条
+							%i.icon-plus-sign
 
 		.span3
-			.right-content
+			.right-content.edit
 				.section
 					
 					.plan{ 'ng-controller' => 'AvatarPickerController' }
