@@ -1,5 +1,3 @@
-= javascript_include_tag "ckeditor/init"
-= javascript_include_tag "ckeditor/config"
 .course-header.clearfix
 	%h1 家乡
 = form_for :lessonplan, :url => { :action => 'create' } do |f|	
@@ -17,7 +15,6 @@
 				= f.cktext_area :content, :cols => 40
 			%hr.soften
 
-			= javascript_include_tag "controllers/cached.tasks.controller"
 			.section{ 'ng-controller' => 'CachedTasksController' }
 				%h5 正在投票的教学条目
 				%ul.task-list
@@ -43,7 +40,7 @@
 		.span3
 			.right-content
 				.section
-					= javascript_include_tag "controllers/avatar.picker.controller"
+					
 					.plan{ 'ng-controller' => 'AvatarPickerController' }
 						%a.plan-icon-holder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
 							%img{ 'ng-src' => '{{ selectedImgUrl || "/assets/plan-icon-holder.png"}} ' }

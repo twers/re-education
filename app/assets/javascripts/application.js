@@ -17,3 +17,7 @@
 // = require angular/angular.min
 // = require angular/angular-resource.min
 
+// = require ckeditor/init
+// = require ckeditor/config
+// = require_tree ./controllers
+
