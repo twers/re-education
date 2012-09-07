@@ -28,9 +28,6 @@ button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 .new-plan {padding: 30px 0 0 0; position: absolute; width: 100%; left: 0; border-bottom: 1px solid #EEE; height: 320px;}
 .new-plan button.btn-new-plan {border-radius: 5px; height: 60px; width: 200px; font-size: 20px; font-weight: bold; background: #FA6900; color: #FFF; text-shadow: none; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
 .new-plan .pull-left {position: relative; top: 50px; left: 20px; width: 400px;}
-.new-plan .carousel-control {top: 140px;}
-.new-plan .carousel-control.left {left: -80px;}
-.new-plan .carousel-control.right {right: -80px;}
 
 .ongoing-plan {margin-top: 350px;}
 .ongoing-plan .plan-avatar {width: 100px;}
