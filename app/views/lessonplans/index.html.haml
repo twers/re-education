@@ -1,30 +1,83 @@
 .course-header.clearfix
-	%h1 家乡
+  %h1 家乡
 
 .new-plan.section.clearfix
-	.container
-		.pull-left
-			%h1 让孩子获得更有意思的课程
-			%p 为“我的家乡”这个主题建立一个有意思的课程计划。
-			%p 
-				%button.btn.btn-new-plan{ :onclick => "window.location.href='/lessonplans/new'" , :type => "button" }
-					新的课程计划 
-					%i.icon-plus-sign.icon-white
-      
-		%img.pull-right.hero{ :src => "assets/hero.png" }
+  #myCarousel.container.carousel.slide
+    .carousel-inner
+      .active.item
+        .pull-left
+
+          %h1 让孩子获得更有意思的课程
+          %p 为“我的家乡”这个主题建立一个有意思的课程计划。
+          %p 
+            %button.btn.btn-new-plan{ :onclick => "window.location.href='/lessonplans/new'" , :type => "button" }
+              新的课程计划 
+              %i.icon-plus-sign.icon-white
+          
+        %img.pull-right.hero{ :src => "assets/hero.png" }
+      .item
+        .pull-left
+
+          %h1 提出一个教学想法
+          %p 比如通过探访家乡的小吃了解家乡
+          
+        %img.pull-right.hero{ :src => "assets/hero.png" }
+
+      .item
+        .pull-left
+
+          %h1 添加一些教学条目
+          %p 比如拍摄一张你最喜欢的小吃照片或者画一张美食地图
+          
+        %img.pull-right.hero{ :src => "assets/hero.png" }
+
+      .item
+        .pull-left
+
+          %h1 收集全国各地老师的建议
+          %p 你还可以从其他专业的老师获得其他的知识补充
+          
+        %img.pull-right.hero{ :src => "assets/hero.png" }
+
+      .item
+        .pull-left
+
+          %h1 用这个教案上一堂生动的体验课吧
+          %p 按照教案的过程和学生一起利用体验教学的方式走出教室
+          
+        %img.pull-right.hero{ :src => "assets/hero.png" }
+
+      .item
+        .pull-left
+
+          %h1 上传完成的作业和大家一起分享
+          %p 看看其他城市甚至其他国家的学生是如何完成这个课程的
+          
+        %img.pull-right.hero{ :src => "assets/hero.png" }
+
+      .item
+        .pull-left
+
+          %h1 我们来自开放课堂
+          %p 一个致力于将体验式教学理念传播到更多中小学教学中的组织
+          
+        %img.pull-right.hero{ :src => "assets/hero.png" }
+
+    %a.carousel-control.left{ :href => "#myCarousel", "data-slide" => "prev" } ‹
+    %a.carousel-control.right{ :href => "#myCarousel", "data-slide" => "next" } ›
 .ongoing-plan.row.clearfix
-	.span12
-		%section
-			%h3 设计中的
-			%p 为这些正在计划中的开放课堂提供你的观点和建议吧。
-	- @lessonplans.each_index do |idx|
-		.span3
-			%span.plan-frame.pull-left
-				%img.plan-avatar{ :src => @lessonplans[idx].symbol_img_url }
-			%span.plan-intro.pull-left
-				%h5 
-					=link_to @lessonplans[idx].title, "/lessonplans/#{@lessonplans[idx].id}"
-				%p
-					= @lessonplans[idx].short_description
+  .span12
+    %section
+      %h3 设计中的
+      %p 为这些正在计划中的开放课堂提供你的观点和建议吧。
+  - @lessonplans.each_index do |idx|
+    .span3
+      %span.plan-frame.pull-left
+        %img.plan-avatar{ :src => @lessonplans[idx].symbol_img_url }
+      %span.plan-intro.pull-left
+        %h5 
+          =link_to @lessonplans[idx].title, "/lessonplans/#{@lessonplans[idx].id}"
+        %p
+          = @lessonplans[idx].short_description
 %hr.soften
 .ongoing-plan.row.clearfix
