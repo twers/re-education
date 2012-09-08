@@ -1,83 +1,174 @@
 / .course-header.home.clearfix
 /   %h1 家乡
+.page.container
+  .new-plan.section.clearfix
+    #myCarousel.container.carousel.slide{ 'data-interval' => '10000', 'data-pause' => 'hover'}
+      .carousel-inner
+        .active.item
+          .pull-left
 
-.new-plan.section.clearfix
-  #myCarousel.container.carousel.slide{ 'data-interval' => '10000', 'data-pause' => 'hover'}
-    .carousel-inner
-      .active.item
-        .pull-left
+            %h1 让孩子获得更有意思的课程
+            %p 为“我的家乡”这个主题建立一个有意思的课程计划。
+            %p 
+              %button.btn.btn-new-plan{ :onclick => "window.location.href='/lessonplans/new'" , :type => "button" }
+                新的课程计划 
+                %i.icon-plus-sign.icon-white
+            
+          %img.pull-right.hero{ :src => "assets/hero1.png" }
+        .item
+          .pull-left
 
-          %h1 让孩子获得更有意思的课程
-          %p 为“我的家乡”这个主题建立一个有意思的课程计划。
-          %p 
-            %button.btn.btn-new-plan{ :onclick => "window.location.href='/lessonplans/new'" , :type => "button" }
-              新的课程计划 
-              %i.icon-plus-sign.icon-white
-          
-        %img.pull-right.hero{ :src => "assets/hero1.png" }
-      .item
-        .pull-left
+            %h1 提出一个教学想法
+            %p 比如通过探访家乡的小吃了解家乡
+            
+          %img.pull-right.hero{ :src => "assets/i-have-idea.png" }
 
-          %h1 提出一个教学想法
-          %p 比如通过探访家乡的小吃了解家乡
-          
-        %img.pull-right.hero{ :src => "assets/i-have-idea.png" }
+        .item
+          .pull-left
 
-      .item
-        .pull-left
+            %h1 添加一些教学条目
+            %p 比如拍摄一张你最喜欢的小吃照片或者画一张美食地图
+            
+          %img.pull-right.hero{ :src => "assets/add-tasks.png" }
 
-          %h1 添加一些教学条目
-          %p 比如拍摄一张你最喜欢的小吃照片或者画一张美食地图
-          
-        %img.pull-right.hero{ :src => "assets/add-tasks.png" }
+        .item
+          .pull-left
 
-      .item
-        .pull-left
+            %h1 收集全国各地老师的建议
+            %p 你还可以从其他专业的老师获得其他的知识补充
+            
+          %img.pull-right.hero{ :src => "assets/class-everywhere.png" }
 
-          %h1 收集全国各地老师的建议
-          %p 你还可以从其他专业的老师获得其他的知识补充
-          
-        %img.pull-right.hero{ :src => "assets/class-everywhere.png" }
+        .item
+          .pull-left
 
-      .item
-        .pull-left
+            %h1 用这个教案上一堂生动的体验课吧
+            %p 按照教案的过程和学生一起利用体验教学的方式走出教室
+            
+          %img.pull-right.hero{ :src => "assets/activities.png" }
 
-          %h1 用这个教案上一堂生动的体验课吧
-          %p 按照教案的过程和学生一起利用体验教学的方式走出教室
-          
-        %img.pull-right.hero{ :src => "assets/activities.png" }
+        .item
+          .pull-left
 
-      .item
-        .pull-left
+            %h1 上传完成的作业和大家一起分享
+            %p 看看其他城市甚至其他国家的学生是如何完成这个课程的
+            
+          %img.pull-right.hero{ :src => "assets/homework.png" }
 
-          %h1 上传完成的作业和大家一起分享
-          %p 看看其他城市甚至其他国家的学生是如何完成这个课程的
-          
-        %img.pull-right.hero{ :src => "assets/homework.png" }
+        .item
+          .pull-left
 
-      .item
-        .pull-left
+            %h1 我们来自开放课堂
+            %p 一个致力于将体验式教学理念传播到更多中小学教学中的组织
+            
+          %img.pull-right.hero{ :src => "assets/welcome-open-class.png" }
 
-          %h1 我们来自开放课堂
-          %p 一个致力于将体验式教学理念传播到更多中小学教学中的组织
-          
-        %img.pull-right.hero{ :src => "assets/welcome-open-class.png" }
+      %a.carousel-control.left{ :href => "#myCarousel", "data-slide" => "prev" } ‹
+      %a.carousel-control.right{ :href => "#myCarousel", "data-slide" => "next" } ›
+  .home.main.container-fluid.clearfix
+    .row-fluid
+      .span5
+        .section
+          %h3 特别推荐
+          %ul.feature-list
+            %li.row-fluid.clearfix
+              .span6
+                %img.plan-avatar{:src => "assets/feature1.jpeg"}
+              .feature-intro.span6
+                %h5
+                  %a{:href => "#"} 使用脑图快乐做作业
+                %p 看看来自江西鹰潭十二中的刘老师是如何教学生们使用脑图作为工具完成作业的
+                %small 创新 工具
+            %li.row-fluid.clearfix
+              .span6
+                %img.plan-avatar{:src => "assets/feature2.jpeg"}
+              .feature-intro.span6
+                %h5
+                  %a{:href => "#"} 风化现象大发现
+                %p 调查周边的环境去理解风化的概念
+                %small 科学 实验
+            %li.row-fluid.clearfix
+              .span6
+                %img.plan-avatar{:src => "assets/feature3.jpeg"}
+              .feature-intro.span6
+                %h5
+                  %a{:href => "#"} 家乡名小吃
+                %p 向大家介绍家乡的名小吃，制作家乡美食地图
+                %small 文化 家乡
+            %li.row-fluid.clearfix
+              .span6
+                %img.plan-avatar{:src => "assets/feature4.jpeg"}
+              .feature-intro.span6
+                %h5
+                  %a{:href => "#"} 湖的调查
+                %p 每个地方都有个关于湖的故事，让我们一起来调查家乡的湖吧
+                %small 文化 家乡
+      .span3
+        .section
+          %h3 最新课程
+          %ul.plan-list
+            - @lessonplans.each_index do |idx|
+              %li.row-fluid.clearfix
+                .span3
+                  %img.plan-avatar{ :src => @lessonplans[idx].symbol_img_url }
+                .plan-intro.span9
+                  %h5 
+                    =link_to @lessonplans[idx].title, "/lessonplans/#{@lessonplans[idx].id}"
+                  %p
+                    = @lessonplans[idx].short_description
 
-    %a.carousel-control.left{ :href => "#myCarousel", "data-slide" => "prev" } ‹
-    %a.carousel-control.right{ :href => "#myCarousel", "data-slide" => "next" } ›
-.ongoing-plan.row.clearfix
-  .span12
-    %section
-      %h3 设计中的
-      %p 为这些正在计划中的开放课堂提供你的观点和建议吧。
-  - @lessonplans.each_index do |idx|
-    .span4
-      %span.plan-frame.pull-left
-        %img.plan-avatar{ :src => @lessonplans[idx].symbol_img_url }
-      %span.plan-intro.pull-left
-        %h5 
-          =link_to @lessonplans[idx].title, "/lessonplans/#{@lessonplans[idx].id}"
-        %p
-          = @lessonplans[idx].short_description
-%hr.soften
-.ongoing-plan.row.clearfix
+     
+      .span4
+        .section
+          %h3 正在发生
+          %ul.event-list
+            %li.clearfix
+              %span.pull-left
+                %p.time.clearfix
+                  %label.day 今天
+                  %label.hour 11时
+                %p
+                  %a{:href => "#"}> 王海
+                  发布了创新课
+                  %a{:href => "#"} 学会使用百度知道
+            %li.clearfix
+              %span.pull-left
+                %p.time.clearfix
+                  %label.day 今天
+                  %label.hour 11时
+                %p
+                  %a{:href => "#"}> 李东
+                  召集参与创新课
+                  %a{:href => "#"} 思维导图的使用
+            %li.clearfix
+              %span.pull-left
+                %p.time.clearfix
+                  %label.day 昨天
+                  %label.hour 11时
+                %p
+                  %a{:href => "#"}> 张至强
+                  提交了创新课
+                  %a{:href => "#"}> 思维导图的使用
+                  相关的作业
+            %li.clearfix
+              %span.pull-left
+                %p.time.clearfix
+                  %label.day 前天
+                  %label.hour 11时
+                %p
+                  %a{:href => "#"}> 李东
+                  召集参与创新课
+                  %a{:href => "#"} 思维导图的使用
+            %li.clearfix
+              %span.pull-left
+                %p.time.clearfix
+                  %label.day 8月11日
+                  %label.hour 11时
+                %p
+                  %a{:href => "#"}> 李东
+                  召集参与创新课
+                  %a{:href => "#"} 思维导图的使用
+
+  %hr.soften
+  .ongoing-plan.row.clearfix
+>>>>>>> Adjust layout and css of index and show page. Bai Mingming & Xiong zichuan.

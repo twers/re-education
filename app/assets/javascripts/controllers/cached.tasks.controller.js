@@ -11,4 +11,9 @@ function CachedTasksController($scope){
 		$scope.currentTaskTitle = $scope.currentTaskContent = '';
 	};
 
+
+  $scope.newTask = function(){
+    $(".task-adding-form.template").clone().removeClass('template').appendTo($('.task-adding-form.template'));
+  };
+
 }

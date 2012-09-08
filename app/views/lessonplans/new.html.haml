@@ -1,70 +1,69 @@
 .course-header.clearfix
-	%h1 家乡
-= form_for :lessonplan, :url => { :action => 'create' } do |f|	
-	.page-action
-		= f.submit '保存', :class => 'btn btn-link'
-	.row-fluid
-		.span9
-			.section
-				%h5 基础信息
-				= label_tag 'lessonplan[title]', '教案名称'
-				= f.text_field :title, :placeholder => '给你的教案起一个名字...'
-				= label_tag 'lessonplan[short_description]', '简短描述'
-				= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50
-				= label_tag 'lessonplan[content]', '教案内容'
-				= f.cktext_area :content, :cols => 40
-			%hr.soften
-
-			.section{ 'ng-controller' => 'CachedTasksController' }
-				%h5 教学活动
-				%ul.task-list
-					%li.task.edit.clearfix{ 'ng-repeat' => 'task in cachedTasks' }
-						.task-content.pull-left
-							%label.task-order
-						.task-content.pull-left
-							%input{ :type => 'text', :value => "{{task.title}}", :readonly => 'readonly', :name => 'tasks[][title]' } 
-							%small
-								%img{ :src => "/assets/image1.jpeg" }
-								%a{ :href => "#" } 马东
-								上海 宝山
-							%p.task-content-text 
-								%textarea{ :value => "{{task.content}}", :readonly => 'readonly', :name => 'tasks[][content]' }
-
-				.task-adding-form
-					%label 条目名
-					%input{ :placeholder => '例如给家乡的火车站拍一张照片...', 'ng-model' => 'currentTaskTitle' }
-					%label 条目内容
-					%textarea{ :placeholder => '你的家乡的湖有不同的美...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent' }
-					%p
-						%a{ :href=> "javascript:;", 'ng-click' => 'addTask()' } 
-							添加一条
-							%i.icon-plus-sign
-
-		.span3
-			.right-content.edit
+	.theme
+		%h1 #创新课
+		%p 关于创新的课堂实践
+.page.container
+	= form_for :lessonplan, :url => { :action => 'create' } do |f|	
+		.page-action
+			= f.submit '保存', :class => 'btn btn-link'
+		.row-fluid
+			.span9
 				.section
-					
-					.plan{ 'ng-controller' => 'AvatarPickerController' }
-						%a.plan-icon-holder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
-							%img{ 'ng-src' => '{{ selectedImgUrl || "/assets/plan-icon-holder.png"}} ' }
-							/ 给教案添加标志图
+					%h5 基础信息
+					= label_tag 'lessonplan[title]', '教案名称'
+					= f.text_field :title, :placeholder => '给你的教案起一个名字...'
+					= label_tag 'lessonplan[short_description]', '简短描述'
+					= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50
+					= label_tag 'lessonplan[content]', '教案内容'
+					= f.cktext_area :content, :cols => 40
+				%hr.soften
 
-						#myModal.modal{ :tabindex => "-1", :role => "dialog", 'aria-labelledby' => "myModalLabel", 'aria-hidden' => "true", :style => "display: none; "}
-							.modal-header
-								%button.close{ :type => "button", 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } &times;
-								%h3#myModalLabel 选择一个标志图
-							.modal-body
-								%ul.avatar-list.clearfix
-									- (1..16).each do |num|
-										- url = "/assets/image#{num}.jpeg"
-										%li.avatar-item
-											%label
-												%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}", 'ng-model' => 'currentImgUrl', 'ng-click' => 'select()' }
-												%img.img-rounded{ :src => url }
-													%i
-							.modal-footer
-								%button.btn{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } 关闭
-								%button.btn.btn-primary{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'choose()' } 选好了
-	   
+				.section{ 'ng-controller' => 'CachedTasksController' }
+					%h5 教学活动
+					%ul.task-list
+						%li.task.clearfix{ 'ng-repeat' => 'task in cachedTasks' }
+							.pull-left
+								%label.task-order {{$index+1}}
+							.task-content.pull-left
+								%input.task-content-title{ :value => "{{task.title}}", :readonly => 'readonly', :name => 'tasks[][title]' }
+								%textarea.task-content-text{ :value => "{{task.content}}",  :readonly => 'readonly', :name => 'tasks[][content]' } 
+
+					.task-adding-form.task.edit
+						.pull-left
+							%label.task-order.new  新增
+						.task-content.pull-left
+							%input{ :placeholder => '填写一个课程活动步骤...', 'ng-model' => 'currentTaskTitle', :type => 'text' }
+							%textarea{ :placeholder => '介绍一些这个步骤...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent' }
+							%p
+								%a{ :href=> "javascript:;", 'ng-click' => 'addTask()' } 
+									保存
+									%i.icon-plus-sign
+
+			.span3
+				.right-content.edit
+					.section
+						
+						.plan{ 'ng-controller' => 'AvatarPickerController' }
+							%a.plan-icon-holder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
+								%img{ 'ng-src' => '{{ selectedImgUrl || "/assets/plan-icon-holder.png"}} ' }
+								/ 给教案添加标志图
+
+							#myModal.modal{ :tabindex => "-1", :role => "dialog", 'aria-labelledby' => "myModalLabel", 'aria-hidden' => "true", :style => "display: none; "}
+								.modal-header
+									%button.close{ :type => "button", 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } &times;
+									%h3#myModalLabel 选择一个标志图
+								.modal-body
+									%ul.avatar-list.clearfix
+										- (1..16).each do |num|
+											- url = "/assets/image#{num}.jpeg"
+											%li.avatar-item
+												%label
+													%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}", 'ng-model' => 'currentImgUrl', 'ng-click' => 'select()' }
+													%img.img-rounded{ :src => url }
+														%i
+								.modal-footer
+									%button.btn{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } 关闭
+									%button.btn.btn-primary{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'choose()' } 选好了
+		   
 
 

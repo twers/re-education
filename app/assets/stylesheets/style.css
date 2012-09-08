@@ -1,10 +1,11 @@
 body {background: url(bg.png) #F5F5F5 repeat-x -15px 10px; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
 body.home {background: url(front-bg.png) #F5F5F5 repeat-x left -30px}
-a, .btn-link {color: #0e7684;}
+a, .btn-link {color: #5DBBCE;}
 a:hover, .btn-link:hover {color: #309BAB}
 .navbar .container {width: 950px;}
-.page {background: #FFF; padding: 40px 20px 0 20px;width: 950px;}
+.page {background: #FFF; padding: 40px 20px 80px 20px;width: 950px;}
 .page .container{width: 950px;}
+.home.main {margin-top: 330px;}
 .section {padding: 10px 0 20px 0;}
 .section textarea {width: 90%;}
 .course-header * {margin-right: 10px; display: inline-block; vertical-align: middle;}
@@ -18,10 +19,22 @@ button.btn-new-plan i{position: relative; top: 4px;}
 button.btn-strong, button.btn-strong:hover {background: #FA6900; color: #FFF;text-shadow: none;}
 button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 
-.course-header {position: relative; left: -20px; background: #69D2E7; padding: 20px; width: 100%; border-bottom: #5DBBCE solid 10px}
-.course-header h1 {margin: 0; background: #FFF; color: #5DBBCE; padding: 5px 10px; font-size: 20px;}
-.course-header.home {position: absolute; width: 100%; background: url(front-bg.png)}
+.course-header {top: 40px; position: relative; background: #69D2E7; padding: 20px 0; width: 100%; border-bottom: #5DBBCE solid 10px}
+.course-header .theme {display: block; margin: 0 auto; width: 950px; color: #FFF}
+.course-header .theme h1 {font-size: 22px; display: block; line-height: 28px; margin-bottom: 0;}
+.course-header .theme p {margin: 0; font-size: 11px; color: #F5F5F5}
 
+
+/*=HOME SECTIONS*/
+.home.main {margin-top: 330px;}
+.home ul {list-style: none; padding: 0; margin: 0;}
+.home .section h3 {font-size: 18px; border-bottom: 1px dotted #DDD; margin-bottom: 15px;}
+
+/*=HOME FEATURES*/
+.feature-list li{margin-bottom: 20px;}
+.feature-intro p {font-size: 12px; margin: 5px 0; color: #666;}
+.feature-intro h5 {margin: 0; font-size: 14px; font-weight: normal;}
+.feature-intro small {font-size: 12px; color: #999;}
 
 .hero {width: 500px; margin: 63px 0 0 0; }
 .new-plan {padding: 0;background: url(hero-bg.png);color: #FFF;}
@@ -33,19 +46,17 @@ button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 .new-plan .carousel-control.left {left: -80px;}
 .new-plan .carousel-control.right {right: -80px;}
 
-.ongoing-plan {margin-top: 330px;}
-.ongoing-plan .plan-avatar {width: 100px;}
-
-.weibo-textbox {width: 300px;}
-
 .plan-list {margin: 0; padding: 0}
 .plan-frame {list-style: none; float: left; width: 81.5px; height: 81.5px; padding: 5px; margin: 10px 10px 0 0; background: #F5F5F5; border: 1px solid #EEE; }
 .plan-frame img{width: 100px; height: 80px;}
-.avatar {width: 100%; height: 100%; background: #FFF;}
+.avatar {width: 100%; height: 100%; background: #FFF; max-height: 240px;}
 .plan .progress {height: 10px; margin-top: 5px;}
 
-.plan-intro {width: 160px; height: 160px;}
-.plan-intro p {font-size: 12px; margin: 10px 0; color: #111}
+.plan-list {margin: 0; padding: 0}
+.plan-list li {margin-bottom: 15px;}
+
+.plan-intro p {font-size: 12px; margin: 0; color: #999;}
+.plan-intro h5 {margin: 0; font-size: 14px; font-weight: normal;}
 
 .feature .plan {width: 100%; height: 245px;}
 .feature .plan-intro h5{font-size: 30px; line-height: 40px;}
@@ -79,14 +90,20 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .task-list {margin: 0; padding: 0; list-style: none;}
 .task label.like-number {text-align: center; padding: 5px 0; font-size: 10px; color: #FFF; background: #69D2E7; border-radius: 3px; margin: 0 10px 0 0;}
 .task img {width: 24px; height: 24px;margin-right: 10px;}
+.task-order {border-radius: 3px; padding: 10px; background: #EEE;width: 40px; height: 20px; line-height: 20px; margin-right: 10px; color: #5DBBCE; text-align: center; font-size: 24px; font-weight: bold;}
+.task-order.new {font-size: 12px; font-weight: normal; line-height: 22px; }
 
 .task-like {width: 10%;}
 .task-content {width: 90%}
-.task-content h6{cursor: pointer; background: #F5F5F5; padding: 5px; font-weight: normal; font-size: 14px; margin-top: 0;}
-.task-content p {margin-bottom: 5px; font-size: 12px;}
-.task-content small {line-height: 24px; font-size: 12px; margin-bottom: 5px;display: block;}
-
+.task-content h6 {background: #F5F5F5; line-height: 40px; padding: 0 10px; font-weight: normal; font-size: 14px; margin-top: 0;}
+.task-content .task-content-text {margin: 0 0 10px 10px; font-size: 12px;}
 .task-content-action {text-align: right;cursor: pointer;}
+.task-content-title {cursor: normal; text-indent: 10px; border: 0; box-shadow: none; width: 100%;background: #F5F5F5; line-height: 40px; padding: 0; font-weight: normal; font-size: 14px; margin-top: 0;}
+.task-content textarea.task-content-text {resize: none; border: 0; box-shadow: none; margin: 10px 0 0 0; border-radius: 0; background: transparent; width: 100%; }
+
+/*=TASK EDIT*/
+.task.edit .task-content {padding: 10px 0; background: #F5F5F5; margin-bottom: 10px;}
+.task.edit .task-content *{margin-left: 10px;}
 
 .homework-list {margin: 0; padding: 0; list-style: none;}
 .homework label.like-number {text-align: center; padding: 5px 0; font-size: 10px; color: #FFF; background: #69D2E7; border-radius: 3px; margin: 0 10px 0 0;}
@@ -102,7 +119,12 @@ h2.name {font-size: 18px; margin-top: 20px;}
 
 .homework-content-action {text-align: right;cursor: pointer;}
 
-
+/*=EVENT LIST*/
+.event-list img {width: 30px; height: 30px; float: left; margin-right: 10px;}
+.event-list li {margin: 15px 0;}
+.event-list li p {font-size: 12px; color: #999; margin-bottom: 0;}
+.event-list .time * {float: left;}
+.event-list .time .day {background: #DDD; color: #FFF; font-size: 11px; line-height: 20px; padding: 0 5px; margin-right: 5px;}
 
 .comment-area li {list-style: none;}
 .comment-list {margin: 0; padding: 0 0 0 35px;}
@@ -128,7 +150,7 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .avatar-list i { position: absolute; top: 0px; left: 0px; display: none;width:40px;height:40px;z-index:999;border:5px solid #0074ea;}
 .avatar-list .selected i {display: block;}
 
-.page-action {background:#E4F1F3; margin: 10px 0 0 0; padding: 10px 10px 10px 10px; position: relative; width: 100%; left: -10px;}
+.page-action {background:#E4F1F3; margin: 10px 0 0 0; padding: 10px; position: relative; width: 100%; left: -10px;}
 .page-action input {padding: 0;}
 
 .like-box {border-radius: 2px; background: #dce9d3; color: #fff; font-style: italic; padding: 5px 10px;}
@@ -137,7 +159,7 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .case-picture-img img{width: 100%}
 .case-picture-img {padding: 5px 5px 20px 5px; border-radius: 6px; margin: 0; background: #F5F5F5; border: 1px solid #EEE;}
 
-.footer {height: 200px; background: #FFF;}
+.footer {height: 200px; background: #111;}
 .footer small {position: relative; color: #DDD; left: 20px; top: 170px;}
 
 /*Responsive*/
