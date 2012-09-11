@@ -46,6 +46,8 @@ button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
 .new-plan .carousel-control.left {left: -80px;}
 .new-plan .carousel-control.right {right: -80px;}
 
+label#attachment-label{margin-top: 15px; font-size: 14px; font-weight: normal; line-height: 20px;}
+
 .plan-list {margin: 0; padding: 0}
 .plan-frame {list-style: none; float: left; width: 81.5px; height: 81.5px; padding: 5px; margin: 10px 10px 0 0; background: #F5F5F5; border: 1px solid #EEE; }
 .plan-frame img{width: 100px; height: 80px;}

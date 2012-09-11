@@ -21,6 +21,11 @@
 							%p.task-content-text {{task.content}}
 
 			%hr.soften
+				%h5 附件
+				%a{ :href => @lessonplan.attachment_url} 
+					%p= @lessonplan.attachment_filename
+
+			%hr.soften
 			.section.clearfix
 				%h5 作业[376]
 				%ul.homework-list
