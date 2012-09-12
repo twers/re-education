@@ -85,7 +85,22 @@
 									%img{:src => "/assets/hm6.jpeg"}
 									%img{:src => "/assets/hm7.jpeg"}
 								%p.homework-content-action
-									%a 查看全部					
+									%a 查看全部		
+
+			%hr.soften
+			.section.clearfix{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
+				%h5 评论[{{comments.length}}]
+				.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
+					.comment-avatar
+						%img{ :src => 'http://qzapp.qlogo.cn/qzapp/100303786/CCF1BDE1B9B205F468A44F9557F6659A/50' }
+					.comment-content
+						%small.nick-name 王秋
+						%time.comment-time 2012-12-31 12:59
+						%p {{comment.content}}
+				.comment.clearfix
+					= form_for :comment, :url => lessonplan_comments_url(@lessonplan), :html => { 'ng-submit' => 'submitForm()' } do |f|
+						= f.text_area :content, :placeholder => "介绍一下这个步骤...", :rows => 3, 'ng-model' => 'new_comment_content'
+						= f.submit '提交', :class => 'btn'
 
 		.span3
 			.right-content

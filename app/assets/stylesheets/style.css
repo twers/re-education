@@ -125,7 +125,7 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .event-list li p {font-size: 12px; color: #999; margin-bottom: 0;}
 .event-list .time * {float: left;}
 .event-list .time .day {background: #DDD; color: #FFF; font-size: 11px; line-height: 20px; padding: 0 5px; margin-right: 5px;}
-
+/*
 .comment-area li {list-style: none;}
 .comment-list {margin: 0; padding: 0 0 0 35px;}
 .comment-list > li + li {border-top: 1px dotted #DDD}
@@ -135,7 +135,7 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .comment-text {color: #666; font-size: 13px;}
 .comment-text textarea {width: 450px; margin: 5px 0 0 0;}
 .comment-user {color: #111}
-.comment-time {color: #999; font-style: italic; margin: 0;}
+.comment-time {color: #999; font-style: italic; margin: 0;}*/
 
 .plan-icon-holder{color:white;width: 100%;text-align: center; display: block; padding:0;}
 .plan-icon-holder:hover {color:white;}
@@ -161,6 +161,17 @@ h2.name {font-size: 18px; margin-top: 20px;}
 
 .footer {height: 200px; background: #111;}
 .footer small {position: relative; color: #DDD; left: 20px; top: 170px;}
+
+.login-container {display:inline-block;float: right;padding:4px 0 3px;}
+.login-container span{margin-left:5px;}
+
+/* Comments */
+.comment{padding: 10px 0 0 60px;}
+.comment .comment-avatar{float:left; margin-left: -60px;}
+.comment-content{ padding:5px 5px 1px 5px;background: whitesmoke;}
+.comment-time{ font-style: italic;font-size: 10px;color: #999;}
+
+.nick-name{color:#5DBBCE;}
 
 /*Responsive*/
 

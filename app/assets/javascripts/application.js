@@ -20,3 +20,5 @@
 // = require ckeditor/init
 // = require ckeditor/config
 // = require_tree ./controllers
+
+// = require qc.login

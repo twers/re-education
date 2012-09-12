@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120902144216) do
+ActiveRecord::Schema.define(:version => 20120912121915) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20120902144216) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "lessonplan_id"
+  end
+
   create_table "lessonplans", :force => true do |t|
     t.string   "title"
     t.string   "content"
@@ -44,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20120902144216) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "lessonplan_id"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string "access_token"
+    t.string "unique_id"
+    t.string "nick_name"
+    t.string "avatar_url"
   end
 
 end

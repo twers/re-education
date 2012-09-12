@@ -1,4 +1,4 @@
-ReEducation::Application.routes.draw do
+ReEducation::Application.routes.draw do   
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -17,7 +17,10 @@ ReEducation::Application.routes.draw do
   #   resources :products
   resources :lessonplans do
     resources :tasks
+    resources :comments
   end
+
+  resources :users
 
   # Sample resource route with options:
   #   resources :products do
