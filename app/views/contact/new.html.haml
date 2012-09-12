@@ -1,0 +1,17 @@
+.course-header.clearfix
+  .theme
+    %h1 #联系我们
+    %p 目前功能已经可用，还需要将新设计的面面集成进来，可能还需要做一些重构
+.page.container
+  = form_for @message, :url => contact_path do |form|
+    %fieldset.fields
+      .field
+        .field
+          = label_tag '@message[email]', '您的邮箱地址是？'
+          = form.text_field :email, :placeholder => '例如: xiong.mao@hotmail.com'
+
+        .field
+          = label_tag '@message[body]', '您的想法与建议是？'
+          = form.text_area :body, :placeholder => '有什么意见或建设请写在这里...', :rows => 4, :maxlength => 50
+    %fieldset.actions
+      = form.submit "Send"
