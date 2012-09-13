@@ -21,9 +21,9 @@
 							%p.task-content-text {{task.content}}
 
 			%hr.soften
-				%h5 附件
-				%a{ :href => @lessonplan.attachment_url} 
-					%p= @lessonplan.attachment_filename
+				%h5 图片附件
+				%a.fancy-picture{:href => "#"} 
+					%img{:id=>'image-item' ,:src => @lessonplan.attachment_url}
 
 			%hr.soften
 			.section.clearfix
@@ -123,5 +123,6 @@
 							%img{ :src => "/assets/image8.jpeg" }
 						%li
 							%img{ :src => "/assets/image10.jpeg" }
+
 
 	            
