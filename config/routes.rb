@@ -1,10 +1,12 @@
-ReEducation::Application.routes.draw do
+ReEducation::Application.routes.draw do   
 
   mount Ckeditor::Engine => '/ckeditor'
 
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
+  match 'logout' => 'application#logout', :as => 'logout', :via => :post
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -20,7 +22,10 @@ ReEducation::Application.routes.draw do
   #   resources :products
   resources :lessonplans do
     resources :tasks
+    resources :comments
   end
+
+  resources :users
 
   # Sample resource route with options:
   #   resources :products do

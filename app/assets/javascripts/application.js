@@ -13,6 +13,7 @@
 
 // = require jquery
 // = require jquery_ujs
+// = require jquery.cookie
 // = require bootstrap.min
 // = require angular/angular.min
 // = require angular/angular-resource.min
@@ -20,3 +21,5 @@
 // = require ckeditor/init
 // = require ckeditor/config
 // = require_tree ./controllers
+
+// = require qc.login
