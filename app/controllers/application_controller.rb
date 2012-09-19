@@ -9,5 +9,5 @@ class ApplicationController < ActionController::Base
 		session[:user] = nil
 		render :json => { :result => true }
 	end
-
+	
 end

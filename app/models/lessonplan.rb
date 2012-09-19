@@ -7,5 +7,4 @@ class Lessonplan < ActiveRecord::Base
   def attachment_filename
     read_attribute(:attachment)
   end
-
 end

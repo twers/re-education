@@ -1,6 +1,4 @@
 function CommentsController($scope, $element, $resource) {
-
-	var token = $("meta[name='csrf-token']").attr('content');
 	$scope.init = function(lessonplanId){
 		$scope.CommentResources = 
 			$resource(
