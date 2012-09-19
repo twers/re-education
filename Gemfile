@@ -32,6 +32,7 @@ group :test do
 end
 
 group :test, :development do
+  gem 'term-ansicolor'
   gem 'rspec-rails', '~> 2.6'
   gem 'jasmine'
 end
