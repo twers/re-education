@@ -36,6 +36,7 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.6'
   gem 'jasmine'
   gem 'tddium'
+  gem 'ruby-prof'
 end
 
 group :production do

@@ -172,6 +172,7 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.11.0)
+    ruby-prof (0.11.2)
     rubyzip (0.9.9)
     sass (3.2.1)
     sass-rails (3.2.5)
@@ -237,6 +238,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.2)
   rspec-rails (~> 2.6)
+  ruby-prof
   sass-rails (~> 3.2.3)
   spork
   tddium
