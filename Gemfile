@@ -35,6 +35,7 @@ group :test, :development do
   gem 'term-ansicolor'
   gem 'rspec-rails', '~> 2.6'
   gem 'jasmine'
+  gem 'tddium'
 end
 
 group :production do
