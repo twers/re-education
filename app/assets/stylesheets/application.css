@@ -11,5 +11,6 @@
  *= require_self
  *= require bootstrap
  *= require prettify
+ *= require lightbox
  *= require style
 */
