@@ -25,6 +25,7 @@ $(function(){
 					'user[avatar_url]' : reqData.figureurl_1,
 					'user[nick_name]' : reqData.nickname
 				}).done(function(user){
+					console.log(cookie('online'));
 					if(cookie('online') == 'false'){
 						cookie('online', true);
 						user && window.location.reload();

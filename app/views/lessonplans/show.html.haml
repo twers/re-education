@@ -97,7 +97,7 @@
 				%h5 评论[{{comments.length}}]
 				.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
 					.comment-avatar
-						%img{ :src => "{{comment.user.avatar_url}}" }
+						%img{ 'ng-src' => "{{comment.user.avatar_url}}" }
 					.comment-content
 						%small.nick-name {{comment.user.nick_name}}
 						%time.comment-time {{formatDateTime(comment.updated_at)}}
