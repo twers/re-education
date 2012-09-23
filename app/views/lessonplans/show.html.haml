@@ -23,7 +23,7 @@
 			%hr.soften
 				%h5 图片附件
 				%div.single
-					%a{:href => @lessonplan.attachment_url, :rel => "lightbox"}
+					%a{:href => @lessonplan.attachment_url, :id => 'single-image'}
 						%img{:id=>'image-item' ,:src => @lessonplan.attachment_url}
 
 			%hr.soften
@@ -141,5 +141,7 @@
 						%li
 							%img{ :src => "/assets/image10.jpeg" }
 
-
+= javascript_include_tag "bundle-fancy-box"
+= javascript_include_tag "jquery.fancybox-1.3.4.pack"
+= stylesheet_link_tag    "jquery.fancybox-1.3.4", :media => "screen"
 	            

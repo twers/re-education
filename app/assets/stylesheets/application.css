@@ -11,6 +11,6 @@
  *= require_self
  *= require bootstrap
  *= require prettify
- *= require lightbox
+ *= require jquery.fancybox-1.3.4
  *= require style
 */

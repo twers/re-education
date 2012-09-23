@@ -15,7 +15,8 @@
 // = require jquery_ujs
 // = require jquery.cookie
 // = require file-validate
-// = require lightbox
+// = jquery.fancybox-1.3.4.pack
+// = require bundle-fancy-box
 // = require bootstrap.min
 // = require angular/angular.min
 // = require angular/angular-resource.min
