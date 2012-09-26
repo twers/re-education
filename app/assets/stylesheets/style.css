@@ -200,4 +200,75 @@ img#image-item{max-width: 150px;}
 }
 
 
+/*
+ * contact-us page
+ */
+.contact-us-body {
+  background: #69D2E7 url(contact-us-cloud.png) no-repeat top;
+}
 
+.col-img, .col-text {
+  position: relative;
+  float: left;
+}
+
+.col-img {
+  padding-left: 90px;
+  padding-top: 160px;
+}
+
+.col-text {
+  width: 445px;
+  padding-left: 50px;
+  padding-top: 100px;
+}
+
+.col-text h2 {
+  color: white;
+  font-weight: normal !important;
+  font-size: 24px;
+}
+
+.col-text p {
+  color: #999999;
+  margin-bottom: 20px;
+}
+
+.col-text hr {
+  color: #33cccc;
+  background-color: #33cccc;
+  /* border: 1px #99ccff solid; */
+  box-shadow: 0 0 1px 0 #99ccff;
+  border: none;
+  height: 1px;
+}
+
+.col-text label {
+  color: white;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.col-text input, .col-text textarea {
+  width: 430px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+.col-text input {
+  background: white url(contact-us-mail.png) 97% 50% no-repeat;
+}
+
+.col-text textarea {
+  background: white url(contact-us-pen.png) 97% 10% no-repeat;
+}
+
+.col-text .btn-contact-us {
+  background: #669933;
+  color: #fff;
+  width: 90px;
+  height: 30px;
+  float: right;
+  margin-top: 20px;
+  font-weight: normal;
+  font-size: 14px;
+}
