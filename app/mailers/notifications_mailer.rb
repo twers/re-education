@@ -1,6 +1,6 @@
 class NotificationsMailer < ActionMailer::Base
-  default :from => "localhost"
-  default :to => "localhost"
+  default :from => "twersip@gmail.com"
+  default :to => "twersip@gmail.com"
 
   def new_message(message)
     @message = message

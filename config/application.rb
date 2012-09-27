@@ -58,22 +58,22 @@ module ReEducation
 
     config.assets.initialize_on_precompile = false
 
-    # config.action_mailer.smtp_settings = {
-    #   :address              => "smtp.gmail.com",
-    #   :port                 => 587,
-    #   :domain               => "myopenclass.herokuapp.com",
-    #   :user_name            => "xxxx@gmail.com",
-    #   :password             => "<yourpassword>",
-    #   :authentication       => :plain,
-    #   :enable_starttls_auto => true
-    # }
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "myopenclass.herokuapp.com",
+      :user_name            => "twersip@gmail.com",
+      :password             => "@start123",
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+    }
 
     # Using MailCatcher as email test server
-    config.action_mailer.smtp_settings = {
-        :address                => "localhost",
-        :port                   => "1025",
-        :domain                 => "myopenclass.herokuapp.com"
-    }
+    # config.action_mailer.smtp_settings = {
+    #     :address                => "localhost",
+    #     :port                   => "1025",
+    #     :domain                 => "myopenclass.herokuapp.com"
+    # }
 
     config.action_mailer.default_url_options = {
       :host => "myopenclass.herokuapp.com"
