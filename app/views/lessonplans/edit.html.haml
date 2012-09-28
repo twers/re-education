@@ -3,9 +3,9 @@
 		%h1 #创新课
 		%p 关于创新的课堂实践
 .page.container
-	= form_for :lessonplan, :url => { :action => 'create' } do |f|	
+	= form_for @lessonplan, :url => { :action => 'update' } do |f|	
 		.page-action
-			= f.submit '保存', :class => 'btn btn-link' 
+			= f.submit '保存', :class => 'btn btn-link'
 			%i.icon-edit
 		.row-fluid
 			.span9
@@ -19,16 +19,20 @@
 					= f.cktext_area :content, :cols => 40
 					.attachment-field
 						= label_tag 'lessonplan[attachment]', '添加图片附件', :id => "attachment-label"
+						%p
+							= image_tag(@lessonplan.attachment, :class => 'image-item') if @lessonplan.attachment?
 						= f.file_field :attachment, :class => "file_input", :onchange => 'try {return validate_file(this)} catch(e){}'
+						= f.hidden_field :attachment_cache
 				%hr.soften
 
-				.section{ 'ng-controller' => 'CachedTasksController' }
+				.section{ 'ng-controller' => 'CachedTasksController', 'ng-init' => "init(#{@lessonplan.id})" }
 					%h5 教学活动
 					%ul.task-list
 						%li.task.clearfix{ 'ng-repeat' => 'task in cachedTasks' }
 							.pull-left
 								%label.task-order {{$index+1}}
 							.task-content.pull-left
+								%input{ :type => 'hidden', :value => '{{task.id}}', :name => 'tasks[][id]' }
 								%input.task-content-title{ :value => "{{task.title}}", :readonly => 'readonly', :name => 'tasks[][title]' }
 								%textarea.task-content-text{ :value => "{{task.content}}",  :readonly => 'readonly', :name => 'tasks[][content]' } 
 
@@ -47,7 +51,7 @@
 				.right-content.edit
 					.section
 						
-						.plan{ 'ng-controller' => 'AvatarPickerController' }
+						.plan{ 'ng-controller' => 'AvatarPickerController', 'ng-init' => 'init()' }
 							%a.plan-icon-holder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
 								%img{ 'ng-src' => '{{ selectedImgUrl || "/assets/plan-icon-holder.png"}} ' }
 								/ 给教案添加标志图
@@ -60,9 +64,13 @@
 									%ul.avatar-list.clearfix
 										- (1..16).each do |num|
 											- url = "/assets/image#{num}.jpeg"
-											%li.avatar-item
+											- selected = @lessonplan.symbol_img_url == url
+											%li.avatar-item{ :class => "#{'selected' if selected}" }
 												%label
-													%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}", 'ng-model' => 'currentImgUrl', 'ng-click' => 'select()' }
+													- if selected
+														%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}", 'ng-model' => 'currentImgUrl', 'ng-click' => 'select()', :checked => 'true' }
+													- else
+														%input{ :type => 'radio', :name => "lessonplan[symbol_img_url]", :value => url, :id => "symbol_img_url_#{num}", 'ng-model' => 'currentImgUrl', 'ng-click' => 'select()' }
 													%img.img-rounded{ :src => url }
 														%i
 								.modal-footer

@@ -1,6 +1,13 @@
-function CachedTasksController($scope){
+function CachedTasksController($scope, Task){
 
 	$scope.cachedTasks = [];
+
+	$scope.init = function(lessonplanId){
+		$scope.resource = Task.get(lessonplanId);
+		$scope.resource.query(function(tasks){
+			$scope.cachedTasks = tasks;
+		});
+	};
 
 	$scope.addTask = function(){
 		$scope.cachedTasks.push({

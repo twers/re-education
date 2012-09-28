@@ -1,5 +1,9 @@
 function AvatarPickerController($scope, $element){
 
+	$scope.init = function(){
+		$scope.selectedImgUrl = getCurrentSelectedRadioElem().val();
+	};
+
 	$scope.choose = function(){
 		$scope.selectedRadioElem = getCurrentSelectedRadioElem();
 		$scope.selectedImgUrl = $scope.currentImgUrl;

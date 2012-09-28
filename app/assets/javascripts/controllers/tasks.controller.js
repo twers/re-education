@@ -1,5 +1,3 @@
-angular.module('OpenClass', ['ngResource']);
-
 function TasksController($scope, $element, $resource) {
 
 	$scope.init = function(lessonplanId){

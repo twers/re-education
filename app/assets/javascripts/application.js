@@ -15,14 +15,16 @@
 // = require jquery_ujs
 // = require jquery.cookie
 // = require file-validate
-// = jquery.fancybox-1.3.4.pack
-// = require bundle-fancy-box
+// = require jquery.fancybox-1.3.4.pack
 // = require bootstrap.min
 // = require angular/angular.min
 // = require angular/angular-resource.min
+// = require_tree ./modules
 
+// = require_tree ./controllers
 // = require ckeditor/init
 // = require ckeditor/config
-// = require_tree ./controllers
 
 // = require qc.login
+// = require bundle-fancy-box
+angular.module('openClass', ['openClass.models']);
