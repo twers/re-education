@@ -13,11 +13,14 @@ img.logo {width: 80px; height: 80px; background: #FFF;}
 hr{margin: 0;}
 form {margin: 0;}
 h5 {color: #5DBBCE}
+textarea{resize: none;}
 
 button.btn-new-plan {border-radius: 5px; height: 60px; width: 200px; font-size: 20px; font-weight: bold; background: #FA6900; color: #FFF; text-shadow: none; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
 button.btn-new-plan i{position: relative; top: 4px;}
 button.btn-strong, button.btn-strong:hover {background: #FA6900; color: #FFF;text-shadow: none;}
 button.btn-add-task {background: #F5F5F5; color: #333;text-shadow: none;}
+
+.action-icon {float: right; margin: 10px 10px 0 0;}
 
 .course-header {top: 40px; position: relative; background: #69D2E7; padding: 20px 0; width: 100%; border-bottom: #5DBBCE solid 10px}
 .course-header .theme {display: block; margin: 0 auto; width: 950px; color: #FFF}
@@ -96,11 +99,11 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .task-order.new {font-size: 12px; font-weight: normal; line-height: 22px; }
 
 .task-like {width: 10%;}
-.task-content {width: 90%}
+.task-content {width: 90%; position: relative;}
 .task-content h6 {background: #F5F5F5; line-height: 40px; padding: 0 10px; font-weight: normal; font-size: 14px; margin-top: 0;}
 .task-content .task-content-text {margin: 0 0 10px 10px; font-size: 12px;}
 .task-content-action {text-align: right;cursor: pointer;}
-.task-content-title {cursor: normal; text-indent: 10px; border: 0; box-shadow: none; width: 100%;background: #F5F5F5; line-height: 40px; padding: 0; font-weight: normal; font-size: 14px; margin-top: 0;}
+.task-content-title {cursor: normal; text-indent: 10px; border: 0; box-shadow: none; width: 100%; background: #F5F5F5; line-height: 40px; padding: 0; font-weight: normal; font-size: 14px; margin-top: 0;}
 .task-content textarea.task-content-text {resize: none; border: 0; box-shadow: none; margin: 10px 0 0 0; border-radius: 0; background: transparent; width: 100%; }
 
 /*=TASK EDIT*/
