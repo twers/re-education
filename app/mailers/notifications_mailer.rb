@@ -4,6 +4,6 @@ class NotificationsMailer < ActionMailer::Base
 
   def new_message(message)
     @message = message
-    mail(:subject => "[YourWebsite.tld] #{message.email}")
+    mail(:subject => "[YourWebsite.tld] #{message.body}")
   end
 end
