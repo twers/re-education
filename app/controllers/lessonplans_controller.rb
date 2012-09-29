@@ -32,15 +32,12 @@ class LessonplansController < ApplicationController
 		@lessonplan = Lessonplan.find(params[:id])
 		@lessonplan.update_attributes(params[:lessonplan])
 
+		@lessonplan.tasks.delete_all
+
 		unless params[:tasks].nil? then
 			params[:tasks].each do |task|
-				if task[:id].empty? then
-					t = Task.create! task
-					t.lessonplan = @lessonplan
-				else
-					t = Task.find task[:id]
-					t.update_attributes task
-				end
+				t = Task.create! task
+				t.lessonplan = @lessonplan
 				t.save
 			end
 		end
