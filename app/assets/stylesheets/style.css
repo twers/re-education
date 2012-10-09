@@ -99,7 +99,7 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .task-order.new {font-size: 12px; font-weight: normal; line-height: 22px; }
 
 .task-like {width: 10%;}
-.task-content {width: 90%; position: relative;}
+.task-content {width: 630px; position: relative;}
 .task-content h6 {background: #F5F5F5; line-height: 40px; padding: 0 10px; font-weight: normal; font-size: 14px; margin-top: 0;}
 .task-content .task-content-text {margin: 0 0 10px 10px; font-size: 12px;}
 .task-content-action {text-align: right;cursor: pointer;}
@@ -107,8 +107,8 @@ h2.name {font-size: 18px; margin-top: 20px;}
 .task-content textarea.task-content-text {resize: none; border: 0; box-shadow: none; margin: 10px 0 0 0; border-radius: 0; background: transparent; width: 100%; }
 
 /*=TASK EDIT*/
-.task.edit .task-content {padding: 10px 0; background: #F5F5F5; margin-bottom: 10px;}
-.task.edit .task-content *{margin-left: 10px;}
+.task.edit .task-content {padding: 10px 0 10px 10px; background: #F5F5F5; margin-bottom: 10px;width: 620px;}
+.task.edit .action-icon {display: none;}
 
 .homework-list {margin: 0; padding: 0; list-style: none;}
 .homework label.like-number {text-align: center; padding: 5px 0; font-size: 10px; color: #FFF; background: #69D2E7; border-radius: 3px; margin: 0 10px 0 0;}
