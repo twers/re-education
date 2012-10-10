@@ -108,7 +108,7 @@ h2.name {font-size: 18px; margin-top: 20px;}
 
 /*=TASK EDIT*/
 .task.edit .task-content {padding: 10px 0 10px 10px; background: #F5F5F5; margin-bottom: 10px;width: 620px;}
-.task.edit .action-icon {display: none;}
+.task.edit .action-icon.edit {display: none;}
 
 .homework-list {margin: 0; padding: 0; list-style: none;}
 .homework label.like-number {text-align: center; padding: 5px 0; font-size: 10px; color: #FFF; background: #69D2E7; border-radius: 3px; margin: 0 10px 0 0;}

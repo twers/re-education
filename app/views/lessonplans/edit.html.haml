@@ -35,7 +35,7 @@
 								%a.action-icon{ :href => 'javascript:;', 'ng-click' => 'deleteTask($index)', :title => '删除' }
 									%i.icon-trash
 									删除
-								%a.action-icon{ :href => 'javascript:;', 'ng-click' => 'editTask($index)', :title => '修改' }
+								%a.edit.action-icon{ :href => 'javascript:;', 'ng-click' => 'editTask($index)', :title => '修改' }
 									%i.icon-edit
 									修改
 								%div{ :class => 'static-task-content-{{$index}}' }
