@@ -111,7 +111,7 @@
 				- if online
 					.comment.clearfix
 						= form_for :comment, :url => lessonplan_comments_url(@lessonplan), :html => { 'ng-submit' => 'submitForm()' } do |f|
-							= f.text_area :content, :placeholder => "介绍一下这个步骤...", :rows => 3, 'ng-model' => 'new_comment_content'
+							= f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 3, 'ng-model' => 'new_comment_content'
 							= f.submit '提交', :class => 'btn'
 
 		.span3
