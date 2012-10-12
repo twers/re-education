@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8"/>
   <title>The page you were looking for doesn't exist (404)</title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+    body,h1{padding:0;margin:0;}
+    body{font: normal normal 62.5%/1.5 "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";padding-top: 100px;overflow: hidden;}
+    h1{width: 300px;height:300px;background:#fec728;-moz-border-radius:150px;-webkit-border-radius:150px;border-radius:155px;font-size:130px;position: relative;line-height: 300px;text-align: center;font-style:italic;text-indent:-20px;border: 10px solid #000;margin:0 auto;z-index: 10;-webkit-box-shadow:5px 5px 10px #999;box-shadow:5px 5px 10px #999;-moz-box-shadow:5px 5px 10px #999;}
+    p{text-align: center;font-size: 20px;position: relative;z-index: 11;position:absolute;top: 200px;width:100%;}
+    h1:after{
+      content: '';
+      display: block;
+      width: 20px;
+      background: #999;
+      height: 10000px;
+      position: relative;
+      top: 10px;
+      left: 140px;
+      z-index: 5;
+      -webkit-box-shadow:5px 5px 10px #999;box-shadow:5px 5px 10px #999;-moz-box-shadow:5px 5px 10px #999;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+    #content{
+      -webkit-transform: rotate(10deg);
+    }
+    #footer{
+      height: 60px;
+      position: absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      border-bottom:10px solid #D01F3C;
+      border-top: 10px solid #D01F3C;
+      background: url(/assets/road-warning.png) repeat-x;
+      z-index: 1000;
+      box-shadow:0px -3px 5px #999;
+      -moz-box-shadow:0px -3px 5px #999;
+      -webkit-box-shadow:0px -3px 5px #999;
+    }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
+  <div id="content">
+    <h1>404</h1>
+    <p><strong>对不起！页面没找到</strong>...</p>
   </div>
+  <div id="footer"></div>
 </body>
 </html>
