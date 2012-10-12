@@ -5,46 +5,31 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <style type="text/css">
     body,h1{padding:0;margin:0;}
-    body{font: normal normal 62.5%/1.5 "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";padding-top: 100px;overflow: hidden;}
-    h1{width: 300px;height:300px;background:#fec728;-moz-border-radius:150px;-webkit-border-radius:150px;border-radius:155px;font-size:130px;position: relative;line-height: 300px;text-align: center;font-style:italic;text-indent:-20px;border: 10px solid #000;margin:0 auto;z-index: 10;-webkit-box-shadow:5px 5px 10px #999;box-shadow:5px 5px 10px #999;-moz-box-shadow:5px 5px 10px #999;}
-    p{text-align: center;font-size: 20px;position: relative;z-index: 11;position:absolute;top: 200px;width:100%;}
-    h1:after{
-      content: '';
-      display: block;
-      width: 20px;
-      background: #999;
-      height: 10000px;
-      position: relative;
-      top: 10px;
-      left: 140px;
-      z-index: 5;
-      -webkit-box-shadow:5px 5px 10px #999;box-shadow:5px 5px 10px #999;-moz-box-shadow:5px 5px 10px #999;
+    body{font: normal normal 62.5%/1.5 verdana,"ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
+    h1{padding-top:70px;width: 300px;height:230px;background:#fec728;-moz-border-radius:150px;-webkit-border-radius:150px;border-radius:155px;position: relative;line-height:20px;text-align: center;border: 10px solid #000;z-index: 10;font-size:20px;margin-left:50%;position: relative;left:-400px;top:100px;}
+    h1 strong{margin-bottom:10px;display:block;text-align: center;font-size: 130px;line-height:130px;font-style: normal;letter-spacing: -9px;text-indent: -10px;}
+
+    #main-container{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: url(/assets/404.jpeg) center bottom no-repeat;
     }
     #content{
-      -webkit-transform: rotate(10deg);
-    }
-    #footer{
-      height: 60px;
-      position: absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      border-bottom:10px solid #D01F3C;
-      border-top: 10px solid #D01F3C;
-      background: url(/assets/road-warning.png) repeat-x;
-      z-index: 1000;
-      box-shadow:0px -3px 5px #999;
-      -moz-box-shadow:0px -3px 5px #999;
-      -webkit-box-shadow:0px -3px 5px #999;
+      -webkit-transform: rotate(-10deg);
+      -moz-transform: rotate(-10deg);
     }
   </style>
 </head>
 
 <body>
-  <div id="content">
-    <h1>404</h1>
-    <p><strong>对不起！页面没找到</strong>...</p>
+  <div id="main-container">
+    <div id="content">
+      <h1><strong>404</strong>对不起！页面没找到...</h1>
+      <!-- <div class="stick"></div> -->
+    </div>
   </div>
-  <div id="footer"></div>
 </body>
 </html>
