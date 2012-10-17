@@ -6,7 +6,7 @@ ReEducation::Application.routes.draw do
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   match 'logout' => 'application#logout', :as => 'logout', :via => :post
- 
+  match 'contact/thanks' => 'contact#thanks', :as => 'contact', :via => :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -275,3 +275,13 @@ img.image-item{max-width: 150px;}
   font-weight: normal;
   font-size: 14px;
 }
+
+.col-text .home-button{
+  float: right;
+  margin-top: 20px;
+}
+
+.thanks .col-text{
+  padding-top: 200px !important;
+  height: 370px;
+}
