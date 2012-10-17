@@ -14,7 +14,7 @@
 
           .field
             = label_tag '@message[body]', '您的想法与建议是？'
-            = form.text_area :body, :placeholder => '最好200个字以内哦～', :rows => 4, :maxlength => 50
+            = form.text_area :body, :placeholder => '最好200个字以内哦～', :rows => 4, :maxlength => 200
       %fieldset.actions
         = form.submit "提交反馈", :class => 'btn btn-contact-us'
 

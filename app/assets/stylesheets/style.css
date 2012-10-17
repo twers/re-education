@@ -259,10 +259,8 @@ img.image-item{max-width: 150px;}
 
 .col-text input {
   background: white url(contact-us-mail.png) 97% 50% no-repeat;
-}
-
-.col-text textarea {
-  background: white url(contact-us-pen.png) 97% 10% no-repeat;
+  padding-right: 30px;
+  width: 376px;
 }
 
 .col-text .btn-contact-us {
