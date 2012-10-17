@@ -3,10 +3,11 @@
 		%h1 #创新课
 		%p 关于创新的课堂实践
 .page.container	
-	.page-action
-		%a{ :href => "#{edit_lessonplan_path(@lessonplan.id)}" }
-			编辑
-			%i.icon-edit
+	-if can? :update, @lessonplan
+		.page-action
+			%a{ :href => "#{edit_lessonplan_path(@lessonplan.id)}" }
+				编辑
+				%i.icon-edit
 	.row-fluid
 		.span9
 			.section
@@ -31,72 +32,73 @@
 						%a{:href => @lessonplan.attachment_url, :id => 'single-image'}
 							%img.image-item{ :src => @lessonplan.attachment_url }
 
-			%hr.soften
-			.section.clearfix
-				%h5 作业[376]
-				%ul.homework-list
-					%li.homework.clearfix
-						.homework-like.pull-left
-							%label.like-number 1121
-						.homework-content.pull-left
-							%h6{"data-target" => "#homework-detail-1", "data-toggle" => "collapse"} 华冈中学初115班-美丽的洛玻湖
-							#homework-detail-1.collapse.in
-								%small.clearfix
-									%img{:src => "/assets/image15.jpeg"}
-									%a{:href => "#"} 张志
-									山西 平遥
-								%p.homework-content-text 这是我们全班25位同学于2012年8月11日探访洛玻湖的作业总结
-								%p.homework-content-images.clearfix
-									%img{:src => "/assets/hm1.jpeg"}
-									%img{:src => "/assets/hm2.jpeg"}
-									%img{:src => "/assets/hm3.jpeg"}
-									%img{:src => "/assets/hm4.jpeg"}
-									%img{:src => "/assets/hm5.jpeg"}
-									%img{:src => "/assets/hm6.jpeg"}
-									%img{:src => "/assets/hm7.jpeg"}
-								%p.homework-content-action
-									%a 查看全部
-					%li.homework.clearfix
-						.homework-like.pull-left
-							%label.like-number 1121
-						.homework-content.pull-left
-							%h6{"data-target" => "#homework-detail-1", "data-toggle" => "collapse"} 江北中学初291班-罗湖一日调查
-							#homework-detail-1.collapse.in
-								%small.clearfix
-									%img{:src => "/assets/image15.jpeg"}
-									%a{:href => "#"} 江琳
-									河北 石家庄
-								%p.homework-content-text 小吃有好多，今天让我们来找找有新沙湖周围有什么样的小吃
-								%p.homework-content-images.clearfix
-									%img{:src => "/assets/hm10.jpeg"}
-									%img{:src => "/assets/hm11.jpeg"}
-									%img{:src => "/assets/hm12.jpeg"}
-									%img{:src => "/assets/hm13.jpeg"}
-									%img{:src => "/assets/hm9.jpeg"}
-									%img{:src => "/assets/hm14.jpeg"}
-								%p.homework-content-action
-									%a 查看全部
-					%li.homework.clearfix
-						.homework-like.pull-left
-							%label.like-number 1121
-						.homework-content.pull-left
-							%h6{"data-target" => "#homework-detail-1", "data-toggle" => "collapse"} 华冈中学初115班-美丽的洛玻湖
-							#homework-detail-1.collapse.in
-								%small.clearfix
-									%img{:src => "/assets/image15.jpeg"}
-									%a{:href => "#"} 张志
-									山西 平遥
-								%p.homework-content-text 这是我们全班25位同学于2012年8月11日探访洛玻湖的作业总结
-								%p.homework-content-images.clearfix
-									%img{:src => "/assets/hm1.jpeg"}
-									%img{:src => "/assets/hm2.jpeg"}
-									%img{:src => "/assets/hm3.jpeg"}
-									%img{:src => "/assets/hm4.jpeg"}
-									%img{:src => "/assets/hm5.jpeg"}
-									%img{:src => "/assets/hm6.jpeg"}
-									%img{:src => "/assets/hm7.jpeg"}
-								%p.homework-content-action
-									%a 查看全部		
+			- if feature_on?
+				%hr.soften
+				.section.clearfix
+					%h5 作业[376]
+					%ul.homework-list
+						%li.homework.clearfix
+							.homework-like.pull-left
+								%label.like-number 1121
+							.homework-content.pull-left
+								%h6{"data-target" => "#homework-detail-1", "data-toggle" => "collapse"} 华冈中学初115班-美丽的洛玻湖
+								#homework-detail-1.collapse.in
+									%small.clearfix
+										%img{:src => "/assets/image15.jpeg"}
+										%a{:href => "#"} 张志
+										山西 平遥
+									%p.homework-content-text 这是我们全班25位同学于2012年8月11日探访洛玻湖的作业总结
+									%p.homework-content-images.clearfix
+										%img{:src => "/assets/hm1.jpeg"}
+										%img{:src => "/assets/hm2.jpeg"}
+										%img{:src => "/assets/hm3.jpeg"}
+										%img{:src => "/assets/hm4.jpeg"}
+										%img{:src => "/assets/hm5.jpeg"}
+										%img{:src => "/assets/hm6.jpeg"}
+										%img{:src => "/assets/hm7.jpeg"}
+									%p.homework-content-action
+										%a 查看全部
+						%li.homework.clearfix
+							.homework-like.pull-left
+								%label.like-number 1121
+							.homework-content.pull-left
+								%h6{"data-target" => "#homework-detail-1", "data-toggle" => "collapse"} 江北中学初291班-罗湖一日调查
+								#homework-detail-1.collapse.in
+									%small.clearfix
+										%img{:src => "/assets/image15.jpeg"}
+										%a{:href => "#"} 江琳
+										河北 石家庄
+									%p.homework-content-text 小吃有好多，今天让我们来找找有新沙湖周围有什么样的小吃
+									%p.homework-content-images.clearfix
+										%img{:src => "/assets/hm10.jpeg"}
+										%img{:src => "/assets/hm11.jpeg"}
+										%img{:src => "/assets/hm12.jpeg"}
+										%img{:src => "/assets/hm13.jpeg"}
+										%img{:src => "/assets/hm9.jpeg"}
+										%img{:src => "/assets/hm14.jpeg"}
+									%p.homework-content-action
+										%a 查看全部
+						%li.homework.clearfix
+							.homework-like.pull-left
+								%label.like-number 1121
+							.homework-content.pull-left
+								%h6{"data-target" => "#homework-detail-1", "data-toggle" => "collapse"} 华冈中学初115班-美丽的洛玻湖
+								#homework-detail-1.collapse.in
+									%small.clearfix
+										%img{:src => "/assets/image15.jpeg"}
+										%a{:href => "#"} 张志
+										山西 平遥
+									%p.homework-content-text 这是我们全班25位同学于2012年8月11日探访洛玻湖的作业总结
+									%p.homework-content-images.clearfix
+										%img{:src => "/assets/hm1.jpeg"}
+										%img{:src => "/assets/hm2.jpeg"}
+										%img{:src => "/assets/hm3.jpeg"}
+										%img{:src => "/assets/hm4.jpeg"}
+										%img{:src => "/assets/hm5.jpeg"}
+										%img{:src => "/assets/hm6.jpeg"}
+										%img{:src => "/assets/hm7.jpeg"}
+									%p.homework-content-action
+										%a 查看全部		
 
 			%hr.soften
 			.section.clearfix{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }

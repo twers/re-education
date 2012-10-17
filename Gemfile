@@ -11,6 +11,7 @@ gem 'mysql2'
 gem "ckeditor", "~> 3.7.2"
 gem "paperclip"
 gem "carrierwave"
+gem "cancan"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

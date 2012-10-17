@@ -14,6 +14,7 @@ hr{margin: 0;}
 form {margin: 0;}
 h5 {color: #5DBBCE}
 textarea{resize: none;}
+object{visibility: hidden;}
 
 button.btn-new-plan {border-radius: 5px; height: 60px; width: 200px; font-size: 20px; font-weight: bold; background: #FA6900; color: #FFF; text-shadow: none; font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3";}
 button.btn-new-plan i{position: relative; top: 4px;}
@@ -260,7 +261,7 @@ img.image-item{max-width: 150px;}
 .col-text input {
   background: white url(contact-us-mail.png) 97% 50% no-repeat;
   padding-right: 30px;
-  width: 376px;
+  width: 406px;
 }
 
 .col-text .btn-contact-us {

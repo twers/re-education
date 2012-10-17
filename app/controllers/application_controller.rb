@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 	rescue_from ActionController::UnknownController,  :with => :render_404
 	rescue_from ActionController::UnknownAction,      :with => :render_404
 	rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+	
+	rescue_from CanCan::AccessDenied do |exception|
+	  flash[:error] = "Access denied."
+	  redirect_to root_url
+	end
 
 	def render_404
 	  redirect_to '/404.html'

@@ -1,5 +1,6 @@
 class LessonplansController < ApplicationController
-
+	load_and_authorize_resource
+	
 	def index
 		@lessonplans = Lessonplan.limit(4).order('created_at DESC');
 	end
@@ -13,14 +14,16 @@ class LessonplansController < ApplicationController
 	end
 
 	def create
-		@lessonplan = Lessonplan.create!(params[:lessonplan])
+		@lessonplan = Lessonplan.new params[:lessonplan]
+		@lessonplan.user = current_user
+		@lessonplan.save
 
 		unless params[:tasks].nil? then
 			params[:tasks].each do |task|
-			  @lessonplan.tasks.create!(task)
+			  @lessonplan.tasks.create! task
 			end
 		end	
-
+		
 		redirect_to lessonplan_path(@lessonplan)
 	end
 

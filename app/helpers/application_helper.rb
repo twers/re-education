@@ -7,4 +7,8 @@ module ApplicationHelper
 	def online
 		current_user.present?
 	end
+
+	def feature_on?
+		true
+	end
 end
