@@ -188,7 +188,7 @@ img.image-item{max-width: 150px;}
 /*Responsive*/
 
 @media (min-width: 979px) and (max-width: 1200px) {
-  .hero {width: 500px; margin-top: 110px;}
+  .hero {width: 500px; margin-top: 63px;}
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -199,7 +199,7 @@ img.image-item{max-width: 150px;}
   .new-plan .pull-left {width: 200px; position: inherit;}
   .new-plan .pull-left h1 {line-height: 40px;}
   .new-plan .pull-right {}
-  .hero {width: 410px; margin: 148px 0 0 0}
+  .hero {width: 410px; margin: 108px 0 0 0}
   .ongoing-plan {margin-top: 330px;}
 }
 
