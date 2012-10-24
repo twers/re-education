@@ -4,6 +4,7 @@ a, .btn-link {color: #5DBBCE;}
 a:hover, .btn-link:hover {color: #309BAB}
 .navbar .container {width: 950px;}
 .page {background: #FFF; padding: 40px 20px 80px 20px;width: 950px;}
+.page.container {min-height: 500px;}
 .page .container{width: 950px;}
 .home.main {margin-top: 330px;}
 .section {padding: 10px 0 20px 0;}
@@ -171,8 +172,8 @@ img.image-item{max-width: 150px;}
 .case-picture-img img{width: 100%}
 .case-picture-img {padding: 5px 5px 20px 5px; border-radius: 6px; margin: 0; background: #F5F5F5; border: 1px solid #EEE;}
 
-.footer {height: 200px; background: #111;}
-.footer small {position: relative; color: #DDD; left: 20px; top: 170px;}
+.footer {height: 60px; background: #111;}
+.footer small {position: relative; color: #DDD; line-height: 60px; margin-left: 20px;}
 
 .login-container {display:inline-block;float: right;padding:4px 0 3px;}
 .login-container span{margin-left:5px;}
