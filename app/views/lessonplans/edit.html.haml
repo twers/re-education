@@ -3,10 +3,11 @@
 		%h1 #创新课
 		%p 关于创新的课堂实践
 .page.container
-	= form_for @lessonplan, :url => { :action => 'update' } do |f|	
+	= form_for @lessonplan, :url => { :action => 'update' } do |f|
 		.page-action
 			= f.submit '保存', :class => 'btn btn-link'
 			%i.icon-edit
+
 		.row-fluid
 			.span9
 				.section
@@ -66,7 +67,7 @@
 			.span3
 				.right-content.edit
 					.section
-						
+
 						.plan{ 'ng-controller' => 'AvatarPickerController', 'ng-init' => 'init()' }
 							%a.plan-icon-holder{ :href => "#", 'data-toggle' => "modal", 'data-target' => "#myModal" }
 								%img{ 'ng-src' => '{{ selectedImgUrl || "/assets/plan-icon-holder.png"}} ' }
@@ -92,6 +93,6 @@
 								.modal-footer
 									%button.btn{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'cancel()' } 关闭
 									%button.btn.btn-primary{ 'data-dismiss' => "modal", 'aria-hidden' => "true", 'ng-click' => 'choose()' } 选好了
-		   
+
 
 

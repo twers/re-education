@@ -20,7 +20,7 @@ describe LessonplansController do
       lambda do
         post :create, :lessonplan => {:title => 'test_plan', :content => 'This is a test plan.'}
       end.should change(Lessonplan, :count).by(1)
-      
+
       response.should redirect_to(lessonplan_path(Lessonplan.last))
     end
     it "creates tasks and associates them to one lesson plan" do
@@ -30,6 +30,20 @@ describe LessonplansController do
       end.should change(Task, :count).by(1)
       Lessonplan.last.tasks.should have(1).task
       Lessonplan.last.tasks.first.title.should == 'test_task'
+    end
+  end
+
+  describe :destroy do
+    it 'should destroy the lesson plan' do
+      @lessonplan = mock('lessonplan')
+      Lessonplan.stub(:find).with('1').and_return(@lessonplan)
+      @lessonplan.should_receive(:destroy)
+      delete :destroy, :id => '1'
+    end
+
+    it 'should redirect to the homepage' do
+      delete :destroy, :id => '1'
+      response.should redirect_to(root_url)
     end
   end
 end

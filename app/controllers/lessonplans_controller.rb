@@ -2,7 +2,7 @@ class LessonplansController < ApplicationController
 	load_and_authorize_resource
 	
 	def index
-		@lessonplans = Lessonplan.limit(4).order('created_at DESC');
+		@lessonplans = Lessonplan.limit(4).order('created_at DESC')
 	end
 
 	def new
@@ -46,6 +46,12 @@ class LessonplansController < ApplicationController
 		end
 
 		redirect_to lessonplan_path(@lessonplan)
-	end
+  end
+
+  def destroy
+    @lessonplan = Lessonplan.find(params[:id])
+    @lessonplan.destroy
+    redirect_to  root_url
+  end
 
 end

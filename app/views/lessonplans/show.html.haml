@@ -2,12 +2,15 @@
 	.theme
 		%h1 #创新课
 		%p 关于创新的课堂实践
-.page.container	
+.page.container
 	-if can? :update, @lessonplan
 		.page-action
 			%a{ :href => "#{edit_lessonplan_path(@lessonplan.id)}" }
 				编辑
 				%i.icon-edit
+			= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete
+			%i.icon-trash
+
 	.row-fluid
 		.span9
 			.section
@@ -37,7 +40,7 @@
 				.section.clearfix
 					%h5 作业
 					%ul.homework-list
-						%li.homework.clearfix	
+						%li.homework.clearfix
 
 			%hr.soften
 			.section.clearfix{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
@@ -62,12 +65,11 @@
 						%img.avatar.img-rounded{ :src => @lessonplan.symbol_img_url }
 					%h2.name= @lessonplan.title
 					%p= @lessonplan.short_description
-					%button.btn.btn-strong{ :type => "button" } 
-						交作业 
+					%button.btn.btn-strong{ :type => "button" }
+						交作业
 						%i.icon-file.icon-white
-	    
+
 				%hr.soften
 				.section
 					%h5 关注者
 					%ul.member-list.clearfix
-	            
