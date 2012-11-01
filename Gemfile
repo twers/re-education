@@ -3,7 +3,6 @@ source 'http://ruby.taobao.org'
 gem 'rails', '3.2.2'
 gem 'jquery-rails'
 gem 'mailhopper'
-gem 'database_cleaner'
 gem 'compass'
 gem 'compass-colors'
 gem 'haml'
@@ -30,6 +29,7 @@ group :test do
   gem 'factory_girl_rails', '~> 3.0'
   gem 'capybara-webkit'
   gem 'headless'
+  gem 'database_cleaner'
 end
 
 group :test, :development do

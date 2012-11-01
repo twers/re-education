@@ -22,7 +22,7 @@ class LessonplansController < ApplicationController
 			params[:tasks].each do |task|
 			  @lessonplan.tasks.create! task
 			end
-		end	
+		end
 		
 		redirect_to lessonplan_path(@lessonplan)
 	end

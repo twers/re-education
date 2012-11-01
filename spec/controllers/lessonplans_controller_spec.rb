@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe LessonplansController do
+
+  let(:user) do
+    mock_model User, :id => 10000
+  end
+
   describe :index do
     it "lists 4 latest lesson plans" do
       10.times do |i|
@@ -16,6 +21,11 @@ describe LessonplansController do
   end
   
   describe :create do
+
+    before :each do
+      controller.stub(:current_user).and_return(user)
+    end
+
     it "creates one lesson plan and redirect to show page" do
       lambda do
         post :create, :lessonplan => {:title => 'test_plan', :content => 'This is a test plan.'}
@@ -23,6 +33,7 @@ describe LessonplansController do
 
       response.should redirect_to(lessonplan_path(Lessonplan.last))
     end
+    
     it "creates tasks and associates them to one lesson plan" do
       lambda do
         post :create, :lessonplan => {:title => 'test_plan', :content => 'This is a test plan.'},
