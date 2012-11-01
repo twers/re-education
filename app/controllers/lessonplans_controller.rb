@@ -51,7 +51,8 @@ class LessonplansController < ApplicationController
   def destroy
     @lessonplan = Lessonplan.find(params[:id])
     @lessonplan.destroy
-    redirect_to  root_url
+
+    redirect_to root_url
   end
 
 end

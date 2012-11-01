@@ -6,6 +6,10 @@ describe LessonplansController do
     mock_model User, :id => 10000
   end
 
+  before :each do
+    controller.stub(:current_user).and_return(user)
+  end
+
   describe :index do
     it "lists 4 latest lesson plans" do
       10.times do |i|
@@ -21,10 +25,6 @@ describe LessonplansController do
   end
   
   describe :create do
-
-    before :each do
-      controller.stub(:current_user).and_return(user)
-    end
 
     it "creates one lesson plan and redirect to show page" do
       lambda do
@@ -45,9 +45,13 @@ describe LessonplansController do
   end
 
   describe :destroy do
-    it 'should destroy the lesson plan' do
-      @lessonplan = mock('lessonplan')
+
+    before :each do
+      @lessonplan = mock_model(Lessonplan, :user => user)
       Lessonplan.stub(:find).with('1').and_return(@lessonplan)
+    end
+
+    it 'should destroy the lesson plan' do
       @lessonplan.should_receive(:destroy)
       delete :destroy, :id => '1'
     end

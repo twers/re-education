@@ -8,7 +8,10 @@ class Ability
     can :update, Lessonplan do |lessonplan|
       lessonplan.try(:user) == user
     end
-    can :destroy, Lessonplan, :user_id => user.id
+
+    can :destroy, Lessonplan do |lessonplan| 
+      lessonplan.try(:user) == user
+    end
 
     unless user.id.nil? then
       can :create, :all
