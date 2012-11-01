@@ -3,11 +3,12 @@
 		%h1 #创新课
 		%p 关于创新的课堂实践
 .page.container
-	-if can? :update, @lessonplan
-		.page-action
+	.page-action
+		-if can? :update, @lessonplan
 			%a{ :href => "#{edit_lessonplan_path(@lessonplan.id)}" }
 				编辑
 				%i.icon-edit
+		-if can? :destroy, @lessonplan
 			= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete
 			%i.icon-trash
 
