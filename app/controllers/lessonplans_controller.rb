@@ -2,7 +2,7 @@ class LessonplansController < ApplicationController
 	load_and_authorize_resource
 	
 	def index
-		@lessonplans = Lessonplan.limit(4).order('created_at DESC')
+		@lessonplans = Lessonplan.list_last 4
 	end
 
 	def new

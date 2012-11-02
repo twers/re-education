@@ -14,7 +14,7 @@ describe LessonplansController do
     it "lists 4 latest lesson plans" do
       10.times do |i|
         plan = Lessonplan.create!(:title => "test_plan_#{i}")
-        plan.update_attribute(:created_at, (60-i).minutes.ago)
+        plan.update_attribute(:created_at, (60-i).seconds.ago)
       end
       
       get :index
@@ -42,6 +42,33 @@ describe LessonplansController do
       Lessonplan.last.tasks.should have(1).task
       Lessonplan.last.tasks.first.title.should == 'test_task'
     end
+  end
+
+  describe :update do
+
+    before :each do
+      @params = { 
+        :id => '1',
+        :lessonplan => { "title" => 'test_plan', "content" => 'This is a test plan.' },
+        :tasks => [{ :title => 'test_task', :content => 'This is a test task.' }]
+      };
+
+      @lessonplan = mock_model(Lessonplan, :user => user)
+      Lessonplan.stub(:find).with('1').and_return(@lessonplan)
+      @lessonplan.stub_chain(:tasks, :delete_all)
+    end
+
+    it "should update the lessonplan" do
+      @lessonplan.should_receive(:update_attributes).with(@params[:lessonplan])
+      put :update, @params
+    end
+
+    it "should redirect to lessonplan path" do
+      @lessonplan.stub(:update_attributes)
+      put :update, @params
+      response.should redirect_to(lessonplan_path(@lessonplan))
+    end
+
   end
 
   describe :destroy do
