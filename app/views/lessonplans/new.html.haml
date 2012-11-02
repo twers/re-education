@@ -17,9 +17,7 @@
 					= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50
 					= label_tag 'lessonplan[content]', '教案内容'
 					= f.cktext_area :content, :cols => 40
-					.attachment-field
-						= label_tag 'lessonplan[attachment]', '添加图片附件', :id => "attachment-label"
-						= f.file_field :attachment, :class => "file_input", :onchange => 'try {return validate_file(this)} catch(e){}'
+
 				%hr.soften
 
 				.section{ 'ng-controller' => 'CachedTasksController' }

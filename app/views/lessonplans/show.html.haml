@@ -29,13 +29,6 @@
 								%h6 {{task.title}}
 								%p.task-content-text {{task.content}}
 
-			- unless @lessonplan.attachment_url.nil?
-				%hr.soften
-					%h5 图片附件
-					%div.single
-						%a{:href => @lessonplan.attachment_url, :id => 'single-image'}
-							%img.image-item{ :src => @lessonplan.attachment_url }
-
 			- if feature_on?
 				%hr.soften
 				.section.clearfix
