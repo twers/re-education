@@ -27,4 +27,5 @@
 
 // = require qc.login
 // = require bundle-fancy-box
+// = require kindeditor
 angular.module('openClass', ['openClass.models']);

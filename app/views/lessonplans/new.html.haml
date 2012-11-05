@@ -14,9 +14,8 @@
 					= label_tag 'lessonplan[title]', '教案名称'
 					= f.text_field :title, :placeholder => '给你的教案起一个名字...'
 					= label_tag 'lessonplan[short_description]', '简短描述'
-					= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50
-					= label_tag 'lessonplan[content]', '教案内容'
-					= f.cktext_area :content, :cols => 40
+					= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50 
+					= f.kindeditor :content
 
 				%hr.soften
 

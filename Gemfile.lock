@@ -122,6 +122,8 @@ GEM
     mailhopper (0.2.0)
       rails (>= 3.1.0)
     mime-types (1.19)
+    mini_magick (3.4)
+      subexec (~> 0.2.1)
     multi_json (1.3.6)
     multi_xml (0.5.1)
     mysql2 (0.3.11)
@@ -150,6 +152,9 @@ GEM
       activesupport (= 3.2.2)
       bundler (~> 1.0)
       railties (= 3.2.2)
+    rails_kindeditor (0.3.8)
+      carrierwave
+      mini_magick
     railties (3.2.2)
       actionpack (= 3.2.2)
       activesupport (= 3.2.2)
@@ -190,6 +195,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    subexec (0.2.2)
     tddium (1.5.7)
       highline
       json
@@ -239,6 +245,7 @@ DEPENDENCIES
   paperclip
   pg
   rails (= 3.2.2)
+  rails_kindeditor (~> 0.3.8)
   rspec-rails (~> 2.6)
   ruby-prof
   sass-rails (~> 3.2.3)

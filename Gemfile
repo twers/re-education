@@ -11,6 +11,7 @@ gem "ckeditor", "~> 3.7.2"
 gem "paperclip"
 gem "carrierwave"
 gem "cancan"
+gem 'rails_kindeditor', '~> 0.3.8'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
