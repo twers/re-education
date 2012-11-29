@@ -1,7 +1,13 @@
-.course-header.clearfix
-	.theme
-		%h1 #创新课
-		%p 关于创新的课堂实践
+%nav.breadcrumb
+	%ul
+		%li
+			%a{ :href => "#" } 首页
+		%li
+			%a{ :href => "#" } 案例
+		%li.active
+			%a{ :href => "#" } 精品
+			
+%article.plan
 .page.container
 	= form_for @lessonplan, :url => { :action => 'update' } do |f|
 		.page-action

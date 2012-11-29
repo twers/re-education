@@ -9,8 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap
- *= require prettify
+ *= require reset
  *= require jquery.fancybox-1.3.4
- *= require style
+ *= require new_style
 */

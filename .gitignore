@@ -176,3 +176,4 @@ config/environments/development.rb
 config/environments/production.rb
 
 /app/assets/javascripts/i18n/*
+.tddium*

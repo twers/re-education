@@ -1,69 +1,63 @@
-.course-header.clearfix
-	.theme
-		%h1 #创新课
-		%p 关于创新的课堂实践
-.page.container
-	.page-action
-		-if can? :update, @lessonplan
-			%a{ :href => "#{edit_lessonplan_path(@lessonplan.id)}" }
-				编辑
-				%i.icon-edit
-		-if can? :destroy, @lessonplan
-			= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete
-			%i.icon-trash
+%nav.breadcrumb
+	%ul
+		%li
+			%a{ :href => "#" } 首页
+		%li
+			%a{ :href => "#" } 案例
+		%li.active
+			%a{ :href => "#" } 精品
+%article.plan
+	/ -if can? :update, @lessonplan
+	/ 	%a.icon.icon-l.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} ✎
+	/ .page-action
+	/ 	-if can? :update, @lessonplan
+	/ 		%a{ :href => "#{edit_lessonplan_path(@lessonplan.id)}" }
+	/ 			编辑
+	/ 			%i.icon-edit
+	/ 	-if can? :destroy, @lessonplan
+	/ 		= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete
+	/ 		%i.icon-trash
 
-	.row-fluid
-		.span9
-			.section
-				%h2= @lessonplan.title
-				%p= @lessonplan.content.html_safe
-			- unless @lessonplan.tasks.empty?
-				%hr.soften
-				.section.clearfix{'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})"}
-					%h5 教学条目[{{tasks.length}}]
-					%ul.task-list
-						%li.task.clearfix{ 'ng-repeat' => 'task in tasks' }
-							.pull-left
-								%label.task-order {{$index+1}}
-							.task-content.pull-left
-								%h6 {{task.title}}
-								%p.task-content-text {{task.content}}
+	%h2= @lessonplan.title
+	%small.level{ :href => "#" } 小学高年级
+	%small.time{ :href => "#" } 一周
+	%ul.plan-menu
+		%li.current 内容
+		%li
+			%a{ :href => "#" } 讨论[289]
+	%section.activity
+		%img.main{ :src => @lessonplan.symbol_img_url, :alt => @lessonplan.title }
+		%p.description= @lessonplan.short_description.html_safe
+		%h3 活动介绍
+		= @lessonplan.content.html_safe
 
-			- if feature_on?
-				%hr.soften
-				.section.clearfix
-					%h5 作业
-					%ul.homework-list
-						%li.homework.clearfix
+		- unless @lessonplan.tasks.empty?
+			%section.plan-step.clearfix{'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})"}
+				%h3 活动步骤 [{{tasks.length}}]
+				%ol.steps
+					%li{ 'ng-repeat' => 'task in tasks' }
+						%div
+							%b {{task.title}}
+							%p {{task.content}}
 
-			%hr.soften
-			.section.clearfix{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
-				%h5 评论[{{comments.length}}]
-				.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
-					.comment-avatar
-						%img{ 'ng-src' => "{{comment.user.avatar_url}}" }
-					.comment-content
-						%small.nick-name {{comment.user.nick_name}}
-						%time.comment-time {{formatDateTime(comment.updated_at)}}
-						%p {{comment.content}}
-				- if online
-					.comment.clearfix
-						= form_for :comment, :url => lessonplan_comments_url(@lessonplan), :html => { 'ng-submit' => 'submitForm()' } do |f|
-							= f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 3, 'ng-model' => 'new_comment_content'
-							= f.submit '提交', :class => 'btn'
+	/ %section.clearfix{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
+	/ 	%h5 评论[{{comments.length}}]
+	/ 	.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
+	/ 		.comment-avatar
+	/ 			%img{ 'ng-src' => "{{comment.user.avatar_url}}" }
+	/ 		.comment-content
+	/ 			%small.nick-name {{comment.user.nick_name}}
+	/ 			%time.comment-time {{formatDateTime(comment.updated_at)}}
+	/ 			%p {{comment.content}}
+	/ 	- if online
+	/ 		.comment.clearfix
+	/ 			= form_for :comment, :url => lessonplan_comments_url(@lessonplan), :html => { 'ng-submit' => 'submitForm()' } do |f|
+	/ 				= f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 3, 'ng-model' => 'new_comment_content'
+	/ 				= f.submit '提交', :class => 'btn'
 
-		.span3
-			.right-content
-				.section
-					.plan
-						%img.avatar.img-rounded{ :src => @lessonplan.symbol_img_url }
-					%h2.name= @lessonplan.title
-					%p= @lessonplan.short_description
-					%button.btn.btn-strong{ :type => "button" }
-						交作业
-						%i.icon-file.icon-white
-
-				%hr.soften
-				.section
-					%h5 关注者
-					%ul.member-list.clearfix
+	%aside.author
+		%b.title 课程设计者
+		%img.avatar{ :src => "/assets/user.png" }
+		%a.name 刘以宁
+		%small.profession 电子科技大学 语文老师
+						

@@ -1,0 +1,79 @@
+<article class="main">
+  <h2>新的课堂，你来设计</h2>
+  <small class="slogan">开放课堂是设计和实践综合实践课的平台</small>
+  <section class="description">
+    <ul class="description">
+      <li class="age">
+        <b>综合实践课</b>
+        <small>面向小学4年级到初中2年级的综合实践课</small>
+      </li>
+      <li class="design">
+        <b>汇聚教案案例</b>
+        <small>10门充满互动和创意的综合实践课</small>
+      </li>
+      <li class="classroom">
+        <b>各地老师互动协作</b>
+        <small>和全国200位综合实践课老师协作和学习</small>
+      </li>
+      <li class="feedback">
+        <b>分享授课结果</b>
+        <small>看看各地孩子有什么不同结果</small>
+      </li>
+    </ul>
+  </section>
+  <section class="example">
+    <h3>我们的课</h3>
+    <ul>
+      <% Lessonplan.list_last(4).each_with_index do |lessonplan, idx| %>
+        <li>
+          <b class="title"><%= lessonplan.title %></b>
+          <p class="description"><%= lessonplan.short_description.html_safe %></p>
+          <a href="<%= lessonplan_path(lessonplan.id) %>" class="enter">进入</a>
+        </li>
+      <% end %>
+      <li>
+        <b class="title">校园嘉年华</b>
+        <p class="description">西宁保安下庄完小、西宁市南大街小学的五、六年级的师生发起，利用寒假开展的信息技术实验活动，孩子们已学习长方形、正方形等图形面积的计算，组织的跨校合作教学活动。</p>
+        <a href="plan-my-campus.htm" class="enter">进入</a>
+      </li>
+      <li>
+        <b class="title">石头历险记</b>
+        <p class="description">“石头历险记”是由青海西宁瓜什则寄校俞丽萍等老师带领，五、六年级孩子们一起分组开展的综合实践探究活动。</p>
+        <a href="plan-stone.htm" class="enter">进入</a>
+      </li>
+      <li>
+        <b class="title">面具派对</b>
+        <p class="description">万圣节是西方国家的传统节日，这一夜是一年中最“闹鬼”的一夜，所以也叫“鬼节”。四川泸县石桥镇学校美术老师刘晓带领小学五年级的孩子们一起来制作面具，一起来过“鬼节”。</p>
+        <a href="" class="enter">进入</a>
+      </li>
+      <li>
+        <b class="title">我的生日我作主</b>
+        <p class="description">多城市配合，让各个城市的孩子们整理自己城市里的历史故事，老师负责制作时间线将几个城市的历史用时间线和地图拼接起来。</p>
+        <a href="" class="enter">进入</a>
+      </li>
+      <li>
+        <b class="title">动手制作太阳能热水器</b>
+        <p class="description">通过易拉罐、锡纸等制作小型太阳能热水器，让孩子们了解太阳能的原理，热水器如何工作，以及清洁能源对保护环境的意义。</p>
+        <a href="" class="enter">进入</a>
+      </li>
+      <li>
+        <b class="title">纸桥</b>
+        <p class="description">世界上有各式各样的桥，他们都是如何建成的？大家一起用纸工建造属于我们自己的桥，从中了解桥的建造原理，再比较一下谁的承重能力最强。</p>
+        <a href="plan-paper-bridge.htm" class="enter">进入</a>
+      </li>
+      <li>
+        <b class="title">我的快乐童年</b>
+        <p class="description">现在的孩子喜欢玩什么游戏？童年的你最喜欢玩什么游戏？父母，爷爷奶奶那辈人又在玩什么游戏？不同的年代，他们玩的游戏和过去有什么不同？</p>
+        <a href="" class="enter">进入</a>
+      </li>
+    </ul>
+  </section>
+<!--  <section class="application">
+    <h3>申请内测</h3>
+    <form>
+      <input type="text" placeholder="请输入您的邮箱">
+      <input type="submit" value="申请">
+    </form>
+  </section> -->
+</article>
+    
