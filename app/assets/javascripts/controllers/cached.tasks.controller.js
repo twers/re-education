@@ -44,6 +44,8 @@ function CachedTasksController($scope, Task, $element){
 
   function toggleStatus(index, editStatus){
   	var editableTask = getEditableItem(index);
+  	console.log(editableTask);
+
   	editableTask.find('.static-task-content-' + index).removeClass('hide').addClass(editStatus ? 'hide' : '');
   	editableTask.find('.inline-edit-task-form-' + index).removeClass('hide').addClass(editStatus ? '' : 'hide');
 

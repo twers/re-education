@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require reset
+ *= require form-style
+ *= require bootstrap.button
  *= require jquery.fancybox-1.3.4
  *= require new_style
 */

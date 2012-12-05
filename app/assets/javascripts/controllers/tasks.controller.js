@@ -13,6 +13,10 @@ function TasksController($scope, $element, $resource) {
 		$element.find('#add-task-form').submit(function(){ return false; });
 	};
 
+	$scope.getItemCssClass = function(idx){
+		return idx === $scope.tasks.length - 1 ? 'done' : '';
+	};
+
 	$scope.submitForm = function(){
 		$scope.Tasks.save({
 			title : $scope.new_task_title, 

@@ -6,21 +6,18 @@
 			%a{ :href => "#" } 案例
 		%li.active
 			%a{ :href => "#" } 精品
+			
 %article.plan
-	/ -if can? :update, @lessonplan
-	/ 	%a.icon.icon-l.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} ✎
-	/ .page-action
-	/ 	-if can? :update, @lessonplan
-	/ 		%a{ :href => "#{edit_lessonplan_path(@lessonplan.id)}" }
-	/ 			编辑
-	/ 			%i.icon-edit
-	/ 	-if can? :destroy, @lessonplan
-	/ 		= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete
-	/ 		%i.icon-trash
+	%p
+		-if can? :update, @lessonplan
+			%a.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} 编辑
+		-if can? :destroy, @lessonplan
+			= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete
 
 	%h2= @lessonplan.title
 	%small.level{ :href => "#" } 小学高年级
 	%small.time{ :href => "#" } 一周
+	
 	%ul.plan-menu
 		%li.current 内容
 		%li
@@ -35,7 +32,7 @@
 			%section.plan-step.clearfix{'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})"}
 				%h3 活动步骤 [{{tasks.length}}]
 				%ol.steps
-					%li{ 'ng-repeat' => 'task in tasks' }
+					%li{ 'ng-repeat' => 'task in tasks', :class => "{{getItemCssClass($index)}}" }
 						%div
 							%b {{task.title}}
 							%p {{task.content}}
