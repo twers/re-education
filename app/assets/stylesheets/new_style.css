@@ -416,8 +416,9 @@ article.plan small.time:before {
 article.plan section.activity {
 	clear: both;
 	width: 860px;
-	padding-top: 35px; padding-bottom: 50px; margin: 0 auto;
-	border-top: 1px solid #EEE;
+	padding-top: 0px; 
+	margin: 0 auto;
+	/*border-top: 1px solid #EEE;*/
 }
 article.plan section.activity img.main {
 	float: left;
@@ -474,12 +475,13 @@ article.plan ol.steps > li {
 article.plan ol.steps > li > div {
 	display: block;
 	width: 438px;
-    padding: 10px 20px 0 20px;
-    margin: 0 0 20px 60px;
+  padding: 10px 20px 10px 20px;
+  margin: 0 0 20px 60px;
 	background: #F5F5F5;
-    border: 1px solid #EEE;
-    border-radius: 5px;
-    font-size: 13px;
+  border: 1px solid #EEE;
+  border-radius: 5px;
+  font-size: 13px;
+  overflow: hidden;
 }
 article.plan ol.steps > li:before {
 	content: "1";
@@ -537,17 +539,33 @@ article.plan ol.steps > li b {
 	line-height: 18px;
 	display: block;
 	margin: 5px 0;
+	word-wrap: break-word;
 }
 article.plan ol.steps > li p {
 	line-height: 20px;
 	color: #333;
+	margin-bottom: 10px;
 }
-article.plan ol.steps li ul {
+article.plan ol.steps li ul,
+article.plan ol.steps li ol {
 	width: 95%;
 	margin: 0 0 20px 20px;
 	line-height: 20px;
-
 }
+
+article.plan ol.steps li ul li,
+article.plan ol.steps li ol li{
+	padding: 0;
+}
+
+article.plan ol.steps li ul li{
+	list-style: disc;
+}
+
+article.plan ol.steps li ol li{
+	list-style: decimal;
+}
+
 article.plan ol.steps li ul.images {
 	overflow: hidden;
 	list-style: none;
@@ -645,11 +663,11 @@ article.plan.edit aside.author{
 .plan-quote quote {padding: 0 0 0 220px; display: block; min-height: 100px; position: relative;}
 
 .plan-step ul {margin: 0;}
-.plan-step li {margin: 0; padding: 0 0 20px 0; list-style: none; position: relative; background: url(../img/step.png) repeat-y 16px top;}
+.plan-step li {margin: 0; list-style: none; position: relative; background: url(../img/step.png) repeat-y 16px top;}
 .plan-step li:last-child {background: none;}
 .plan-step li label.number {border-radius: 40px; line-height: 40px; text-align: center; width: 40px; height: 40px; background: #FBB963; position: absolute;}
 .plan-step li label.number {color: #FFF; font-size: 20px;}
-.plan-step li span.step-content {padding: 20px; display: block; background: #f5f5f5; margin: 0 0 0 60px; border-radius: 5px; border: 1px solid #EEE}
+.plan-step li span.step-content {padding: 10px 20px; display: block; background: #f5f5f5; margin: 0 0 0 60px; border-radius: 5px; border: 1px solid #EEE}
 .plan-step li h3 {font-size: 14px; line-height: 40px;}
 .plan-step li p {margin: 0;}
 .plan-step-attachment {position: absolute; bottom: 50px; left: 90px;}
@@ -662,5 +680,22 @@ article.plan.edit aside.author{
 .plan-step li.edit .edit.plan-action,
 .plan-step li.edit .delete.plan-action{ display: none;}
 
-.login-container {display:inline-block;float: right;padding:4px 0 3px;}
+.page-action{ margin: 40px 40px 0 40px;}
+
+article.plan section.comments{
+	clear: both;
+	padding-top: 0px;
+	padding-bottom: 50px;
+	padding-right: 355px;
+	padding-left: 40px;
+}
+
+article.plan section.comments ul{ padding: 0; margin: 0;}
+article.plan section.comments li{ list-style: none; overflow: hidden; margin-bottom: 5px; background: whiteSmoke;}
+article.plan section.comments .comment-avatar{ float: left; margin-right: 10px;}
+article.plan section.comments .nick-name{ color: #389ABD; font-weight: bold;}
+article.plan section.comments .comment-time{ color: grey; font-size: 10px; font-style: italic; }
+article.plan section.comments textarea{ width: 500px; margin-top: 40px;}
+
+.login-container {display:inline-block; float: right; color: white;}
 .login-container span{margin-left:5px;}

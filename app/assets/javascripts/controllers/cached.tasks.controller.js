@@ -1,6 +1,17 @@
 function CachedTasksController($scope, Task, $element){
 
 	$scope.cachedTasks = [];
+	var editors = {};
+	var options = {
+		items : ['source', 'bold', 'insertorderedlist', 'insertunorderedlist', 'image'],
+		uploadJson :　'/kindeditor/upload?dir=image'
+	};
+
+	var addNewSrcElement = $element.find('.simple-editor'); 
+	editors['addNewEditor'] = {
+		srcElement : addNewSrcElement,
+		editor : KindEditor.create(addNewSrcElement[0], options)
+	};
 
 	$scope.init = function(lessonplanId){
 		$scope.resource = Task.get(lessonplanId);
@@ -10,12 +21,16 @@ function CachedTasksController($scope, Task, $element){
 	};
 
 	$scope.addTask = function(){
+		syncToTextarea('addNewEditor');
+		
 		$scope.cachedTasks.push({
 			title : $scope.currentTaskTitle,
 			content : $scope.currentTaskContent
 		});
 
 		$scope.currentTaskTitle = $scope.currentTaskContent = '';
+		editors['addNewEditor'].srcElement.val('');
+		syncToEditor('addNewEditor');
 	};
 
 	$scope.deleteTask = function(index) {
@@ -25,11 +40,15 @@ function CachedTasksController($scope, Task, $element){
 	};
 
 	$scope.resetTask = function(index){
+		syncToEditor(index);
+
 		syncTask(index, true);
 		toggleStatus(index, false);
 	};
 
 	$scope.saveTask = function(index){
+		syncToTextarea(index);
+
 		syncTask(index, false);
 		toggleStatus(index, false);
 	};
@@ -40,11 +59,18 @@ function CachedTasksController($scope, Task, $element){
 
   $scope.editTask = function(index){
 		toggleStatus(index, true);
+
+		if(!editors[index]){
+			var editorElem = getEditableItem(index).find('.simple-editor');
+			editors[index] = { 
+				srcElement : editorElem,
+				editor : KindEditor.create(editorElem[0], options)
+			};
+		}
   };
 
   function toggleStatus(index, editStatus){
   	var editableTask = getEditableItem(index);
-  	console.log(editableTask);
 
   	editableTask.find('.static-task-content-' + index).removeClass('hide').addClass(editStatus ? 'hide' : '');
   	editableTask.find('.inline-edit-task-form-' + index).removeClass('hide').addClass(editStatus ? '' : 'hide');
@@ -68,5 +94,15 @@ function CachedTasksController($scope, Task, $element){
 			$scope.cachedTasks[index].title = titleElem.val();
 			$scope.cachedTasks[index].content = contentElem.val();	
 		}
+	}	
+
+	function syncToTextarea(key){
+		editors[key].editor.sync();
+		editors[key].srcElement.trigger('input');
+		editors[key].srcElement.trigger('input');
+	}
+
+	function syncToEditor(key){
+		editors[key].editor.html(editors[key].srcElement.val());
 	}
 }

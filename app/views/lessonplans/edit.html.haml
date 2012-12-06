@@ -17,6 +17,8 @@
 			
 		%section
 			%h3 教程介绍
+			= label_tag 'lessonplan[attachment]', '添加缩略图', :id => "attachment-label"
+			= f.file_field :attachment, :class => "file_input",:onchange => 'try {return validate_file(this)} catch(e){}'
 			= label_tag 'lessonplan[short_description]', '简要描述'
 			= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50, :cols => 60
 
@@ -28,20 +30,20 @@
 			%ol.steps
 				%li{ 'ng-repeat' => 'task in cachedTasks', :class => 'editable-task-item-{{$index}}' }
 					
-					%span.step-content
+					.step-content
 
 						%a.edit.plan-action{ :href => 'javascript:;', 'ng-click' => 'editTask($index)', :title => '修改' }  修改
 						%a.delete.plan-action{ :href => 'javascript:;', 'ng-click' => 'deleteTask($index)', :title => '删除' } 删除
 
 						%div{ :class => 'static-task-content-{{$index}}' }
 							%b.task-content-title {{task.title}}
-							%p.task-content-text {{task.content}}
+							.task-content-text{ 'ng-bind-html-unsafe' => 'task.content' } 
 
 						%div{ :class => 'inline-edit-task-form-{{$index}} hide' }
 							%label 步骤名称
 							%input.task-item-title{ :value => '{{task.title}}', :type => 'text' }
 							%label 详细内容
-							%textarea.task-item-content{ :rows => 3, :maxlength => 140, :value => '{{task.content}}' }
+							%textarea.simple-editor.task-item-content{ :rows => 3, :maxlength => 1000, :value => '{{task.content}}', 'ng-init' => 'simpleEditor($index)' }
 							%p
 								%a.save.plan-action{ :href=> "javascript:;", 'ng-click' => 'saveTask($index)' } 保存
 								%a.cancel.plan-action{ :href => 'javascript:;', 'ng-click' => 'resetTask($index)' } 取消
@@ -54,7 +56,7 @@
 						%label 步骤名称
 						%input{ :placeholder => '填写一个课程活动步骤...', 'ng-model' => 'currentTaskTitle', :type => 'text' }
 						%label 详细内容
-						%textarea.simple-editor{ :placeholder => '介绍一些这个步骤...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent' }
+						%textarea.simple-editor{ :placeholder => '介绍一些这个步骤...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent', 'ng-init' => 'simpleEditor()' }
 						%a.plan-action.create{ :href=> "javascript:;", 'ng-click' => 'addTask()' } 添加
 		%section
 			= f.submit '保存', :class => 'btn btn-primary'
