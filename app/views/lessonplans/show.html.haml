@@ -23,7 +23,7 @@
 		%li
 			%a{ :href => "#" } 讨论[289]
 	%section.activity
-		%img.main{ :src => @lessonplan.symbol_img_url, :alt => @lessonplan.title }
+		%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
 		%p.description= @lessonplan.short_description.html_safe
 		%h3 活动介绍
 		= @lessonplan.content.html_safe
