@@ -21,7 +21,7 @@ module ApplicationHelper
 
 	def description_editor form
 		form.kindeditor :content,
-			 :items => ['source', 'formatblock', 'bold', 'italic', 'underline', '|', 'indent', 'outdent', '|', 'insertorderedlist', 'insertunorderedlist', 'image', 'fullscreen'],
+			 :items => ['source', 'formatblock', 'bold', 'italic', 'underline', 'link', '|', 'indent', 'outdent', '|', 'insertorderedlist', 'insertunorderedlist', 'image', 'fullscreen'],
 			 :cols => 60, 
 			 :rows => 5
 	end

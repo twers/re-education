@@ -3,7 +3,7 @@ function CachedTasksController($scope, Task, $element){
 	$scope.cachedTasks = [];
 	var editors = {};
 	var options = {
-		items : ['source', 'bold', 'insertorderedlist', 'insertunorderedlist', 'image'],
+		items : ['source', 'bold', 'link','insertorderedlist', 'insertunorderedlist', 'image'],
 		uploadJson :　'/kindeditor/upload?dir=image'
 	};
 
