@@ -18,4 +18,11 @@ module ApplicationHelper
 		idx = idx % colorful_icons.length
 		{ :class_name => colorful_icons[idx], :icon_text => colorful_text[idx] }
 	end
+
+	def description_editor form
+		form.kindeditor :content,
+			 :items => ['source', 'formatblock', 'bold', 'italic', 'underline', '|', 'indent', 'outdent', '|', 'insertorderedlist', 'insertunorderedlist', 'image', 'fullscreen'],
+			 :cols => 60, 
+			 :rows => 5
+	end
 end

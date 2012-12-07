@@ -110,6 +110,14 @@ article.main small.slogan {
 	text-align: center;
 }
 
+article.main a.btn-primary{
+	width: 160px;
+	margin: 30px auto 0 !important;
+	display: block;
+	font-size: 25px;
+	line-height: 36px;
+}
+
 article.main section.description {
 	margin-top: 75px;
 	text-align: center;

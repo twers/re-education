@@ -17,13 +17,13 @@
 
 		%section
 			%h3 教程介绍
-			= label_tag 'lessonplan[attachment]', '添加缩略图', :id => "attachment-label"
+			= label_tag 'lessonplan[attachment]', '封面图片', :id => "attachment-label"
 			= f.file_field :attachment, :class => "file_input",:onchange => 'try {return validate_file(this)} catch(e){}'
-			= label_tag 'lessonplan[short_description]', '简短描述'
-			= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 50, :cols => 60
+			= label_tag 'lessonplan[short_description]', '简短描述(140字)'
+			= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 140, :cols => 60
 			
 			= label_tag 'lessonplan[content]', '详细内容'
-			= f.kindeditor :content
+			= description_editor f
 
 		%section.plan-step{ 'ng-controller' => 'CachedTasksController' }
 			%h3 活动步骤
@@ -62,10 +62,10 @@
 			= f.submit '保存', :class => 'btn btn-primary'
 
 	%aside.author
-		%b.title 课程设计者
-		%img.avatar{ :src => "/assets/user.png" }
-		%a.name 刘以宁
-		%small.profession 电子科技大学 语文老师
+		/ %b.title 课程设计者
+		/ %img.avatar{ :src => "/assets/user.png" }
+		/ %a.name 刘以宁
+		/ %small.profession 电子科技大学 语文老师
 		   
 
 
