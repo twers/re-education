@@ -1,0 +1,22 @@
+.container.content
+	%nav.breadcrumb
+		%ul
+			%li
+				%a{ :href => "/" } 首页
+			%li
+				个人信息
+
+%article.main-section
+	%section#profile
+		%h3 个人信息 
+		%p
+			%label 昵称
+			= @publisher.alternative_name
+		%p
+			%img.main.avatar{ :src => @publisher.avatar_url, :alt => @publisher.alternative_name }
+		%p
+			%label 电子邮件
+			= @publisher.email
+		%p
+			%label 简短描述
+			= @publisher.short_description

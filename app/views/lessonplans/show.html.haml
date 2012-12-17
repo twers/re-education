@@ -8,11 +8,12 @@
 			%a{ :href => "#" } 精品
 			
 %article.plan
-	%p.page-action
-		-if can? :update, @lessonplan
-			%a.btn.btn-info.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} 编辑
-		-if can? :destroy, @lessonplan
-			= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete, :class => 'btn btn-danger'
+	-if can? :update, @lessonplan or can? :destroy, @lessonplan
+		%p.page-action
+			-if can? :update, @lessonplan
+				%a.btn.btn-info.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} 编辑
+			-if can? :destroy, @lessonplan
+				= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete, :class => 'btn btn-danger'
 
 	%h2= @lessonplan.title
 	/ %small.level{ :href => "#" } 小学高年级
@@ -54,9 +55,5 @@
 						= f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 5, 'ng-model' => 'new_comment_content'
 						= f.submit '提交', :class => 'btn btn-primary'
 
-	%aside.author
-		/ %b.title 课程设计者
-		/ %img.avatar{ :src => "/assets/user.png" }
-		/ %a.name 刘以宁
-		/ %small.profession 电子科技大学 语文老师
+	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.user.publisher }
 						

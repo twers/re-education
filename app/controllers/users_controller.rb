@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   	end
 
   	user.save
-  	session[:user] = user
+  	session[:user_id] = user.id
   	render :json => user
   end
 end

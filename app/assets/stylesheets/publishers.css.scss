@@ -1,0 +1,54 @@
+// Place all the styles related to the publishers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "base";
+
+article.main-section{
+	width: 940px;
+	margin: 0 auto;
+	padding: 40px 0;
+	overflow: hidden;
+	position: relative;
+	width: 940px;
+	background: white;
+	@include box-shadow(0 1px 5px #CCCCCC);
+
+	h3{
+		font-weight: bold;
+		font-size: 18px;
+		color: #4C9ED0;
+		line-height: 60px;
+	}
+
+	section{
+		width: 860px;
+		margin: 0 auto;
+	}
+
+	img.avatar{
+		max-width: 100px;
+		padding: 2px;
+		border: 1px solid #ccc;
+	}
+
+	p{
+		line-height: 18px;
+		margin-bottom: 10px;
+	}
+}
+
+#profile{
+	
+	p{
+		padding-left: 100px;
+	}
+
+	label{
+		width: 100px;
+		float: left;
+		color: #999;
+		margin-left: -100px;
+	}
+
+}

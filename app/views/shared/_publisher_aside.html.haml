@@ -1,0 +1,7 @@
+- unless publisher.nil?
+	%aside.author
+		%b.title 课程设计者
+		%img.avatar{ :src => publisher.avatar_url }
+		%a.name{ :href => publisher_path(publisher) }
+			= publisher.alternative_name
+		%p= publisher.short_description

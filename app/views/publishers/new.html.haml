@@ -1,0 +1,24 @@
+.container.content
+	%nav.breadcrumb
+		%ul
+			%li
+				%a{ :href => "/" } 首页
+			%li
+				注册
+
+%article.main-section.edit
+	= form_for :publisher, :url => { :action => 'create' } do |f|	
+
+		%section
+			%h3 注册信息
+			= label_tag 'publisher[avatar]', '选择头像'
+			= f.file_field :avatar, :class => "file_input", :onchange => 'try {return validate_file(this)} catch(e){}'
+			= label_tag 'publisher[alternative_name]', '昵称'
+			= f.text_field :alternative_name, :placeholder => '请留下在页面上显示的名字...'
+			= label_tag 'publisher[email]', 'Email'
+			= f.email_field :email, :placeholder => '请填写你的电子邮件...'
+			= label_tag 'lessonplan[short_description]', '简短描述(140字)'
+			= f.text_area :short_description, :placeholder => '给你自己写个简单描述...', :rows => 4, :maxlength => 140, :cols => 60
+
+		%section
+			= f.submit '保存', :class => 'btn btn-primary'
