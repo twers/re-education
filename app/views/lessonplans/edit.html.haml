@@ -2,11 +2,11 @@
 	%nav.breadcrumb
 		%ul
 			%li
-				%a{ :href => "#" } 首页
+				%a{ :href => "javascript:;" } 首页
 			%li
-				%a{ :href => "#" } 案例
+				%a{ :href => "javascript:;" } 案例
 			%li.active
-				%a{ :href => "#" } 精品
+				%a{ :href => "javascript:;" } 精品
 			
 %article.plan.edit
 	= form_for @lessonplan, :url => { :action => 'update' } do |f|
@@ -62,12 +62,7 @@
 			= f.submit '保存', :class => 'btn btn-primary'
 			%a{ :href => "#{lessonplan_path(@lessonplan.id)}" } 放弃修改
 
-	%aside.author
-		/ %b.title 课程设计者
-		/ %img.avatar{ :src => "/assets/user.png" }
-		/ %a.name 刘以宁
-		/ %small.profession 电子科技大学 语文老师
-
+	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.user.publisher }
 
 
 

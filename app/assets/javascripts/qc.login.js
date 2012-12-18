@@ -1,4 +1,4 @@
-$(function(){
+$(window).load(function(){
 	QC.Login({
 	  btnId:"qq-login",    //插入按钮的节点id
 	 	size: 'A_M'
@@ -11,7 +11,7 @@ $(function(){
         '<span>{nickname}</span>',
         //退出
         '<span><a href="javascript:QC.Login.signOut();">退出</a></span>'    
-                 ].join("");
+ 		].join("");
     dom && (dom.innerHTML = QC.String.format(_logoutTemplate, {
        nickname : QC.String.escHTML(reqData.nickname),
        figureurl : reqData.figureurl
@@ -20,15 +20,21 @@ $(function(){
 		if (QC.Login.check()) {
 	 		QC.Login.getMe(function(openId, accessToken) {
 				$.post('/users', { 
-					'user[access_token]' : accessToken, 
+					'user[access_token]' : accessToken,
 					'user[unique_id]' : openId,
 					'user[avatar_url]' : reqData.figureurl_1,
 					'user[nick_name]' : reqData.nickname
-				}).done(function(user){
-					console.log(cookie('online'));
+				}).done(function(ret){
+					var user = ret.user;
 					if(cookie('online') == 'false'){
 						cookie('online', true);
-						user && window.location.reload();
+						if(user){
+							if(!ret.registered){
+								window.location.href = '/publishers/new';
+							}else{
+								window.location.reload();
+							}
+						}
 					}
 				});
 		 	});

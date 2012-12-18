@@ -13,6 +13,6 @@ class UsersController < ApplicationController
 
   	user.save
   	session[:user_id] = user.id
-  	render :json => user
+  	render :json => { :user => user, :registered => user.publisher.present? }
   end
 end

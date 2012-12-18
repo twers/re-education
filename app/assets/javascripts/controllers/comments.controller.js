@@ -31,4 +31,16 @@ function CommentsController($scope, $element, $resource) {
 		str += date.getHours() + ':' + date.getMinutes();
 		return str;
 	};
+
+	$scope.getName = function(user){
+		if(user.publisher){
+			return user.publisher.alternative_name;
+		}else{
+			return user.nick_name;
+		}
+	};
+
+	$scope.getUrl = function(user){
+		return user.publisher ? '/publishers/' + user.publisher.id : ''
+	};
 }

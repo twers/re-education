@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
 	def index
 		comments = @lessonplan.comments unless @lessonplan.nil?
-		render :json => comments.to_json(:include => :user)
+		render :json => comments.to_json(:include => { :user => { :include => :publisher }})
 	end
 
 	def create
