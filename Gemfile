@@ -32,7 +32,6 @@ group :test do
   gem 'factory_girl_rails', '~> 3.0'
   gem 'capybara-webkit'
   gem 'headless'
-  gem 'database_cleaner'
 end
 
 group :test, :development do
