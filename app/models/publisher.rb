@@ -1,5 +1,5 @@
 class Publisher < ActiveRecord::Base
-	belongs_to :user
+	has_many :lessonplans
 
 	mount_uploader :avatar, AvatarUploader
 
@@ -9,6 +9,5 @@ class Publisher < ActiveRecord::Base
 
   def name
   	return self.alternative_name unless self.alternative_name.empty?
-		self.user.nick_name
 	end
 end

@@ -10,15 +10,19 @@
 	= form_for :publisher, :url => { :action => 'create' } do |f|	
 
 		%section
-			%h3 注册信息
-			= label_tag 'publisher[avatar]', '选择头像'
-			= f.file_field :avatar, :class => "file_input", :onchange => 'try {return validate_file(this)} catch(e){}'
-			= label_tag 'publisher[alternative_name]', '昵称'
-			= f.text_field :alternative_name, :placeholder => '请留下在页面上显示的名字...'
-			= label_tag 'publisher[email]', 'Email'
-			= f.email_field :email, :placeholder => '请填写你的电子邮件...'
-			= label_tag 'lessonplan[short_description]', '简短描述(140字)'
-			= f.text_area :short_description, :placeholder => '给你自己写个简单描述...', :rows => 4, :maxlength => 140, :cols => 60
+			%h3 用户注册
+			
+			%fieldset
+				= label_tag 'publisher[email]', 'Email'
+				= f.email_field :email, :placeholder => '填写你的电子邮件...'
+				= label_tag 'publisher[alternative_name]', '用户名'
+				= f.text_field :alternative_name, :placeholder => '留下在页面上显示的名字...'
+			
+			%fieldset
+				%label 密码
+				%input{ :type => 'password', :size => 20, :placeholder => '设置密码...' }
+				= label_tag 'publisher[password]', '确认密码'
+				= f.password_field :password, :size => 20, :placeholder => '再次输入确认密码...'
 
-		%section
-			= f.submit '保存', :class => 'btn btn-primary'
+			%p
+				= f.submit '保存', :class => 'btn btn-primary'

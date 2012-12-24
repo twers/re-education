@@ -16,13 +16,6 @@
 				= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete, :class => 'btn btn-danger'
 
 	%h2= @lessonplan.title
-	/ %small.level{ :href => "#" } 小学高年级
-	/ %small.time{ :href => "#" } 一周
-	
-	/ %ul.plan-menu
-	/ 	%li.current 内容
-	/ 	%li
-	/ 		%a{ :href => "#" } 讨论[289]
 
 	%section.activity
 		%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
@@ -44,16 +37,16 @@
 		%ul
 			%li.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
 				.comment-avatar
-					%img{ 'ng-src' => "{{comment.user.avatar_url}}" }
+					%img{ 'ng-src' => "{{getAvatar(comment.publisher)}}" }
 				.comment-content
-					%a.nick-name{ :href => "{{getUrl(comment.user)}}" } {{getName(comment.user)}}
+					%a.nick-name{ :href => "{{getUrl(comment.publisher)}}" } {{comment.publisher.alternative_name}}
 					%time.comment-time {{formatDateTime(comment.updated_at)}}
 					%p {{comment.content}}
-			- if online
+			- if online?
 				.comment.clearfix
 					= form_for :comment, :url => lessonplan_comments_url(@lessonplan), :html => { 'ng-submit' => 'submitForm()' } do |f|
 						= f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 5, 'ng-model' => 'new_comment_content'
-						= f.submit '提交', :class => 'btn btn-primary'
+						= f.submit '提交评论', :class => 'btn btn-primary'
 
-	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.user.publisher }
+	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
 						

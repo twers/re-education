@@ -704,11 +704,12 @@ article.plan section.comments{
 }
 
 article.plan section.comments ul{ padding: 0; margin: 0;}
-article.plan section.comments li{ list-style: none; overflow: hidden; margin-bottom: 5px; background: whiteSmoke;}
-article.plan section.comments .comment-avatar{ float: left; margin-right: 10px;}
+article.plan section.comments li{ list-style: none; overflow: hidden; margin-bottom: 5px; background: whiteSmoke; padding-left: 40px;}
+article.plan section.comments .comment-avatar{ float: left; margin-left: -40px;}
+article.plan section.comments .comment-avatar img{width: 30px;margin:5px;border: 1px solid #eee;}
 article.plan section.comments .nick-name{ color: #389ABD; font-weight: bold;}
 article.plan section.comments .comment-time{ color: grey; font-size: 10px; font-style: italic; }
-article.plan section.comments textarea{ width: 500px; margin-top: 40px;}
+article.plan section.comments textarea{ width: 500px;}
 
 .login-container {display:inline-block; float: right; color: white;}
 .login-container span{margin-left:5px;}

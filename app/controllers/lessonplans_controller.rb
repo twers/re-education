@@ -15,7 +15,7 @@ class LessonplansController < ApplicationController
 
 	def create
 		@lessonplan = Lessonplan.new params[:lessonplan]
-		@lessonplan.user = current_user
+		@lessonplan.publisher = current_user
 		@lessonplan.save
 
 		unless params[:tasks].nil? then

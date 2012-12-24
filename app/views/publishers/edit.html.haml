@@ -1,0 +1,32 @@
+%nav.breadcrumb
+	%ul
+		%li
+			%a{ :href => "/" } 首页
+		%li
+			个人信息
+
+%article.main-section
+	/ -if can? :update, @publisher
+	/ 	%p.page-action
+	/ 		%a.btn.btn-info.plan-action{ :href => "#{edit_publisher_path(@publisher.id)}"} 编辑
+
+	%section#profile
+		= form_for @publisher, :url => { :action => 'update' } do |f|	
+			%h3 个人信息
+			%p
+				%label 用户名
+				= f.text_field :alternative_name, :placeholder => '留下在页面上显示的名字...'
+			%p
+				%label 头像
+				%img.main.avatar{ :src => @publisher.avatar_url || '/assets/avatar.png', :alt => @publisher.alternative_name }
+			%p
+				= label_tag 'publisher[avatar]', ''
+				= f.file_field :avatar, :class => "file_input", :onchange => 'try {return validate_file(this)} catch(e){}'
+			%p
+				%label 电子邮件
+				= @publisher.email
+			%p
+				= label_tag 'publisher[short_description]', '简短描述(140字)'
+				= f.text_area :short_description, :placeholder => '给你自己写个简单描述...', :rows => 4, :maxlength => 140, :cols => 60
+			%p
+				= f.submit '保存', :class => 'btn btn-primary'

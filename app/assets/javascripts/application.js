@@ -25,7 +25,6 @@
 // = require ckeditor/init
 // = require ckeditor/config
 
-// = require qc.login
 // = require bundle-fancy-box
 // = require bundle-kindeditor
 // = require kindeditor

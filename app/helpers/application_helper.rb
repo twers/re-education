@@ -1,14 +1,10 @@
 module ApplicationHelper
 
 	def current_user
-		User.find session[:user_id] unless session[:user_id].nil?
-	end
-
-	def current_publisher
-		current_user.publisher if current_user.present? and current_user.publisher.present?
+		Publisher.find session[:user_id] unless session[:user_id].nil?
 	end
 	
-	def online
+	def online?
 		current_user.present?
 	end
 

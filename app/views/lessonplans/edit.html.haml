@@ -62,7 +62,7 @@
 			= f.submit '保存', :class => 'btn btn-primary'
 			%a{ :href => "#{lessonplan_path(@lessonplan.id)}" } 放弃修改
 
-	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.user.publisher }
+	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
 
 
 

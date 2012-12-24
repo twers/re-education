@@ -4,7 +4,7 @@
 
 @import "base";
 
-article.main-section{
+.main-section{
 	width: 940px;
 	margin: 0 auto;
 	padding: 40px 0;
@@ -36,20 +36,37 @@ article.main-section{
 	p{
 		line-height: 18px;
 		margin-bottom: 10px;
+
+		input, textarea{
+			margin: 0;
+		}
+	}
+
+	fieldset{
+		margin-bottom: 20px;
+	}
+
+	.page-action{
+		margin: 0 40px;
 	}
 }
 
 #profile{
-	
-	p{
-		padding-left: 100px;
-	}
+
+	$left-space-width: 150px;
 
 	label{
-		width: 100px;
-		float: left;
+		display: inline-block;
+		font-size: 1.1em;
+		width: $left-space-width;
 		color: #999;
-		margin-left: -100px;
+		margin-right: 20px;
+		text-align: right;
+		vertical-align: top;
+	}
+
+	.btn.btn-primary{
+		margin-left: $left-space-width + 20 !important;
 	}
 
 }

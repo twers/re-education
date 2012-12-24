@@ -1,7 +1,7 @@
 class Lessonplan < ActiveRecord::Base
 	has_many :tasks
 	has_many :comments
-	belongs_to :user
+	belongs_to :publisher
 
   mount_uploader :attachment, AttachmentUploader
 

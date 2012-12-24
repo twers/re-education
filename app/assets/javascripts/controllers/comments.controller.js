@@ -33,14 +33,14 @@ function CommentsController($scope, $element, $resource) {
 	};
 
 	$scope.getName = function(user){
-		if(user.publisher){
-			return user.publisher.alternative_name;
-		}else{
-			return user.nick_name;
-		}
+		return user.alternative_name;
 	};
 
 	$scope.getUrl = function(user){
-		return user.publisher ? '/publishers/' + user.publisher.id : ''
+		return '/publishers/' + user.id;
+	};
+
+	$scope.getAvatar = function(user){
+		return user.avatar.url || '/assets/avatar.png';
 	};
 }
