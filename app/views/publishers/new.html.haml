@@ -7,22 +7,29 @@
 				注册
 
 %article.main-section.edit
-	= form_for :publisher, :url => { :action => 'create' } do |f|	
 
+	= form_for @publisher, :url => { :action => 'create' } do |f|	
 		%section
+			/ = f.error_messages :header_message => nil, :message => nil, :header_tag => :h3
+
 			%h3 用户注册
-			
+			%p 
+				所有选项都为
+				%b 必填项
 			%fieldset
 				= label_tag 'publisher[email]', 'Email'
-				= f.email_field :email, :placeholder => '填写你的电子邮件...'
-				= label_tag 'publisher[alternative_name]', '用户名'
-				= f.text_field :alternative_name, :placeholder => '留下在页面上显示的名字...'
+				= f.email_field :email, :placeholder => '填写你的电子邮件...', :required => true
+				= error_message_on @publisher, :email
+				= label_tag 'publisher[alternative_name]', '用户名(不超过50字)'
+				= f.text_field :alternative_name, :placeholder => '留下在页面上显示的名字...', :required => true, :maxlength => 50
+				= error_message_on @publisher, :alternative_name
 			
 			%fieldset
-				%label 密码
-				%input{ :type => 'password', :size => 20, :placeholder => '设置密码...' }
+				%label 密码(不超过50字母)
+				%input{ :type => 'password', :name => "password_copy", :size => 20, :placeholder => '设置密码...', :required => true }
 				= label_tag 'publisher[password]', '确认密码'
-				= f.password_field :password, :size => 20, :placeholder => '再次输入确认密码...'
+				= f.password_field :password, :size => 20, :placeholder => '再次输入确认密码...', :required => true
+				= error_message_on @publisher, :password
 
 			%p
 				= f.submit '保存', :class => 'btn btn-primary'

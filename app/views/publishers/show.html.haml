@@ -17,7 +17,7 @@
 			= @publisher.alternative_name
 		%p
 			%label 头像
-			%img.main.avatar{ :src => @publisher.avatar_url || '/assets/avatar.png', :alt => @publisher.alternative_name }
+			%img.main.avatar{ :src => @publisher.avatar_link, :alt => @publisher.alternative_name }
 		%p
 			%label 电子邮件
 			= @publisher.email

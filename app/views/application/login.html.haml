@@ -14,7 +14,7 @@
 				= label_tag 'publisher[email]', 'Email'
 				= f.email_field :email, :placeholder => '填写你的电子邮件...'
 			%p
-				= label_tag 'publisher[password]', '确认密码'
-				= f.password_field :password, :size => 20, :placeholder => '再次输入确认密码...'
+				= label_tag 'publisher[password]', '密码'
+				= f.password_field :password, :size => 20, :placeholder => '填写密码...'
 			%p
 				= f.submit '登陆', :class => 'btn btn-primary'

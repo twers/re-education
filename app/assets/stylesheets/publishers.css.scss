@@ -14,6 +14,10 @@
 	background: white;
 	@include box-shadow(0 1px 5px #CCCCCC);
 
+	b{
+		font-weight: normal;
+	}
+
 	h3{
 		font-weight: bold;
 		font-size: 18px;
@@ -40,10 +44,28 @@
 		input, textarea{
 			margin: 0;
 		}
+
+		b{
+			font-weight: bold;
+		}
 	}
 
 	fieldset{
 		margin-bottom: 20px;
+	}
+
+	.formError{
+		position: relative;
+		top: -10px;
+		left: 5px;
+		color: #f93e4e;
+		display: inline-block;
+		background: #fcdbdd;
+		padding: 0 10px;
+		font-size: 12px;
+		line-height: 22px;
+		@include border-radius(0 0 4px 4px);
+		@include box-shadow(0 1px 1px #ccc);
 	}
 
 	.page-action{

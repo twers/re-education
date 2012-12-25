@@ -13,9 +13,11 @@
 	%section#profile
 		= form_for @publisher, :url => { :action => 'update' } do |f|	
 			%h3 个人信息
+			
 			%p
-				%label 用户名
+				%label 用户名(不超过50字)
 				= f.text_field :alternative_name, :placeholder => '留下在页面上显示的名字...'
+				= error_message_on @publisher, :alternative_name
 			%p
 				%label 头像
 				%img.main.avatar{ :src => @publisher.avatar_url || '/assets/avatar.png', :alt => @publisher.alternative_name }
@@ -26,7 +28,8 @@
 				%label 电子邮件
 				= @publisher.email
 			%p
-				= label_tag 'publisher[short_description]', '简短描述(140字)'
+				= label_tag 'publisher[short_description]', '简短描述(不超过140字)'
 				= f.text_area :short_description, :placeholder => '给你自己写个简单描述...', :rows => 4, :maxlength => 140, :cols => 60
 			%p
 				= f.submit '保存', :class => 'btn btn-primary'
+				%a{ :href => "#{publisher_path(@publisher)}" } 放弃修改

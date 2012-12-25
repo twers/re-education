@@ -33,7 +33,9 @@ class ApplicationController < ActionController::Base
 		matched_publishers = Publisher.where params[:publisher]
 		unless matched_publishers.empty? then
 			session[:user_id] = matched_publishers.first.id
-			redirect_to :root
+			redirect_to publisher_path(matched_publishers.first)
+		else
+			redirect_to login_path
 		end
 	end
 	
