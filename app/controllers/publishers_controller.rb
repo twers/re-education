@@ -11,33 +11,37 @@ class PublishersController < ApplicationController
 	end
 
 	def new
+		@publisher = Publisher.new
 	end
 
 	def create
-		matched_publishers = Publisher.where(params[:publisher].except(:password))
+		
+		@publisher = Publisher.new params[:publisher]
+		
+		# trigger validation
+		@publisher.valid?
 
-		if matched_publishers.empty? then
-			@publisher = Publisher.new params[:publisher]
-
-			if params[:password_copy].present? and !(params[:password_copy].eql? @publisher.password) then				
-				@publisher.errors.add(:password, "两次密码输入不一致") 
-			end
+		if !(params[:password_copy].eql? @publisher.password) then				
+			@publisher.errors.add :password, "两次密码输入不一致" 
+		end
+		
+		if @publisher.errors.empty? then
 			
 			@publisher.password = Digest::MD5.hexdigest @publisher.password
-			unless @publisher.errors.present? then
-				@publisher.save
-				session[:user_id] = @publisher.id
-				redirect_to publisher_path(@publisher)
-				return
-			end
+			@publisher.save!
+
+			session[:user_id] = @publisher.id
+			redirect_to publisher_path(@publisher)
+		else
+			render "new", :layout => true
 		end
-		render "new", :layout => true
 	end
 
 	def edit
 	end
 
 	def show
+		@publisher = Publisher.find(params[:id])
 	end
 
 	def update
