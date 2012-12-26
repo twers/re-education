@@ -20,9 +20,10 @@
 			= label_tag 'lessonplan[attachment]', '封面图片', :id => "attachment-label"
 			= f.file_field :attachment, :class => "file_input",:onchange => 'try {return validate_file(this)} catch(e){}'
 			= label_tag 'lessonplan[short_description]', '简短描述(140字)'
-			= f.text_area :short_description, :placeholder => '给你的教案写个简单描述...', :rows => 4, :maxlength => 140, :cols => 60
+			= f.text_area :short_description, :placeholder => '说出这个活动的亮点...', :rows => 4, :maxlength => 140, :cols => 60
 
 			= label_tag 'lessonplan[content]', '详细内容'
+			%i.help-info 简要说明课程年级、学科、学生情况、教学思路等...
 			= description_editor f
 
 		%section.plan-step{ 'ng-controller' => 'CachedTasksController', 'ng-init' => "init(#{@lessonplan.id})" }
@@ -43,6 +44,7 @@
 							%label 步骤名称
 							%input.task-item-title{ :value => '{{task.title}}', :type => 'text' }
 							%label 详细内容
+							%i.help-info 每一步如何做，才能完成作品...
 							%textarea.simple-editor.task-item-content{ :rows => 3, :maxlength => 1000, :value => '{{task.content}}', 'ng-init' => 'simpleEditor($index)' }
 							%p
 								%a.save.plan-action{ :href=> "javascript:;", 'ng-click' => 'saveTask($index)' } 保存
@@ -56,6 +58,7 @@
 						%label 步骤名称
 						%input{ :placeholder => '填写一个课程活动步骤...', 'ng-model' => 'currentTaskTitle', :type => 'text' }
 						%label 详细内容
+						%i.help-info 每一步如何做，才能完成作品...
 						%textarea.simple-editor{ :placeholder => '介绍一些这个步骤...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent', 'ng-init' => 'simpleEditor()' }
 						%a.plan-action.create{ :href=> "javascript:;", 'ng-click' => 'addTask()' } 添加
 		%section
