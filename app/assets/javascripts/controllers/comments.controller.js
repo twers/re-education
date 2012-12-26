@@ -32,6 +32,18 @@ function CommentsController($scope, $element, $resource) {
 		return str;
 	};
 
+	$scope.deleteComment = function(index) {
+		if(window.confirm('确定要删除么？')){
+			$scope.CommentResources.delete({ commentId : $scope.comments[index].id }, function(json){
+				if(json.ret){
+					$scope.comments.splice(index, 1);
+				}else{
+					alert("删除失败")
+				}
+			});
+		}
+	};
+
 	$scope.getName = function(user){
 		return user.alternative_name;
 	};

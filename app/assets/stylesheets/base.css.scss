@@ -2,8 +2,26 @@
 @import "compass/css3/images";
 @import "compass/css3/border-radius";
 
-i.help-info{
+small.help-info{
 	font-size: 10px;
 	line-height: 16px;
 	color: #999;
+	font-style: italic;
+}
+
+@mixin btn{
+	padding: 10px 20px;
+	background: #389ABD;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 13px;
+	color: white;
+
+	&:hover{
+		background: #FBB963;
+	};
+}
+
+a.enter{
+	@include btn;	
 }

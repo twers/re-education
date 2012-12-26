@@ -18,6 +18,10 @@ class Ability
       lessonplan.try(:publisher) == user
     end
 
+    can :destroy, Comment do |comment|
+      comment.publisher_id == user.id
+    end
+
     unless user.id.nil? then
       can :create, Lessonplan
     end

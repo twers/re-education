@@ -24,3 +24,9 @@
 		%p
 			= label_tag 'publisher[short_description]', '简短描述(140字)'
 			= @publisher.short_description
+
+	%section
+		%h3 
+			我的课程
+			= "[#{@publisher.lessonplans.length}]"
+		= render :partial => 'shared/lessonplan_teaser_list', :locals => { :lessonplans => @publisher.lessonplans }

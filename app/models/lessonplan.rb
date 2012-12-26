@@ -1,6 +1,6 @@
 class Lessonplan < ActiveRecord::Base
-	has_many :tasks
-	has_many :comments
+	has_many :tasks, :dependent => :delete_all
+	has_many :comments, :dependent => :delete_all
 	belongs_to :publisher
 
   mount_uploader :attachment, AttachmentUploader

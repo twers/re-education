@@ -23,4 +23,15 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	def destroy
+		ret = true;
+		begin
+			Comment.delete(params[:id])	
+		rescue
+			ret = false
+		end
+
+		render :json => { :ret => ret }
+	end
+
 end

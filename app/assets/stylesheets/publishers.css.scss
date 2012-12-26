@@ -83,7 +83,8 @@
 		width: $left-space-width;
 		color: #999;
 		margin-right: 20px;
-		text-align: right;
+		margin-left: 20px;
+		text-align: left;
 		vertical-align: top;
 	}
 
@@ -91,4 +92,34 @@
 		margin-left: $left-space-width + 20 !important;
 	}
 
+}
+
+ul.teaser-list, ul.teaser-list li{
+	list-style: none;
+}
+
+ul.teaser-list{
+
+	border-top: 1px solid #eee;
+
+	h4 a{
+		line-height: 20px
+	}
+
+	li{
+		border-bottom: 1px solid #eee;
+		padding: 10px 100px 10px 20px;
+		position: relative;
+	}
+
+	p{
+		color: #999;
+		padding: 0;
+	}
+
+	.enter{
+		position: absolute;
+		right: 20px;
+		top: 10px;
+	}
 }
