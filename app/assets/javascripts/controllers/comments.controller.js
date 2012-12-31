@@ -1,4 +1,6 @@
 function CommentsController($scope, $element, $resource) {
+	var tokenParams = { authenticity_token : $('meta[name="csrf-token"]').attr('content') };
+
 	$scope.init = function(lessonplanId){
 		$scope.CommentResources = 
 			$resource(
@@ -6,6 +8,15 @@ function CommentsController($scope, $element, $resource) {
 				{ 
 					lessonplanId : lessonplanId, 
 					commentId : '@id' 
+				}, {
+					commit : {
+						method : 'POST',
+						params : tokenParams
+					},
+					remove : {
+						method : 'DELETE',
+						params : tokenParams
+					}
 				});
 
 		$scope.CommentResources.query(function(comments){
@@ -16,7 +27,7 @@ function CommentsController($scope, $element, $resource) {
 	};
 
 	$scope.submitForm = function(){
-		$scope.CommentResources.save({
+		$scope.CommentResources.commit({
 			content : $scope.new_comment_content
 		}, function(comment){
 			$scope.comments.push(comment);
@@ -34,7 +45,7 @@ function CommentsController($scope, $element, $resource) {
 
 	$scope.deleteComment = function(index) {
 		if(window.confirm('确定要删除么？')){
-			$scope.CommentResources.delete({ commentId : $scope.comments[index].id }, function(json){
+			$scope.CommentResources.remove({ commentId : $scope.comments[index].id }, function(json){
 				if(json.ret){
 					$scope.comments.splice(index, 1);
 				}else{

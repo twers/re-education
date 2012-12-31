@@ -14,6 +14,9 @@ class CommentsController < ApplicationController
 
 	def create
 		unless @lessonplan.nil? then
+			p "*" * 10
+			p session[:user_id]
+
 			comment = Comment.new params[:comment]
 			comment.lessonplan = @lessonplan
 			comment.publisher = current_user
