@@ -27,7 +27,7 @@
   <section class="example">
     <h3>我们的课</h3>
     <ul>
-      <% Lessonplan.list_last(8).each_with_index do |lessonplan, idx| %>
+      <% Lessonplan.list_last(25).each_with_index do |lessonplan, idx| %>
         <li>
           <b class="title"><%= lessonplan.title %></b>
           <p class="description"><%= lessonplan.short_description.html_safe %></p>
