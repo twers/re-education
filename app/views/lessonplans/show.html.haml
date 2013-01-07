@@ -28,6 +28,7 @@
 				%h3 活动步骤 [{{tasks.length}}]
 				%ol.steps
 					%li{ 'ng-repeat' => 'task in tasks', :class => "{{getItemCssClass($index)}}" }
+						%label {{$index + 1}}
 						%div
 							%b {{task.title}}
 							%div{ 'ng-bind-html-unsafe' => 'task.content' }

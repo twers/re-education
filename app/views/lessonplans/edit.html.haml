@@ -30,7 +30,7 @@
 			%h3 活动步骤
 			%ol.steps
 				%li{ 'ng-repeat' => 'task in cachedTasks', :class => 'editable-task-item-{{$index}}' }
-					
+					%label {{$index + 1}}
 					.step-content
 
 						%a.edit.plan-action{ :href => 'javascript:;', 'ng-click' => 'editTask($index)', :title => '修改' }  修改
