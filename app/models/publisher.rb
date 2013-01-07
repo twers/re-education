@@ -1,4 +1,5 @@
 ﻿class Publisher < ActiveRecord::Base
+	# apply_simple_captcha
 
 	validates :email, 
 		:uniqueness => {

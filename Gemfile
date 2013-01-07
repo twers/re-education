@@ -13,6 +13,7 @@ gem "carrierwave"
 gem "cancan"
 gem 'rails_kindeditor', '~> 0.3.8'
 gem 'dynamic_form'
+gem "galetahub-simple_captcha", :require => "simple_captcha"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

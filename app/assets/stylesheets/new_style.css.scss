@@ -36,7 +36,15 @@ a:hover {
 }
 
 a.btn-primary, input[type="button"].btn-primary, input[type="submit"].btn-primary, button.btn-primary {background: #389ABD; padding: 10px 20px !important; margin: 0 20px 0 0 !important; border: none; text-shadow: none; font-weight: bold;}
-a.btn-primary:hover {background: #FBB963; text-shadow: none; font-weight: bold;}
+a.btn-primary:hover, 
+input[type="button"].btn-primary:hover, 
+input[type="submit"].btn-primary:hover, 
+button.btn-primary:hover, 
+a.btn-primary:active, 
+input[type="button"].btn-primary:active, 
+input[type="submit"].btn-primary:active, 
+button.btn-primary:active{background: #FBB963; text-shadow: none; font-weight: bold;}
+
 
 .icon { font-family: 'entypo'; font-style: normal; background: none;}
 a:hover .icon-s {color: #999;}
@@ -211,20 +219,21 @@ article.main section.example ul li {
 	position: relative;
 	padding: 20px 0 20px 80px;
 	border-top: 1px solid #EEE;
+	min-height: 60px;
 }
 article.main section.example ul li:before {
 	content: "";
-    position: absolute;
-    left: 0;
+  position: absolute;
+  left: 0;
 	background: #FE7B9D;
-    color: #FFF;
-    width: 60px;
-    height: 60px;
+  color: #FFF;
+  width: 60px;
+  height: 60px;
 	border-radius: 5px 5px 5px 5px;
-    font-size: 80px;
-    font-family: 'entypo';
-    text-align: center;
-    line-height: 60px;
+  font-size: 80px;
+  font-family: 'entypo';
+  text-align: center;
+  line-height: 60px;
 }
 article.main section.example ul li+li:before {
 	content: "";
@@ -259,7 +268,7 @@ article.main section.example ul li+li+li+li+li+li+li+li+li:before {
 	background: #E49996;
 }
 article.main section.example ul li+li+li+li+li+li+li+li+li+li:before {
-	content: "";
+	content: "📖";
 	background: #E49996;
 }
 article.main section.example ul li b.title {
@@ -273,7 +282,7 @@ article.main section.example ul li p.description {
 }
 article.main section.example ul li a {
 	position: absolute;
-	top: 30px; right: 15px;
+	top: 20px; right: 15px;
 	display: block;
     padding: 10px 20px; margin: 0 20px 0 0;
     background: #389ABD;
@@ -373,29 +382,11 @@ article.plan {
 	background: #FFF;
 	box-shadow: 0 1px 5px #CCCCCC;
 }
-article.plan ul.plan-menu {
-	margin: 0;
-	list-style: none;
-	position: absolute;
-	right: 40px; top: 10px;
-}
-
-article.plan ul.plan-menu li.current {
-	background: #389ABD;
-	color: #FFF
-}
-
-article.plan ul.plan-menu li {
-	list-style: none;
-	display: inline;
-	padding: 10px 20px;
-	margin: 0 0 0 10px;
-}
 article.plan h2 {
-	float: left;
-	padding: 50px 10px 30px 40px;
+	padding: 50px 10px 30px 50px;
 	font-weight: bold;
 	font-size: 30px;
+	text-align: center;
 }
 article.plan small.level,
 article.plan small.time {
@@ -424,8 +415,10 @@ article.plan small.time:before {
 }
 article.plan section.activity {
 	clear: both;
-	margin: 0 350px 0 40px;
 	line-height: 18px;
+	padding-top: 35px;
+	padding-bottom: 50px;
+	margin: 0 350px 0 40px;
 	/*border-top: 1px solid #EEE;*/
 }
 article.plan section.activity img.main {
@@ -585,7 +578,7 @@ article.plan ol.steps li ul.images li img {
 }
 article.plan aside.author {
 	position: absolute;
-	top: 110px; right: 0;
+	top: 230px; right: 0;
 	width: 335px; height: 91%;
 	border-left: 1px solid #EEE;
 }
@@ -724,6 +717,59 @@ article.plan section.comments .comment-avatar img{width: 30px;height:30px;margin
 article.plan section.comments .nick-name{ color: #389ABD; font-weight: bold;}
 article.plan section.comments .comment-time{ color: grey; font-size: 10px; font-style: italic; }
 article.plan section.comments textarea{ width: 500px;}
+
+article.plan ul.plan-menu {
+	clear: both;
+	width: 860px;
+	margin: 0 0 0 30px;
+	border-bottom: 1px solid #CCC;
+	list-style: none;
+	line-height: 30px;
+	font-size: 13px;
+}
+
+article.plan ul.plan-menu li {
+	display: inline-block;
+	min-width: 100px;
+	list-style: none;
+	padding: 7px 0;
+	margin: 0 10px 0 0;
+	text-align: center;
+}
+
+article.plan ul.plan-menu li a {
+	display: block;
+	color: #333;
+}
+
+article.plan ul.plan-menu li.current {
+	border-bottom: 5px solid #4C9ED0;
+	font-weight: bold;
+}
+
+article.plan ul.plan-menu li.current label {
+	background: #666;
+
+}
+article.plan ul.plan-menu li label {
+	display: inline-block;
+	background: #BBB;
+	padding: 3px;
+	color: white;
+	margin: 0 0 0 5px;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+article.plan ul.plan-menu li a:hover label {
+	background: #4C9ED0;
+	cursor: pointer;
+}
+
+article.plan ul.plan-menu li a:hover label {
+	background: #4C9ED0;
+	cursor: pointer;
+}
 
 .login-container {display:inline-block; float: right; color: white;}
 .login-container span{margin-left:5px;}

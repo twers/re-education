@@ -23,12 +23,14 @@
 				= f.text_field :alternative_name, :placeholder => '留下在页面上显示的名字...', :required => true, :maxlength => 50
 				= error_message_on @publisher, :alternative_name
 			
-			%fieldset
 				%label 密码(不超过50字母)
 				%input{ :type => 'password', :name => "password_copy", :size => 20, :placeholder => '设置密码...', :required => true }
 				= label_tag 'publisher[password]', '确认密码'
 				= f.password_field :password, :size => 20, :placeholder => '再次输入确认密码...', :required => true
 				= error_message_on @publisher, :password
-
+			
+				%label 验证码
+				= show_simple_captcha :label => ""
+				= error_message_on @publisher, :validation_code
 			%p
 				= f.submit '保存', :class => 'btn btn-primary'

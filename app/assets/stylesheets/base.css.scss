@@ -2,6 +2,10 @@
 @import "compass/css3/images";
 @import "compass/css3/border-radius";
 
+::-webkit-input-placeholder { color:#ccc; }
+::-moz-placeholder { color:#ccc; } /* firefox 19+ */
+input:-moz-placeholder { color:#ccc; }
+
 small.help-info{
 	font-size: 10px;
 	line-height: 16px;
@@ -24,4 +28,29 @@ small.help-info{
 
 a.enter{
 	@include btn;	
+}
+
+body .simple_captcha{
+	border: none;
+	display: block;
+	padding: 0 !important;
+	width: 160px;
+
+	.simple_captcha_image{
+		float: right;
+
+		img{
+			width: 85px !important;
+		}
+	}
+
+	.simple_captcha_field{
+		border: none;
+
+		input {
+			background: #fff;
+			border: 1px solid #ccc;
+			width: 60px !important;
+		}
+	}
 }

@@ -3,13 +3,12 @@
 		%li
 			%a{ :href => "/" } 首页
 		%li
-			登陆
+			登录
 
 %article.main-section
-
 	%section
 		= form_for :publisher, :as => :post, :url => authorize_path do |f|
-			%h3 登陆
+			%h3 登录
 			%p
 				= label_tag 'publisher[email]', 'Email'
 				= f.email_field :email, :placeholder => '填写你的电子邮件...'
@@ -17,4 +16,7 @@
 				= label_tag 'publisher[password]', '密码'
 				= f.password_field :password, :size => 20, :placeholder => '填写密码...'
 			%p
-				= f.submit '登陆', :class => 'btn btn-primary'
+				%label 验证码
+				= show_simple_captcha :label => ""
+			%p
+				= f.submit '登录', :class => 'btn btn-primary'

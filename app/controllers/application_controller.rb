@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+	include SimpleCaptcha::ControllerHelpers
+
   protect_from_forgery
 
 	rescue_from ActionController::RoutingError,       :with => :render_404
@@ -29,13 +31,18 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authorize
-		params[:publisher][:password] = Digest::MD5.hexdigest params[:publisher][:password]
-		matched_publishers = Publisher.where params[:publisher]
-		unless matched_publishers.empty? then
-			session[:user_id] = matched_publishers.first.id
-			redirect_to publisher_path(matched_publishers.first)
+		
+		if simple_captcha_valid?
+			params[:publisher][:password] = Digest::MD5.hexdigest params[:publisher][:password]
+			matched_publishers = Publisher.where params[:publisher]
+			unless matched_publishers.empty? then
+				session[:user_id] = matched_publishers.first.id
+				redirect_to publisher_path(matched_publishers.first)
+			else
+				redirect_to login_path
+			end
 		else
-			redirect_to login_path
+			render 'login', :layout => true	
 		end
 	end
 	

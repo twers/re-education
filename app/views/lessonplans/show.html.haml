@@ -17,6 +17,22 @@
 
 	%h2= @lessonplan.title
 
+	%ul.plan-menu
+		%li.current
+			%a{ :href => "#" } 内容
+		%li
+			%a{ :href => "#" } 
+				幻灯片
+				%label 12
+		%li
+			%a{ :href => "#" } 
+				讨论
+				%label 98
+		%li
+			%a{ :href => "#" } 
+				作业
+				%label 9
+
 	%section.activity
 		%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
 		%p.description= @lessonplan.short_description.html_safe
