@@ -416,15 +416,15 @@ article.plan small.time:before {
 article.plan section.activity {
 	clear: both;
 	line-height: 18px;
-	padding-top: 35px;
-	padding-bottom: 50px;
+	padding: 35px 10px 50px 0;
 	margin: 0 350px 0 40px;
-	/*border-top: 1px solid #EEE;*/
+	float:left;
+	border-right: 1px solid #EEE;
 }
 article.plan section.activity img.main {
 	float: left;
 	display: block;
-	width: 180px; height: 120px;
+	width: 180px;
 	padding: 5px;
 	border:  1px solid #CCC;
 }
@@ -577,10 +577,9 @@ article.plan ol.steps li ul.images li img {
 	border-radius: 2px;
 }
 article.plan aside.author {
-	position: absolute;
-	top: 230px; right: 0;
+	float:left;
+	margin-left: -350px;
 	width: 335px; height: 91%;
-	border-left: 1px solid #EEE;
 }
 article.plan aside.author b.title {
 	display: block;
@@ -642,6 +641,7 @@ article.plan.edit section{
 }
 
 article.plan.edit form{
+	float: left;
 	padding: 0 0 0 40px;
 }
 
@@ -650,6 +650,7 @@ article.plan.edit section:nth-of-type(1){
 }
 
 article.plan.edit aside.author{
+	position: relative;
 	top: 120px;
 }
 

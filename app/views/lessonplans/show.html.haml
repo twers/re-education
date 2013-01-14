@@ -49,6 +49,8 @@
 							%b {{task.title}}
 							%div{ 'ng-bind-html-unsafe' => 'task.content' }
 
+	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
+
 	%section.comments{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
 		%h3 评论[{{comments.length}}]
 		%ul
@@ -70,5 +72,5 @@
 						= f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 5, 'ng-model' => 'new_comment_content'
 						= f.submit '提交评论', :class => 'btn btn-primary'
 
-	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
+	
 						

@@ -36,7 +36,7 @@
 						%a.edit.plan-action{ :href => 'javascript:;', 'ng-click' => 'editTask($index)', :title => '修改' }  修改
 						%a.delete.plan-action{ :href => 'javascript:;', 'ng-click' => 'deleteTask($index)', :title => '删除' } 删除
 
-						%div{ :class => 'static-task-content-{{$index}}' }
+						%div{ :class => 'static-task-content-{{$index}} ' }
 							%b.task-content-title {{task.title}}
 							.task-content-text{ 'ng-bind-html-unsafe' => 'task.content' } 
 

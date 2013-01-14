@@ -62,10 +62,12 @@ function CachedTasksController($scope, Task, $element){
 
 		if(!editors[index]){
 			var editorElem = getEditableItem(index).find('.simple-editor');
+			
 			editors[index] = { 
 				srcElement : editorElem,
 				editor : KindEditor.create(editorElem[0], options)
 			};
+			console.log(editorElem[0]);
 		}
   };
 
