@@ -231,42 +231,16 @@ article.main section.example ul li:before {
   line-height: 25px;/* TODO : fix line-height issue*/
   text-align: center;
 }
-article.main section.example ul li+li:before {
-	content: "";
-	background: #37B4AE;
-}
-article.main section.example ul li+li+li:before {
-	content: "📣";
-	background: #389ABD;
-}
-article.main section.example ul li+li+li+li:before {
-	content: "♥";
-	background: #FBB963;
-}
-article.main section.example ul li+li+li+li+li:before {
-	content: "🔆";
-	background: #D52A24;
-}
-article.main section.example ul li+li+li+li+li+li:before {
-	content: "⚒";
-	background: #E0DFC2;
-}
-article.main section.example ul li+li+li+li+li+li+li:before {
-	content: "🔔";
-	background: #F7E9A7;
-}
-article.main section.example ul li+li+li+li+li+li+li+li:before {
-	content: "⏳";
-	background: #A7D4C0;
-}
-article.main section.example ul li+li+li+li+li+li+li+li+li:before {
-	content: "";
-	background: #E49996;
-}
-article.main section.example ul li+li+li+li+li+li+li+li+li+li:before {
-	content: "📖";
-	background: #E49996;
-}
+
+<%
+lessonplan_icons = %w[  📣 ♥ 🔆 ⚒ 🔔 ⏳ ];
+lessonplan_icon_bg = %w[#FE7B9D #37B4AE #389ABD #FBB963 #D52A24 #E0DFC2 #F7E9A7 #A7D4C0 #E49996]
+lessonplan_icons.each_with_index do |icon, index|
+	li_str = Array.new(index){ "+li" };
+	%>article.main section.example ul li<%=li_str.join('')%>:before{ content: "<%= icon%>"; background: <%=lessonplan_icon_bg[index] %> }<%
+end
+%>
+
 article.main section.example ul li b.title {
 	font-size: 18px;
 }
