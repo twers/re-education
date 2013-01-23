@@ -2,61 +2,61 @@
 
 class PublishersController < ApplicationController
 
-	before_filter :find_publisher, :only => [:show, :update]
+  before_filter :find_publisher, :only => [:show, :update]
 
-	load_and_authorize_resource
+  load_and_authorize_resource
 
-	def find_publisher
-		@publisher = Publisher.find(params[:id])
-	end
+  def find_publisher
+    @publisher = Publisher.find(params[:id])
+  end
 
-	def new
-		@publisher = Publisher.new
-	end
+  def new
+    @publisher = Publisher.new
+  end
 
-	def create
-		@publisher = Publisher.new params[:publisher]
-		
-		# trigger validation
-		@publisher.valid?
+  def create
+    @publisher = Publisher.new params[:publisher]
 
-		if simple_captcha_valid? then
-			p '*' * 10
-			@publisher.errors.add :validation_code, "验证码有误" 
-		end
+    # trigger validation
+    @publisher.valid?
 
-		if !(params[:password_copy].eql? @publisher.password) then				
-			@publisher.errors.add :password, "两次密码输入不一致" 
-		end
-		
-		if @publisher.errors.empty? then
-			
-			@publisher.password = Digest::MD5.hexdigest @publisher.password
-			@publisher.save!
+    if simple_captcha_valid? then
+      p '*' * 10
+      @publisher.errors.add :validation_code, "验证码有误"
+    end
 
-			session[:user_id] = @publisher.id
-			redirect_to publisher_path(@publisher)
-		else
-			p '*' * 10
-			p @publisher.errors
-			render "new", :layout => true
-		end
-	end
+    if !(params[:password_copy].eql? @publisher.password) then
+      @publisher.errors.add :password, "两次密码输入不一致"
+    end
 
-	def edit
-	end
+    if @publisher.errors.empty? then
 
-	def show
-		@publisher = Publisher.find(params[:id])
-	end
+      @publisher.password = Digest::MD5.hexdigest @publisher.password
+      @publisher.save!
 
-	def update
-		@publisher.alternative_name = params[:publisher][:alternative_name]
+      session[:user_id] = @publisher.id
+      redirect_to publisher_path(@publisher)
+    else
+      p '*' * 10
+      p @publisher.errors
+      render "new", :layout => true
+    end
+  end
 
-		if @publisher.valid? and @publisher.update_attributes(params[:publisher]) then
-			redirect_to publisher_path(@publisher)
-		else
-			render "edit", :layout => true
-		end
-	end
+  def edit
+  end
+
+  def show
+    @publisher = Publisher.find(params[:id])
+  end
+
+  def update
+    @publisher.alternative_name = params[:publisher][:alternative_name]
+
+    if @publisher.valid? and @publisher.update_attributes(params[:publisher]) then
+      redirect_to publisher_path(@publisher)
+    else
+      render "edit", :layout => true
+    end
+  end
 end

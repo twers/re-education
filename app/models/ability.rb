@@ -14,7 +14,7 @@ class Ability
       lessonplan.try(:publisher) == user
     end
 
-    can :destroy, Lessonplan do |lessonplan| 
+    can :destroy, Lessonplan do |lessonplan|
       lessonplan.try(:publisher) == user
     end
 

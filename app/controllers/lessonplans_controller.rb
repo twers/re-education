@@ -1,51 +1,51 @@
 class LessonplansController < ApplicationController
-	load_and_authorize_resource
-	
-	def index
-		@lessonplans = Lessonplan.list_last 4
-	end
+  load_and_authorize_resource
 
-	def new
+  def index
+    @lessonplans = Lessonplan.list_last 4
+  end
 
-	end
+  def new
 
-	def show
-		@lessonplan = Lessonplan.find(params[:id])
-	end
+  end
 
-	def create
-		@lessonplan = Lessonplan.new params[:lessonplan]
-		@lessonplan.publisher = current_user
-		@lessonplan.save
+  def show
+    @lessonplan = Lessonplan.find(params[:id])
+  end
 
-		unless params[:tasks].nil? then
-			params[:tasks].each do |task|
-			  @lessonplan.tasks.create! task
-			end
-		end
-		
-		redirect_to lessonplan_path(@lessonplan)
-	end
+  def create
+    @lessonplan = Lessonplan.new params[:lessonplan]
+    @lessonplan.publisher = current_user
+    @lessonplan.save
 
-	def edit
-		@lessonplan = Lessonplan.find(params[:id])
-	end
+    unless params[:tasks].nil? then
+      params[:tasks].each do |task|
+        @lessonplan.tasks.create! task
+      end
+    end
 
-	def update
-		@lessonplan = Lessonplan.find(params[:id])
-		@lessonplan.update_attributes(params[:lessonplan])
+    redirect_to lessonplan_path(@lessonplan)
+  end
 
-		@lessonplan.tasks.delete_all
+  def edit
+    @lessonplan = Lessonplan.find(params[:id])
+  end
 
-		unless params[:tasks].nil? then
-			params[:tasks].each do |task|
-				t = Task.create! task
-				t.lessonplan = @lessonplan
-				t.save
-			end
-		end
+  def update
+    @lessonplan = Lessonplan.find(params[:id])
+    @lessonplan.update_attributes(params[:lessonplan])
 
-		redirect_to lessonplan_path(@lessonplan)
+    @lessonplan.tasks.delete_all
+
+    unless params[:tasks].nil? then
+      params[:tasks].each do |task|
+        t = Task.create! task
+        t.lessonplan = @lessonplan
+        t.save
+      end
+    end
+
+    redirect_to lessonplan_path(@lessonplan)
   end
 
   def destroy
