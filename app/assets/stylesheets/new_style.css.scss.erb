@@ -693,7 +693,7 @@ article.plan ul.plan-menu {
 	clear: both;
 	width: 860px;
 	margin: 0 0 0 30px;
-	border-bottom: 1px solid #CCC;
+	border-bottom: 5px solid #eee;
 	list-style: none;
 	line-height: 30px;
 	font-size: 13px;
@@ -704,8 +704,12 @@ article.plan ul.plan-menu li {
 	min-width: 100px;
 	list-style: none;
 	padding: 7px 0;
-	margin: 0 10px 0 0;
+	margin-bottom: -5px;
 	text-align: center;
+
+	&:hover{
+		border-bottom: 5px solid lighten(#4C9ED0, 30%);	
+	}
 }
 
 article.plan ul.plan-menu li a {
@@ -725,7 +729,7 @@ article.plan ul.plan-menu li.current label {
 article.plan ul.plan-menu li label {
 	display: inline-block;
 	background: #BBB;
-	padding: 3px;
+	padding: 1px 3px;
 	color: white;
 	margin: 0 0 0 5px;
 	border-radius: 4px;

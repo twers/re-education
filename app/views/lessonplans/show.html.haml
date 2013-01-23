@@ -19,19 +19,15 @@
 
 	%ul.plan-menu
 		%li.current
-			%a{ :href => "#" } 内容
+			%a{ :href => "javascript:;" } 内容
+		- if @lessonplan.title == "造纸桥"
+			%li
+				%a{ :href => "/ppt.html" } 
+					幻灯片
 		%li
-			%a{ :href => "#" } 
-				幻灯片
-				%label 12
-		%li
-			%a{ :href => "#" } 
+			%a{ :href => "#comments" }
 				讨论
-				%label 98
-		%li
-			%a{ :href => "#" } 
-				作业
-				%label 9
+				%label= @lessonplan.comments.length
 
 	%section.activity
 		%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
@@ -51,7 +47,7 @@
 
 	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
 
-	%section.comments{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
+	%section#comments.comments{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
 		%h3 评论[{{comments.length}}]
 		%ul
 			%li.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
