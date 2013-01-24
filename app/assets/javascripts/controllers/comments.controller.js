@@ -29,8 +29,12 @@ function CommentsController($scope, $element, $resource) {
 	$scope.submitForm = function(){
 		$scope.CommentResources.commit({
 			content : $scope.new_comment_content
-		}, function(comment){
-			$scope.comments.push(comment);
+		}, function(data){
+			if(data.status === 'duplicate') {
+				alert("请不要输入重复的评论。");
+				return;
+			}
+			$scope.comments.push(data);
 			$scope.new_comment_content = '';
 		});
 	};
