@@ -1,5 +1,5 @@
 %ul.teaser-list
-	- lessonplans.each do |lessonplan|
+	- lessonplans.reverse.each do |lessonplan|
 		%li 
 			%h4 
 				%a{ :href => "#{lessonplan_path(lessonplan)}"}= lessonplan.title

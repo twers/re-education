@@ -18,6 +18,7 @@
 		%section
 			%h3 教程介绍
 			= label_tag 'lessonplan[attachment]', '封面图片', :id => "attachment-label"
+			%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
 			= f.file_field :attachment, :class => "file_input",:onchange => 'try {return validate_file(this)} catch(e){}'
 			= label_tag 'lessonplan[short_description]', '简短描述(140字)'
 			= f.text_area :short_description, :placeholder => '说出这个活动的亮点...', :rows => 4, :maxlength => 140, :cols => 60
