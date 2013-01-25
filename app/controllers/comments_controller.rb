@@ -18,11 +18,16 @@ class CommentsController < ApplicationController
       p session[:user_id]
 
       comment = Comment.new params[:comment]
-      comment.lessonplan = @lessonplan
-      comment.publisher = current_user
-      comment.save
+      if Comment.exists? :content => comment.content, :user_id => session[:user_id]
+        p "same comment"
+        render :json => "{\"status\": \"duplicate\"}"
+      else
+        comment.lessonplan = @lessonplan
+        comment.publisher = current_user
+        comment.save
 
-      render :json => comment.to_json(:include => :publisher)
+        render :json => comment.to_json(:include => :publisher)
+      end
     end
   end
 
