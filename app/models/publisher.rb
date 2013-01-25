@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # == Schema Information
 #
 # Table name: publishers
@@ -13,7 +14,7 @@
 #  password          :string(255)
 #
 
-﻿class Publisher < ActiveRecord::Base
+class Publisher < ActiveRecord::Base
   # apply_simple_captcha
 
   validates :email,

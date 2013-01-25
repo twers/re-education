@@ -31,14 +31,15 @@ group :test do
   gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
   gem 'gizmo'
-  gem 'factory_girl_rails', '~> 3.0'
+  gem "rspec-rails", '~> 2.11.0'
+  gem "factory_girl_rails", '~> 4.1.0'
+  gem 'simplecov', :require => false
   gem 'capybara-webkit'
   gem 'headless'
 end
 
 group :test, :development do
   gem 'term-ansicolor'
-  gem 'rspec-rails', '~> 2.6'
   gem 'jasmine'
   gem 'tddium'
   gem 'ruby-prof'
