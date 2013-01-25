@@ -79,11 +79,10 @@ ActiveRecord::Schema.define(:version => 20121231125320) do
   end
 
   create_table "users", :force => true do |t|
-    t.string  "access_token"
-    t.string  "unique_id"
-    t.string  "nick_name"
-    t.string  "avatar_url"
-    t.integer "social_id"
+    t.string "access_token"
+    t.string "unique_id"
+    t.string "nick_name"
+    t.string "avatar_url"
   end
 
 end

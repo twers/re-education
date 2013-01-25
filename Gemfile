@@ -42,6 +42,7 @@ group :test, :development do
   gem 'jasmine'
   gem 'tddium'
   gem 'ruby-prof'
+  gem "annotate", '~> 2.5.0'
 end
 
 group :production do
