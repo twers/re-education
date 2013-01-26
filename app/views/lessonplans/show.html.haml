@@ -17,17 +17,7 @@
 
 	%h2= @lessonplan.title
 
-	%ul.plan-menu
-		%li.current
-			%a{ :href => "javascript:;" } 内容
-		- if @lessonplan.title == "造纸桥"
-			%li
-				%a{ :href => "/ppt.html" } 
-					幻灯片
-		%li
-			%a{ :href => "#comments" }
-				讨论
-				%label= @lessonplan.comments.length
+	= render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan }
 
 	%section.activity
 		%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
