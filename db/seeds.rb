@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Publisher.create(
+    [
+        {
+            email: 'openclass@gmail.com',
+            alternative_name: 'openclass',
+            password:'c8837b23ff8aaa8a2dde915473ce0991'
+        }
+    ]
+)
+
