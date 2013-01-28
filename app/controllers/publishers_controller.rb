@@ -20,7 +20,7 @@ class PublishersController < ApplicationController
     # trigger validation
     @publisher.valid?
 
-    if simple_captcha_valid? then
+    unless simple_captcha_valid? then
       p '*' * 10
       @publisher.errors.add :validation_code, "验证码有误"
     end
