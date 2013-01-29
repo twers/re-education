@@ -21,7 +21,6 @@ class PublishersController < ApplicationController
     @publisher.valid?
 
     unless simple_captcha_valid? then
-      p '*' * 10
       @publisher.errors.add :validation_code, "验证码有误"
     end
 
@@ -37,7 +36,6 @@ class PublishersController < ApplicationController
       session[:user_id] = @publisher.id
       redirect_to publisher_path(@publisher)
     else
-      p '*' * 10
       p @publisher.errors
       render "new", :layout => true
     end

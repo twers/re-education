@@ -18,13 +18,11 @@ class CommentsController < ApplicationController
       p session[:user_id]
 
       if is_empty?(params[:comment])
-        p "same comment"
         render :json => "{\"status\": \"empty\"}"
         return
       end
       comment = Comment.new params[:comment]
       if Comment.exists? :content => comment.content, :user_id => session[:user_id]
-        p "same comment"
         render :json => "{\"status\": \"duplicate\"}"
       else
         comment.lessonplan = @lessonplan
