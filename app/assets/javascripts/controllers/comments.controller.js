@@ -27,11 +27,19 @@ function CommentsController($scope, $element, $resource) {
 	};
 
 	$scope.submitForm = function(){
+        if($scope.new_comment_content === undefined || $scope.new_comment_content.length == 0){
+            alert("请不要提交空的评论。");
+            return;
+        }
 		$scope.CommentResources.commit({
 			content : $scope.new_comment_content
 		}, function(data){
 			if(data.status === 'duplicate') {
 				alert("请不要输入重复的评论。");
+				return;
+			}
+            if(data.status === 'empty') {
+                alert("请不要提交空的评论。");
 				return;
 			}
 			$scope.comments.push(data);

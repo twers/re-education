@@ -17,6 +17,11 @@ class CommentsController < ApplicationController
       p "*" * 10
       p session[:user_id]
 
+      if is_empty?(params[:comment])
+        p "same comment"
+        render :json => "{\"status\": \"empty\"}"
+        return
+      end
       comment = Comment.new params[:comment]
       if Comment.exists? :content => comment.content, :user_id => session[:user_id]
         p "same comment"
@@ -42,4 +47,9 @@ class CommentsController < ApplicationController
     render :json => { :ret => ret }
   end
 
+  private
+
+  def is_empty?(comment)
+    comment.nil? || params[:comment].size == 0
+  end
 end
