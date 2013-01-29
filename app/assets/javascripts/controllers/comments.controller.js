@@ -27,7 +27,7 @@ function CommentsController($scope, $element, $resource) {
 	};
 
 	$scope.submitForm = function(){
-        if($scope.new_comment_content === undefined || $scope.new_comment_content.length == 0){
+        if(is_empty_comment()){
             alert("请不要提交空的评论。");
             return;
         }
@@ -78,4 +78,11 @@ function CommentsController($scope, $element, $resource) {
 	$scope.getAvatar = function(user){
 		return user.avatar.url || '/assets/avatar.png';
 	};
+
+    function is_empty_comment(){
+        if($scope.new_comment_content === undefined || $.trim($scope.new_comment_content).length == 0){
+            return true;
+        }
+        return false;
+    }
 }
