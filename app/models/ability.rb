@@ -7,15 +7,15 @@ class Ability
     can :read, :all
     can :create, Publisher if user.id.nil?
     can :update, Publisher do |publisher|
-      publisher == user
+      user.super_manager? || publisher == user
     end
 
     can :update, Lessonplan do |lessonplan|
-      lessonplan.try(:publisher) == user
+      user.super_manager? || lessonplan.try(:publisher) == user
     end
 
     can :destroy, Lessonplan do |lessonplan|
-      lessonplan.try(:publisher) == user
+      user.super_manager? || lessonplan.try(:publisher) == user
     end
 
     can :destroy, Comment do |comment|

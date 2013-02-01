@@ -56,4 +56,8 @@ class Publisher < ActiveRecord::Base
   def name
     return self.alternative_name unless self.alternative_name.empty?
   end
+
+  def super_manager?
+    self.alternative_name.eql? 'openclass'
+  end
 end

@@ -8,6 +8,10 @@ module ApplicationHelper
     current_user.present?
   end
 
+  def super_manager?
+    current_user.super_manager?
+  end
+
   def feature_on?
     true
   end
