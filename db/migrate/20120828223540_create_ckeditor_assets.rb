@@ -1,6 +1,6 @@
 class CreateCkeditorAssets < ActiveRecord::Migration
   def self.up
-    create_table :ckeditor_assets do |t|
+    create_table :ckeditor_assets, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.string  :data_file_name, :null => false
       t.string  :data_content_type
       t.integer :data_file_size
