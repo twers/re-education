@@ -42,6 +42,7 @@ end
 
 group :development do
   gem 'rails_best_practices'
+  gem 'debugger'
 end
 
 group :test, :development do

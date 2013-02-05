@@ -13,7 +13,7 @@ FactoryGirl.define do
     email
     sequence(:alternative_name) { |n| "alternative_name#{n}" }
     sequence(:short_description) { |n| "short_description#{n}" }
-    password { Digest::MD5.hexdigest "123123" }
+    password { "123123" }
   end
 
 end

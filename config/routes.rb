@@ -1,4 +1,4 @@
-ReEducation::Application.routes.draw do   
+ReEducation::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
@@ -6,9 +6,11 @@ ReEducation::Application.routes.draw do
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   match 'contact/thanks' => 'contact#thanks', :as => 'contact', :via => :post
 
-  match 'login' => 'application#login', :as => 'login', :via => :get
-  match 'logout' => 'application#logout', :as => 'logout', :via => :get
-  match 'authorize' => 'application#authorize', :as => 'authorize', :via => :post
+  match 'login' => 'sessions#new', :as => 'login', :via => :get
+  match 'logout' => 'sessions#destroy', :as => 'logout', :via => :get
+
+  resources :sessions, only: [:new, :create]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   match 'jsonp' => 'application#jsonp', :as => 'jsonp', :via => :get
