@@ -15,15 +15,31 @@
 
 	-if can? :update, @lessonplan or can? :destroy, @lessonplan
 		%section.info
+			%a.btn.btn-primary.inline-dialog-trigger{ :href => "#uploader_scratch_dialog_#{@lessonplan.id}" } 上传Scratch
 			%a.btn.btn-primary.inline-dialog-trigger{ :href => "#uploader_dialog_#{@lessonplan.id}" } 上传作业
 			%b 如果你有跟此课程相关的幻灯片，帮助我们上传吧。
 
 	-if can? :update, @lessonplan or can? :destroy, @lessonplan
 		%section.dialog{ :id => "uploader_dialog_#{@lessonplan.id}" }
-			.uploader{ :id => "lessonplan_uploader_#{@lessonplan.id}", 'file-uploader' => 'true', 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan), 'file-base-url' => '' }
+			.uploader{ :id => "lessonplan_uploader_#{@lessonplan.id}", 'file-uploader' => 'true', 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan)}
 
-	%section
-		%ul.attachment-list.image-gallery{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id})" }
+		%section.dialog{ :id => "uploader_scratch_dialog_#{@lessonplan.id}" }
+			.uploader{ :id => "lessonplan_scratch_uploader_#{@lessonplan.id}", 'file-uploader' => 'true', 'extensions' => 'sb', 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan) }
+
+	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'images')" }
+		%h3{ 'ng-show' => 'attachments.length' } 图片作业
+		%ul.attachment-list.image-gallery
 			%li{ 'ng-repeat' => 'attachment in attachments' }
 				%a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}"  }
 					%img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }
+
+
+	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratches')" }
+		%h3{ 'ng-show' => 'attachments.length' } Scratch作业
+		%ul.scratch-attachment-list.scratch-gallery
+			%li{ 'ng-repeat' => 'attachment in attachments' }
+				%a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}' } {{ attachment.name }}
+				%section.scratch-dialog-box.dialog{ :id => 'scratch-box-{{attachment.id}}' }
+					= render :partial => "shared/embed_scratch", :locals => { :source_url => "{{attachment.attachment.url}}" }
+
+

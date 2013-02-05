@@ -579,7 +579,7 @@ article.plan hr {
 .card-list li {
 	float: left;
 	list-style: none;
-	height: 200px; width: 195px;
+	width: 195px;
 	margin: 10px 10px 10px 0;
 	border-bottom: 1px solid #EEE;
 	background: #F5F5F5;
@@ -606,7 +606,6 @@ article.plan hr {
 
 .card-list li img {
 	width: 100%;
-	height: 120px;
 }
 
 a.btn {

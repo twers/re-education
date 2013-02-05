@@ -8,7 +8,17 @@ class LessonplanAttachmentsController < ApplicationController
   end
 
   def index
-    render :json => @lessonplan.lessonplan_attachments.order('created_at DESC') if request.accept.include? "application/json"
+    if request.headers['X-Requested-With'] == "XMLHttpRequest" then
+      file_type = params[:file_type]
+      file_type = :image.to_s if file_type.nil?
+
+      if file_type == :image.to_s
+        sources = @lessonplan.images
+      elsif file_type == :scratch.to_s
+        sources = @lessonplan.scratches
+      end
+      render :json => sources
+    end
   end
 
   def create

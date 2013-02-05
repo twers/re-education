@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class AttachmentUploader < CarrierWave::Uploader::Base
+class LessonplanAttachmentsUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
@@ -36,18 +36,18 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  #version :thumb do
-  #  process :resize_to_limit => [200, 0]
-  #end
-  #
-  #version :mini do
-  #  process :resize_to_fill => [100, 100]
-  #end
+  version :thumb, :if => :is_image? do
+    process :resize_to_limit => [200, 0]
+  end
+
+  version :mini, :if => :is_image? do
+    process :resize_to_fill => [100, 100]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg gif png bmp)
+    %w(jpg jpeg gif png bmp sb)
   end
 
   # Override the filename of the uploaded files:
@@ -56,4 +56,9 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+protected
+
+  def is_image? picture
+    picture.content_type == 'image/jpeg'
+  end
 end

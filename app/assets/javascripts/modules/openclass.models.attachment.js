@@ -1,10 +1,20 @@
 angular.module('openClass.models')
-	.factory('Attachment', ['$resource', function($resource){
-		var Attachment = {
-			get : function(lessonplanId, attachmentId) {
-					return $resource('/lessonplans/:lessonplanId/attachments/:attachmentId', { lessonplanId : lessonplanId, attachmentId : attachmentId || '@id' });
-				}
-			};
+		.factory('Attachment', ['$resource', function ($resource) {
+	var Attachment = {
+		get:function (lessonplanId, attachmentId) {
+			var resource = $resource(
+					'/lessonplans/:lessonplanId/attachments/:attachmentId',
+					{
+						lessonplanId:lessonplanId,
+						attachmentId:attachmentId || '@id'
+					}, {
+						images:{ method:'GET', params:{ 'file_type':'image' }, isArray:true},
+						scratches:{ method:'GET', params:{ 'file_type':'scratch' }, isArray:true}
+					});
 
-		return Attachment;
-	}])
+			return resource;
+		}
+	};
+
+	return Attachment;
+}])

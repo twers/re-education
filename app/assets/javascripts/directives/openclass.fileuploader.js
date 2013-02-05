@@ -3,8 +3,7 @@ angular.module('openClass.directives')
 
 	function link(scope, tElement, tAttrs, transclude) {
 
-		var selectBtn = tElement.find('button:first').attr('id', tAttrs.id + '_pickfiles');
-		var uploadBtn = tElement.find('button:last');
+		var selectBtn = tElement.find('button').attr('id', tAttrs.id + '_pickfiles');
 		var fileList = tElement.find('.fileList');
 
 		function initHandler(uploader, params) {
@@ -34,21 +33,22 @@ angular.module('openClass.directives')
 				var file = uploader.files[i];
 				totalProgress += +file.percent;
 			}
-			uploadBtn.text('已上传' + parseInt(totalProgress / uploader.files.length) + '%');
+			selectBtn.text('已上传' + parseInt(totalProgress / uploader.files.length) + '%');
 		}
 
 		function uploadCompleteHandler(uploader, fileArray) {
 			scope.$emit('upload', 'complete');
-			uploadBtn.text('选择上传的文件');
+			selectBtn.text('选择上传的文件');
 		}
 
 		function uploadSingleFileCompleteHandler(uploader, file) {
-      var fileElem = $('#' + file.id);
-			setTimeout(function(){
+			var fileElem = $('#' + file.id);
+			setTimeout(function () {
 				fileElem.find('.progressbar').remove();
 			}, 2000);
 		}
 
+		var extensions = tAttrs.extensions || "jpg,gif,png";
 		var uploader = new pluploader.Uploader({
 			runtimes:'gears,html5,flash,silverlight',
 			browse_button:selectBtn[0].id,
@@ -62,9 +62,9 @@ angular.module('openClass.directives')
 			flash_swf_url:'/assets/plupload/plupload.flash.swf',
 			silverlight_xap_url:'/assets/plupload/plupload.silverlight.xap',
 			filters:[
-				{title:"Image files", extensions:"jpg,gif,png"}
+				{title:"Image files", extensions:extensions}
 			],
-			multipart_params : { authenticity_token : $('meta[name="csrf-token"]').attr('content') }
+			multipart_params:{ authenticity_token:$('meta[name="csrf-token"]').attr('content') }
 		});
 
 		uploader.bind('Init', initHandler);
@@ -74,11 +74,6 @@ angular.module('openClass.directives')
 		uploader.bind('UploadComplete', uploadCompleteHandler);
 		uploader.bind('FileUploaded', uploadSingleFileCompleteHandler);
 		uploader.init();
-
-		uploadBtn.click(function () {
-			uploader.start();
-			return false;
-		});
 	}
 
 	function compileFileItemTmpl(fileSrc, fileId, fileName) {
@@ -96,7 +91,7 @@ angular.module('openClass.directives')
 			'<h2>文件上传</h2>' +
 			'<ul class="fileList">' +
 			'</ul>' +
-			'<button class="pickfiles btn btn-primary">选择上传的文件</button> ' +
+			'<button class="pickfiles btn btn-primary">选择文件上传</button> ' +
 			'</div>';
 
 	return {

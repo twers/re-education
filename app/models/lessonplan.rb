@@ -23,6 +23,30 @@ class Lessonplan < ActiveRecord::Base
 
   mount_uploader :attachment, AttachmentUploader
 
+  def images
+    attachments(%w[jpg jpeg gif png bmp])
+  end
+
+  def scratches
+    attachments(%w[sb])
+  end
+
+  def attachments(extensions)
+    ret = []
+    self.lessonplan_attachments.order('created_at DESC').each do |attachment|
+      ret.push attachment if extensions.include? attachment.name.split('.')[1]
+    end
+    ret
+  end
+
+  def has_image_attachments?
+    images.length > 0
+  end
+
+  def has_sctrach_attachments?
+    scratches.length > 0
+  end
+
   def attachment_filename
     read_attribute(:attachment)
   end

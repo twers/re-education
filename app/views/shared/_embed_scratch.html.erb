@@ -1,0 +1,8 @@
+<% unless source_url.nil? then %>
+    <object width="100%" height="100%" type="application/x-shockwave-flash" data="/tools/Scratch.swf">
+      <!-- <object width="100%" height="100%" type="application/x-shockwave-flash" data="http://scratch.mit.edu/static/misc/PlayerOnly.swf"> -->
+      <param name="allowScriptAccess" value="always">
+      <param name="allowFullScreen" value="true">
+      <param name="flashvars" value="project=<%= root_url + source_url %>?version=2">
+    </object>
+<% end %>
