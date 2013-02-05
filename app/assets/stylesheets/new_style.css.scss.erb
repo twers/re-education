@@ -232,14 +232,7 @@ article.main section.example ul li:before {
   text-align: center;
 }
 
-<%
-lessonplan_icons = %w[  📣 ♥ 🔆 ⚒ 🔔 ⏳ ];
-lessonplan_icon_bg = %w[#FE7B9D #37B4AE #389ABD #FBB963 #D52A24 #E0DFC2 #F7E9A7 #A7D4C0 #E49996]
-lessonplan_icons.each_with_index do |icon, index|
-	li_str = Array.new(index){ "+li" };
-	%>article.main section.example ul li<%=li_str.join('')%>:before{ content: "<%= icon%>"; background: <%=lessonplan_icon_bg[index] %> }<%
-end
-%>
+article.plan ol.steps
 
 article.main section.example ul li b.title {
 	font-size: 18px;
@@ -447,6 +440,12 @@ article.plan ol.steps > li {
 	position: relative;
 	display: block;
 }
+
+article.plan ol.steps > li img{
+    max-width: 400px;
+    display: block;
+}
+
 article.plan ol.steps > li > div {
 	display: block;
 	width: 438px;
