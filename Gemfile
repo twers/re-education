@@ -1,6 +1,6 @@
 source 'http://ruby.taobao.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '~> 3.2.2'
 gem 'jquery-rails'
 gem 'mailhopper'
 gem 'compass'
@@ -31,16 +31,20 @@ group :test do
   gem 'spork'
   gem 'launchy'    # So you can do Then show me the page
   gem 'gizmo'
-  gem "rspec-rails", '~> 2.11.0'
+  gem "rspec-rails", '~> 2.12.0'
   gem "factory_girl_rails", '~> 4.1.0'
   gem 'simplecov', :require => false
   gem 'capybara-webkit'
   gem 'headless'
 end
 
+group :development do
+  gem 'rails_best_practices'
+end
+
 group :test, :development do
   gem 'term-ansicolor'
-  gem 'jasmine'
+  gem 'jasmine', "~> 1.3.1"
   gem 'tddium'
   gem 'ruby-prof'
   gem "annotate", '~> 2.5.0'
