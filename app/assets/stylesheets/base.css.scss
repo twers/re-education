@@ -2,6 +2,9 @@
 @import "compass/css3/images";
 @import "compass/css3/border-radius";
 
+$font-color: #222;
+$font-light-color: lighten($font-color, 30%);
+
 ::-webkit-input-placeholder { color:#ccc; }
 ::-moz-placeholder { color:#ccc; } /* firefox 19+ */
 input:-moz-placeholder { color:#ccc; }
@@ -27,7 +30,14 @@ small.help-info{
 }
 
 a.enter{
-	@include btn;	
+	@include btn;
+}
+
+h2{
+	line-height: 44px;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
 }
 
 body .simple_captcha{
@@ -52,5 +62,97 @@ body .simple_captcha{
 			border: 1px solid #ccc;
 			width: 60px !important;
 		}
+	}
+}
+
+.main-section{
+	width: 940px;
+	margin: 0 auto;
+	padding: 40px 0;
+	overflow: hidden;
+	position: relative;
+	width: 940px;
+	background: white;
+	@include box-shadow(0 1px 5px #CCCCCC);
+
+	b{
+		font-weight: normal;
+	}
+
+	h3{
+		font-weight: bold;
+		font-size: 18px;
+		color: #4C9ED0;
+		line-height: 60px;
+	}
+
+	section{
+		width: 860px;
+		margin: 0 auto 10px auto;
+	}
+
+	img.avatar{
+		padding: 2px;
+		border: 1px solid #ccc;
+		width: 50px;
+		height: 50px;
+	}
+
+	p{
+		line-height: 18px;
+		margin-bottom: 10px;
+
+		input, textarea{
+			margin: 0;
+		}
+
+		b{
+			font-weight: bold;
+		}
+	}
+
+	fieldset{
+		margin-bottom: 20px;
+	}
+
+	.formError{
+		position: relative;
+		top: -10px;
+		left: 5px;
+		color: #f93e4e;
+		display: inline-block;
+		background: #fcdbdd;
+		padding: 0 10px;
+		font-size: 12px;
+		line-height: 22px;
+		@include border-radius(0 0 4px 4px);
+		@include box-shadow(0 1px 1px #ccc);
+	}
+
+	.page-action{
+		margin: 0 40px;
+	}
+
+	section.info{
+		background: whiteSmoke;
+		padding: 10px;
+	}
+
+	section.dialog{
+		display: none;
+	}
+}
+
+.dialog-wrapper{
+	display: none;
+}
+
+section.dialog{
+	max-width: 800px;
+	width: 600px;
+
+	h2{
+		text-align: left;
+		border-bottom: 5px solid #eee;
 	}
 }

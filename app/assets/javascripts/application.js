@@ -15,17 +15,29 @@
 // = require jquery_ujs
 // = require jquery.cookie
 // = require file-validate
-// = require jquery.fancybox-1.3.4.pack
-// = require bootstrap.min
+// = require fancybox/jquery.fancybox.pack
+// = require fancybox/helpers/jquery.fancybox-thumbs
+
+// = require plupload/plupload
+// = require plupload/plupload.gears
+// = require plupload/plupload.silverlight
+// = require plupload/plupload.flash
+// = require plupload/plupload.html4
+// = require plupload/plupload.html5
+
 // = require angular/angular.min
 // = require angular/angular-resource.min
-// = require_tree ./modules
 
+// = require openclass.angular.main
+
+// = require_tree ./directives
+// = require_tree ./modules
 // = require_tree ./controllers
+
 // = require ckeditor/init
 // = require ckeditor/config
 
 // = require bundle-fancy-box
 // = require bundle-kindeditor
 // = require kindeditor
-angular.module('openClass', ['openClass.models']);
+

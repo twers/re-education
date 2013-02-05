@@ -3688,7 +3688,7 @@ a.thumbnail:hover {
     background-position: 40px 0;
   }
 }
-.progress {
+.progressbar {
   overflow: hidden;
   height: 18px;
   margin-bottom: 18px;
@@ -3708,7 +3708,7 @@ a.thumbnail:hover {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.progress .bar {
+.progressbar .bar {
   width: 0%;
   height: 18px;
   color: #ffffff;
@@ -3750,7 +3750,7 @@ a.thumbnail:hover {
   -o-background-size: 40px 40px;
   background-size: 40px 40px;
 }
-.progress.active .bar {
+.progressbar.active .bar {
   -webkit-animation: progress-bar-stripes 2s linear infinite;
   -moz-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite;

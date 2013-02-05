@@ -171,6 +171,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
+    rmagick (2.13.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.2)
   rails_kindeditor (~> 0.3.8)
+  rmagick
   rspec-rails (~> 2.11.0)
   ruby-prof
   sass-rails (~> 3.2.3)

@@ -12,7 +12,9 @@
  *= require reset
  *= require form-style
  *= require bootstrap.button
- *= require jquery.fancybox-1.3.4
+ *= require fancybox/jquery.fancybox
+ *= require fancybox/helpers/jquery.fancybox-thumbs
  *= require new_style
  *= require publishers
+ *= require lessonplan_attachments
 */

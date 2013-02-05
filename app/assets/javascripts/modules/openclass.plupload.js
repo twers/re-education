@@ -1,0 +1,1 @@
+angular.module('openClass.modules').value('plupload', plupload);

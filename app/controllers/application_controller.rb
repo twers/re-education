@@ -30,6 +30,30 @@ class ApplicationController < ActionController::Base
     render 'login', :layout => true
   end
 
+  def jsonp
+    str = 'hello world';
+    func = params[:callback]
+    render :js => 
+      "try{" + 
+        "#{func}({ str : '#{str}' });" + 
+      "}catch(e){" + 
+        "console.error('request error');" + 
+      "}"
+  end
+
+  def cors
+    response.headers['Access-Control-Allow-Origin'] = '*';
+    response.headers['Access-Control-Allow-Methods'] = 'GET';
+    response.headers['Access-Control-Max-Age'] = '60';
+
+    str = 'hello cors';
+    render :json => "{ \"src\" : \"#{str}\" }"
+  end
+
+  def cross_post
+    
+  end
+
   def authorize
 
     if simple_captcha_valid?

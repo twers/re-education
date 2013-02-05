@@ -1,0 +1,29 @@
+%nav.breadcrumb
+	%ul
+		%li
+			%a{ :href => "#" } 首页
+		%li
+			%a{ :href => "#" } 案例
+		%li.active
+			%a{ :href => "#" } 精品
+
+%article#attachments.main-section{ 'ng-controller' => 'HomeworksController' }
+
+	%h2= @lessonplan.title
+
+	= render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan, :active => :attachments }
+
+	-if can? :update, @lessonplan or can? :destroy, @lessonplan
+		%section.info
+			%a.btn.btn-primary.inline-dialog-trigger{ :href => "#uploader_dialog_#{@lessonplan.id}" } 上传作业
+			%b 如果你有跟此课程相关的幻灯片，帮助我们上传吧。
+
+	-if can? :update, @lessonplan or can? :destroy, @lessonplan
+		%section.dialog{ :id => "uploader_dialog_#{@lessonplan.id}" }
+			.uploader{ :id => "lessonplan_uploader_#{@lessonplan.id}", 'file-uploader' => 'true', 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan), 'file-base-url' => '' }
+
+	%section
+		%ul.attachment-list.image-gallery{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id})" }
+			%li{ 'ng-repeat' => 'attachment in attachments' }
+				%a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}"  }
+					%img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }

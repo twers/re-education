@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  
   before_filter :load_lessonplan
 
   def load_lessonplan
@@ -14,13 +14,12 @@ class CommentsController < ApplicationController
 
   def create
     unless @lessonplan.nil? then
-      p "*" * 10
-      p session[:user_id]
 
       if is_empty?(params[:comment])
         render :json => "{\"status\": \"empty\"}"
         return
       end
+
       comment = Comment.new params[:comment]
       if Comment.exists? :content => comment.content, :user_id => session[:user_id]
         render :json => "{\"status\": \"duplicate\"}"

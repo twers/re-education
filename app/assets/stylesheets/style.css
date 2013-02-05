@@ -57,7 +57,7 @@ label#attachment-label{margin-top: 15px; font-size: 14px; font-weight: normal; l
 .plan-frame {list-style: none; float: left; width: 81.5px; height: 81.5px; padding: 5px; margin: 10px 10px 0 0; background: #F5F5F5; border: 1px solid #EEE; }
 .plan-frame img{width: 100px; height: 80px;}
 .avatar {width: 100%; height: 100%; background: #FFF; max-height: 240px;}
-.plan .progress {height: 10px; margin-top: 5px;}
+.plan .progressbar {height: 10px; margin-top: 5px;}
 
 .plan-list {margin: 0; padding: 0}
 .plan-list li {margin-bottom: 15px;}
