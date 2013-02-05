@@ -27,8 +27,6 @@ describe Publisher do
     end
   end
 
-  its(:name) { should == subject.alternative_name }
-
   describe "#super_manager?" do
     it { should_not be_super_manager }
 
