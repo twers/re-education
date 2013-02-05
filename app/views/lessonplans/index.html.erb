@@ -29,7 +29,7 @@
     <ul>
       <% Lessonplan.all.reverse.each_with_index do |lessonplan, idx| %>
         <li>
-          <b class="title"><%= lessonplan.title %></b>
+          <a href="<%= lessonplan_path(lessonplan.id) %>"><b class="title"><%= lessonplan.title %></b></a>
           <p class="description"><%= lessonplan.short_description.html_safe %></p>
           <a href="<%= lessonplan_path(lessonplan.id) %>" class="enter">进入</a>
         </li>
