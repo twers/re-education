@@ -36,6 +36,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'capybara-webkit'
   gem 'headless'
+  gem "shoulda-matchers", "~> 1.4.2"
 end
 
 group :development do

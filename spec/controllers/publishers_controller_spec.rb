@@ -8,7 +8,7 @@ describe PublishersController do
       get :new
     end
 
-    it { should response_with(:success) }
+    it { should respond_with(:success) }
     it { should render_template(:new) }
   end
 
@@ -40,18 +40,18 @@ describe PublishersController do
     context "#successful update" do
       before do
         sign_in_publisher(publisher)
-        Publish.stub(:find).with(publisher.id).and_return(publisher)
+        Publisher.stub(:find).with(publisher.id.to_s).and_return(publisher)
         publisher.stub(:update_attributes).and_return(true)
         put :update, id: publisher.id, publisher: { alternative_name: 'alternative name' }
       end
 
-      it { should redirect_to(publisher_path(publisehr)) }
+      it { should redirect_to(publisher_path(publisher)) }
     end
 
     context "#failed update" do
       before do
         sign_in_publisher(publisher)
-        Publish.stub(:find).with(publisher.id).and_return(publisher)
+        Publisher.stub(:find).with(publisher.id.to_s).and_return(publisher)
         publisher.stub(:update_attributes).and_return(false)
         put :update, id: publisher.id, publisher: { alternative_name: 'alternative name' }
       end
