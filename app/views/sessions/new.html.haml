@@ -7,7 +7,7 @@
 
 %article.main-section
 	%section
-		= form_for :publisher, :as => :post, :url => authorize_path do |f|
+		= form_for :publisher, :as => :post, :url => sessions_path do |f|
 			%h3 登录
 			%p
 				= label_tag 'publisher[email]', 'Email'

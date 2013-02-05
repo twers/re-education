@@ -17,33 +17,13 @@ class ApplicationController < ActionController::Base
     redirect_to '/404.html'
   end
 
+  helper_method :current_user
+
   def current_user
     Publisher.find session[:user_id] unless session[:user_id].nil?
   end
 
-  def logout
-    session[:user_id] = nil
-    redirect_to :root
+  def current_user=(publisher)
+    session[:user_id] = publisher.try(:id)
   end
-
-  def login
-    render 'login', :layout => true
-  end
-
-  def authorize
-
-    if simple_captcha_valid?
-      params[:publisher][:password] = Digest::MD5.hexdigest params[:publisher][:password]
-      matched_publishers = Publisher.where params[:publisher]
-      unless matched_publishers.empty? then
-        session[:user_id] = matched_publishers.first.id
-        redirect_to publisher_path(matched_publishers.first)
-      else
-        redirect_to login_path
-      end
-    else
-      render 'login', :layout => true
-    end
-  end
-
 end
