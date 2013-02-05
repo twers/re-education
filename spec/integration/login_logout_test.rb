@@ -32,7 +32,7 @@ describe "login and logout process", type: :feautre do
       visit '/login'
       page.should have_content '登录'
       fill_in 'Email', with: user.email
-      fill_in 'publisher_password', with: '123321'
+      fill_in 'publisher_password', with: '123123'
       click_button '登录'
       click_link '退出'
     end
