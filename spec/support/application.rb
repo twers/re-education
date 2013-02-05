@@ -1,5 +1,5 @@
 module ReEducation
-  module TestHelper
+  module TestHelpers
     def sign_in_publisher(publisher)
       controller.stub(:current_user).and_return(publisher)
     end
