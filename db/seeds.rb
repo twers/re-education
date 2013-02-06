@@ -15,3 +15,14 @@ Publisher.create(
     ]
 )
 
+Lessonplan.create(
+    [
+        {
+          title: 'Ruby on Rails Tutorial',
+          content: "The Ruby on Rails Tutorial owes a lot to my previous Rails book, RailsSpace, and hence to my coauthor Aurelius Prochazka. ",
+          short_description: 'Learn Web Development with Rails',
+          publisher_id: 1
+        }
+    ]
+)
+
