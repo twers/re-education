@@ -59,6 +59,6 @@ class LessonplanAttachmentsUploader < CarrierWave::Uploader::Base
 protected
 
   def is_image? picture
-    picture.content_type == 'image/jpeg'
+    picture.content_type.include? 'image'
   end
 end
