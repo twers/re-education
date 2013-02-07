@@ -8,7 +8,7 @@
 				%a{ :href => "/ppt.html" } 
 					幻灯片
 		%li{ :class => "#{"current" if active == :comments}" }
-			%a{ :href => "#comments" }
+			%a{ :href => lessonplan_path(lessonplan) + "#comments" }
 				讨论
 				%label= lessonplan.comments.length
 
