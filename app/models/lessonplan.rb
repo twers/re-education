@@ -34,7 +34,7 @@ class Lessonplan < ActiveRecord::Base
   def attachments(extensions)
     ret = []
     self.lessonplan_attachments.order('created_at DESC').each do |attachment|
-      ret.push attachment if extensions.include? attachment.name.split('.')[1]
+      ret.push attachment if extensions.include? attachment.name.split('.').last
     end
     ret
   end
