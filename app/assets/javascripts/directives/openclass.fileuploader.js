@@ -48,7 +48,8 @@ angular.module('openClass.directives')
 			}, 2000);
 		}
 
-		var extensions = tAttrs.extensions || "jpg,gif,png";
+		var extensions = tAttrs.extensions || "jpg,jpeg,gif,png";
+		var title = tAttrs.title || "Image files";
 		var uploader = new pluploader.Uploader({
 			runtimes:'gears,html5,flash,silverlight',
 			browse_button:selectBtn[0].id,
@@ -62,7 +63,7 @@ angular.module('openClass.directives')
 			flash_swf_url:'/assets/plupload/plupload.flash.swf',
 			silverlight_xap_url:'/assets/plupload/plupload.silverlight.xap',
 			filters:[
-				{title:"Image files", extensions:extensions}
+				{title:title, extensions:extensions}
 			],
 			multipart_params:{ authenticity_token:$('meta[name="csrf-token"]').attr('content') }
 		});
