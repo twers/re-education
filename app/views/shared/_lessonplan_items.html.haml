@@ -10,9 +10,11 @@
 		%li{ :class => "#{"current" if active == :comments}" }
 			%a{ :href => lessonplan_path(lessonplan) + "#comments" }
 				讨论
-				%label= lessonplan.comments.length
+				%label{ 'ng-init' => 'commentsCount=' + lessonplan.comments.length.to_s }
+					{{commentsCount}}
 
 		%li{ :class => "#{"current" if active == :attachments}" }
 			%a{ :href => lessonplan_attachments_path(lessonplan) }
 				作业
-				%label= lessonplan.lessonplan_attachments.length
+				%label{ 'ng-init' => 'attachmentsCount=' + lessonplan.lessonplan_attachments.length.to_s }
+					{{attachmentsCount}}

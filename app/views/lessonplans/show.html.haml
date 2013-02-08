@@ -7,7 +7,7 @@
 		%li.active
 			%a{ :href => "javascript:;" } 精品
 			
-%article.plan
+%article.plan{ 'ng-controller' => "PlanController" }
 	-if can? :update, @lessonplan or can? :destroy, @lessonplan
 		%p.page-action
 			-if can? :update, @lessonplan

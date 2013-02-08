@@ -43,6 +43,7 @@ function CommentsController($scope, $element, $resource) {
 				return;
 			}
 			$scope.comments.push(data);
+			$scope.$emit('CommentsCountChange', $scope.comments.length);
 			$scope.new_comment_content = '';
 		});
 	};
@@ -60,6 +61,7 @@ function CommentsController($scope, $element, $resource) {
 			$scope.CommentResources.remove({ commentId : $scope.comments[index].id }, function(json){
 				if(json.ret){
 					$scope.comments.splice(index, 1);
+					$scope.$emit('CommentsCountChange', $scope.comments.length);
 				}else{
 					alert("删除失败")
 				}
