@@ -26,12 +26,14 @@
   list-style: none;
   overflow: hidden;
   background: whiteSmoke;
+  padding: 5px 10px;
 
   $max-height: 150px;
 
   li {
     float: left;
-    margin: 0 5px 5px 0;
+    margin: 10px 5px;
+    position: relative;
   }
 
   a {
@@ -40,7 +42,31 @@
 
     img {
       max-height: $max-height;
+      border: 2px solid white;
+      @include box-shadow(0 2px 5px #999);
     }
+  }
+
+  button {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    display: none;
+    cursor: pointer;
+    @include background(linear-gradient(top, #D36B78, #BB1F23));
+    color: white;
+    border: 2px solid white;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    z-index: 1;
+    border: 2px solid white;
+    @include box-shadow(0 0 10px #AAA);
+    font-size: 28px;
+  }
+
+  li:hover button {
+    display: block;
   }
 }
 

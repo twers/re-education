@@ -15,6 +15,12 @@ function AttachmentController($scope, Attachment){
 		loadAttachements(_.AttachmentResource, fileType);
 	};
 
+	$scope.remove = function(attachment) {
+		attachment.$remove(function() {
+			loadAttachements(_.AttachmentResource, _.fileType);
+		});
+	};
+
 	$scope.$on('reload', function(){
 		loadAttachements(_.AttachmentResource, _.fileType);
 	});

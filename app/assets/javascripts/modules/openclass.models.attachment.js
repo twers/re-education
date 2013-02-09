@@ -7,8 +7,16 @@ angular.module('openClass.models')
 		}, { 
       'query': {
         method: 'GET',
-        params: { 'file_type':  fileType },
+        params: {
+          'file_type':  fileType
+        },
         isArray: true
+      },
+      'remove': {
+        method: 'DELETE',
+        params: {
+          'authenticity_token': $('meta[name="csrf-token"]').attr('content')
+        }
       }
     });
 	}

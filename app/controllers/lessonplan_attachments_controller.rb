@@ -30,4 +30,15 @@ class LessonplanAttachmentsController < ApplicationController
   	redirect_to lessonplan_attachments_path(@lessonplan)
   end
 
+  def destroy
+    success = true;
+    begin
+      LessonplanAttachment.delete(params[:id])
+    rescue
+      success = false
+    end
+
+    render :json => { :success => success }
+  end
+
 end
