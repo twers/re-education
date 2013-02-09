@@ -1,5 +1,5 @@
-function AttachmentController($scope, Attachment){
-	
+function AttachmentController($scope, Attachment) {
+
 	var _ = this;
 
 	function loadAttachements(AttachmentResource, fileType) {
@@ -9,19 +9,21 @@ function AttachmentController($scope, Attachment){
 		});
 	}
 
-	$scope.init = function(lessonplanId, fileType){
+	$scope.init = function(lessonplanId, fileType) {
 		_.AttachmentResource = Attachment(lessonplanId, fileType);
 		_.fileType = fileType
 		loadAttachements(_.AttachmentResource, fileType);
 	};
 
 	$scope.remove = function(attachment) {
-		attachment.$remove(function() {
-			loadAttachements(_.AttachmentResource, _.fileType);
-		});
+		if(window.confirm('确定要删除么？')) {
+			attachment.$remove(function() {
+				loadAttachements(_.AttachmentResource, _.fileType);
+			});
+		}
 	};
 
-	$scope.$on('reload', function(){
+	$scope.$on('reload', function() {
 		loadAttachements(_.AttachmentResource, _.fileType);
 	});
 }
