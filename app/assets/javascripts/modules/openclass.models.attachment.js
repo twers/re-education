@@ -1,6 +1,6 @@
 angular.module('openClass.models')
-.factory('Attachment', ['$resource', function ($resource) {
-	var Attachment = function(lessonplanId, fileType) {
+.factory('AttachmentResource', ['$resource', function ($resource) {
+	var AttachmentResource = function(lessonplanId, fileType) {
 		return $resource('/lessonplans/:lessonplanId/attachments/:attachmentId', {
 			lessonplanId: lessonplanId,
 			attachmentId: '@id'
@@ -20,5 +20,5 @@ angular.module('openClass.models')
       }
     });
 	}
-	return Attachment;
+	return AttachmentResource;
 }]);

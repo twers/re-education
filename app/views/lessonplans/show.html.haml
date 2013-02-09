@@ -47,11 +47,11 @@
 					%a.nick-name{ :href => "{{getUrl(comment.publisher)}}" } {{comment.publisher.alternative_name}}
 					%time.comment-time {{formatDateTime(comment.updated_at)}}
 					-if super_manager?
-						%a.delete{:href=>"javascript:;", 'ng-click' => 'deleteComment($index)'} 删除
+						%a.delete{:href=>"javascript:;", 'ng-click' => 'remove($index)'} 删除
 					-else
 						:erb
 							<ng-switch on="comment.publisher_id">
-								<a class="delete" ng-switch-when="<%= current_user.id unless current_user.nil? %>" href="javascript:;" ng-click="deleteComment($index)">删除</a>
+								<a class="delete" ng-switch-when="<%= current_user.id unless current_user.nil? %>" href="javascript:;" ng-click="remove($index)">删除</a>
 							</ng-switch>
 
 					%p {{comment.content}}

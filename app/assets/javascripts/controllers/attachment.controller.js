@@ -1,29 +1,31 @@
-function AttachmentController($scope, Attachment) {
+function AttachmentController($scope, AttachmentResource) {
 
-	var _ = this;
+	var Attachment;
+	var type;
 
-	function loadAttachements(AttachmentResource, fileType) {
-		var attachments = AttachmentResource.query(function() {
+	function loadAttachements(Attachment, type) {
+		Attachment.query(function(attachments) {
 			$scope.attachments = attachments;
-			$scope.$emit('AttachmentsCountChange', $scope.attachments.length, fileType);
+			$scope.$emit('AttachmentsCountChange', $scope.attachments.length, type);
 		});
 	}
 
 	$scope.init = function(lessonplanId, fileType) {
-		_.AttachmentResource = Attachment(lessonplanId, fileType);
-		_.fileType = fileType
-		loadAttachements(_.AttachmentResource, fileType);
+		Attachment = AttachmentResource(lessonplanId, fileType);
+		type = fileType;
+		loadAttachements(Attachment, type);
 	};
 
-	$scope.remove = function(attachment) {
+	$scope.remove = function(index) {
 		if(window.confirm('确定要删除么？')) {
-			attachment.$remove(function() {
-				loadAttachements(_.AttachmentResource, _.fileType);
+			$scope.attachments[index].$remove(function() {
+				$scope.attachments.splice(index, 1);
+				$scope.$emit('AttachmentsCountChange', $scope.attachments.length, type);
 			});
 		}
 	};
 
 	$scope.$on('reload', function() {
-		loadAttachements(_.AttachmentResource, _.fileType);
+		loadAttachements(Attachment, type);
 	});
 }
