@@ -1,21 +1,21 @@
-function AttachmentController($scope, Attachment, $element){
+function AttachmentController($scope, Attachment){
 	
 	var _ = this;
-	_.loadResources = function(){
-		$scope.resource = Attachment.get(_.lessonplanId);
-		$scope.resource[_.fileType](function(attachments){
+
+	function loadAttachements(AttachmentResource, fileType) {
+		var attachments = AttachmentResource.query(function() {
 			$scope.attachments = attachments;
-			$scope.$emit('AttachmentsCountChange', $scope.attachments.length, _.fileType);
+			$scope.$emit('AttachmentsCountChange', $scope.attachments.length, fileType);
 		});
-	};
+	}
 
 	$scope.init = function(lessonplanId, fileType){
-		_.lessonplanId = lessonplanId;
-		_.fileType = fileType;
-		_.loadResources(fileType);
-	};	
+		_.AttachmentResource = Attachment(lessonplanId, fileType);
+		_.fileType = fileType
+		loadAttachements(_.AttachmentResource, fileType);
+	};
 
 	$scope.$on('reload', function(){
-		_.loadResources();
+		loadAttachements(_.AttachmentResource, _.fileType);
 	});
 }
