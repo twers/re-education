@@ -79,5 +79,13 @@ module ReEducation
     config.action_mailer.default_url_options = {
       :host => "myopenclass.herokuapp.com"
     }
+
+    config.generators do |g|
+      g.stylesheets false
+      g.test_framework :rspec
+      g.fixture_replacement :factory_girl
+      g.helper false
+    end
+
   end
 end

@@ -16,5 +16,23 @@
 require 'spec_helper'
 
 describe Publisher do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { FactoryGirl.create(:publisher) }
+
+  describe "#avatar_link" do
+    its(:avatar_link) { should == "/assets/avatar.png" }
+
+    it "should return the real url" do
+      subject.stub(:avatar_url).and_return("/real/avatar/url")
+      subject.avatar_link.should == "/real/avatar/url"
+    end
+  end
+
+  describe "#super_manager?" do
+    it { should_not be_super_manager }
+
+    it "should be super manager for user named openclass" do
+      subject.alternative_name = 'openclass'
+      subject.should be_super_manager
+    end
+  end
 end
