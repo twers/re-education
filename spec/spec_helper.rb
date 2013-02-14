@@ -37,3 +37,11 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+# monkey patch for adding Capybara DSL to rspec.
+module ::RSpec::Core
+  class ExampleGroup
+    include Capybara::DSL
+    include Capybara::RSpecMatchers
+  end
+end
