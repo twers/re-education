@@ -14,17 +14,10 @@ class LessonplansController < ApplicationController
   end
 
   def create
-    @lessonplan = Lessonplan.new params[:lessonplan]
-    @lessonplan.publisher = current_user
-    @lessonplan.save
+    lessonplan = current_user.lessonplans.create params[:lessonplan]
+    lessonplan.create_tasks params[:tasks]  if lessonplan
 
-    unless params[:tasks].nil? then
-      params[:tasks].each do |task|
-        @lessonplan.tasks.create! task
-      end
-    end
-
-    redirect_to lessonplan_path(@lessonplan)
+    redirect_to lessonplan_path(lessonplan)
   end
 
   def edit

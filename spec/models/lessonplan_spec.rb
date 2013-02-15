@@ -17,5 +17,17 @@
 require 'spec_helper'
 
 describe Lessonplan do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "#create_tasks" do
+    let(:publisher) { FactoryGirl.create(:publisher) }
+    let(:plan) { FactoryGirl.create(:lessonplan, publisher: publisher) }
+    let(:task) { {title: '123', content: '321'} }
+    let(:tasks) { [task, task] }
+
+    it do
+      expect do
+        plan.create_tasks(tasks)
+      end.to change(Task, :count).by(2)
+    end
+  end
 end

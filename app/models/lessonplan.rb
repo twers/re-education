@@ -54,4 +54,9 @@ class Lessonplan < ActiveRecord::Base
   def Lessonplan.list_last num
     Lessonplan.limit(num).order('created_at DESC')
   end
+
+  def create_tasks(tasks)
+    tasks.each { |task| self.tasks.create! task } if tasks.present?
+  end
+
 end

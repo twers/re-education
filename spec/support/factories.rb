@@ -16,5 +16,18 @@ FactoryGirl.define do
     password { "123123" }
   end
 
+  factory :lessonplan do |l|
+    sequence(:title) { |n| "lessplan title#{n}" }
+    sequence(:content) { |n| "lessplan content#{n}" }
+    sequence(:short_description) { |n| "lessplan short_description#{n}" }
+    publisher
+  end
+
+  factory :task do |t|
+    sequence(:title) { |n| "task title#{n}" }
+    sequence(:content) { |n| "task content#{n}" }
+    lessplan
+  end
+
 end
 
