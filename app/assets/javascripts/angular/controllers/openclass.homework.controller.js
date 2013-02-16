@@ -1,9 +1,9 @@
 function HomeworksController($scope){
-	$scope.$on('upload', function(obj, status){
-		if(status === 'complete'){
-			$scope.$broadcast('reload');
-		}
-	});
+ $scope.$on('upload', function(obj, status){
+  if(status === 'complete'){
+   $scope.$broadcast('reload');
+  }
+ });
 
   var attachmentsCount = {
     image: 0,

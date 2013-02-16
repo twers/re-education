@@ -25,19 +25,18 @@
 // = require plupload/plupload.html4
 // = require plupload/plupload.html5
 
-// = require angular/angular.min
-// = require angular/angular-resource.min
-
-// = require openclass.angular.main
-
-// = require_tree ./directives
-// = require_tree ./modules
-// = require_tree ./controllers
-
 // = require ckeditor/init
 // = require ckeditor/config
 
 // = require bundle-fancy-box
 // = require bundle-kindeditor
 // = require kindeditor
+
+//= require angular
+//= require angular-resource
+//= require openclass.angular.main
+//= require_tree ./angular
+
+// = require_tree ./directives
+// = require_tree ./modules
 
