@@ -19,11 +19,7 @@
 // = require fancybox/helpers/jquery.fancybox-thumbs
 
 // = require plupload/plupload
-// = require plupload/plupload.gears
-// = require plupload/plupload.silverlight
 // = require plupload/plupload.flash
-// = require plupload/plupload.html4
-// = require plupload/plupload.html5
 
 // = require ckeditor/init
 // = require ckeditor/config

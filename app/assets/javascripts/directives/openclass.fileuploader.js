@@ -7,7 +7,8 @@ angular.module('openClass.directives')
 		var fileList = tElement.find('.fileList');
 
 		function initHandler(uploader, params) {
-			// fileList.html("<div>Current runtime: " + params.runtime + "</div>");
+//			fileList.html("<div>Current runtime: " + params.runtime + "</div>");
+			alert(params.runtime);
 		}
 
 		function filesAddedHandler(uploader, files) {
@@ -51,7 +52,7 @@ angular.module('openClass.directives')
 		var extensions = tAttrs.extensions || "jpg,jpeg,gif,png";
 		var title = tAttrs.title || "Image files";
 		var uploader = new pluploader.Uploader({
-			runtimes:'gears,html5,flash,silverlight',
+			runtimes:'flash',
 			browse_button:selectBtn[0].id,
 			container:tAttrs.id,
 			max_file_size:'10mb',
@@ -61,7 +62,6 @@ angular.module('openClass.directives')
 				width:1024, height:768, quality:90
 			},
 			flash_swf_url:'/assets/plupload/plupload.flash.swf',
-			silverlight_xap_url:'/assets/plupload/plupload.silverlight.xap',
 			filters:[
 				{title:title, extensions:extensions}
 			],
@@ -79,7 +79,6 @@ angular.module('openClass.directives')
 
 	function compileFileItemTmpl(fileSrc, fileId, fileName) {
 		return '<li class="file" id="' + fileId + '">' +
-//				'<img class="file" src="' + fileSrc + '"/>' +
 				'<b class="file-name">' + fileName + '</b>' +
 				'<span class="progressbar">' +
 				'<span class="progress"></span>' +

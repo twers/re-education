@@ -1,7 +1,7 @@
 %nav.breadcrumb
 	%ul
 		%li
-			%a{ :href => "#" } 首页
+			%a{ :href => "/" } 首页
 		%li
 			%a{ :href => "#" } 案例
 		%li.active
@@ -26,8 +26,8 @@
 		%section.dialog{ :id => "uploader_scratch_dialog_#{@lessonplan.id}" }
 			.uploader{ :id => "lessonplan_scratch_uploader_#{@lessonplan.id}", 'file-uploader' => 'true', 'extensions' => 'sb', 'title' => 'Scratch files', 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan) }
 
-	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'image')" }
-		-#%h3{ 'ng-show' => 'attachments.length' } 图片作业
+	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'images')" }
+		%h3{ 'ng-show' => 'attachments.length' } 图片作业
 		%ul.attachment-list.image-gallery
 			%li{ 'ng-repeat' => 'attachment in attachments' }
 				%a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}"  }
@@ -36,8 +36,8 @@
 					%button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
 						&#8211;
 
-	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratch')" }
-		-#%h3{ 'ng-show' => 'attachments.length' } Scratch作业
+	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratches')" }
+		%h3{ 'ng-show' => 'attachments.length' } Scratch作业
 		%ul.scratch-attachment-list.scratch-gallery
 			%li{ 'ng-repeat' => 'attachment in attachments' }
 				%a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}' }

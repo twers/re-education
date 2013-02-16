@@ -1,6 +1,7 @@
 angular.module('openClass.models').
 factory('CommentResource', ['$resource', function($resource) {
   var authenticity_token = $('meta[name="csrf-token"]').attr('content');
+
   var CommentResource = function(lessonplanId) {
     return $resource('/lessonplans/:lessonplanId/comments/:commentId', {
       lessonplanId: lessonplanId,
@@ -16,5 +17,5 @@ factory('CommentResource', ['$resource', function($resource) {
       }
     });
   }
-  return CommentResource
+  return CommentResource;
 }]);
