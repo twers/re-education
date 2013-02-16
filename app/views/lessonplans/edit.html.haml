@@ -1,72 +1,71 @@
 .container.content
-	%nav.breadcrumb
-		%ul
-			%li
-				%a{ :href => "javascript:;" } 首页
-			%li
-				%a{ :href => "javascript:;" } 案例
-			%li.active
-				%a{ :href => "javascript:;" } 精品
-			
+  %nav.breadcrumb
+    %ul
+      %li
+        %a{ :href => "javascript:;" } 首页
+      %li
+        %a{ :href => "javascript:;" } 案例
+      %li.active
+        %a{ :href => "javascript:;" } 精品
+      
 %article.plan.edit
-	= form_for @lessonplan, :url => { :action => 'update' } do |f|
+  = form_for @lessonplan, :url => { :action => 'update' } do |f|
 
-		%section
-			= label_tag 'lessonplan[title]', '教案名称'
-			= f.text_field :title, :placeholder => '给你的教案起一个名字...'
-			
-		%section
-			%h3 教程介绍
-			= label_tag 'lessonplan[attachment]', '封面图片', :id => "attachment-label"
-			%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
-			= f.file_field :attachment, :class => "file_input",:onchange => 'try {return validate_file(this)} catch(e){}'
-			= label_tag 'lessonplan[short_description]', '简短描述(140字)'
-			= f.text_area :short_description, :placeholder => '说出这个活动的亮点...', :rows => 4, :maxlength => 140, :cols => 60
+    %section
+      = label_tag 'lessonplan[title]', '教案名称'
+      = f.text_field :title, :placeholder => '给你的教案起一个名字...'
+      
+    %section
+      %h3 教程介绍
+      = label_tag 'lessonplan[attachment]', '封面图片', :id => "attachment-label"
+      %img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
+      = f.file_field :attachment, :class => "file_input",:onchange => 'try {return validate_file(this)} catch(e){}'
+      = label_tag 'lessonplan[short_description]', '简短描述(140字)'
+      = f.text_area :short_description, :placeholder => '说出这个活动的亮点...', :rows => 4, :maxlength => 140, :cols => 60
 
-			= label_tag 'lessonplan[content]', '详细内容'
-			%small.help-info 简要说明课程年级、学科、学生情况、教学思路等...
-			= description_editor f
+      = label_tag 'lessonplan[content]', '详细内容'
+      %small.help-info 简要说明课程年级、学科、学生情况、教学思路等...
+      = description_editor f
 
-		%section.plan-step{ 'ng-controller' => 'CachedTasksController', 'ng-init' => "init(#{@lessonplan.id})" }
-			%h3 活动步骤
-			%ol.steps
-				%li{ 'ng-repeat' => 'task in cachedTasks', :class => 'editable-task-item-{{$index}}' }
-					%label {{$index + 1}}
-					.step-content
+    %section.plan-step{ 'ng-controller' => 'CachedTasksController', 'ng-init' => "init(#{@lessonplan.id})" }
+      %h3 活动步骤
+      %ol.steps
+        %li{ 'ng-repeat' => 'task in cachedTasks', :class => 'editable-task-item-{{$index}}' }
+          %label {{$index + 1}}
+          .step-content
 
-						%a.edit.plan-action{ :href => 'javascript:;', 'ng-click' => 'editTask($index)', :title => '修改' }  修改
-						%a.delete.plan-action{ :href => 'javascript:;', 'ng-click' => 'deleteTask($index)', :title => '删除' } 删除
+            %a.edit.plan-action{ :href => 'javascript:;', 'ng-click' => 'editTask($index)', :title => '修改' }  修改
+            %a.delete.plan-action{ :href => 'javascript:;', 'ng-click' => 'deleteTask($index)', :title => '删除' } 删除
 
-						%div{ :class => 'static-task-content-{{$index}} ' }
-							%b.task-content-title {{task.title}}
-							.task-content-text{ 'ng-bind-html-unsafe' => 'task.content' } 
+            %div{ :class => 'static-task-content-{{$index}} ' }
+              %b.task-content-title {{task.title}}
+              .task-content-text{ 'ng-bind-html-unsafe' => 'task.content' } 
 
-						%div{ :class => 'inline-edit-task-form-{{$index}} hide' }
-							%label 步骤名称
-							%input.task-item-title{ :value => '{{task.title}}', :type => 'text' }
-							%label 详细内容
-							%small.help-info 每一步如何做，才能完成作品...
-							%textarea.simple-editor.task-item-content{ :rows => 3, :maxlength => 1000, :value => '{{task.content}}', 'ng-init' => 'simpleEditor($index)' }
-							%p
-								%a.save.plan-action{ :href=> "javascript:;", 'ng-click' => 'saveTask($index)' } 保存
-								%a.cancel.plan-action{ :href => 'javascript:;', 'ng-click' => 'resetTask($index)' } 取消
+            %div{ :class => 'inline-edit-task-form-{{$index}} hide' }
+              %label 步骤名称
+              %input.task-item-title{ :value => '{{task.title}}', :type => 'text' }
+              %label 详细内容
+              %small.help-info 每一步如何做，才能完成作品...
+              %textarea.simple-editor.task-item-content{ :rows => 3, :maxlength => 1000, :value => '{{task.content}}', 'ng-init' => 'simpleEditor($index)' }
+              %p
+                %a.save.plan-action{ :href=> "javascript:;", 'ng-click' => 'saveTask($index)' } 保存
+                %a.cancel.plan-action{ :href => 'javascript:;', 'ng-click' => 'resetTask($index)' } 取消
 
-							%input{ :type => 'hidden', :value => '{{task.id}}', :name => 'tasks[][id]' }
-							%input.task-item-title-bak{ :type => 'hidden', :value => "{{task.title}}", :name => 'tasks[][title]', 'ng-model' => 'task.title' }
-							%input.task-item-content-bak{ :type => 'hidden', :value => "{{task.content}}", :name => 'tasks[][content]', 'ng-model' => 'task.content' }
-				%li.new-step
-					%span.step-content
-						%label 步骤名称
-						%input{ :placeholder => '填写一个课程活动步骤...', 'ng-model' => 'currentTaskTitle', :type => 'text' }
-						%label 详细内容
-						%small.help-info 每一步如何做，才能完成作品...
-						%textarea.simple-editor{ :placeholder => '介绍一些这个步骤...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent', 'ng-init' => 'simpleEditor()' }
-						%a.plan-action.create{ :href=> "javascript:;", 'ng-click' => 'addTask()' } 添加
-		%section
-			= f.submit '保存', :class => 'btn btn-primary'
-			%a{ :href => "#{lessonplan_path(@lessonplan.id)}" } 放弃修改
+              %input.task-item-title-bak{ :type => 'hidden', :value => "{{task.title}}", :name => 'tasks[][title]', 'ng-model' => 'task.title' }
+              %input.task-item-content-bak{ :type => 'hidden', :value => "{{task.content}}", :name => 'tasks[][content]', 'ng-model' => 'task.content' }
+        %li.new-step
+          %span.step-content
+            %label 步骤名称
+            %input{ :placeholder => '填写一个课程活动步骤...', 'ng-model' => 'currentTaskTitle', :type => 'text' }
+            %label 详细内容
+            %small.help-info 每一步如何做，才能完成作品...
+            %textarea.simple-editor{ :placeholder => '介绍一些这个步骤...', :rows => 3, :maxlength => 140, 'ng-model' => 'currentTaskContent', 'ng-init' => 'simpleEditor()' }
+            %a.plan-action.create{ :href=> "javascript:;", 'ng-click' => 'addTask()' } 添加
+    %section
+      = f.submit '保存', :class => 'btn btn-primary'
+      %a{ :href => "#{lessonplan_path(@lessonplan.id)}" } 放弃修改
 
-	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
+  = render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
 
 
 

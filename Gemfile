@@ -22,6 +22,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass'
   gem 'compass-rails'
+  gem "angular-rails", "~> 0.0.12"
 end
 
 group :test do

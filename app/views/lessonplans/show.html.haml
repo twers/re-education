@@ -1,65 +1,65 @@
 %nav.breadcrumb
-	%ul
-		%li
-			%a{ :href => "javascript:;" } 首页
-		%li
-			%a{ :href => "javascript:;" } 案例
-		%li.active
-			%a{ :href => "javascript:;" } 精品
-			
+  %ul
+    %li
+      %a{ :href => "javascript:;" } 首页
+    %li
+      %a{ :href => "javascript:;" } 案例
+    %li.active
+      %a{ :href => "javascript:;" } 精品
+      
 %article.plan{ 'ng-controller' => "PlanController" }
-	-if can? :update, @lessonplan or can? :destroy, @lessonplan
-		%p.page-action
-			-if can? :update, @lessonplan
-				%a.btn.btn-info.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} 编辑
-			-if can? :destroy, @lessonplan
-				= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete, :class => 'btn btn-danger', :id => 'delete_button'
+  -if can? :update, @lessonplan or can? :destroy, @lessonplan
+    %p.page-action
+      -if can? :update, @lessonplan
+        %a.btn.btn-info.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} 编辑
+      -if can? :destroy, @lessonplan
+        = link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete, :class => 'btn btn-danger', :id => 'delete_button'
 
-	%h2= @lessonplan.title
+  %h2= @lessonplan.title
 
-	= render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan }
+  = render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan }
 
-	%section.activity
-		%img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
-		%p.description= @lessonplan.short_description.html_safe
-		%h3 活动介绍
-		= @lessonplan.content.html_safe
+  %section.activity
+    %img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
+    %p.description= @lessonplan.short_description.html_safe
+    %h3 活动介绍
+    = @lessonplan.content.html_safe
 
-		- unless @lessonplan.tasks.empty?
-			%section.plan-step.clearfix{'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})"}
-				%h3 活动步骤 [{{tasks.length}}]
-				%ol.steps
-					%li{ 'ng-repeat' => 'task in tasks', :class => "{{getItemCssClass($index)}}" }
-						%label {{$index + 1}}
-						%div
-							%b {{task.title}}
-							%div{ 'ng-bind-html-unsafe' => 'task.content' }
+    - unless @lessonplan.tasks.empty?
+      %section.plan-step.clearfix{'ng-controller' => 'TasksController', 'ng-init' => "init(#{@lessonplan.id})"}
+        %h3 活动步骤 [{{tasks.length}}]
+        %ol.steps
+          %li{ 'ng-repeat' => 'task in tasks', :class => "{{getItemCssClass($index)}}" }
+            %label {{$index + 1}}
+            %div
+              %b {{task.title}}
+              %div{ 'ng-bind-html-unsafe' => 'task.content' }
 
-	= render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
+  = render :partial => "shared/publisher_aside", :locals => { :publisher => @lessonplan.publisher }
 
-	%section#comments.comments{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
-		%h3 评论[{{comments.length}}]
-		%ul
-			%li.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
-				.comment-avatar
-					%img{ 'ng-src' => "{{getAvatar(comment.publisher)}}" }
-				.comment-content
-					%a.nick-name{ :href => "{{getUrl(comment.publisher)}}" } {{comment.publisher.alternative_name}}
-					%time.comment-time {{formatDateTime(comment.updated_at)}}
-					-if super_manager?
-						%a.delete{:href=>"javascript:;", 'ng-click' => 'remove($index)'} 删除
-					-else
-						:erb
-							<ng-switch on="comment.publisher_id">
-								<a class="delete" ng-switch-when="<%= current_user.id unless current_user.nil? %>" href="javascript:;" ng-click="remove($index)">删除</a>
-							</ng-switch>
+  %section#comments.comments{ 'ng-controller' => 'CommentsController', 'ng-init' => "init(#{@lessonplan.id})" }
+    %h3 评论[{{comments.length}}]
+    %ul
+      %li.comment.clearfix{ 'ng-repeat' => 'comment in comments' }
+        .comment-avatar
+          %img{ 'ng-src' => "{{getAvatar(comment.publisher)}}" }
+        .comment-content
+          %a.nick-name{ :href => "{{getUrl(comment.publisher)}}" } {{comment.publisher.alternative_name}}
+          %time.comment-time {{formatDateTime(comment.updated_at)}}
+          -if super_manager?
+            %a.delete{:href=>"javascript:;", 'ng-click' => 'remove($index)'} 删除
+          -else
+            :erb
+              <ng-switch on="comment.publisher_id">
+                <a class="delete" ng-switch-when="<%= current_user.id unless current_user.nil? %>" href="javascript:;" ng-click="remove($index)">删除</a>
+              </ng-switch>
 
-					%p {{comment.content}}
-			- if online?
-				.comment.clearfix
-					= form_for :comment, :url => lessonplan_comments_url(@lessonplan), :html => { 'ng-submit' => 'submitForm()' } do |f|
-						= f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 5, 'ng-model' => 'new_comment_content'
-						= f.submit '提交评论', :class => 'btn btn-primary'
+          %p {{comment.content}}
+      - if online?
+        .comment.clearfix
+          = form_for :comment, :url => lessonplan_comments_url(@lessonplan), :html => { 'ng-submit' => 'submitForm()' } do |f|
+            = f.text_area :content, :placeholder => "评论一下这个教案...", :rows => 5, 'ng-model' => 'new_comment_content'
+            = f.submit '提交评论', :class => 'btn btn-primary'
 
-	
-						
+  
+            
