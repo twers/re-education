@@ -13,7 +13,7 @@
 			-if can? :update, @lessonplan
 				%a.btn.btn-info.plan-action{ :href => "#{edit_lessonplan_path(@lessonplan.id)}"} 编辑
 			-if can? :destroy, @lessonplan
-				= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete, :class => 'btn btn-danger'
+				= link_to '删除', lessonplan_path(), :confirm => '确定要删除么？', :method => :delete, :class => 'btn btn-danger', :id => 'delete_button'
 
 	%h2= @lessonplan.title
 

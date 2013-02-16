@@ -56,6 +56,7 @@ class Lessonplan < ActiveRecord::Base
   end
 
   def create_tasks(tasks)
+    self.tasks.destroy_all
     tasks.each { |task| self.tasks.create! task } if tasks.present?
   end
 
