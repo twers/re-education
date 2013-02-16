@@ -85,7 +85,7 @@ describe "lessons related functions", type: :feature do
   end
 
 
-  context('delete a lessonplan') do
+  context 'delete a lessonplan' do
 
     let!(:user) { FactoryGirl.create(:publisher) }
     let!(:lessonplan) { FactoryGirl.create(:lessonplan, :publisher => user) }

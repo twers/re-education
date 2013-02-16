@@ -51,8 +51,8 @@ class Lessonplan < ActiveRecord::Base
     read_attribute(:attachment)
   end
 
-  def Lessonplan.list_last num
-    Lessonplan.limit(num).order('created_at DESC')
+  def self.list_last num
+    self.limit(num).order('created_at DESC')
   end
 
   def create_tasks(tasks)
