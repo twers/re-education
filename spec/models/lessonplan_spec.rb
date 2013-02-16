@@ -24,10 +24,21 @@ describe Lessonplan do
     let(:task) { {title: '123', content: '321'} }
     let(:tasks) { [task, task] }
 
-    it do
+    it "add 2 tasks to the plan" do
       expect do
         plan.create_tasks(tasks)
       end.to change(Task, :count).by(2)
     end
+
+    let(:another_task) { {title: '111', content: '222'} }
+    let(:another_tasks) { [another_task, another_task] }
+
+    it "should just 2 tasks even if create_tasks be called twice and two tasks per time." do
+      plan.create_tasks(tasks)
+      plan.create_tasks(another_tasks)
+      plan.tasks.size.should == 2
+      plan.tasks.first.title.should == '111'
+    end
+
   end
 end
