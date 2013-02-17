@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    unless @lessonplan.nil? then
+    unless @lessonplan.nil?
 
       if is_empty?(params[:comment])
         render :json => "{\"status\": \"empty\"}"
