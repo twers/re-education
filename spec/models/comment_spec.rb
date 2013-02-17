@@ -14,5 +14,25 @@
 require 'spec_helper'
 
 describe Comment do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe 'valid' do
+
+    let(:publisher) { FactoryGirl.create :publisher }
+    let(:lessonplan) { FactoryGirl.create :lessonplan, publisher: publisher }
+
+    specify { Comment.new().should_not be_valid }
+
+    specify do 
+      comment = Comment.new(lessonplan: lessonplan, publisher: publisher, content: '   ')
+      comment.should_not be_valid
+      puts comment.errors.values()
+    end
+
+    specify { Comment.new(lessonplan: lessonplan, publisher: publisher, content: 'text content').should be_valid }
+
+
+
+  end
+
+
 end
