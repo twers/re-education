@@ -28,8 +28,8 @@
 // = require bundle-kindeditor
 // = require kindeditor
 
-//= require angular/angular.min
-//= require angular/angular-resource.min
+//= require angular.min
+//= require angular-resource.min
 //= require openclass.angular.main
 //= require_tree ./angular
 
