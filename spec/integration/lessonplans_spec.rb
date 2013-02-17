@@ -12,9 +12,8 @@ describe "lessons related functions", type: :feature do
 
       before { visit "/lessonplans/new" }
 
-      # It's weird, why not go to login page?
-      it "should redirect me to index page" do
-        page.should have_content "新的课堂，你来设计"
+      it "should redirect me to login page" do
+        page.should have_content "登录"
       end
     end
 
