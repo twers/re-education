@@ -5,7 +5,7 @@
 			%a{ :href => lessonplan_path(lessonplan) } 内容
 		- if lessonplan.title == "造纸桥"
 			%li{ :class => "#{"current" if active == :ppt}" }
-				%a{ :href => "/ppt.html" } 
+				%a{ :href => "/ppt.html?#{lessonplan.id}" }
 					幻灯片
 		%li{ :class => "#{"current" if active == :comments}" }
 			%a{ :href => lessonplan_path(lessonplan) + "#comments" }

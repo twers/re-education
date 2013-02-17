@@ -5,8 +5,16 @@
 	<title>开放课堂</title>
 	<link href="./temp/style/reset.min.css" rel="stylesheet">
 	<link href="./temp/style/main.css" rel="stylesheet">
+    <script type="text/javascript">
+        var lessonId = location.href.substring(location.href.indexOf("?")+1);
+        function init(){
+            document.getElementById("content_link").setAttribute("href", '/lessonplans/' + lessonId );
+            document.getElementById("comments_link").setAttribute("href", '/lessonplans/' + lessonId + '#comments');
+            document.getElementById("attachments_link").setAttribute("href", '/lessonplans/' + lessonId + '#attachments');
+        }
+    </script>
 </head>
-<body>
+<body onload="init();">
 <!-- BODY BEGINS -->
 <header>
 	<nav>
@@ -34,10 +42,10 @@
 <article class="plan">
 	<h2>造纸桥</h2>
 	<ul class="plan-menu">
-		<li><a href="javascript:window.history.back();">内容</a></li>
+		<li><a id="content_link" href="javascript:window.history.back();">内容</a></li>
 		<li class="current">幻灯片</li>
-		<!-- <li><a href="./temp/ppt.htm#">讨论<label>98</label></a></li>
-		<li><a href="./temp/ppt.htm#">作业<label>9</label></a></li> -->
+		<li><a id="comments_link" href="javascript:window.history.back();">讨论</a></li>
+		<li><a id="attachments_link" href="javascript:window.history.back();">作业</a></li>
 	</ul>
 	<section class="card-list">
 	<!-- 	<div class="action-panel">
