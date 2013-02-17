@@ -1,52 +1,40 @@
 class CommentsController < ApplicationController
   
+  # There is no authentication and permission check, But I won`t fix this in refactoring.
+  # TODO 
+  # Fix the bug 
+
   before_filter :load_lessonplan
 
-  def load_lessonplan
-    lessonplan_id = params[:lessonplan_id]
-    @lessonplan = Lessonplan.find(lessonplan_id) unless lessonplan_id.blank?
-  end
-
   def index
-    comments = @lessonplan.comments unless @lessonplan.nil?
+    comments = @lessonplan.comments
     render :json => comments.to_json(:include => :publisher)
   end
 
   def create
-    unless @lessonplan.nil?
-
-      if is_empty?(params[:comment])
-        render :json => "{\"status\": \"empty\"}"
-        return
-      end
-
-      comment = Comment.new params[:comment]
-      if Comment.exists? :content => comment.content, :user_id => session[:user_id]
-        render :json => "{\"status\": \"duplicate\"}"
-      else
-        comment.lessonplan = @lessonplan
-        comment.publisher = current_user
-        comment.save
-
-        render :json => comment.to_json(:include => :publisher)
-      end
+    comment = @lessonplan.comments.build params[:comment]
+    comment.publisher = current_user
+    if comment.save
+      render :json => comment.to_json(:include => :publisher)
+    else
+      render :json => { status: get_status(comment.errors) }
     end
   end
 
   def destroy
-    ret = true;
-    begin
-      Comment.delete(params[:id])
-    rescue
-      ret = false
-    end
-
-    render :json => { :ret => ret }
+    comment = Comment.find(params[:id])
+    comment.destroy
+    render :json => { :ret => comment.destroyed? }
   end
 
   private
 
-  def is_empty?(comment)
-    comment.nil? || params[:comment].size == 0
+  def load_lessonplan
+    render :json => { status: 'publisher is nil' } unless @lessonplan = Lessonplan.find_by_id(params[:lessonplan_id])    
   end
+
+  def get_status(errors)
+    errors.values.flatten.uniq.first
+  end
+
 end
