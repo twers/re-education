@@ -1,4 +1,5 @@
 class LessonplansController < ApplicationController
+
   load_and_authorize_resource
 
   def index
@@ -14,11 +15,11 @@ class LessonplansController < ApplicationController
 
 
   def update
-    @lessonplan = Lessonplan.find(params[:id])
-    @lessonplan.update_attributes(params[:lessonplan])
-    @lessonplan.create_tasks(params[:tasks])
+    lessonplan = Lessonplan.find(params[:id])
+    lessonplan.update_attributes(params[:lessonplan])
+    lessonplan.create_tasks(params[:tasks])
 
-    redirect_to lessonplan_path(@lessonplan)
+    redirect_to lessonplan_path(lessonplan)
   end
 
   def destroy
