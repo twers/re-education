@@ -1,13 +1,11 @@
 angular.module('openClass.directives')
-    .directive('inlineDialogTrigger', function factory(fancybox) {
+  .directive('dialog', function factory() {
+    var directive = {
+      restrict:'C',
+      link:function (scope, element, attrs) {
+//        $(document.body).append(element);
+      }
+    };
 
-      var directive = {
-        restrict:'C',
-        link:function (scope, element, attrs) {
-          // var dialogId = attrs.href;
-          fancybox(element);
-        }
-      };
-
-      return directive;
-    });
+    return directive;
+  });
