@@ -4,7 +4,6 @@ angular.module('openClass.directives')
       var directive = {
         restrict:'C',
         link:function (scope, element, attrs) {
-          // var dialogId = attrs.href;
           fancybox(element);
         }
       };

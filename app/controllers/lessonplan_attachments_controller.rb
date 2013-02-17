@@ -8,16 +8,16 @@ class LessonplanAttachmentsController < ApplicationController
   end
 
   def index
-    if request.headers['X-Requested-With'] == "XMLHttpRequest" then
+    if request.headers['X-Requested-With'] == "XMLHttpRequest"
       file_type = params[:file_type]
-      file_type = :image.to_s if file_type.nil?
+      file_type = :images.to_s if file_type.nil?
 
-      if file_type == :image.to_s
+      if file_type == :images.to_s
         sources = @lessonplan.images
-      elsif file_type == :scratch.to_s
+      elsif file_type == :scratches.to_s
         sources = @lessonplan.scratches
       end
-      render :json => sources
+      render :json => sources || []
     end
   end
 

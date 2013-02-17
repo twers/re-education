@@ -20,6 +20,7 @@ function AttachmentController($scope, AttachmentResource) {
 		if(window.confirm('确定要删除么？')) {
 			$scope.attachments[index].$remove(function() {
 				$scope.attachments.splice(index, 1);
+        console.log($scope.attachments.length);
 				$scope.$emit('AttachmentsCountChange', $scope.attachments.length, type);
 			});
 		}

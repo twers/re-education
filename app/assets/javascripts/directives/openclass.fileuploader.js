@@ -1,104 +1,96 @@
 angular.module('openClass.directives')
-		.directive('fileUploader', ['plupload', function factory(pluploader) {
+  .directive('fileUploader', ['plupload', function factory(pluploader) {
 
-	function link(scope, tElement, tAttrs, transclude) {
+    function link(scope, tElement, tAttrs, transclude) {
 
-		var selectBtn = tElement.find('button').attr('id', tAttrs.id + '_pickfiles');
-		var fileList = tElement.find('.fileList');
+      var selectBtn = angular.element('#' + tAttrs.browseBtnId);
+      var fileList = tElement.find('.fileList').hide();
 
-		function initHandler(uploader, params) {
-			// fileList.html("<div>Current runtime: " + params.runtime + "</div>");
-		}
+      function initHandler(uploader, params) {
 
-		function filesAddedHandler(uploader, files) {
-			for (var i = 0, len = files.length; i < len; i++) {
-				var file = files[i];
-				fileList.prepend(compileFileItemTmpl('', file.id, file.name + ' - ' + pluploader.formatSize(file.size)));
-			}
+      }
 
-			setTimeout(function () {
-				uploader.start();
-			}, 0);
-		}
+      function filesAddedHandler(uploader, files) {
+        fileList.html('').show();
+        for (var i = 0, len = files.length; i < len; i++) {
+          var file = files[i];
+          fileList.prepend(compileFileItemTmpl('', file.id, file.name + ' - ' + pluploader.formatSize(file.size)));
+        }
+        setTimeout(function () {
+          uploader.start();
+        }, 0);
+      }
 
-		function uploadProgressHandler(uploader, file) {
-			var fileElem = $('#' + file.id);
-			fileElem.find('.progress').css('width', file.percent + '%');
-			fileElem.find('.progress-value').text(file.percent + '%');
-		}
+      function uploadProgressHandler(uploader, file) {
+        var fileElem = angular.element('#' + file.id);
+        fileElem.find('.progress').css('width', file.percent + '%');
+        fileElem.find('.progress-value').text(file.percent + '%');
+      }
 
-		function uploadFilesProgressHandler(uploader, file) {
-			var totalProgress = 0;
-			for (var i = 0, len = uploader.files.length; i < len; i++) {
-				var file = uploader.files[i];
-				totalProgress += +file.percent;
-			}
-			selectBtn.text('已上传' + parseInt(totalProgress / uploader.files.length) + '%');
-		}
+      function uploadFilesProgressHandler(uploader, file) {
+        var totalProgress = 0;
+        for (var i = 0, len = uploader.files.length; i < len; i++) {
+          totalProgress += +uploader.files[i].percent;
+        }
+      }
 
-		function uploadCompleteHandler(uploader, fileArray) {
-			scope.$emit('upload', 'complete');
-			selectBtn.text('选择上传的文件');
-		}
+      function uploadCompleteHandler(uploader, fileArray) {
+        scope.$emit('upload', 'complete');
+        setTimeout(function(){
+          fileList.fadeOut();
+        }, 2000);
+      }
 
-		function uploadSingleFileCompleteHandler(uploader, file) {
-			var fileElem = $('#' + file.id);
-			setTimeout(function () {
-				fileElem.find('.progressbar').remove();
-			}, 2000);
-		}
+      function uploadSingleFileCompleteHandler(uploader, file) {
+        var fileElem = angular.element('#' + file.id);
+      }
 
-		var extensions = tAttrs.extensions || "jpg,jpeg,gif,png";
-		var title = tAttrs.title || "Image files";
-		var uploader = new pluploader.Uploader({
-			runtimes:'gears,html5,flash,silverlight',
-			browse_button:selectBtn[0].id,
-			container:tAttrs.id,
-			max_file_size:'10mb',
-			file_data_name:tAttrs.fileDataName,
-			url:tAttrs.filePostUrl,
-			resize:{
-				width:1024, height:768, quality:90
-			},
-			flash_swf_url:'/assets/plupload/plupload.flash.swf',
-			silverlight_xap_url:'/assets/plupload/plupload.silverlight.xap',
-			filters:[
-				{title:title, extensions:extensions}
-			],
-			multipart_params:{ authenticity_token:$('meta[name="csrf-token"]').attr('content') }
-		});
+      var extensions = tAttrs.extensions || "jpg,jpeg,gif,png";
+      var title = tAttrs.title || "Image files";
 
-		uploader.bind('Init', initHandler);
-		uploader.bind('FilesAdded', filesAddedHandler);
-		uploader.bind('UploadProgress', uploadProgressHandler);
-		uploader.bind('UploadProgress', uploadFilesProgressHandler);
-		uploader.bind('UploadComplete', uploadCompleteHandler);
-		uploader.bind('FileUploaded', uploadSingleFileCompleteHandler);
-		uploader.init();
-	}
+      var uploader = new pluploader.Uploader({
+        runtimes: 'flash',
+        browse_button: selectBtn[0].id,
+        max_file_size: '10mb',
+        file_data_name: tAttrs.fileDataName,
+        url: tAttrs.filePostUrl,
+        resize: {
+          width: 1024, height: 768, quality: 90
+        },
+        flash_swf_url: '/assets/plupload/plupload.flash.swf',
+        filters: [
+          {title: title, extensions: extensions}
+        ],
+        multipart_params: { authenticity_token: angular.element('meta[name="csrf-token"]').attr('content') }
+      });
 
-	function compileFileItemTmpl(fileSrc, fileId, fileName) {
-		return '<li class="file" id="' + fileId + '">' +
-//				'<img class="file" src="' + fileSrc + '"/>' +
-				'<b class="file-name">' + fileName + '</b>' +
-				'<span class="progressbar">' +
-				'<span class="progress"></span>' +
-				'<span class="progress-value"></span>' +
-				'</span>' +
-				'</li>';
-	}
+      uploader.bind('Init', initHandler);
+      uploader.bind('FilesAdded', filesAddedHandler);
+      uploader.bind('UploadProgress', uploadProgressHandler);
+      uploader.bind('UploadProgress', uploadFilesProgressHandler);
+      uploader.bind('UploadComplete', uploadCompleteHandler);
+      uploader.bind('FileUploaded', uploadSingleFileCompleteHandler);
+      uploader.init();
+    }
 
-	var templateStr = '<div>' +
-			'<h2>文件上传</h2>' +
-			'<ul class="fileList">' +
-			'</ul>' +
-			'<button class="pickfiles btn btn-primary">选择文件上传</button> ' +
-			'</div>';
+    function compileFileItemTmpl(fileSrc, fileId, fileName) {
+      return '<li class="file" id="' + fileId + '">' +
+        '<b class="file-name">' + fileName + '</b>' +
+        '<span class="progressbar">' +
+        '<span class="progress"></span>' +
+        '</span>' +
+        '</li>';
+    }
 
-	return {
-		template:templateStr,
-		replace:false,
-		restrict:'A',
-		link:link
-	};
-}]);
+    var templateStr = '<div>' +
+      '<ul class="fileList">' +
+      '</ul>' +
+      '</div>';
+
+    return {
+      template: templateStr,
+      replace: false,
+      restrict: 'C',
+      link: link
+    };
+  }]);
