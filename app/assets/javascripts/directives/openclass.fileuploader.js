@@ -3,7 +3,7 @@ angular.module('openClass.directives')
 
     function link(scope, tElement, tAttrs, transclude) {
 
-      var selectBtn = $('#' + tAttrs.browseBtnId);
+      var selectBtn = angular.element('#' + tAttrs.browseBtnId);
       var fileList = tElement.find('.fileList').hide();
 
       function initHandler(uploader, params) {
@@ -22,7 +22,7 @@ angular.module('openClass.directives')
       }
 
       function uploadProgressHandler(uploader, file) {
-        var fileElem = $('#' + file.id);
+        var fileElem = angular.element('#' + file.id);
         fileElem.find('.progress').css('width', file.percent + '%');
         fileElem.find('.progress-value').text(file.percent + '%');
       }
@@ -42,7 +42,7 @@ angular.module('openClass.directives')
       }
 
       function uploadSingleFileCompleteHandler(uploader, file) {
-        var fileElem = $('#' + file.id);
+        var fileElem = angular.element('#' + file.id);
       }
 
       var extensions = tAttrs.extensions || "jpg,jpeg,gif,png";
@@ -61,7 +61,7 @@ angular.module('openClass.directives')
         filters: [
           {title: title, extensions: extensions}
         ],
-        multipart_params: { authenticity_token: $('meta[name="csrf-token"]').attr('content') }
+        multipart_params: { authenticity_token: angular.element('meta[name="csrf-token"]').attr('content') }
       });
 
       uploader.bind('Init', initHandler);

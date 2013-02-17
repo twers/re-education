@@ -9,13 +9,10 @@ ReEducation::Application.routes.draw do
   match 'login' => 'sessions#new', :as => 'login', :via => :get
   match 'logout' => 'sessions#destroy', :as => 'logout', :via => :get
 
-  resources :sessions, only: [:new, :create]
+  resources :sessions, :only => [:new, :create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  match 'jsonp' => 'application#jsonp', :as => 'jsonp', :via => :get
-  match 'cors' => 'application#cors', :as => 'cors', :via => :get
-  match 'cross_post' => 'application#cross_post', :as => 'cross_post', :via => :post
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

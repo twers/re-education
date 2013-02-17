@@ -7,11 +7,6 @@ angular.module('openClass.directives')
 						if (attachments) {
 							fancybox(element.find('a'), {
 								helpers:{
-									overlay : {
-										css : {
-//                      background: '#000'
-										}
-									},
 									title:{
 										type:'inside'
 									},
@@ -19,9 +14,7 @@ angular.module('openClass.directives')
 										width:50,
 										height:50
 									}
-								}//,
-//              nextEffect : 'none',
-//              prevEffect : 'none'
+								}
 							});
 						}
 					});
