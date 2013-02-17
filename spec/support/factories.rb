@@ -29,5 +29,11 @@ FactoryGirl.define do
     lessplan
   end
 
+  factory :comment do |t|
+    sequence(:content) { |n| "comment content #{n}" }
+    lessonplan
+    publisher
+  end
+
 end
 
