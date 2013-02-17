@@ -34,7 +34,6 @@
 					%img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }
 				-if can? :destroy, @lessonplan
 					%button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
-						&#8211;
 
 	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratches')" }
 		%h3{ 'ng-show' => 'attachments.length' } Scratch作业
@@ -46,6 +45,5 @@
 					= render :partial => "shared/embed_scratch", :locals => { :source_url => "{{attachment.attachment.url}}" }
 				-if can? :destroy, @lessonplan
 					%button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
-						&#8211;
 
 
