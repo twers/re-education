@@ -24,11 +24,6 @@
 
 .attachment-list {
   list-style: none;
-  overflow: hidden;
-  background: whiteSmoke;
-  padding: 5px 10px;
-
-  $max-height: 150px;
 
   li {
     float: left;
@@ -41,11 +36,18 @@
     height: 150px;
 
     img {
-      max-height: $max-height;
+      max-height: 150px;
       border: 2px solid white;
       @include box-shadow(0 2px 5px #999);
     }
   }
+}
+
+.scratch-attachment-list,
+.attachment-list {
+  overflow: hidden;
+  background: whiteSmoke;
+  padding: 5px 10px;
 
   button {
     position: absolute;
@@ -71,7 +73,7 @@
     float: left;
     width: 16%;
     height: 130px;
-    margin: 0 20px 40px 0;
+    margin: 10px 20px 40px 10px;
 
     a{
       span{
