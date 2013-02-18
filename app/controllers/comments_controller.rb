@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = @lessonplan.comments.build params[:comment]
+    comment = @lessonplan.comments.build(comment_params)
     comment.publisher = current_user
     if comment.save
       render :json => comment.to_json(:include => :publisher)
@@ -35,6 +35,10 @@ class CommentsController < ApplicationController
 
   def get_status(errors)
     errors.values.flatten.uniq.first
+  end
+
+  def comment_params
+    params[:comment].slice(:content)
   end
 
 end

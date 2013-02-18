@@ -15,8 +15,8 @@ describe FeedbacksController do
   describe '#create' do
 
     context 'with empty fields' do
-      
-      before { post :create }
+
+      before { post :create, feedback: {} }
       it { should respond_with(:success) }
       it { should render_template(:new) }
 
@@ -30,7 +30,7 @@ describe FeedbacksController do
         new_feedback_mailer.should_receive(:deliver)
         post :create, feedback: { email: 'test@example.com', body: 'this is feedback body' }
       end
-      
+
       it { should respond_with(:success) }
       it { should render_template(:create) }
 
