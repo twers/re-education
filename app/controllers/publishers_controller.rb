@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-require 'digest/md5'
-
 class PublishersController < ApplicationController
   load_and_authorize_resource
 
