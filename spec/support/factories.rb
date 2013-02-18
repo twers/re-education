@@ -26,7 +26,7 @@ FactoryGirl.define do
   factory :task do |t|
     sequence(:title) { |n| "task title#{n}" }
     sequence(:content) { |n| "task content#{n}" }
-    lessplan
+    lessonplan
   end
 
   factory :comment do |t|
