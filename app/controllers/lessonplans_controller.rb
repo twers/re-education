@@ -7,8 +7,8 @@ class LessonplansController < ApplicationController
   end
 
   def create
-    lessonplan = current_user.lessonplans.create params[:lessonplan]
-    lessonplan.create_tasks params[:tasks] if lessonplan
+    lessonplan = current_user.lessonplans.create(lessonplan_params)
+    lessonplan.create_tasks(tasks_params) if lessonplan
 
     redirect_to lessonplan_path(lessonplan)
   end
@@ -16,8 +16,8 @@ class LessonplansController < ApplicationController
 
   def update
     lessonplan = Lessonplan.find(params[:id])
-    lessonplan.update_attributes(params[:lessonplan])
-    lessonplan.create_tasks(params[:tasks])
+    lessonplan.update_attributes(lessonplan_params)
+    lessonplan.create_tasks(tasks_params)
 
     redirect_to lessonplan_path(lessonplan)
   end
@@ -27,6 +27,20 @@ class LessonplansController < ApplicationController
     lessonplan.destroy
 
     redirect_to root_url
+  end
+
+  def lessonplan_params
+    params[:lessonplan].slice(:title, :content, :short_description, :symbol_img_url, :attachment)
+  end
+
+  def tasks_params
+    tasks = []
+    if params[:tasks].present?
+      params[:tasks].each do |task|
+        tasks << task.slice(:title, :content)
+      end
+    end
+    tasks
   end
 
 end

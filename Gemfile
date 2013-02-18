@@ -15,6 +15,9 @@ gem 'rails_kindeditor', '~> 0.3.8'
 gem 'dynamic_form'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "rmagick"
+# CanCan can not work perfectly with strong_parameters, will use slice pattern.
+# TODO: Use strong_parameters when CanCan fix this issue.
+#gem "strong_parameters"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
