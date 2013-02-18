@@ -2,10 +2,6 @@ ReEducation::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
-  match 'contact/thanks' => 'contact#thanks', :as => 'contact', :via => :post
-
   match 'login' => 'sessions#new', :as => 'login', :via => :get
   match 'logout' => 'sessions#destroy', :as => 'logout', :via => :get
 
@@ -31,7 +27,8 @@ ReEducation::Application.routes.draw do
 
   resources :publishers
   resources :users
-
+  resources :feedbacks
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do
