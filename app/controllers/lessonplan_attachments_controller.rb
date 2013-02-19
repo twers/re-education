@@ -22,12 +22,12 @@ class LessonplanAttachmentsController < ApplicationController
   end
 
   def create
-  	attachment = LessonplanAttachment.new params[:lessonplan_attachment]
-  	attachment.lessonplan = @lessonplan
+    attachment = LessonplanAttachment.new params[:lessonplan_attachment]
+    attachment.lessonplan = @lessonplan
     attachment.name = params[:name]
-  	attachment.save
+    attachment.save
 
-  	redirect_to lessonplan_attachments_path(@lessonplan)
+    redirect_to lessonplan_attachments_path(@lessonplan)
   end
 
   def destroy

@@ -1,20 +1,20 @@
 - active = :content if active.nil?
 - unless lessonplan.nil?
-	%ul.plan-menu
-		%li{ :class => "#{"current" if active == :content}" }
-			%a{ :href => lessonplan_path(lessonplan) } 内容
-		- if lessonplan.title == "造纸桥"
-			%li{ :class => "#{"current" if active == :ppt}" }
-				%a{ :href => "/ppt.html?#{lessonplan.id}" }
-					幻灯片
-		%li{ :class => "#{"current" if active == :comments}" }
-			%a{ :href => lessonplan_path(lessonplan) + "#comments" }
-				讨论
-				%label{ 'ng-init' => 'commentsCount=' + lessonplan.comments.length.to_s }
-					{{commentsCount}}
+  %ul.plan-menu
+    %li{ :class => "#{"current" if active == :content}" }
+      %a{ :href => lessonplan_path(lessonplan) } 内容
+    - if lessonplan.title == "造纸桥"
+      %li{ :class => "#{"current" if active == :ppt}" }
+        %a{ :href => "/ppt.html?#{lessonplan.id}" }
+          幻灯片
+    %li{ :class => "#{"current" if active == :comments}" }
+      %a{ :href => lessonplan_path(lessonplan) + "#comments" }
+        讨论
+        %label{ 'ng-init' => 'commentsCount=' + lessonplan.comments.length.to_s }
+          {{commentsCount}}
 
-		%li{ :class => "#{"current" if active == :attachments}" }
-			%a{ :href => lessonplan_attachments_path(lessonplan) }
-				作业
-				%label{ 'ng-init' => 'attachmentsCount=' + lessonplan.lessonplan_attachments.length.to_s }
-					{{attachmentsCount}}
+    %li{ :class => "#{"current" if active == :attachments}" }
+      %a{ :href => lessonplan_attachments_path(lessonplan) }
+        作业
+        %label{ 'ng-init' => 'attachmentsCount=' + lessonplan.lessonplan_attachments.length.to_s }
+          {{attachmentsCount}}

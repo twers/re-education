@@ -1,32 +1,32 @@
 %nav.breadcrumb
-	%ul
-		%li
-			%a{ :href => "/" } 首页
-		%li
-			个人信息
+  %ul
+    %li
+      %a{ :href => "/" } 首页
+    %li
+      个人信息
 
 %article.main-section
-	-if can? :update, @publisher
-		%p.page-action
-			%a.btn.btn-info.plan-action{ :href => "#{edit_publisher_path(@publisher.id)}"} 编辑
+  -if can? :update, @publisher
+    %p.page-action
+      %a.btn.btn-info.plan-action{ :href => "#{edit_publisher_path(@publisher.id)}"} 编辑
 
-	%section#profile
-		%h3 个人信息
-		%p
-			%label 用户名
-			= @publisher.alternative_name
-		%p
-			%label 头像
-			%img.main.avatar{ :src => @publisher.avatar_link, :alt => @publisher.alternative_name }
-		%p
-			%label 电子邮件
-			= @publisher.email
-		%p
-			= label_tag 'publisher[short_description]', '简短描述(140字)'
-			= @publisher.short_description
+  %section#profile
+    %h3 个人信息
+    %p
+      %label 用户名
+      = @publisher.alternative_name
+    %p
+      %label 头像
+      %img.main.avatar{ :src => @publisher.avatar_link, :alt => @publisher.alternative_name }
+    %p
+      %label 电子邮件
+      = @publisher.email
+    %p
+      = label_tag 'publisher[short_description]', '简短描述(140字)'
+      = @publisher.short_description
 
-	%section
-		%h3 
-			我的课程
-			= "[#{@publisher.lessonplans.length}]"
-		= render :partial => 'shared/lessonplan_teaser_list', :locals => { :lessonplans => @publisher.lessonplans }
+  %section
+    %h3 
+      我的课程
+      = "[#{@publisher.lessonplans.length}]"
+    = render :partial => 'shared/lessonplan_teaser_list', :locals => { :lessonplans => @publisher.lessonplans }
