@@ -6,6 +6,7 @@ function build_local {
 	install_bundle && \
 	migrate && \
 	RAILS_ENV=test rake test && \
+	RAILS_ENV=test rspec && \
 	RAILS_ENV=test bundle exec cucumber
 }
 
@@ -13,6 +14,7 @@ function ut {
 	migrate && \
 	RAILS_ENV=test rake test && \
 	RAILS_ENV=test rake db:seed && \
+	RAILS_ENV=test rspec && \
 	RAILS_ENV=test bundle exec cucumber
 }
 
