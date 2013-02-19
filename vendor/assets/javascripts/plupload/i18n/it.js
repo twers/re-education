@@ -18,7 +18,7 @@ plupload.addI18n({
     'Security error.': 'Errore sicurezza.',
     'Generic error.': 'Errore generico.',
     'IO error.': 'Errore IO.',
-	'Stop Upload': 'Ferma Upload',
-	'Start Upload': 'Inizia Upload',
-	'%d files queued': '%d file in lista'
+  'Stop Upload': 'Ferma Upload',
+  'Start Upload': 'Inizia Upload',
+  '%d files queued': '%d file in lista'
 });

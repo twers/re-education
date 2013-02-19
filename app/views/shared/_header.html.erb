@@ -1,25 +1,25 @@
 <header>
-	<nav>
-		<h1><a href="/">开放课堂</a></h1>
-		<ul>
-			<% unless online? %>
-				<li>
-					<a href="<%= new_publisher_path() %>">注册</a>
-				</li>
-				<li>
-					<a href="<%= login_path() %>">登录</a>
-				</li>
-			<% else %>
-				<li>
-					<a href="<%= new_lessonplan_path() %>">创建新教案</a>
-				</li>
-				<li>
-					<a href="<%= publisher_path current_user %>">我的信息</a>
-				</li>
-				<li>
-					<a href="<%= logout_path() %>">退出</a>
-				</li>
-			<% end %>
-		</ul>
-	</nav>
+  <nav>
+    <h1><a href="/">开放课堂</a></h1>
+    <ul>
+      <% unless online? %>
+        <li>
+          <a href="<%= new_publisher_path() %>">注册</a>
+        </li>
+        <li>
+          <a href="<%= login_path() %>">登录</a>
+        </li>
+      <% else %>
+        <li>
+          <a href="<%= new_lessonplan_path() %>">创建新教案</a>
+        </li>
+        <li>
+          <a href="<%= publisher_path current_user %>">我的信息</a>
+        </li>
+        <li>
+          <a href="<%= logout_path() %>">退出</a>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
 </header>
