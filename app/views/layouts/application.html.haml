@@ -1,19 +1,19 @@
 !!!
 %html{ :lang => "en", 'ng-app' => 'openClass'}
-	%head
-		%meta{ :charset => "utf-8" }
-		%title 开放课堂
-		%meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
-		= csrf_meta_tags
-		
-		= stylesheet_link_tag    "application", :media => "all"
-		= javascript_include_tag "application"
-		:erb
-			<!--[if IE]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-			<![endif]-->
-		
-	%body
-		= render 'shared/header'
-		= yield
-		= render 'shared/footer'
+  %head
+    %meta{ :charset => "utf-8" }
+    %title 开放课堂
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+    = csrf_meta_tags
+    
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    :erb
+      <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+    
+  %body
+    = render 'shared/header'
+    = yield
+    = render 'shared/footer'

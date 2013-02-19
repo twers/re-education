@@ -1,49 +1,49 @@
 %nav.breadcrumb
-	%ul
-		%li
-			%a{ :href => "/" } 首页
-		%li
-			%a{ :href => "#" } 案例
-		%li.active
-			%a{ :href => "#" } 精品
+  %ul
+    %li
+      %a{ :href => "/" } 首页
+    %li
+      %a{ :href => "#" } 案例
+    %li.active
+      %a{ :href => "#" } 精品
 
 %article#attachments.main-section{ 'ng-controller' => 'HomeworksController' }
 
-	%h2= @lessonplan.title
+  %h2= @lessonplan.title
 
-	= render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan, :active => :attachments }
+  = render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan, :active => :attachments }
 
-	-if can? :update, @lessonplan or can? :destroy, @lessonplan
-		%section.info
-			%button.btn.btn-primary{ :id => "uploader_scratch_btn_#{@lessonplan.id}"} 上传Scratch
-			%button.btn.btn-primary{ :id => "uploader_btn_#{@lessonplan.id}" } 上传作业
-			%b 如果你有跟此课程相关的作业，上传到这里吧。
+  -if can? :update, @lessonplan or can? :destroy, @lessonplan
+    %section.info
+      %button.btn.btn-primary{ :id => "uploader_scratch_btn_#{@lessonplan.id}"} 上传Scratch
+      %button.btn.btn-primary{ :id => "uploader_btn_#{@lessonplan.id}" } 上传作业
+      %b 如果你有跟此课程相关的作业，上传到这里吧。
 
-	-if can? :update, @lessonplan or can? :destroy, @lessonplan
-		%section{ :id => "uploader_dialog_#{@lessonplan.id}" }
-			.file-uploader{ :id => "lessonplan_uploader_#{@lessonplan.id}", 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan), 'browse-btn-id' => "uploader_btn_#{@lessonplan.id}"}
+  -if can? :update, @lessonplan or can? :destroy, @lessonplan
+    %section{ :id => "uploader_dialog_#{@lessonplan.id}" }
+      .file-uploader{ :id => "lessonplan_uploader_#{@lessonplan.id}", 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan), 'browse-btn-id' => "uploader_btn_#{@lessonplan.id}"}
 
-		%section{ :id => "uploader_scratch_dialog_#{@lessonplan.id}" }
-			.file-uploader{ :id => "lessonplan_scratch_uploader_#{@lessonplan.id}", 'extensions' => 'sb', 'title' => 'Scratch files', 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan), 'browse-btn-id' => "uploader_scratch_btn_#{@lessonplan.id}" }
+    %section{ :id => "uploader_scratch_dialog_#{@lessonplan.id}" }
+      .file-uploader{ :id => "lessonplan_scratch_uploader_#{@lessonplan.id}", 'extensions' => 'sb', 'title' => 'Scratch files', 'file-data-name' => 'lessonplan_attachment[attachment]', 'file-post-url' => lessonplan_attachments_path(@lessonplan), 'browse-btn-id' => "uploader_scratch_btn_#{@lessonplan.id}" }
 
-	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'images')" }
-		%h3{ 'ng-show' => 'attachments.length' } 图片作业
-		%ul.attachment-list.image-gallery
-			%li{ 'ng-repeat' => 'attachment in attachments' }
-				%a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}"  }
-					%img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }
-				-if can? :destroy, @lessonplan
-					%button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
+  %section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'images')" }
+    %h3{ 'ng-show' => 'attachments.length' } 图片作业
+    %ul.attachment-list.image-gallery
+      %li{ 'ng-repeat' => 'attachment in attachments' }
+        %a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}"  }
+          %img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }
+        -if can? :destroy, @lessonplan
+          %button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
 
-	%section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratches')" }
-		%h3{ 'ng-show' => 'attachments.length' } Scratch作业
-		%ul.scratch-attachment-list.scratch-gallery
-			%li{ 'ng-repeat' => 'attachment in attachments' }
-				%a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}' }
-					%span {{ attachment.name }}
-				%section.scratch-dialog-box.dialog{ :id => 'scratch-box-{{attachment.id}}' }
-					= render :partial => "shared/embed_scratch", :locals => { :source_url => "{{attachment.attachment.url}}" }
-				-if can? :destroy, @lessonplan
-					%button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
+  %section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratches')" }
+    %h3{ 'ng-show' => 'attachments.length' } Scratch作业
+    %ul.scratch-attachment-list.scratch-gallery
+      %li{ 'ng-repeat' => 'attachment in attachments' }
+        %a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}' }
+          %span {{ attachment.name }}
+        %section.scratch-dialog-box.dialog{ :id => 'scratch-box-{{attachment.id}}' }
+          = render :partial => "shared/embed_scratch", :locals => { :source_url => "{{attachment.attachment.url}}" }
+        -if can? :destroy, @lessonplan
+          %button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
 
 
