@@ -42,6 +42,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'headless'
   gem "shoulda-matchers", "~> 1.4.2"
+  gem 'rake'
 end
 
 group :development do
