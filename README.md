@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/twers/re-education.png?branch=master)](https://travis-ci.org/twers/re-education)
 ## Newclass Introduction
 
 - Project management, please access http://goo.gl/ba05R
