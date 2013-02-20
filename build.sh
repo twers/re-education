@@ -3,8 +3,6 @@ function install_bundle {
 }
 
 function build_local {
-<<<<<<< HEAD
-
 	install_bundle && \
 	migrate && \
 	RAILS_ENV=test rake test && \
