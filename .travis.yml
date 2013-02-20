@@ -1,5 +1,7 @@
 language: ruby
 rvm:
   - "1.9.3"
+env:
+  - DB=mysql
 # uncomment this line if your project needs to run something other than `rake`:
 script: ./build.sh ut
