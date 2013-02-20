@@ -26,15 +26,5 @@ test: &test
   pool: 5
   timeout: 5000
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: education
-  username: root
-  password: openclass!
-  host: localhost
-  reconnect: true
-  pool: 5
-  timeout: 5000
 cucumber:
   <<: *test
