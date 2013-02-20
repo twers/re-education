@@ -172,7 +172,7 @@ Icon
 /db/data*.yml
 /public/assets/
 /public/uploads/
-config/database.yml
+!config/database.yml
 config/environments/development.rb
 config/environments/production.rb
 
