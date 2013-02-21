@@ -6,7 +6,7 @@ class PublishersController < ApplicationController
   end
 
   def create
-    @publisher = Publisher.new publiser_params
+    @publisher = Publisher.new publisher_params
 
     if @publisher.save_with_captcha
       self.current_user = @publisher
@@ -17,7 +17,7 @@ class PublishersController < ApplicationController
   end
 
   def update
-    if publisher.update_attributes(publiser_params)
+    if publisher.update_attributes!(publisher_params)
       redirect_to publisher_path(@publisher)
     else
       render "edit"
@@ -30,7 +30,7 @@ class PublishersController < ApplicationController
     @publisher ||= Publisher.find(params[:id])
   end
 
-  def publiser_params
+  def publisher_params
     params[:publisher].slice(:avatar, :email, :alternative_name,
                              :short_description, :password, :password_confirmation,
                              :captcha, :captcha_key)
