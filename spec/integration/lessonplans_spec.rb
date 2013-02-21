@@ -22,10 +22,7 @@ describe "lessons related functions", type: :feature do
       let!(:user) { FactoryGirl.create(:publisher) }
 
       before do
-        visit "/login"
-        fill_in 'Email', with: user.email
-        fill_in 'publisher_password', with: '123123'
-        click_button '登录'
+        login_as user
         page.should have_content "个人信息"
         visit "/lessonplans/new"
       end
@@ -59,10 +56,7 @@ describe "lessons related functions", type: :feature do
     let!(:lessonplan) { FactoryGirl.create(:lessonplan, :publisher => user) }
 
     before do
-      visit "/login"
-      fill_in 'Email', with: user.email
-      fill_in 'publisher_password', with: '123123'
-      click_button '登录'
+      login_as user
       page.should have_content "个人信息"
 
       visit "/lessonplans/#{lessonplan.id}/edit"
@@ -90,10 +84,7 @@ describe "lessons related functions", type: :feature do
     let!(:lessonplan) { FactoryGirl.create(:lessonplan, :publisher => user) }
 
     before do
-      visit "/login"
-      fill_in 'Email', with: user.email
-      fill_in 'publisher_password', with: '123123'
-      click_button '登录'
+      login_as user
       page.should have_content "个人信息"
 
       visit "/lessonplans/#{lessonplan.id}"
