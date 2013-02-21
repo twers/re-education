@@ -1,3 +1,4 @@
+#!/bin/sh
 function install_bundle {
   bundle install --system --without production
 }
