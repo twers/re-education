@@ -35,5 +35,15 @@ FactoryGirl.define do
     publisher
   end
 
+  factory :lessonplan_attachment do
+    lessonplan
+  end
+
+  factory :attachment_comment do
+    sequence(:content) { |n| "comment content #{n}" }
+    lessonplan_attachment
+    publisher
+  end
+
 end
 
