@@ -17,7 +17,7 @@ class PublishersController < ApplicationController
   end
 
   def update
-    if publisher.update_attributes!(publisher_params)
+    if publisher.update_attributes(publisher_params)
       redirect_to publisher_path(@publisher)
     else
       render "edit"

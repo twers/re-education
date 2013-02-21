@@ -2,13 +2,6 @@
 
 require 'spec_helper'
 
-def login_as(publisher)
-  visit "/login"
-  fill_in 'Email', with: publisher.email
-  fill_in 'publisher_password', with: '123123'
-  click_button '登录'
-end
-
 describe "publisher related functions", :type => :feature do
   let!(:publisher) { FactoryGirl.create(:publisher) }
 
