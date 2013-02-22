@@ -1,4 +1,4 @@
-function CachedTasksController($scope, $element) {
+function CachedTasksController($scope, $element, TaskResource) {
 
   $scope.cachedTasks = [];
   var editors = {};
@@ -14,7 +14,11 @@ function CachedTasksController($scope, $element) {
     editor: KindEditor.create(addNewSrcElement[0], options)
   };
 
-  $scope.init = function() {
+  var Task;
+
+  $scope.init = function(lessonplanId) {
+    Task = TaskResource(lessonplanId);
+    $scope.cachedTasks = Task.query();
   };
 
   $scope.addTask = function() {
@@ -23,7 +27,7 @@ function CachedTasksController($scope, $element) {
     $scope.cachedTasks.push({
       title: $scope.currentTaskTitle,
       content: editors['addNewEditor'].srcElement.val()
-    })
+    });
 
     $scope.currentTaskTitle = $scope.currentTaskContent = '';
     editors['addNewEditor'].srcElement.val('');
@@ -60,6 +64,7 @@ function CachedTasksController($scope, $element) {
     if(!editors[index]) {
       var editorElem = getEditableItem(index).find('.simple-editor');
 
+      console.log(editorElem);
       editors[index] = {
         srcElement: editorElem,
         editor: KindEditor.create(editorElem[0], options)
