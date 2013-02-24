@@ -14,7 +14,7 @@ describe CommentsController do
 
     before {
       10.times do |i|
-        FactoryGirl.create :comment, publisher: publisher, lessonplan: lessonplan
+        FactoryGirl.create :comment, publisher: publisher, :commentable_type => 'Lessonplan', :commentable_id => lessonplan.id
       end
       
       get :index, lessonplan_id: lessonplan.id
@@ -46,10 +46,12 @@ describe CommentsController do
 
     context 'content is duplicate' do
 
-      let!(:comment) { FactoryGirl.create :comment, lessonplan: lessonplan, publisher: current_user }
+      let!(:comment) do 
+        FactoryGirl.create :comment, publisher: current_user, commentable_type: 'Lessonplan', commentable_id: lessonplan.id
+      end
 
       before do
-        comment = FactoryGirl.create :comment, publisher: current_user, lessonplan: lessonplan
+        comment = FactoryGirl.create :comment, publisher: current_user, :commentable_type => 'Lessonplan', :commentable_id => lessonplan.id
         post :create, lessonplan_id: lessonplan.id, comment: { content: comment.content }
       end
 
@@ -62,7 +64,9 @@ describe CommentsController do
 
   describe "#destroy" do
 
-    let!(:comment) { FactoryGirl.create :comment, lessonplan: lessonplan, publisher: current_user }
+    let!(:comment) do
+      FactoryGirl.create :comment, publisher: current_user, commentable_type: 'Lessonplan', commentable_id: lessonplan.id
+    end
 
     it "should destroy specify comment" do
 

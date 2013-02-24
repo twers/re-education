@@ -23,7 +23,7 @@ ReEducation::Application.routes.draw do
     resources :tasks, :only => [:index, :create]
     resources :comments, :only => [:index, :create, :destroy]
     resources :lessonplan_attachments, :as => 'attachments', :path => 'attachments', :only => [:index, :create, :destroy] do
-      resource :attachment_comments, :as => 'comments', :path => 'comments', :only => [:show, :create, :destroy]
+      resource :comments, :only => [:index, :show, :create, :destroy]
     end
   end
 
