@@ -1,3 +1,79 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.plan-step ul {
+  margin: 0;
+}
+
+.plan-step li {
+  margin: 0;
+  list-style: none;
+  position: relative;
+  background: url(../img/step.png) repeat-y 16px top;
+}
+
+.plan-step li:last-child {
+  background: none;
+}
+
+.plan-step li label.number {
+  border-radius: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  background: #FBB963;
+  position: absolute;
+}
+
+.plan-step li label.number {
+  color: #FFF;
+  font-size: 20px;
+}
+
+.plan-step li span.step-content {
+  padding: 10px 20px;
+  display: block;
+  background: #f5f5f5;
+  margin: 0 0 0 60px;
+  border-radius: 5px;
+  border: 1px solid #EEE
+}
+
+.plan-step li h3 {
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.plan-step li p {
+  margin: 0;
+}
+
+.plan-step-attachment {
+  position: absolute;
+  bottom: 50px;
+  left: 90px;
+}
+
+.plan-step input {
+  width: 380px;
+}
+
+.plan-step textarea {
+  width: 372px;
+  padding: 8px 8px 30px 8px;
+  display: block;
+  margin: 0;
+}
+
+/*.plan-step .plan-action {width: 42px; height: 42px; line-height: 42px;}*/
+
+.plan-step .step-image img {
+  height: 30px;
+  margin: 10px 5px 0 0
+}
+
+.plan-step li.edit .edit.plan-action,
+.plan-step li.edit .delete.plan-action {
+  display: none;
+}

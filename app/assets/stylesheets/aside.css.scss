@@ -1,0 +1,56 @@
+article.plan aside.author {
+  float: left;
+  margin-left: -350px;
+  width: 335px;
+  height: 91%;
+}
+
+article.plan aside.author b.title {
+  display: block;
+  padding: 20px 0 0 30px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  line-height: 50px;
+}
+
+article.plan aside.author img.avatar {
+  float: left;
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 3px;
+  margin-left: 30px;
+  margin-right: 15px;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+}
+
+article.plan aside.author img.sponsor {
+  display: block;
+  height: 50px;
+  padding: 3px;
+  margin-left: 30px;
+  margin-right: 15px;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+}
+
+article.plan aside.author a.name {
+  display: block;
+  width: 60%;
+  font-weight: bold;
+  font-size: 14px;
+  color: #4C9ED0;
+  line-height: 30px;
+}
+
+article.plan aside.author small.profession {
+  clear: left;
+  font-size: 13px;
+}
+
+article.plan aside.author p {
+  margin: 5px 40px 0 103px;
+  line-height: 18px;
+}

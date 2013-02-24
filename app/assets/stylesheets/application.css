@@ -8,13 +8,14 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require reset
  *= require form-style
  *= require bootstrap.button
+
+ *= require main
+ *= require lessonplan_attachments
+
  *= require fancybox/jquery.fancybox
  *= require fancybox/helpers/jquery.fancybox-thumbs
- *= require new_style
- *= require publishers
- *= require lessonplan_attachments
+
 */
