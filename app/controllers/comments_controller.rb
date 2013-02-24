@@ -4,15 +4,19 @@ class CommentsController < ApplicationController
   # TODO 
   # Fix the bug 
 
-  before_filter :load_lessonplan
+  before_filter :fetch_parent
+
+  def show
+    render :json => @commentable.comments.to_json
+  end
 
   def index
-    comments = @lessonplan.comments
+    comments = @commentable.comments
     render :json => comments.to_json(:include => :publisher)
   end
 
   def create
-    comment = @lessonplan.comments.build(comment_params)
+    comment = @commentable.comments.build(comment_params)
     comment.publisher = current_user
     if comment.save
       render :json => comment.to_json(:include => :publisher)
@@ -29,8 +33,15 @@ class CommentsController < ApplicationController
 
   private
 
-  def load_lessonplan
-    render :json => { status: 'publisher is nil' } unless @lessonplan = Lessonplan.find_by_id(params[:lessonplan_id])    
+  def get_commentable_klass_and_id
+    [:lessonplan_attachment_id, :lessonplan_id].each do |sym|
+      return sym.to_s.gsub(/_id$/, '').classify.constantize, params[sym] if params[sym].present?
+    end
+  end
+
+  def fetch_parent
+    klass, commentable_id = get_commentable_klass_and_id
+    render :json => { status: 'resource could not be found' } unless @commentable = klass.find_by_id(commentable_id)
   end
 
   def get_status(errors)

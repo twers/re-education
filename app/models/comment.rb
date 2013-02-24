@@ -13,10 +13,9 @@
 
 class Comment < ActiveRecord::Base
 
-  belongs_to :lessonplan
   belongs_to :publisher
+  belongs_to :commentable, polymorphic: true
 
-  validates_associated    :lessonplan
   validates_presence_of   :content,    :message => 'empty'
   validates_uniqueness_of :content,    :scope => :publisher_id, :message => 'duplicate'
 

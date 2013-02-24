@@ -31,7 +31,6 @@ FactoryGirl.define do
 
   factory :comment do |t|
     sequence(:content) { |n| "comment content #{n}" }
-    lessonplan
     publisher
   end
 
@@ -39,11 +38,6 @@ FactoryGirl.define do
     lessonplan
   end
 
-  factory :attachment_comment do
-    sequence(:content) { |n| "comment content #{n}" }
-    lessonplan_attachment
-    publisher
-  end
 
 end
 

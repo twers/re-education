@@ -16,7 +16,7 @@
 
 class Lessonplan < ActiveRecord::Base
   has_many :tasks, :dependent => :delete_all
-  has_many :comments, :dependent => :delete_all
+  has_many :comments, :as => :commentable, :dependent => :delete_all
   has_many :lessonplan_attachments, :dependent => :delete_all
 
   belongs_to :publisher

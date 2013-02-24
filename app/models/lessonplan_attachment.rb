@@ -1,7 +1,7 @@
 class LessonplanAttachment < ActiveRecord::Base
 
   belongs_to :lessonplan
-  has_many :attachment_comments
+  has_many :comments, :as => :commentable
 
   mount_uploader :attachment, LessonplanAttachmentsUploader
 end
