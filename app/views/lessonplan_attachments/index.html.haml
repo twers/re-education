@@ -28,7 +28,7 @@
 
   %section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'images')" }
     %h3{ 'ng-show' => 'attachments.length' } 图片作业
-    %ul.attachment-list.image-gallery
+    %ul.attachment-list.gallery
       %li{ 'ng-repeat' => 'attachment in attachments' }
         %a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}"  }
           %img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }
@@ -37,7 +37,7 @@
 
   %section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratches')" }
     %h3{ 'ng-show' => 'attachments.length' } Scratch作业
-    %ul.scratch-attachment-list.scratch-gallery
+    %ul.scratch-attachment-list
       %li{ 'ng-repeat' => 'attachment in attachments' }
         %a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}' }
           %span {{ attachment.name }}
@@ -45,5 +45,7 @@
           = render :partial => "shared/embed_scratch", :locals => { :source_url => "{{attachment.attachment.url}}" }
         -if can? :destroy, @lessonplan
           %button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }
+
+
 
 

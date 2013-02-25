@@ -1,10 +1,7 @@
 source 'http://ruby.taobao.org'
 
 gem 'rails', '~> 3.2.2'
-gem 'jquery-rails'
 gem 'mailhopper'
-gem 'compass'
-gem 'compass-colors'
 gem 'haml'
 gem 'mysql2'
 gem "ckeditor", "~> 3.7.2"
@@ -24,7 +21,9 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass'
+  gem 'compass-colors'
   gem 'compass-rails'
+  gem 'jquery-rails', '2.1.4'
   gem "angular-rails", "~> 0.0.12"
 end
 

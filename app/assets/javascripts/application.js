@@ -13,10 +13,8 @@
 
 // = require jquery
 // = require jquery_ujs
-// = require jquery.cookie
 // = require file-validate
-// = require fancybox/jquery.fancybox.pack
-// = require fancybox/helpers/jquery.fancybox-thumbs
+// = require fancybox/jquery.fancybox-1.3.4.pack
 
 // = require plupload/plupload
 // = require plupload/plupload.flash
