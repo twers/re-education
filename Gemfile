@@ -25,6 +25,7 @@ group :assets do
   gem 'compass-rails'
   gem 'jquery-rails', '2.1.4'
   gem "angular-rails", "~> 0.0.12"
+  gem "fancybox2-rails", "~> 0.2.4"
 end
 
 group :test do
