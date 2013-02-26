@@ -146,6 +146,7 @@ local.properties
 # https://github.com/github/gitignore/blob/master/Global/Linux.gitignore
 .*
 !.gitignore
+!.travis.yml
 *~
 
 # ===

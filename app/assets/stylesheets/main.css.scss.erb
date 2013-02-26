@@ -1,0 +1,310 @@
+@import "base";
+
+@font-face {
+    font-family: 'fontello';
+    src: url('/assets/webfont_fontello/fontello.eot');
+    src: url('/assets/webfont_fontello/fontello.eot?#iefix') format('embedded-opentype'), url('/assets/webfont_fontello/fontello.woff') format('woff'), url('/assets/webfont_fontello/fontello.ttf') format('truetype'), url('/assets/webfont_fontello/fontello.svg#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    background: url(/assets/bg.png);
+}
+
+body {
+    font-size: 13px;
+    font-family: "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB", sans-serif, '微软雅黑', '黑体';
+    color: $font-color;
+}
+
+a {
+    color: #4C9ED0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FBB963;
+    text-decoration: none;
+}
+
+.hide {
+    display: none;
+}
+
+a.btn-primary, input[type="button"].btn-primary, input[type="submit"].btn-primary, button.btn-primary {
+    background: #389ABD;
+    padding: 10px 20px !important;
+    margin: 0 20px 0 0 !important;
+    border: none;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+a.btn-primary:hover,
+input[type="button"].btn-primary:hover,
+input[type="submit"].btn-primary:hover,
+button.btn-primary:hover,
+a.btn-primary:active,
+input[type="button"].btn-primary:active,
+input[type="submit"].btn-primary:active,
+button.btn-primary:active {
+    background: #FBB963;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.icon {
+    font-family: 'fontello';
+    font-style: normal;
+    background: none;
+}
+
+a:hover .icon-s {
+    color: #999;
+}
+
+.icon-s {
+    color: #666;
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+.icon-l {
+    font-size: 60px;
+    margin-right: 5px;
+}
+
+.icon-cover-upload {
+    position: absolute;
+    left: 195px;
+    top: 30px;
+}
+
+@import "header";
+@import "breadcrumb";
+@import "lessonplans";
+@import "tasks";
+@import "aside";
+@import "publishers";
+/*@import "lessonplan_attachments";*/
+
+/* MAIN */
+article.main {
+    position: relative;
+    top: 37px;
+}
+
+article.main h2 {
+    margin-top: 75px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #2A2A2A;
+    text-align: center;
+}
+
+article.main small.slogan {
+    display: block;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #888;
+    line-height: 20px;
+    text-align: center;
+}
+
+article.main a.btn-primary {
+    width: 160px;
+    margin: 30px auto 0 !important;
+    display: block;
+    font-size: 25px;
+    line-height: 36px;
+}
+
+article.main section.description {
+    margin-top: 75px;
+    text-align: center;
+}
+
+article.main section.description ul {
+    list-style: none;
+    width: 940px;
+    margin: auto;
+    background: #FFF;
+    box-shadow: 0 1px 5px #CCCCCC;
+}
+
+article.main section.description ul li {
+    position: relative;
+    display: inline-block;
+    width: 220px;
+    height: 230px;
+    border-left: 1px solid #EEE;
+    text-align: center;
+}
+
+article.main section.description ul li:first-child {
+    border-left: 0;
+}
+
+article.main section.description ul li:before {
+    position: absolute;
+    top: 0;
+    display: block;
+    font-family: "fontello";
+    color: #C7E5F2;
+    text-align: center;
+    width: 100%;
+    line-height: 130px;
+    font-size: 90px;
+}
+
+article.main section.description ul li.age:before {
+    content: "🎓";
+}
+
+article.main section.description ul li.idea:before {
+    content: "🚀";
+}
+
+article.main section.description ul li.design:before {
+    content: "📰";
+}
+
+article.main section.description ul li.locations:before {
+    content: "";
+}
+
+article.main section.description ul li.classroom:before {
+    content: "👥";
+}
+
+article.main section.description ul li.feedback:before {
+    content: "";
+}
+
+article.main section.description ul li b,
+article.main section.description ul li small {
+    display: block;
+    text-align: center;
+}
+
+article.main section.description ul li b {
+    margin-top: 125px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #2A2A2A;
+    line-height: 30px;
+}
+
+article.main section.description ul li small {
+    padding: 0 45px;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #666;
+    line-height: 150%;
+}
+
+article.main section.example {
+    width: 940px;
+    margin: 0 auto;
+    background: #FFF;
+    border-top: 1px solid #CCC;
+    box-shadow: 0 1px 5px #CCCCCC;
+}
+
+article.main section h3 {
+    padding: 40px 40px 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+article.main section.example ul {
+    list-style: none;
+    padding: 10px 40px;
+}
+
+article.main section.example ul li {
+    position: relative;
+    padding: 20px 0 20px 80px;
+    border-top: 1px solid #EEE;
+    min-height: 60px;
+}
+
+article.main section.example ul li:before {
+    font-family: 'fontello';
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20px;
+    background: #FE7B9D;
+    color: #FFF;
+    width: 60px;
+    height: 60px;
+    font-size: 44px;
+    line-height: 60px;
+    text-align: center;
+}
+
+<%
+lessonplan_icons = %w[ 📣 ♥ 🔆 ⚒ 🔔 ⏳   ];
+lessonplan_icon_bg = %w[#37B4AE #389ABD #FBB963 #D52A24 #E0DFC2 #F7E9A7 #A7D4C0 #E49996 #FE7B9D]
+5.times do |time|
+    lessonplan_icons.each_with_index do |icon, index|
+    li_str = Array.new(time * 9 + index + 1){ "+li" }
+    %>
+article.main section.example ul li <%=li_str.join('')%>:before {
+    content: "<%= icon%>";
+    background: <%=lessonplan_icon_bg[index] %>
+}
+
+<%
+      end
+  end
+%>
+
+article.main section.example ul li b.title {
+    font-size: 18px;
+}
+
+article.main section.example ul li p.description {
+    width: 620px;
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+article.main section.example ul li a {
+    color: #444;
+}
+
+article.main section.example ul li a.enter {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    display: block;
+    padding: 10px 20px;
+    margin: 0 20px 0 0;
+    background: #389ABD;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #FFF;
+}
+
+article.main section.example ul li a.enter:hover {
+    background: #FBB963;
+}
+
+article.main section.example ul li a.enter:active {
+    background-color: #0055CC;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+article.main section.example ul li input[type="submit"]:hover {
+    background-color: #FBB963;
+}
+
+article.main section.example ul li input[type="submit"]:active {
+    background-color: #0055CC;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}

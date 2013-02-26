@@ -1,10 +1,7 @@
 source 'http://ruby.taobao.org'
 
 gem 'rails', '~> 3.2.2'
-gem 'jquery-rails'
 gem 'mailhopper'
-gem 'compass'
-gem 'compass-colors'
 gem 'haml'
 gem 'mysql2'
 gem "ckeditor", "~> 3.7.2"
@@ -15,14 +12,20 @@ gem 'rails_kindeditor', '~> 0.3.8'
 gem 'dynamic_form'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "rmagick"
+# CanCan can not work perfectly with strong_parameters, will use slice pattern.
+# TODO: Use strong_parameters when CanCan fix this issue.
+#gem "strong_parameters"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass'
+  gem 'compass-colors'
   gem 'compass-rails'
+  gem 'jquery-rails', '2.1.4'
   gem "angular-rails", "~> 0.0.12"
+  gem "fancybox2-rails", "~> 0.2.4"
 end
 
 group :test do
@@ -39,6 +42,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'headless'
   gem "shoulda-matchers", "~> 1.4.2"
+  gem 'rake'
 end
 
 group :development do

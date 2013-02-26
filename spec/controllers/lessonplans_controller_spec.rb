@@ -13,8 +13,7 @@ describe LessonplansController do
   describe :index do
     it "lists 4 latest lesson plans" do
       10.times do |i|
-        plan = FactoryGirl.create :lessonplan, title: "test_plan_#{i}"
-        plan.update_attribute(:created_at, (60-i).seconds.ago)
+        FactoryGirl.create :lessonplan, title: "test_plan_#{i}", created_at: (60-i).seconds.ago
       end
       
       get :index

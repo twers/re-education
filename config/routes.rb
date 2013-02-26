@@ -2,14 +2,10 @@ ReEducation::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
-  match 'contact/thanks' => 'contact#thanks', :as => 'contact', :via => :post
-
   match 'login' => 'sessions#new', :as => 'login', :via => :get
   match 'logout' => 'sessions#destroy', :as => 'logout', :via => :get
 
-  resources :sessions, :only => [:new, :create]
+  resources :sessions, :only => [:create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -24,14 +20,17 @@ ReEducation::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :lessonplans do
-    resources :tasks
-    resources :comments
-    resources :lessonplan_attachments, :as => 'attachments', :path => 'attachments'
+    resources :tasks, :only => [:index, :create]
+    resources :comments, :only => [:index, :create, :destroy]
+    resources :lessonplan_attachments, :as => 'attachments', :path => 'attachments', :only => [:index, :create, :destroy] do
+      resources :comments, :only => [:index, :show, :create, :destroy]
+    end
   end
 
-  resources :publishers
+  resources :publishers, :except => [:index]
   resources :users
-
+  resources :feedbacks, :only => [:new, :create]
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do

@@ -36,7 +36,7 @@ class Publisher < ActiveRecord::Base
       :maximum => 50,
       :message => "用户名长度不能超过50字" }
 
-  validates :password,
+  validates :password, :on => :create,
     :presence => {
       :message => "密码为必填写项"
     },

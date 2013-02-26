@@ -1,0 +1,29 @@
+/* breadcrumb */
+nav.breadcrumb {
+  width: 940px;
+  margin: 40px auto 0;
+  line-height: 60px;
+}
+
+nav.breadcrumb ul li {
+  display: inline-block;
+}
+
+nav.breadcrumb ul li {
+  font-size: 13px;
+}
+
+nav.breadcrumb ul li a {
+  color: #389ABD;
+  display: none;
+}
+
+nav.breadcrumb ul li:after {
+  content: "";
+  padding: 0 5px;
+  color: #999;
+}
+
+nav.breadcrumb ul li:last-child:after {
+  content: "";
+}

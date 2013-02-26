@@ -1,19 +1,19 @@
 .page.container.contact-us-body
   %div.col-img
-    %img{:src=> 'assets/contact-us-img.png'}
+    %img{:src=> image_path('contact-us-img.png')}
   %div.col-text
     %h2 我有一些建议。
     %p 请不要犹豫，我们需要您的意见，并帮助我们不断的改进！
     %hr
-    = form_for @message, :url => contact_path do |form|
+    = form_for @feedback, :url => feedbacks_path do |form|
       %fieldset.fields
         .field
           .field
-            = label_tag '@message[email]', '您的邮箱地址是？'
+            = label_tag '@feedback[email]', '您的邮箱地址是？'
             = form.text_field :email, :placeholder => '例如: xiong.mao@hotmail.com'
 
           .field
-            = label_tag '@message[body]', '您的想法与建议是？'
+            = label_tag '@feedback[body]', '您的想法与建议是？'
             = form.text_area :body, :placeholder => '最好200个字以内哦～', :rows => 4, :maxlength => 200
       %fieldset.actions
         = form.submit "提交反馈", :class => 'btn btn-contact-us'

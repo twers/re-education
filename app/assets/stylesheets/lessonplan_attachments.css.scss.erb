@@ -24,11 +24,6 @@
 
 .attachment-list {
   list-style: none;
-  overflow: hidden;
-  background: whiteSmoke;
-  padding: 5px 10px;
-
-  $max-height: 150px;
 
   li {
     float: left;
@@ -41,11 +36,17 @@
     height: 150px;
 
     img {
-      max-height: $max-height;
-      border: 2px solid white;
+      max-height: 150px;
       @include box-shadow(0 2px 5px #999);
     }
   }
+}
+
+.scratch-attachment-list,
+.attachment-list {
+  overflow: hidden;
+  background: whiteSmoke;
+  padding: 5px 10px;
 
   button {
     position: absolute;
@@ -53,16 +54,10 @@
     right: -7px;
     display: none;
     cursor: pointer;
-    @include background(linear-gradient(top, #D36B78, #BB1F23));
-    color: white;
-    border: 2px solid white;
-    height: 30px;
-    width: 30px;
-    border-radius: 30px;
-    z-index: 1;
-    border: 2px solid white;
-    @include box-shadow(0 0 10px #AAA);
-    font-size: 28px;
+    @include background(url("delete.png"));
+    height: 32px;
+    width: 32px;
+    border: 0;
   }
 
   li:hover button {
@@ -77,7 +72,7 @@
     float: left;
     width: 16%;
     height: 130px;
-    margin: 0 20px 40px 0;
+    margin: 10px 20px 40px 10px;
 
     a{
       span{
@@ -170,4 +165,29 @@ ul.fileList {
       }
     }
   }
+}
+
+
+ul#comments_list {
+
+  width: 100%;
+
+  li {
+    list-style: none;
+    margin-top: 5px;
+
+    table.comment_container {
+      tr {
+        td {
+          vertical-align: top;
+        }
+      }
+    }
+  }
+
+
+}
+
+#fancybox-thumbs {
+  display: none;
 }

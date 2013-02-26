@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-require 'digest/md5'
-
 class PublishersController < ApplicationController
   load_and_authorize_resource
 
@@ -9,7 +6,7 @@ class PublishersController < ApplicationController
   end
 
   def create
-    @publisher = Publisher.new params[:publisher]
+    @publisher = Publisher.new publisher_params
 
     if @publisher.save_with_captcha
       self.current_user = @publisher
@@ -20,7 +17,7 @@ class PublishersController < ApplicationController
   end
 
   def update
-    if publisher.update_attributes(params[:publisher])
+    if publisher.update_attributes(publisher_params)
       redirect_to publisher_path(@publisher)
     else
       render "edit"
@@ -31,5 +28,11 @@ class PublishersController < ApplicationController
 
   def publisher
     @publisher ||= Publisher.find(params[:id])
+  end
+
+  def publisher_params
+    params[:publisher].slice(:avatar, :email, :alternative_name,
+                             :short_description, :password, :password_confirmation,
+                             :captcha, :captcha_key)
   end
 end

@@ -1,0 +1,15 @@
+<li>
+<table class='comment_container'>
+  <tr>
+    <td>
+      <%= image_tag(image_path(comment.publisher ? comment.publisher.avatar_url : 'avatar.png'), width: 56, height: 56) %>
+    </td>
+    <td>
+      <p><%= comment.publisher ? comment.publisher.alternative_name : '匿名用户' %></p>
+      <p>
+        <%= comment.content %>
+      </p>
+    </td>
+  </tr>
+</table>
+</li>

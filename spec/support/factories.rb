@@ -26,8 +26,18 @@ FactoryGirl.define do
   factory :task do |t|
     sequence(:title) { |n| "task title#{n}" }
     sequence(:content) { |n| "task content#{n}" }
-    lessplan
+    lessonplan
   end
+
+  factory :comment do |t|
+    sequence(:content) { |n| "comment content #{n}" }
+    publisher
+  end
+
+  factory :lessonplan_attachment do
+    lessonplan
+  end
+
 
 end
 
