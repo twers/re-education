@@ -11,17 +11,24 @@ class CommentsController < ApplicationController
   end
 
   def index
-    comments = @commentable.comments
-    render :json => comments.to_json(:include => :publisher)
+    @comments = @commentable.comments
+    respond_to do |format|
+      format.html { render layout: nil }
+      format.json { render :json => @comments.to_json(:include => :publisher) }
+    end
   end
 
   def create
-    comment = @commentable.comments.build(comment_params)
-    comment.publisher = current_user
-    if comment.save
-      render :json => comment.to_json(:include => :publisher)
-    else
-      render :json => { status: get_status(comment.errors) }
+    @comment = @commentable.comments.build(comment_params)
+    @comment.publisher = current_user
+    respond_to do |format|
+      if @comment.save
+        format.html { render :show, :layout => nil }
+        format.json { render :json => @comment.to_json(:include => :publisher) }
+      else
+        format.html { render :text => nil }
+        format.json { render :json => { status: get_status(@comment.errors) } }
+      end
     end
   end
 
@@ -34,6 +41,7 @@ class CommentsController < ApplicationController
   private
 
   def get_commentable_klass_and_id
+    params[:lessonplan_attachment_id] = params[:attachment_id]
     [:lessonplan_attachment_id, :lessonplan_id].each do |sym|
       return sym.to_s.gsub(/_id$/, '').classify.constantize, params[sym] if params[sym].present?
     end

@@ -16,8 +16,8 @@ describe CommentsController do
       10.times do |i|
         FactoryGirl.create :comment, publisher: publisher, :commentable_type => 'Lessonplan', :commentable_id => lessonplan.id
       end
-      
-      get :index, lessonplan_id: lessonplan.id
+
+      get :index, lessonplan_id: lessonplan.id, format: :json
     }
 
     specify { JSON.parse(response.body).size.should == 10 }
@@ -28,7 +28,7 @@ describe CommentsController do
 
     describe do
 
-      before { post :create, lessonplan_id: lessonplan.id, comment: { content: 'test comment content' } }
+      before { post :create, lessonplan_id: lessonplan.id, comment: { content: 'test comment content' }, format: :json }
 
       specify { JSON.parse(response.body)['content'].should == 'test comment content' }
 
@@ -38,7 +38,7 @@ describe CommentsController do
     
     context 'content is empty' do
       
-      before { post :create, lessonplan_id: lessonplan.id, comment: {} }
+      before { post :create, lessonplan_id: lessonplan.id, comment: {}, format: :json }
 
       specify { JSON.parse(response.body)['status'].should == 'empty' }
 
@@ -52,7 +52,7 @@ describe CommentsController do
 
       before do
         comment = FactoryGirl.create :comment, publisher: current_user, :commentable_type => 'Lessonplan', :commentable_id => lessonplan.id
-        post :create, lessonplan_id: lessonplan.id, comment: { content: comment.content }
+        post :create, lessonplan_id: lessonplan.id, comment: { content: comment.content }, format: :json
       end
 
       specify { JSON.parse(response.body)['status'].should == 'duplicate' }

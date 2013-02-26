@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224140402) do
+ActiveRecord::Schema.define(:version => 20130225085952) do
 
   create_table "attachment_comments", :force => true do |t|
     t.string   "content"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130224140402) do
     t.datetime "updated_at",                     :null => false
     t.integer  "publisher_id"
     t.integer  "commentable_id"
-    t.string   "commentable_type", :limit => 16
+    t.string   "commentable_type", :limit => 20
   end
 
   create_table "feedbacks", :force => true do |t|

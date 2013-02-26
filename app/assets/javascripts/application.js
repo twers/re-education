@@ -14,8 +14,7 @@
 // = require jquery
 // = require jquery_ujs
 // = require file-validate
-// = require fancybox/jquery.fancybox-1.3.4.pack
-
+// = require fancybox
 // = require plupload/plupload
 // = require plupload/plupload.flash
 

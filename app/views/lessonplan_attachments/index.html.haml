@@ -30,7 +30,7 @@
     %h3{ 'ng-show' => 'attachments.length' } 图片作业
     %ul.attachment-list.gallery
       %li{ 'ng-repeat' => 'attachment in attachments' }
-        %a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}"  }
+        %a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}", :attachment_id => "{{attachment.id}}" }
           %img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }
         -if can? :destroy, @lessonplan
           %button{ 'ng-click' => 'remove($index);', 'title' => '删除作业' }

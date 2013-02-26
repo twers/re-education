@@ -33,9 +33,8 @@ class Lessonplan < ActiveRecord::Base
 
   def attachments(extensions)
     ret = []
-    p self.lessonplan_attachments
     self.lessonplan_attachments.order('created_at DESC').each do |attachment|
-      ret.push attachment if extensions.include? attachment.name.split('.').last.downcase
+      ret.push attachment if attachment.name && extensions.include?(attachment.name.split('.').last.downcase)
     end
     ret
   end

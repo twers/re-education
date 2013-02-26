@@ -1,0 +1,8 @@
+<%= form_for :comment, :url => "attachments/#{@commentable.id}/comments", :html => { :id => 'comments_form' } do |form| %>
+  <%= form.text_field :content, placeholder: '请输入评论' %>
+<% end %>
+<ul id='comments_list' >
+  <% @comments.each do |comment| %>
+    <%= render partial: 'comment', object: comment %>
+  <% end %>
+</ul>
