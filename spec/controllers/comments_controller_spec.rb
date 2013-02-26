@@ -35,9 +35,9 @@ describe CommentsController do
       specify { JSON.parse(response.body)['publisher']['id'].should == current_user.id }
 
     end
-    
+
     context 'content is empty' do
-      
+
       before { post :create, lessonplan_id: lessonplan.id, comment: {}, format: :json }
 
       specify { JSON.parse(response.body)['status'].should == 'empty' }

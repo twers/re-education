@@ -41,7 +41,10 @@ class CommentsController < ApplicationController
   private
 
   def get_commentable_klass_and_id
+<<<<<<< HEAD
     params[:lessonplan_attachment_id] = params[:attachment_id]
+=======
+>>>>>>> 7ca84cb7d4731320d75dac86db85269b779c5b23
     [:lessonplan_attachment_id, :lessonplan_id].each do |sym|
       return sym.to_s.gsub(/_id$/, '').classify.constantize, params[sym] if params[sym].present?
     end
