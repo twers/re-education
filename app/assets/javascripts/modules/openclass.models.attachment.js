@@ -19,6 +19,6 @@ angular.module('openClass.models')
           }
         }
       });
-    }
+    };
     return AttachmentResource;
   }]);

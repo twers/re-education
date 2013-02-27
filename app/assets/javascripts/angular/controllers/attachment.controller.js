@@ -1,9 +1,8 @@
 function AttachmentController($scope, AttachmentResource) {
 
   var Attachment;
-  var type;
 
-  function loadAttachements(Attachment, type) {
+  function loadAttachments(Attachment, type) {
     Attachment.query(function(attachments) {
       $scope.attachments = attachments;
       $scope.$emit('AttachmentsCountChange', $scope.attachments.length, type);
@@ -12,21 +11,24 @@ function AttachmentController($scope, AttachmentResource) {
 
   $scope.init = function(lessonplanId, fileType) {
     Attachment = AttachmentResource(lessonplanId, fileType);
-    type = fileType;
-    loadAttachements(Attachment, type);
+    $scope.fileType = fileType;
+    loadAttachments(Attachment, $scope.fileType);
   };
 
   $scope.remove = function(index) {
-    if(window.confirm('确定要删除么？')) {
+    if (window.confirm('确定要删除么？')) {
       $scope.attachments[index].$remove(function() {
+        _gaq.push(['_trackEvent', 'Attachment', 'Remove', $scope.fileType]);
         $scope.attachments.splice(index, 1);
-        console.log($scope.attachments.length);
-        $scope.$emit('AttachmentsCountChange', $scope.attachments.length, type);
+        $scope.$emit('AttachmentsCountChange', $scope.attachments.length, $scope.fileType);
       });
     }
   };
 
-  $scope.$on('reload', function() {
-    loadAttachements(Attachment, type);
+  $scope.$on('AttachmentAdd', function(obj, fileType) {
+    if (fileType === $scope.fileType) {
+      _gaq.push(['_trackEvent', 'Attachment', 'Add', $scope.fileType]);
+      loadAttachments(Attachment, $scope.fileType);
+    }
   });
 }
