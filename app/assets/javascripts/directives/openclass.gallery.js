@@ -7,6 +7,9 @@ angular.module('openClass.directives')
         if (attachments) {
           fancybox(element.find('a'), {
             afterShow: function() {
+              var fileType = this.element.parents('ul').data('file-type');
+              _gaq.push(['_trackEvent', 'Attachment', 'View', fileType]);
+
               $('#fancybox-thumbs').remove();
               var url = "attachments/" + this.element.attr('attachment_id') + "/comments";
               $.ajax(url, {
@@ -23,7 +26,7 @@ angular.module('openClass.directives')
                         $('#comments_list').prepend(partial);
                         $('#comment_content').val('');
                       }
-                    })
+                    });
                     return false
                   })
                 }

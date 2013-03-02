@@ -44,11 +44,7 @@ ActiveRecord::Schema.define(:version => 20130225085952) do
     t.datetime "updated_at",                     :null => false
     t.integer  "publisher_id"
     t.integer  "commentable_id"
-<<<<<<< HEAD
     t.string   "commentable_type", :limit => 20
-=======
-    t.string   "commentable_type", :limit => 16
->>>>>>> 7ca84cb7d4731320d75dac86db85269b779c5b23
   end
 
   create_table "feedbacks", :force => true do |t|

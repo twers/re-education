@@ -28,7 +28,7 @@
 
   %section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'images')" }
     %h3{ 'ng-show' => 'attachments.length' } 图片作业
-    %ul.attachment-list.gallery
+    %ul.attachment-list.gallery{ 'data-file-type' => 'images' }
       %li{ 'ng-repeat' => 'attachment in attachments' }
         %a{ 'ng-href' => '{{attachment.attachment.url}}', :rel => 'attachment', :title => "{{attachment.name}}", :attachment_id => "{{attachment.id}}" }
           %img{ 'ng-src' => '{{attachment.attachment.thumb.url}}' }
@@ -37,7 +37,7 @@
 
   %section{ 'ng-controller' => 'AttachmentController', 'ng-init' => "init(#{@lessonplan.id}, 'scratches')" }
     %h3{ 'ng-show' => 'attachments.length' } Scratch作业
-    %ul.scratch-attachment-list
+    %ul.scratch-attachment-list{ 'data-file-type' => 'scratches' }
       %li{ 'ng-repeat' => 'attachment in attachments' }
         %a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}' }
           %span {{ attachment.name }}

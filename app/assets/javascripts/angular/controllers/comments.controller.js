@@ -30,6 +30,7 @@ function CommentsController($scope, $element, CommentResource) {
         alert("请不要提交空的评论。");
         return;
       }
+      _gaq.push(['_trackEvent', 'Comment', 'Add']);
       $scope.comments.push(data);
       $scope.$emit('CommentsCountChange', $scope.comments.length);
       $scope.new_comment_content = '';
@@ -48,6 +49,7 @@ function CommentsController($scope, $element, CommentResource) {
     if(window.confirm('确定要删除么？')) {
       $scope.comments[index].$remove(function(json) {
         if(json.ret) {
+          _gaq.push(['_trackEvent', 'Comment', 'Remove']);
           $scope.comments.splice(index, 1);
           $scope.$emit('CommentsCountChange', $scope.comments.length);
         } else {

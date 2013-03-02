@@ -1,7 +1,7 @@
 function HomeworksController($scope){
-  $scope.$on('upload', function(obj, status){
+  $scope.$on('upload', function(obj, status, fileType){
     if(status === 'complete'){
-      $scope.$broadcast('reload');
+      $scope.$broadcast('AttachmentAdd', fileType);
     }
   });
 
