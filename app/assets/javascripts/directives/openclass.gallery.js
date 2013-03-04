@@ -10,13 +10,12 @@ angular.module('openClass.directives')
               var fileType = this.element.parents('ul').data('file-type');
               _gaq.push(['_trackEvent', 'Attachment', 'View', fileType]);
 
-              $('#fancybox-thumbs').remove();
               var url = "attachments/" + this.element.attr('attachment_id') + "/comments";
               $.ajax(url, {
                 type: 'get',
                 dataType: 'html',
                 success: function(partial) {
-                  $('.fancybox-title').after($("<div>" + partial + "</div>"));
+                  $('.fancybox-skin').append($("<div>" + partial + "</div>"));
                   $('#lightbox_comments_form').submit(function() {
                     $.ajax($(this).attr('action'), {
                       type: 'POST',
