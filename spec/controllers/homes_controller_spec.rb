@@ -7,7 +7,8 @@ describe HomesController do
       get :show
     end
 
-    it { should respond_with(:success) }
+    it { should respond_with :success }
+    it { should render_template :show }
   end
 
 end
