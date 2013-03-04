@@ -17,13 +17,13 @@ angular.module('openClass.directives')
                 dataType: 'html',
                 success: function(partial) {
                   $('.fancybox-title').after($("<div>" + partial + "</div>"));
-                  $('#comments_form').submit(function() {
+                  $('#lightbox_comments_form').submit(function() {
                     $.ajax($(this).attr('action'), {
                       type: 'POST',
                       dataType: 'html',
                       data: { 'comment[content]' : $('#comment_content').val(), authenticity_token: $('meta[name="csrf-token"]').attr('content') },
                       success: function(partial) {
-                        $('#comments_list').prepend(partial);
+                        $('.comments').prepend(partial);
                         $('#comment_content').val('');
                       }
                     });
@@ -32,13 +32,10 @@ angular.module('openClass.directives')
                 }
               })
             },
+            minWidth: 600,
             helpers:{
               title:{
                 type:'inside'
-              },
-              thumbs:{
-                width:50,
-                height:50
               }
             }
           });
