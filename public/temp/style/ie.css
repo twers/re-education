@@ -1,3 +1,17 @@
+.topbar{
+    background-color: #000000;
+}
+
+.topbar h1{
+    width: 940px;
+    margin: auto;
+}
+
+.topbar h1 a{
+    color: #fff;
+    line-height: 40px;
+    font-size: 20px;
+}
 .ie-content{
     overflow: hidden;
     position: relative;
