@@ -3,9 +3,14 @@
     <img src="<%= comment.publisher && comment.publisher.avatar_url ? comment.publisher.avatar_url : '/assets/avatar.png' %>">
   </div>
   <div class="comment-content">
-    <a href="<%= comment.publisher ? '/publishers/' + comment.publisher.id.to_s : '#' %>">
-      <%= comment.publisher ? comment.publisher.alternative_name : '' %>
-    </a>
+    <% if comment.publisher %>
+      <a href="<%= '/publishers/' + comment.publisher.id.to_s %>">
+        <%= comment.publisher.alternative_name %>
+      </a>
+    <% else %>
+      <span>匿名用户</span>
+    <% end %>
+
     <time class="comment-time">
       <%= comment.publisher ? comment.created_at : '' %>
     </time>
