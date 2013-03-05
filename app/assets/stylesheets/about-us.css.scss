@@ -1,30 +1,30 @@
 @import "base";
 
-#about-us{
+#about-us {
 
   font-size: 14px;
   line-height: 20px;
 
-  h1{
+  h1 {
     margin: 80px 0 0;
     line-height: 60px;
   }
 
-  .slogan{
+  .slogan {
     margin-bottom: 60px;
   }
 
-  ul{
+  ul {
     list-style: none;
   }
 
-  section{
+  section {
     width: 940px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 0 30px 10px;
     background: #fff;
 
-    h2{
+    h2 {
       width: 200px;
       margin: 0 auto 30px;
       font-size: 20px;
@@ -35,7 +35,7 @@
       z-index: 100;
     }
 
-    &:before{
+    &:before {
       display: block;
       content: '\200B';
       border-bottom: 1px dotted #999;
@@ -47,7 +47,7 @@
     }
   }
 
-  section.short-description ul{
+  section.short-description ul {
     margin: auto;
     overflow: hidden;
 
@@ -60,16 +60,16 @@
       margin-left: 2.564102564%;
       float: left;
 
-      &:first-child{
+      &:first-child {
         margin-left: 0;
       }
 
-      img{
+      img {
         width: 180px;
       }
     }
 
-    b{
+    b {
       line-height: 40px;
       color: #39b1c6;
       font-size: 18px;
@@ -78,43 +78,44 @@
     }
   }
 
-  section.team-description{
+  section.team-description {
 
     overflow: hidden;
     position: relative;
 
-    img{
+    img {
       position: absolute;
-      right: 50px;
+      right: 5%;
       top: 100px;
+      width: 35%;
     }
 
-    p{
-      width: 300px;
-      margin: 0 0 20px 80px;
+    p {
+      width: 30%;
+      margin: 0 0 20px 5%;
     }
   }
 
-  section.contact-us{
+  section.contact-us {
 
-    ul{
+    ul {
       overflow: hidden;
 
-      li{
+      li {
         float: left;
         text-align: center;
 
-        a{
+        a {
           color: #3AB2C6;
 
-          &:hover{
+          &:hover {
             color: #FBB963;
           }
         }
       }
     }
 
-    > ul > li:before{
+    > ul > li:before {
       font-family: 'fontello';
       font-size: 32px;
       line-height: 40px;
@@ -123,14 +124,14 @@
       display: block;
     }
 
-    > ul > li{
+    > ul > li {
       width: 16%;
 
-      img{
+      img {
         width: 100%;
       }
 
-      &.partner{
+      &.partner {
         width: 50%;
       }
     }
@@ -138,33 +139,89 @@
     li > ul > li {
       width: 25%;
 
-      a{
+      a {
         opacity: .4;
-        &:hover{
+        &:hover {
           opacity: 1;
         }
       }
     }
 
-    li address{
+    li address {
       font-style: normal;
     }
 
-    .email:before{
+    .email:before {
       content: '✉';
     }
 
-    .weibo:before{
+    .weibo:before {
       content: '';
     }
 
-    .address:before{
+    .address:before {
       content: '';
     }
 
-    .partner:before{
+    .partner:before {
       content: '👥';
     }
   }
+}
 
+@media (max-width: 979px) and (min-width: 768px) {
+  #about-us section {
+    width: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  #about-us {
+    h1 {
+      margin: 20px 0 0;
+      font-size: 30px;
+      line-height: 33px;
+    }
+
+    .slogan {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    section {
+      width: auto;
+
+      &:before {
+        width: 80%;
+      }
+
+      > ul > li {
+        float: none !important;
+        width: auto !important;
+        margin-bottom: 30px;
+      }
+
+      &.short-description ul > li{
+        height: auto;
+
+        img{
+          width: 250px;
+        }
+      }
+
+      &.team-description {
+        p {
+          width: 60%;
+          margin: 0 20% 15px;
+        }
+
+        img {
+          display: block;
+          position: static;
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
 }
