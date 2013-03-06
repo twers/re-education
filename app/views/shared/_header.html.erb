@@ -9,7 +9,13 @@
         <li>
           <a href="<%= login_path() %>">登录</a>
         </li>
+        <li>
+            <a href="<%= about_us_path() %>">关于我们</a>
+        </li>
       <% else %>
+        <li>
+          <a href="<%= about_us_path() %>">关于我们</a>
+        </li>
         <li>
           <a href="<%= new_lessonplan_path() %>">创建新教案</a>
         </li>
@@ -20,6 +26,7 @@
           <a href="<%= logout_path() %>">退出</a>
         </li>
       <% end %>
+
     </ul>
   </nav>
 </header>

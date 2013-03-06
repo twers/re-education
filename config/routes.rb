@@ -4,6 +4,7 @@ ReEducation::Application.routes.draw do
 
   match 'login' => 'sessions#new', :as => 'login', :via => :get
   match 'logout' => 'sessions#destroy', :as => 'logout', :via => :get
+  match 'about-us' => 'homes#show', :as => 'about_us', :via => :get
 
   resources :sessions, :only => [:create]
 
@@ -30,7 +31,8 @@ ReEducation::Application.routes.draw do
   resources :publishers, :except => [:index]
   resources :users
   resources :feedbacks, :only => [:new, :create]
-  
+
+  resource :home, :only => [:show]
   # Sample resource route with options:
   #   resources :products do
   #     member do

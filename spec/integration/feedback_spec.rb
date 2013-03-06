@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'Feedback ralate functions', type: :feature do
+describe 'Feedback ralated functions', type: :feature do
 
   context 'send a feedback' do
 
