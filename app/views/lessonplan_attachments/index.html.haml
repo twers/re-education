@@ -39,7 +39,7 @@
     %h3{ 'ng-show' => 'attachments.length' } Scratch作业
     %ul.scratch-attachment-list{ 'data-file-type' => 'scratches' }
       %li{ 'ng-repeat' => 'attachment in attachments' }
-        %a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}' }
+        %a.inline-dialog-trigger{ :href => '#scratch-box-{{attachment.id}}', :attachment_id => "{{attachment.id}}" }
           %span {{ attachment.name }}
         %section.scratch-dialog-box.dialog{ :id => 'scratch-box-{{attachment.id}}' }
           = render :partial => "shared/embed_scratch", :locals => { :source_url => "{{attachment.attachment.url}}" }

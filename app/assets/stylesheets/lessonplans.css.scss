@@ -319,7 +319,7 @@ article.plan.edit aside.author {
   margin: 40px 40px 0 40px;
 }
 
-article.plan section.comments {
+.comments {
   clear: both;
   padding-top: 0px;
   padding-bottom: 50px;
@@ -327,12 +327,29 @@ article.plan section.comments {
   padding-left: 40px;
 }
 
-article.plan section.comments ul {
+.comments.lightbox-comments {
+  padding: 0;
+}
+
+#lightbox_comments_form {
+  margin: 5px 0;
+
+  #comment_content {
+    margin-bottom: 0;
+    width: 450px;
+  }
+
+  input[type='submit'] {
+    padding: 5px 20px !important;
+  }
+}
+
+.comments ul {
   padding: 0;
   margin: 0;
 }
 
-article.plan section.comments li {
+.comments li {
   list-style: none;
   margin-bottom: 5px;
   background: whiteSmoke;
@@ -340,11 +357,11 @@ article.plan section.comments li {
   position: relative;
 }
 
-article.plan section.comments li:hover a.delete {
+.comments li:hover a.delete {
   display: inline-block;
 }
 
-article.plan section.comments li a.delete {
+.comments li a.delete {
   display: none;
   position: absolute;
   right: -30px;
@@ -357,34 +374,34 @@ article.plan section.comments li a.delete {
   @include border-radius(0 4px 4px 0);
 }
 
-article.plan section.comments .comment-avatar {
+.comments .comment-avatar {
   float: left;
   margin-left: -40px;
 }
 
-article.plan section.comments .comment-content {
+.comments .comment-content {
   padding: 5px;
 }
 
-article.plan section.comments .comment-avatar img {
+.comments .comment-avatar img {
   width: 30px;
   height: 30px;
   margin: 5px;
   border: 1px solid #eee;
 }
 
-article.plan section.comments .nick-name {
+.comments .nick-name {
   color: #389ABD;
   font-weight: bold;
 }
 
-article.plan section.comments .comment-time {
+.comments .comment-time {
   color: grey;
   font-size: 10px;
   font-style: italic;
 }
 
-article.plan section.comments textarea {
+.comments textarea {
   width: 500px;
 }
 
