@@ -6,7 +6,7 @@
       %a{ :href => "javascript:;" } 案例
     %li.active
       %a{ :href => "javascript:;" } 精品
-      
+
 %article.plan{ 'ng-controller' => "PlanController" }
   -if can? :update, @lessonplan or can? :destroy, @lessonplan
     %p.page-action
@@ -20,7 +20,7 @@
   = render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan }
 
   %section.activity
-    %img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
+    %img.main{ :src => @lessonplan.attachment.thumb.url, :alt => @lessonplan.title }
     %p.description= @lessonplan.short_description.html_safe
     %h3 活动介绍
     = @lessonplan.content.html_safe
