@@ -16,11 +16,11 @@ class SessionsController < ApplicationController
         redirect_to publisher_path(publisher)
       else
         flash.now.alert = '账号或密码错误'
+        render :new
       end
     else
       flash.now.alert = '验证码有误'
+      render :new
     end
-    @email = params[:publisher][:email]
-    render :new
   end
 end
