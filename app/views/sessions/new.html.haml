@@ -4,14 +4,15 @@
       %a{ :href => "/" } 首页
     %li
       登录
-
 %article.main-section
   %section
     = form_for :publisher, :as => :post, :url => sessions_path do |f|
       %h3 登录
       %p
+        = flash[:alert]
+      %p
         = label_tag 'publisher[email]', 'Email'
-        = f.email_field :email, :placeholder => '填写你的电子邮件...'
+        = f.email_field :email, :placeholder => '填写你的电子邮件...', :value => @email
       %p
         = label_tag 'publisher[password]', '密码'
         = f.password_field :password, :size => 20, :placeholder => '填写密码...'

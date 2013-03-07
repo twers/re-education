@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class SessionsController < ApplicationController
   def new
   end
@@ -13,10 +15,12 @@ class SessionsController < ApplicationController
         self.current_user = publisher
         redirect_to publisher_path(publisher)
       else
-        redirect_to login_path
+        flash.now.alert = '账号或密码错误'
       end
     else
-      render :new
+      flash.now.alert = '验证码有误'
     end
+    @email = params[:publisher][:email]
+    render :new
   end
 end
