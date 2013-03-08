@@ -1,0 +1,88 @@
+.topbar{
+    background-color: #000000;
+}
+
+.topbar h1{
+    width: 940px;
+    margin: auto;
+}
+
+.topbar h1 a{
+    color: #fff;
+    line-height: 40px;
+    font-size: 20px;
+}
+.ie-content{
+    overflow: hidden;
+    position: relative;
+    width: 940px;
+    margin: 25px auto;
+    background: #FFF;
+    box-shadow: 0 1px 5px #CCCCCC;
+}
+
+.ie-content h2{
+    font-size: 28px;
+    color: #333;
+    font-family: "Microsoft Yahei", "SimHei", Helvetica, Arial;
+    letter-spacing: 1px;
+    padding: 20px 0;
+    text-align: left
+}
+
+.ie-content .upgrade_desc {
+    text-align: left;
+    margin-top: 10px
+}
+
+.ie-content .browser-list {
+    width: 380px;
+    margin: 0 auto;
+    list-style: none;
+    *zoom: 1
+}
+
+ .ie-content .browser-list:before, .ie-content .browser-list:after {
+    display: table;
+    content: ""
+}
+
+ .content .browser-list:after {
+    clear: both
+}
+
+ .ie-content .browser-list li {
+    float: left;
+    padding: 40px 25px 80px
+}
+
+ .ie-content .browser-list a {
+    display: block;
+    width: 140px;
+    padding-top: 130px;
+    height: 30px;
+    color: #7d9c95;
+    font-size: 16px;
+    text-align: center;
+}
+
+ .ie-content .browser-list a:hover {
+    opacity: 0.9
+}
+
+ .ie-content .browser-list .chrome {
+    background: url("../../imgs/logo-chrome.png") center 8px no-repeat
+}
+
+ .ie-content .browser-list .flash-360 {
+    background: url(../../imgs/logo-360.png) center 10px no-repeat
+}
+
+ .ie-content .supported {
+    font-size: 14px;
+    color: #666
+}
+
+ .ie-content .supported a {
+    margin: 0 4px
+}

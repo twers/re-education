@@ -11,6 +11,14 @@
       <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
+      <script type="text/javascript">
+        (function(){
+          if(navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0)
+          {
+            location.href='/ie.html';
+          }
+        })();
+      </script>
     
   %body
     = render 'shared/header'
