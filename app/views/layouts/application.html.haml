@@ -14,12 +14,9 @@
       <![endif]-->
       <script type="text/javascript">
         (function(){
-          if(navigator.userAgent.indexOf("MSIE")>0)
+          if(navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0)
           {
-            if(navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0)
-            {
-              location.href='/ie.html';
-            }
+            location.href='/ie.html';
           }
         })();
       </script>
