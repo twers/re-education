@@ -35,16 +35,4 @@ ReEducation::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   :tls                  => true,
-  #   :address              => "smtp.gmail.com",
-  #   :port                 => 587,
-  #   :domain               => "myopenclass.herokuapp.com",
-  #   :user_name            => "jexchan@gmail.com",
-  #   :password             => "!Chan@Jex",
-  #   :authentication       => :plain,
-  #   :enable_starttls_auto => true
-  # }
-
 end
