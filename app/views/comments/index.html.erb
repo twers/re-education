@@ -1,6 +1,6 @@
 <%= form_for :comment, :url => "attachments/#{@commentable.id}/comments", :html => { :id => 'lightbox_comments_form' } do |form| %>
   <%= form.text_field :content, placeholder: '请输入评论' %>
-  <input type="submit" class="btn btn-primary" name="submit" value="提交评论">
+  <input type="submit" class="btn btn-primary" name="submit" value="评论">
 <% end %>
 <ul class='comments lightbox-comments' >
   <% @comments.each do |comment| %>

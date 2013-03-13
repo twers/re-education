@@ -340,13 +340,19 @@ article.plan.edit aside.author {
   }
 
   input[type='submit'] {
-    padding: 5px 20px !important;
+    padding: 4px 10px !important;
+    position: relative;
+    left: 20px;
   }
+}
+
+.comment input[type='submit'] {
+  padding: 5px 15px !important;
 }
 
 .comments ul {
   padding: 0;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .comments li {
