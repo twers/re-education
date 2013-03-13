@@ -6,7 +6,7 @@ require "rvm/capistrano"
 set :rvm_type, :system
 set :application, "newclass.org"
 set :scm, :git
-set :repository,  "git@github.com:jexchan/re-education.git"
+set :repository,  "git@github.com:twers/re-education.git"
 set :branch, 'master'
 set :user, "root"
 set :group, "root"
