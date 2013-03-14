@@ -21,7 +21,6 @@
   section {
     width: 940px;
     margin: 0 auto;
-    padding: 0 30px 10px;
     background: #fff;
 
     h2 {
@@ -115,14 +114,19 @@
       }
     }
 
-    > ul > li:before {
-      font-family: 'fontello';
-      font-size: 32px;
-      line-height: 40px;
-      color: #3AB2C6;
-      text-align: center;
-      display: block;
+    > ul{
+      margin: 0 20px;
+
+      > li:before {
+        font-family: 'fontello';
+        font-size: 32px;
+        line-height: 40px;
+        color: #3AB2C6;
+        text-align: center;
+        display: block;
+      }
     }
+
 
     > ul > li {
       width: 16%;
@@ -169,9 +173,29 @@
   }
 }
 
+@media (max-width: 979px) {
+  header nav{
+    width: auto;
+    margin: 0 20px;
+  }
+}
+
 @media (max-width: 979px) and (min-width: 768px) {
   #about-us section {
     width: 700px;
+
+    &.contact-us > ul > li {
+      width: 33.3333%;
+
+      &.partner {
+        width: auto !important;
+        margin: 20px 80px;
+
+        &:before {
+          content: '';
+        }
+      }
+    }
   }
 }
 
