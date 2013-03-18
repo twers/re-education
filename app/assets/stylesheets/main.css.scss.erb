@@ -1,12 +1,9 @@
 @import "base";
 
-@font-face {
-    font-family: 'fontello';
-    src: url('/assets/webfont_fontello/fontello.eot');
-    src: url('/assets/webfont_fontello/fontello.eot?#iefix') format('embedded-opentype'), url('/assets/webfont_fontello/fontello.woff') format('woff'), url('/assets/webfont_fontello/fontello.ttf') format('truetype'), url('/assets/webfont_fontello/fontello.svg#fontello') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+@include font-face('fontello',
+    font-files("/assets/webfont_fontello/fontello.eot", "/assets/webfont_fontello/fontello.woff", "/assets/webfont_fontello/fontello.ttf", "/assets/webfont_fontello/fontello.svg"),
+    normal,
+    normal);
 
 html {
     background: url(/assets/bg.png);
