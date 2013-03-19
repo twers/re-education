@@ -20,37 +20,6 @@ article.plan h2 {
   text-align: center;
 }
 
-article.plan small.level,
-article.plan small.time {
-  float: left;
-  position: relative;
-  padding: 0 10px 0 30px;
-  margin-top: 67px;
-  border-right: 1px solid #CCC;
-  font-size: 12px;
-  color: #389ABD;
-}
-
-article.plan small.time {
-  border-right: 0;
-}
-
-article.plan small.level:before,
-article.plan small.time:before {
-  content: "?";
-  position: absolute;
-  top: -9px;
-  left: 8px;
-  padding-right: 5px;
-  font-family: "fontello";
-  font-size: 30px;
-  color: #666;
-}
-
-article.plan small.time:before {
-  content: "?";
-}
-
 article.plan section.activity {
   clear: both;
   line-height: 18px;
