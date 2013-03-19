@@ -169,11 +169,11 @@ article.plan ol.steps > li:after {
 }
 
 article.plan ol.steps > li.done > div:before {
-  content: "?";
+  content: "\2713";
 }
 
 article.plan ol.steps > li.new-step:before {
-  content: "?";
+  content: "新";
 }
 
 article.plan ol.steps > li.new-step:after {
