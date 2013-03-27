@@ -9,7 +9,7 @@ describe 'about us page related functions', type: :feature do
     before{ visit '/about-us' }
 
     it 'should visit about us page' do
-      page.should have_content('你好，我们是新的课堂')
+      page.should have_content('我们是新的课堂')
     end
 
   end
