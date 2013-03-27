@@ -80,6 +80,10 @@ module ReEducation
       :host => "myopenclass.herokuapp.com"
     }
 
+    config.session_store :active_record_store, {
+      :expire_after => 30.minutes
+    }
+
     config.generators do |g|
       g.stylesheets false
       g.test_framework :rspec
