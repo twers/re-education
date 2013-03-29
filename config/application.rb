@@ -81,7 +81,7 @@ module ReEducation
     }
 
     config.session_store :active_record_store, {
-      :expire_after => 30.minutes
+      :expire_after => 24.hours
     }
 
     config.generators do |g|
