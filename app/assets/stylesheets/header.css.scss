@@ -20,6 +20,10 @@ header a {
 header nav {
   width: 940px;
   margin: 0 auto;
+  @include respond-to(tablets, wide-handhelds, handhelds){
+    width: auto;
+    margin: 0 20px;
+  }
 }
 
 header nav h1,

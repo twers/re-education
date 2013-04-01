@@ -8,10 +8,19 @@
   h1 {
     margin: 80px 0 0;
     line-height: 60px;
+    @include respond-to(wide-handhelds, handhelds){
+      margin: 20px 0 0;
+      font-size: 30px;
+      line-height: 33px;
+    }
   }
 
   .slogan {
     margin-bottom: 60px;
+    @include respond-to(wide-handhelds, handhelds){
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
   }
 
   ul {
@@ -21,7 +30,22 @@
   section {
     width: 940px;
     margin: 0 auto;
+    padding-bottom: 10px;
     background: #fff;
+
+    @include respond-to(tablets) {
+      width: 700px;
+    }
+
+    @include respond-to(wide-handhelds, handhelds){
+      width: auto;
+
+      > ul > li {
+        float: none !important;
+        width: auto !important;
+        margin-bottom: 30px;
+      }
+    }
 
     h2 {
       width: 200px;
@@ -43,6 +67,10 @@
       position: relative;
       top: 22px;
       z-index: 99;
+
+      @include respond-to(wide-handhelds, handhelds){
+        width: 80%;
+      }
     }
   }
 
@@ -59,12 +87,15 @@
       margin-left: 2.564102564%;
       float: left;
 
+      @include respond-to(wide-handhelds, handhelds){ height: auto; }
+
       &:first-child {
         margin-left: 0;
       }
 
       img {
         width: 180px;
+        @include respond-to(wide-handhelds, handhelds){ width: 250px }
       }
     }
 
@@ -87,12 +118,22 @@
       right: 5%;
       top: 100px;
       width: 35%;
+      @include respond-to(wide-handhelds, handhelds){
+        display: block;
+        position: static;
+        width: 80%;
+        margin: 0 auto;
+      }
     }
 
     p {
       width: 35%;
       text-align: justify;
       margin: 0 0 20px 7%;
+      @include respond-to(wide-handhelds, handhelds){
+        width: 60%;
+        margin: 0 20% 15px;
+      }
     }
   }
 
@@ -115,7 +156,7 @@
       }
     }
 
-    > ul{
+    > ul {
       margin: 0 20px;
 
       > li:before {
@@ -128,9 +169,11 @@
       }
     }
 
-
     > ul > li {
       width: 16%;
+      @include respond-to(tablets) {
+        width: 33.3333%;
+      }
 
       img {
         width: 100%;
@@ -138,6 +181,15 @@
 
       &.partner {
         width: 50%;
+
+        @include respond-to(tablets) {
+          width: auto !important;
+          margin: 20px 80px;
+
+          &:before {
+            content: '';
+          }
+        }
       }
     }
 
@@ -170,83 +222,6 @@
 
     .partner:before {
       content: '👥';
-    }
-  }
-}
-
-@media (max-width: 979px) {
-  header nav{
-    width: auto;
-    margin: 0 20px;
-  }
-}
-
-@media (max-width: 979px) and (min-width: 768px) {
-  #about-us section {
-    width: 700px;
-
-    &.contact-us > ul > li {
-      width: 33.3333%;
-
-      &.partner {
-        width: auto !important;
-        margin: 20px 80px;
-
-        &:before {
-          content: '';
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  #about-us {
-    h1 {
-      margin: 20px 0 0;
-      font-size: 30px;
-      line-height: 33px;
-    }
-
-    .slogan {
-      font-size: 16px;
-      margin-bottom: 18px;
-    }
-
-    section {
-      width: auto;
-
-      &:before {
-        width: 80%;
-      }
-
-      > ul > li {
-        float: none !important;
-        width: auto !important;
-        margin-bottom: 30px;
-      }
-
-      &.short-description ul > li{
-        height: auto;
-
-        img{
-          width: 250px;
-        }
-      }
-
-      &.team-description {
-        p {
-          width: 60%;
-          margin: 0 20% 15px;
-        }
-
-        img {
-          display: block;
-          position: static;
-          width: 80%;
-          margin: 0 auto;
-        }
-      }
     }
   }
 }

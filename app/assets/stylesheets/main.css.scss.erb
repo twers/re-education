@@ -1,12 +1,9 @@
 @import "base";
 
-@font-face {
-    font-family: 'fontello';
-    src: url('/assets/webfont_fontello/fontello.eot');
-    src: url('/assets/webfont_fontello/fontello.eot?#iefix') format('embedded-opentype'), url('/assets/webfont_fontello/fontello.woff') format('woff'), url('/assets/webfont_fontello/fontello.ttf') format('truetype'), url('/assets/webfont_fontello/fontello.svg#fontello') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+@include font-face('fontello',
+    font-files("/assets/webfont_fontello/fontello.eot", "/assets/webfont_fontello/fontello.woff", "/assets/webfont_fontello/fontello.ttf", "/assets/webfont_fontello/fontello.svg"),
+    normal,
+    normal);
 
 html {
     background: url(/assets/bg.png);
@@ -86,6 +83,159 @@ a:hover .icon-s {
     position: absolute;
     left: 195px;
     top: 30px;
+}
+
+::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+::-moz-placeholder {
+    color: #ccc;
+}
+
+/* firefox 19+ */
+input:-moz-placeholder {
+    color: #ccc;
+}
+
+small.help-info {
+    font-size: 10px;
+    line-height: 16px;
+    color: #999;
+    font-style: italic;
+}
+
+a.enter {
+    @include btn;
+}
+
+h2 {
+    line-height: 44px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+
+body .simple_captcha {
+    border: none;
+    display: block;
+    padding: 0 !important;
+    width: 160px;
+
+    .simple_captcha_image {
+        float: right;
+
+        img {
+            width: 85px !important;
+        }
+    }
+
+    .simple_captcha_field {
+        border: none;
+
+        input {
+            background: #fff;
+            border: 1px solid #ccc;
+            width: 60px !important;
+        }
+    }
+}
+
+.main-section {
+    width: 940px;
+    margin: 0 auto;
+    padding: 40px 0;
+    overflow: hidden;
+    position: relative;
+    width: 940px;
+    background: white;
+    @include box-shadow(0 1px 5px #CCCCCC);
+
+    b {
+        font-weight: normal;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 18px;
+        color: #4C9ED0;
+        line-height: 60px;
+    }
+
+    section {
+        width: 860px;
+        margin: 0 auto 10px auto;
+
+        h2 {
+
+        }
+    }
+
+    img.avatar {
+        padding: 2px;
+        border: 1px solid #ccc;
+        width: 50px;
+        height: 50px;
+    }
+
+    p {
+        line-height: 18px;
+        margin-bottom: 10px;
+
+        input, textarea {
+            margin: 0;
+        }
+
+        b {
+            font-weight: bold;
+        }
+    }
+
+    fieldset {
+        margin-bottom: 20px;
+    }
+
+    .formError {
+        position: relative;
+        top: -10px;
+        left: 5px;
+        color: #f93e4e;
+        display: inline-block;
+        background: #fcdbdd;
+        padding: 0 10px;
+        font-size: 12px;
+        line-height: 22px;
+        @include border-radius(0 0 4px 4px);
+        @include box-shadow(0 1px 1px #ccc);
+    }
+
+    .page-action {
+        margin: 0 40px;
+    }
+
+    section.info {
+        background: whiteSmoke;
+        padding: 10px;
+    }
+
+    section.dialog {
+        display: none;
+    }
+}
+
+.dialog-wrapper {
+    display: none;
+}
+
+section.dialog {
+    width: 600px;
+    overflow: hidden;
+
+    h2 {
+        font-size: 22px;
+        text-align: left;
+        border-bottom: 3px solid #eee;
+    }
 }
 
 @import "header";
