@@ -127,7 +127,7 @@
     }
 
     p {
-      width: 35%;
+      width: 30%;
       text-align: justify;
       margin: 0 0 20px 7%;
       @include respond-to(wide-handhelds, handhelds){
@@ -194,7 +194,7 @@
     }
 
     li > ul > li {
-      width: 25%;
+      width: 20%;
 
       a {
         opacity: .4;
