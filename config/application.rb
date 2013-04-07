@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -91,5 +92,6 @@ module ReEducation
       g.helper false
     end
 
+    config.lessonplan_title_filters = ["有故事的积木", "春天的自然日记", "春天的天气和节气", "画画我们身边的“年味”", "面具Party", "ｓｃｒａｔｃｈ——快乐的小猫", "文字配图写日记", "DIY明信片", "制作小相框", "叶子贴画"]
   end
 end

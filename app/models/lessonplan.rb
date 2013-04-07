@@ -60,4 +60,15 @@ class Lessonplan < ActiveRecord::Base
     tasks.each { |task| self.tasks.create! task } if tasks.present?
   end
 
+  def self.ordered_lessonplans
+    title_filters = ReEducation::Application.config.lessonplan_title_filters.reverse
+    ordered_lessonplans = Lessonplan.all.reverse
+
+    title_filters.each do |title|
+      lessonplan = ordered_lessonplans.select{ |l| l.title == title }.first
+      ordered_lessonplans.prepend(ordered_lessonplans.delete(lessonplan)) unless lessonplan.nil?
+    end
+    ordered_lessonplans
+  end
+
 end
