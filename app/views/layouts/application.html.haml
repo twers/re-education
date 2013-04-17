@@ -2,7 +2,7 @@
 %html{ :lang => "en", 'ng-app' => 'openClass'}
   %head
     %meta{ :charset => "utf-8" }
-    %meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0" }
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
     %title 新的课堂
     = csrf_meta_tags
     
@@ -27,11 +27,11 @@
     = render 'shared/footer'
     :javascript
       var _gaq = _gaq || [];
-      if (location.port == '8888') {
-        _gaq.push(['_setAccount', 'Test Account']);
+      if (location.port === '') {
+        _gaq.push(['_setAccount', 'UA-38816897-1']);
       }
       else {
-        _gaq.push(['_setAccount', 'UA-38816897-1']);
+        _gaq.push(['_setAccount', 'Test Account']);
       }
       _gaq.push(['_trackPageview']);
       (function() {
