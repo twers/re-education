@@ -81,7 +81,7 @@ module ReEducation
       :host => "myopenclass.herokuapp.com"
     }
 
-    config.session_store :active_record_store, {
+    config.session_store :cookie_store, {
       :expire_after => 24.hours
     }
 
