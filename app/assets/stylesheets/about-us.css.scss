@@ -137,6 +137,25 @@
     }
   }
 
+  .partner {
+    @include respond-to(tablets) {
+      width: auto !important;
+      margin: 20px 80px;
+
+      &:before {
+        content: '';
+      }
+    }
+
+    a {
+      opacity: .4;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .partner,
   section.contact-us {
 
     ul {
@@ -177,30 +196,6 @@
 
       img {
         width: 100%;
-      }
-
-      &.partner {
-        width: 50%;
-
-        @include respond-to(tablets) {
-          width: auto !important;
-          margin: 20px 80px;
-
-          &:before {
-            content: '';
-          }
-        }
-      }
-    }
-
-    li > ul > li {
-      width: 20%;
-
-      a {
-        opacity: .4;
-        &:hover {
-          opacity: 1;
-        }
       }
     }
 
