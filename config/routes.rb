@@ -31,6 +31,7 @@ ReEducation::Application.routes.draw do
   resources :publishers, :except => [:index]
   resources :users
   resources :feedbacks, :only => [:new, :create]
+  resources :uploads
 
   # Sample resource route with options:
   #   resources :products do

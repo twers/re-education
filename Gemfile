@@ -6,6 +6,7 @@ gem 'haml'
 gem 'mysql2'
 gem "ckeditor", "~> 3.7.2"
 gem "paperclip"
+gem 'jquery-fileupload-rails'
 gem "carrierwave"
 gem "cancan"
 gem 'rails_kindeditor', '~> 0.3.8'
