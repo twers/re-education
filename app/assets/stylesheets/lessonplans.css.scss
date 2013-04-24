@@ -88,9 +88,9 @@ article.plan ol.steps p {
 }
 
 article.plan ol.steps > li {
-  overflow: hidden;
   position: relative;
   display: block;
+  margin-bottom: 20px;
 }
 
 article.plan ol.steps > li img {
@@ -100,9 +100,8 @@ article.plan ol.steps > li img {
 
 article.plan ol.steps > li > div {
   display: block;
-  width: 438px;
   padding: 10px 20px 10px 20px;
-  margin: 0 0 20px 60px;
+  margin-left: 60px;
   background: #F5F5F5;
   border: 1px solid #EEE;
   border-radius: 5px;
@@ -130,7 +129,7 @@ article.plan ol.steps > li.new-step:before {
 article.plan ol.steps > li:after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 18px;
   width: 5px;
   height: 100%;
@@ -151,6 +150,10 @@ article.plan ol.steps > li.new-step:after {
 
 article.plan ol.steps a.plan-action {
   line-height: 20px;
+  position: absolute;
+  right: 21px;
+  bottom: 11px;
+  @include border-radius(0 0 4px 0);
 }
 
 article.plan ol.steps > li.done:after {

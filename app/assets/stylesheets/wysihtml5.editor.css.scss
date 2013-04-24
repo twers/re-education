@@ -1,0 +1,48 @@
+.wysihtml5-wrapper {
+  position: relative;
+  border: 1px solid #ccc;
+  padding-bottom: 30px;
+  @include border-radius(4px);
+
+  .toolbar {
+    font-family: "fontello";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #fafafa;
+    padding: 5px;
+    border-top: 1px solid #eee;
+    @include border-radius(0 0 4px 4px);
+
+    a {
+      margin: 0 5px;
+    }
+  }
+
+  .fileList{
+    margin: 0;
+  }
+}
+
+article.plan ol.steps li ul.fileList {
+  margin: 0;
+  padding: 0;
+  width: auto;
+
+  li {
+    background: #fafafa;
+    border-top: 1px solid #f4f4f4;
+  }
+
+  b {
+    display: inline-block;
+    font-weight: normal;
+    font-size: 12px;
+    margin: 5px 10px;
+  }
+
+  .progressbar, .progress {
+    @include border-radius(0);
+  }
+}

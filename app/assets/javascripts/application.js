@@ -24,6 +24,8 @@
 // = require bundle-fancy-box
 // = require bundle-kindeditor
 // = require kindeditor
+// = require parser_rules/simple
+// = require wysihtml5
 
 //= require angular.min
 //= require angular-resource.min
