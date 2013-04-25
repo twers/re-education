@@ -56,11 +56,11 @@
 }
 
 .plan-step input {
-  width: 398px;
+  width: 688px;
 }
 
 .plan-step textarea {
-  width: 398px;
+  width: 688px;
   padding: 4px;
   display: block;
   margin: 0;
@@ -69,13 +69,7 @@
 
 .focus-editable{
   border: 1px solid #ddd;
-  background: transparent;
   padding: inherit 0;
-  @include box-shadow(none);
-
-  &:focus {
-    background: #fff;
-  }
 }
 
 /*.plan-step .plan-action {width: 42px; height: 42px; line-height: 42px;}*/

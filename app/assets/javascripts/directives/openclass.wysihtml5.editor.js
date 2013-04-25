@@ -2,7 +2,6 @@ angular.module('openClass.directives')
   .directive('wysihtml5', ['$timeout', function factory($timeout) {
 
     var directive = {
-      priority: 0,
       restrict: 'C',
       require: '?ngModel',
       link: function (scope, element, attrs, ngModelCtrl) {

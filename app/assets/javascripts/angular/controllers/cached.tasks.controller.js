@@ -5,21 +5,18 @@ function CachedTasksController($scope, TaskResource) {
   var Task;
 
   $scope.init = function(lessonplanId) {
-    Task = TaskResource(lessonplanId);
-    $scope.cachedTasks = Task.query();
+    if(lessonplanId){
+      Task = TaskResource(lessonplanId);
+      $scope.cachedTasks = Task.query();
+    }
+
+    if($scope.cachedTasks.length == 0) {
+      $scope.addTask();
+    }
   };
 
   $scope.addTask = function() {
-    $scope.cachedTasks.push({
-      title: $scope.currentTaskTitle,
-      content: $scope.currentTaskContent
-    });
-
-    $scope.currentTaskTitle = $scope.currentTaskContent = '';
-    var editor = $('.new-step .wysihtml5').scope().editor;
-    if(editor) {
-      editor.clear();
-    }
+    $scope.cachedTasks.push({ title: '', content: '' });
   };
 
   $scope.deleteTask = function(index) {

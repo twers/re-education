@@ -17,11 +17,30 @@
 
     a {
       margin: 0 5px;
+      float: left;
     }
   }
 
   .fileList{
     margin: 0;
+  }
+}
+
+.file-upload-wrapper {
+  font-family: 'fontello';
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  input {
+    @include opacity(0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    width: auto;
+    cursor: pointer;
   }
 }
 
