@@ -59,3 +59,17 @@ header nav ul li a:hover {
 header a.feedback{
   float: right;
 }
+
+.search-container {
+  float: right;
+  line-height: 35px;
+  margin-right: 20px;
+
+  .do-search {
+    display: none;
+  }
+
+  .search {
+    margin: 0;
+  }
+}
