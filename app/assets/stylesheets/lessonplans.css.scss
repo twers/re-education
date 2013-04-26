@@ -146,6 +146,7 @@ article.plan ol.steps > li:after {
 
 article.plan ol.steps > li.done > div:before {
   content: "\2713";
+  left: -60px;
 }
 
 article.plan ol.steps > li.new-step {

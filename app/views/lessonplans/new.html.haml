@@ -26,29 +26,9 @@
       %small.help-info 简要说明课程年级、学科、学生情况、教学思路等...
       = description_editor f
 
-    %section.plan-step{ 'ng-controller' => 'CachedTasksController', 'ng-init' => "init();" }
+    %section.plan-step
       %h3 活动步骤
-      %ol.steps
-        %li{ 'ng-repeat' => 'task in cachedTasks', :class => 'editable-task-item-{{$index}}', 'ng-controller' => 'TaskController', 'on-load' => 'init();' }
-          %label {{$index + 1}}
-          .step-content
-            %div{ :class => 'inline-edit-task-form-{{$index}}' }
-              %label 步骤名称
-              %input.task-item-title.focus-editable{ :placeholder => '填写一个课程活动步骤...', :value => '{{task.title}}', :type => 'text', :name => 'tasks[][title]' }
-              %label 详细内容
-              .wysihtml5-wrapper
-                .toolbar{ :style => "display: none;" }
-                  %a{ 'data-wysihtml5-command' => "bold", :title => "加粗" } &#xe77a;
-                  %a{ 'data-wysihtml5-command' => "insertUnorderedList", :title => "无序列表" } &#xf0ca;
-                  %a{ 'data-wysihtml5-command' => "insertUnorderedList", :title => "有序列表" } &#xf0cb;
-                  %a.file-upload-wrapper{ href: 'javascript:;', title: "添加图片" }
-                    &#x1f304;
-                    %input.jquery-file-uploader{ type: "file", name: "upload[upload]", multiple: "true", :accept => "image/*" }
-                %textarea.wysihtml5.task-item-content.focus-editable{ :placeholder => '每一步如何做，才能完成作品...', :maxlength => 1000, :value => '{{task.content}}', :name => 'tasks[][content]' }
-              %input{ :type => 'hidden', :value => '{{task.id}}', :name => 'tasks[][id]' }
-            %a.btn.btn-danger.delete.plan-action{ :href => 'javascript:;', 'ng-click' => 'deleteTask($index)', :title => '删除' } 删除
-        %li.new-step
-          %a.btn{ :href => 'javascript:;', 'ng-click' => 'addTask()' } 添加步骤
+      = render :partial => "shared/lessonplan_editable_tasks", locals: { lessonplan: nil }
     %section
       = f.submit '保存教案', :class => 'btn btn-primary'
 
