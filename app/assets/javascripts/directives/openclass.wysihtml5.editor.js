@@ -8,7 +8,8 @@ angular.module('openClass.directives')
 
         scope.editor = new wysihtml5.Editor(element.get(0), {
           parserRules: wysihtml5ParserRules,
-          toolbar: element.siblings('.toolbar').get(0)
+          toolbar: element.siblings('.toolbar').get(0),
+          stylesheets: '/assets/wysihtml5.editor.inner.css'
         });
 
         if(ngModelCtrl) {
