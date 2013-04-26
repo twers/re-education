@@ -9,11 +9,11 @@
         %a{ :href => "#" } 精品
 
 %article.plan.edit
-  = form_for :lessonplan, :url => { :action => 'create' } do |f|  
+  = form_for :lessonplan, :url => { :action => 'create' } do |f|
 
-    %section
-      = label_tag 'lessonplan[title]', '教案名称'
-      = f.text_field :title, :placeholder => '给你的教案起一个名字...'
+    %section.title-section
+      %h3 教案名称
+      = f.text_field :title, :placeholder => '给你的教案起一个名字...', class: "large"
 
     %section
       %h3 教程介绍
