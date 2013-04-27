@@ -5,6 +5,7 @@ ReEducation::Application.routes.draw do
   match 'login' => 'sessions#new', :as => 'login', :via => :get
   match 'logout' => 'sessions#destroy', :as => 'logout', :via => :get
   match 'about-us' => 'site#about', :as => 'about_us', :via => :get
+  match 'sitemap.xml' => 'site#sitemap'
 
   resources :sessions, :only => [:create]
 
