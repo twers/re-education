@@ -11,19 +11,26 @@
 %article.plan.edit
   = form_for @lessonplan, :url => { :action => 'update' } do |f|
 
-    %section
-      = label_tag 'lessonplan[title]', '教案名称'
-      = f.text_field :title, :placeholder => '给你的教案起一个名字...'
+    %section.title-section
+      %h3 教案名称
+      = f.text_field :title, :placeholder => '给你的教案起一个名字...', class: "large"
       
     %section
       %h3 教程介绍
-      = label_tag 'lessonplan[attachment]', '封面图片', :id => "attachment-label"
-      %img.main{ :src => @lessonplan.attachment_url, :alt => @lessonplan.title }
-      = f.file_field :attachment, :class => "file_input",:onchange => 'try {return validate_file(this)} catch(e){}'
-      = label_tag 'lessonplan[short_description]', '简短描述(140字)'
-      = f.text_area :short_description, :placeholder => '说出这个活动的亮点...', :rows => 4, :maxlength => 140, :cols => 60
+      .multi-column-section
+        .preview-uploader-wrapper{ 'ng-controller' => 'PreviewController', 'on-load' => "init(\"#{@lessonplan.symbol_image}\");" }
+          %a.reset-btn{ 'ng-click' => 'reset();', 'ng-show' => 'previewImageUrl' } &times;
+          %span.uploder-placeholder
+            %a{ href: "javascript:;" } 设置封面
+            %input.jquery-file-uploader{ type: "file", name: "upload[upload]", :accept => "image/*" }
+          %img{ 'ng-src' => "{{previewImageUrl}}", 'ng-show' => "previewImageUrl" }
+          = f.text_field :symbol_img_url, 'ng-model' => 'previewImageUrl', class: 'hide'
 
-      = label_tag 'lessonplan[content]', '详细内容'
+        .description-wrapper
+          = label_tag 'lessonplan[short_description]', '简短描述(140字)'
+          = f.text_area :short_description, :placeholder => '说出这个活动的亮点...', :rows => 4, :maxlength => 140, :cols => 60
+
+      = label_tag 'lessonplan[content]', '详细内容', class: "clearfix"
       %small.help-info 简要说明课程年级、学科、学生情况、教学思路等...
       = description_editor f
 

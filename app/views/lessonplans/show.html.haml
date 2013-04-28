@@ -20,7 +20,7 @@
   = render :partial => "shared/lessonplan_items", :locals => { :lessonplan => @lessonplan }
 
   %section.activity
-    %img.main{ :src => @lessonplan.attachment.thumb.url, :alt => @lessonplan.title }
+    %img.main{ :src => @lessonplan.symbol_image, :alt => @lessonplan.title }
     %p.description= @lessonplan.short_description.html_safe
     %h3 活动介绍
     = @lessonplan.content.html_safe
