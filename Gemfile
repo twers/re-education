@@ -6,6 +6,7 @@ gem 'haml'
 gem 'mysql2'
 gem "ckeditor", "~> 3.7.2"
 gem "paperclip"
+gem 'jquery-fileupload-rails'
 gem "carrierwave"
 gem "cancan"
 gem 'rails_kindeditor', '~> 0.3.8'
@@ -14,6 +15,7 @@ gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "rmagick"
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem "wysihtml5-rails", "~> 0.0.4"
 # CanCan can not work perfectly with strong_parameters, will use slice pattern.
 # TODO: Use strong_parameters when CanCan fix this issue.
 #gem "strong_parameters"

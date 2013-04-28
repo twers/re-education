@@ -37,7 +37,7 @@ describe "lessons related functions", type: :feature do
           fill_in 'lessonplan_short_description', with: "This is a description isn't it?"
           fill_in 'lessonplan_content', with: "hmmm... It's a good editor, isn't it?"
 
-          click_button "保存"
+          click_button "保存教案"
 
           page.should have_content "评论"
         end

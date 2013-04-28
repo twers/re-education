@@ -88,9 +88,9 @@ article.plan ol.steps p {
 }
 
 article.plan ol.steps > li {
-  overflow: hidden;
   position: relative;
   display: block;
+  margin-bottom: 10px;
 }
 
 article.plan ol.steps > li img {
@@ -100,19 +100,26 @@ article.plan ol.steps > li img {
 
 article.plan ol.steps > li > div {
   display: block;
-  width: 438px;
-  padding: 10px 20px 10px 20px;
-  margin: 0 0 20px 60px;
+  padding: 10px 20px 13px 20px;
+  margin:0 60px;
   background: #F5F5F5;
-  border: 1px solid #EEE;
-  border-radius: 5px;
   font-size: 13px;
-  overflow: hidden;
+  position: relative;
+
+  &:before {
+    font-family: "fontello";
+    display: block;
+    content: '\25c2';
+    position: absolute;
+    color: #f5f5f5;
+    left: -10px;
+    font-size: 30px;
+  }
 }
 
 article.plan ol.steps > li > label,
 article.plan ol.steps > li.done > div:before,
-article.plan ol.steps > li.new-step:before {
+article.plan ol.steps > li.new-step:before{
   color: #fff;
   width: 40px;
   height: 40px;
@@ -130,7 +137,7 @@ article.plan ol.steps > li.new-step:before {
 article.plan ol.steps > li:after {
   content: "";
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 18px;
   width: 5px;
   height: 100%;
@@ -139,18 +146,34 @@ article.plan ol.steps > li:after {
 
 article.plan ol.steps > li.done > div:before {
   content: "\2713";
+  left: -60px;
 }
 
-article.plan ol.steps > li.new-step:before {
-  content: "新";
+article.plan ol.steps > li.new-step {
+  line-height: 40px;
+  margin-bottom: 0;
+
+  a.btn {
+    margin-left: 60px;
+  }
+
+  &:before {
+    content: "新";
+  }
+
+  &:after {
+    height: 0;
+  }
 }
 
-article.plan ol.steps > li.new-step:after {
-  height: 0;
-}
+
 
 article.plan ol.steps a.plan-action {
   line-height: 20px;
+  position: absolute;
+  right: 20px;
+  bottom: 13px;
+  @include border-radius(0 0 4px 0);
 }
 
 article.plan ol.steps > li.done:after {
@@ -232,12 +255,11 @@ article.plan.edit img.main {
 }
 
 article.plan.edit section {
-  padding: 40px 355px 20px 0px;
+  padding: 40px 0px 20px 0px;
 }
 
 article.plan.edit form {
-  float: left;
-  padding: 0 0 0 40px;
+  margin: 0 40px;
 }
 
 article.plan.edit section:nth-of-type(1) {

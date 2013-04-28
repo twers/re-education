@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225085952) do
-
-  create_table "attachment_comments", :force => true do |t|
-    t.string   "content"
-    t.integer  "publisher_id"
-    t.integer  "lessonplan_attachment_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130424133904) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -102,11 +94,21 @@ ActiveRecord::Schema.define(:version => 20130225085952) do
     t.integer  "lessonplan_id"
   end
 
+  create_table "uploads", :force => true do |t|
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
   create_table "users", :force => true do |t|
-    t.string "access_token"
-    t.string "unique_id"
-    t.string "nick_name"
-    t.string "avatar_url"
+    t.string  "access_token"
+    t.string  "unique_id"
+    t.string  "nick_name"
+    t.string  "avatar_url"
+    t.integer "social_id"
   end
 
 end

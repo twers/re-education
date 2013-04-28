@@ -24,6 +24,9 @@
 // = require bundle-fancy-box
 // = require bundle-kindeditor
 // = require kindeditor
+// = require parser_rules/advanced
+// = require wysihtml5
+// = require jquery-fileupload/basic
 
 //= require angular.min
 //= require angular-resource.min

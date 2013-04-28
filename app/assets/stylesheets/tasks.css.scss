@@ -56,14 +56,19 @@
 }
 
 .plan-step input {
-  width: 380px;
+  width: 688px;
 }
 
 .plan-step textarea {
-  width: 372px;
-  padding: 8px 8px 30px 8px;
+  width: 688px;
+  padding: 4px;
   display: block;
   margin: 0;
+  border: none;
+}
+
+.focus-editable{
+  padding: inherit 0;
 }
 
 /*.plan-step .plan-action {width: 42px; height: 42px; line-height: 42px;}*/
