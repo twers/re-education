@@ -37,8 +37,8 @@
     %section.plan-step
       %h3 活动步骤
       = render :partial => "shared/lessonplan_editable_tasks", locals: { lessonplan: @lessonplan }
-    %section
-      = f.submit '保存', :class => 'btn btn-primary'
+    %section.user-operation
+      = f.submit '保存教案', :class => 'btn btn-primary'
       %a{ :href => "#{lessonplan_path(@lessonplan.id)}" } 放弃修改
 
 

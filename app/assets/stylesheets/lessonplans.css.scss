@@ -468,7 +468,7 @@ article ul.plan-menu li a:hover label {
   position: relative;
   width: 200px;
   min-height: 150px;
-  margin-right: 10px;
+  margin: 24px 10px 0 0;
   text-align: center;
   background: #F9F9F9 url(/assets/camera.png) center no-repeat;
 
@@ -522,5 +522,10 @@ article ul.plan-menu li a:hover label {
   textarea {
     width: 640px;
   }
+}
+
+.user-operation {
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
 }
 
