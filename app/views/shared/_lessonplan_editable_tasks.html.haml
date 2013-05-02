@@ -1,6 +1,6 @@
 - init_arg = lessonplan.present? ? lessonplan.id : ''
 %ol.steps{ 'ng-controller' => 'CachedTasksController', 'ng-init' => "init(#{init_arg});" }
-  %li{ 'ng-repeat' => 'task in cachedTasks', :class => 'editable-task-item-{{$index}}', 'ng-controller' => 'TaskController', 'on-load' => 'init();' }
+  %li{ 'ng-repeat' => 'task in cachedTasks', :class => 'editable-task-item-{{$index}}', 'ng-controller' => 'TaskController' }
     %label {{$index + 1}}
     .step-content
       %div

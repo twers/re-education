@@ -18,7 +18,7 @@
     %section
       %h3 教程介绍
       .multi-column-section
-        .preview-uploader-wrapper{ 'ng-controller' => 'PreviewController', 'on-load' => "init(\"#{@lessonplan.symbol_image}\");" }
+        .preview-uploader-wrapper{ 'ng-controller' => 'PreviewController', 'ng-init' => "init(\"#{@lessonplan.symbol_image}\");" }
           %a.reset-btn{ 'ng-click' => 'reset();', 'ng-show' => 'previewImageUrl' } &times;
           %span.uploder-placeholder
             %a{ href: "javascript:;" } 设置封面
