@@ -1,3 +1,5 @@
+@import "base";
+
 label {
   display: block;
   margin-bottom: 5px;
@@ -20,6 +22,7 @@ input, textarea{
   -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
   -o-transition: border linear 0.2s, box-shadow linear 0.2s;
   transition: border linear 0.2s, box-shadow linear 0.2s;
+  resize: none;
 }
 
 input, textarea, select{
@@ -32,9 +35,6 @@ input, textarea, select{
   line-height: 18px;
   color: #555;
   border: 1px solid #CCC;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
 }
 
 input[type="button"],
@@ -42,4 +42,16 @@ input[type="submit"],
 textarea{
   height: auto;
   width: auto;
+}
+
+input.large {
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  line-height: 50px;
+  height: 50px;
+  font-size: 30px;
+  width: 400px;
+  background: #f9f9f9;
+  @include box-shadow(none);
+  @include border-radius(0);
 }

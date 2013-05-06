@@ -31,6 +31,11 @@ class Lessonplan < ActiveRecord::Base
     attachments(%w[sb])
   end
 
+  def symbol_image
+    return self.symbol_img_url if self.symbol_img_url.present?
+    self.attachment.thumb.url
+  end
+
   def attachments(extensions)
     ret = []
     self.lessonplan_attachments.order('created_at DESC').each do |attachment|
