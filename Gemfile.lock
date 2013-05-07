@@ -180,6 +180,11 @@ GEM
       mime-types
     pg (0.14.1)
     polyglot (0.3.3)
+    qiniu-rs (3.4.2)
+      json (~> 1.7)
+      mime-types (~> 1.19)
+      rest-client (~> 1.6)
+      ruby-hmac (~> 0.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -216,6 +221,8 @@ GEM
     rake (10.0.3)
     rdoc (3.12.1)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rmagick (2.13.2)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
@@ -232,6 +239,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    ruby-hmac (0.4.0)
     ruby-prof (0.12.2)
     ruby-progressbar (1.0.2)
     rubyzip (0.9.9)
@@ -322,6 +330,7 @@ DEPENDENCIES
   mysql2
   paperclip
   pg
+  qiniu-rs
   rails (~> 3.2.2)
   rails_best_practices
   rails_kindeditor (~> 0.3.8)
