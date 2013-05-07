@@ -12,8 +12,9 @@ module ApplicationHelper
     current_user && current_user.super_manager?
   end
 
-  def feature_on?
-    true
+  def qiniu_request_token_tag
+    token = Qiniu::RS.generate_upload_token scope: "newclass"
+    tag('meta', name: 'qiniu-request-token', content: token)
   end
 
   def colorful_icon_class_from_index idx
