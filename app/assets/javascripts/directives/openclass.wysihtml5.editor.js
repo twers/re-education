@@ -14,13 +14,13 @@ angular.module('openClass.directives')
         });
 
         if(ngModelCtrl) {
-          scope.editor.on('change', function () {
-            ngModelCtrl.$setViewValue($(scope.editor.textareaElement).val());
+          editor.on('change', function () {
+            ngModelCtrl.$setViewValue($(editor.textareaElement).val());
           });
         }
 
-        scope.editor.on('load', function () {
-          var currentView = scope.editor.currentView;
+        editor.on('load', function () {
+          var currentView = editor.currentView;
           var editorBody = currentView.element;
 
           $(editorBody).css({
@@ -33,8 +33,8 @@ angular.module('openClass.directives')
           }
 
           $(editorBody).on('keyup', resetHeightHandler);
-          scope.editor.on('change:composer', resetHeightHandler);
-          scope.editor.on('blur:composer', resetHeightHandler);
+          editor.on('change:composer', resetHeightHandler);
+          editor.on('blur:composer', resetHeightHandler);
           resetEditorHeight(currentView);
         });
 
@@ -49,6 +49,7 @@ angular.module('openClass.directives')
 
         scope.$on(eventConstants.EDITOR_APPEND_VALUE, function (e, value) {
           editor.setValue(editor.getValue() + value);
+          resetEditorHeight(editor.currentView);
         });
       }
     };

@@ -58,6 +58,14 @@ angular.module('openClass.directives')
               rsput.val('/rs-put/' + base64.URLSafeBase64Encode('newclass:' + filename));
             });
 
+            uploader.bind('fileuploadprogressall', function(e, data) {
+              scope.$emit(eventConstants.FILE_UPLOAD_PROGRESS_ALL, {
+                loaded: data.loaded,
+                total: data.total,
+                bitrate: data.bitrate
+              });
+            });
+
             uploader.bind('fileuploaddone', function (e, data) {
               var files = constructFiles(data.files);
               scope.$emit(eventConstants.FILE_UPLOAD_DONE, { files: files });

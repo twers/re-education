@@ -6,7 +6,9 @@
       %div
         %label 步骤名称
         %input.task-item-title.focus-editable{ :placeholder => '填写一个课程活动步骤...', "ng-model" => 'task.title', :type => 'text', :name => 'tasks[][title]' }
-        %label 详细内容
+        %label
+          详细内容
+          %span.upload-progress-status{ 'ng-show' => 'showUploadProgress' } 正在上传 {{uploadProgress}}%
         .wysihtml5-wrapper
           .toolbar{ :style => "display: none;" }
             %a{ 'data-wysihtml5-command' => "bold", :title => "加粗" } &#xe77a;
