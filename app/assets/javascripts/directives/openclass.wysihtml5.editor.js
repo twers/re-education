@@ -6,8 +6,7 @@ angular.module('openClass.directives')
       require: '?ngModel',
       link: function (scope, element, attrs, ngModelCtrl) {
 
-
-        var editor = scope.editor = new wysihtml5.Editor(element.get(0), {
+        var editor = new wysihtml5.Editor(element.get(0), {
           parserRules: wysihtml5ParserRules,
           toolbar: element.siblings('.toolbar').get(0),
           stylesheets: '/assets/wysihtml5.editor.inner.css'
@@ -15,7 +14,7 @@ angular.module('openClass.directives')
 
         if(ngModelCtrl) {
           editor.on('change', function () {
-            ngModelCtrl.$setViewValue($(editor.textareaElement).val());
+            ngModelCtrl.$setViewValue(editor.getValue());
           });
         }
 
@@ -48,7 +47,7 @@ angular.module('openClass.directives')
         }
 
         scope.$on(eventConstants.EDITOR_APPEND_VALUE, function (e, value) {
-          editor.setValue(editor.getValue() + value);
+          editor.setValue(editor.getValue() + value).fire('change');
           resetEditorHeight(editor.currentView);
         });
       }
