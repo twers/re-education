@@ -1,9 +1,7 @@
-function TaskController($scope) {
-  $scope.init = function() {
-    $scope.uploader.bind('fileuploaddone', function (evt, data) {
-      $(data.result.files).each(function(idx, file) {
-        $scope.editor.setValue($scope.editor.getValue() + '<img src="' + file.url + '"/>');
-      });
+function TaskController($scope, eventConstants) {
+  $scope.$on(eventConstants.FILE_UPLOAD_DONE, function (e, data) {
+    $(data.files).each(function(idx, file) {
+      $scope.$broadcast(eventConstants.EDITOR_APPEND_VALUE, '<img src="' + file.url + '"/>');
     });
-  };
+  });
 }

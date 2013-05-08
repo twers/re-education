@@ -1,12 +1,13 @@
 angular.module('openClass.directives')
-  .directive('wysihtml5', ['$timeout', function factory($timeout) {
+  .directive('wysihtml5', ['$timeout', 'eventConstants', function factory($timeout, eventConstants) {
 
     var directive = {
       restrict: 'C',
       require: '?ngModel',
       link: function (scope, element, attrs, ngModelCtrl) {
 
-        scope.editor = new wysihtml5.Editor(element.get(0), {
+
+        var editor = scope.editor = new wysihtml5.Editor(element.get(0), {
           parserRules: wysihtml5ParserRules,
           toolbar: element.siblings('.toolbar').get(0),
           stylesheets: '/assets/wysihtml5.editor.inner.css'
@@ -45,6 +46,10 @@ angular.module('openClass.directives')
               .css('height', currentView.element.clientHeight);
           }, 0);
         }
+
+        scope.$on(eventConstants.EDITOR_APPEND_VALUE, function (e, value) {
+          editor.setValue(editor.getValue() + value);
+        });
       }
     };
 

@@ -21,32 +21,39 @@ describe "lessons related functions", type: :feature do
 
       let!(:user) { FactoryGirl.create(:publisher) }
 
-      before do
-        login_as user
-        page.should have_content "个人信息"
-        visit "/lessonplans/new"
-      end
+      context "create a lessonplan" do
 
-      it "should visitable" do
-        page.should have_content "教程介绍"
-      end
+        before do
+          login_as user
+          page.should have_content "个人信息"
+          visit "/lessonplans/new"
+        end
 
-      context "without tasks" do
-        it "should create a new plan" do
-          fill_in 'lessonplan_title', with: "This is a new plan"
-          fill_in 'lessonplan_short_description', with: "This is a description isn't it?"
-          fill_in 'lessonplan_content', with: "hmmm... It's a good editor, isn't it?"
+        it "should visitable" do
+          page.should have_content "教程介绍"
+        end
 
-          click_button "保存教案"
+        context "without tasks" do
+          it "should create a new plan" do
+            fill_in 'lessonplan_title', with: "This is a new plan"
+            fill_in 'lessonplan_short_description', with: "This is a description isn't it?"
+            fill_in 'lessonplan_content', with: "hmmm... It's a good editor, isn't it?"
+            fill_in 'lessonplan_symbol_img_url', with: "placeholder.jpg"
 
-          page.should have_content "评论"
+            click_button "保存教案"
+
+            page.should have_content "评论"
+            page.should have_content "This is a new plan"
+            page.should have_content "This is a description isn't it?"
+            page.should have_content "hmmm... It's a good editor, isn't it?"
+            page.should have_css 'img[src="placeholder.jpg"]'
+          end
+        end
+
+        # There is a bug when creating tasks.
+        context "with tasks" do
         end
       end
-
-      # There is a bug when creating tasks.
-      context "with tasks" do
-      end
-
     end
   end
 
@@ -67,7 +74,7 @@ describe "lessons related functions", type: :feature do
       fill_in 'lessonplan_short_description', with: "This is a updated description isn't it?"
       fill_in 'lessonplan_content', with: "This is a updated content"
 
-      click_button '保存'
+      click_button '保存教案'
 
       page.should have_content("This is a updated plan")
       page.should have_content("This is a updated description isn't it?")

@@ -5,7 +5,6 @@
   @include border-radius(4px);
 
   .toolbar {
-    font-family: "fontello";
     position: absolute;
     left: 0px;
     right: 0px;
@@ -16,6 +15,7 @@
     @include border-radius(0 0 4px 4px);
 
     a {
+      font-family: "fontello";
       margin: 0 5px;
       float: left;
     }

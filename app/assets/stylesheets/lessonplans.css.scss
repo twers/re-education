@@ -101,7 +101,7 @@ article.plan ol.steps > li img {
 article.plan ol.steps > li > div {
   display: block;
   padding: 10px 20px 13px 20px;
-  margin:0 60px;
+  margin: 0 0 0 60px;
   background: #F5F5F5;
   font-size: 13px;
   position: relative;
@@ -240,7 +240,7 @@ article.plan ol.steps li ul.images li img {
 article.plan h3 {
   clear: both;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 22px;
   color: #4C9ED0;
   line-height: 60px;
 }
@@ -255,15 +255,15 @@ article.plan.edit img.main {
 }
 
 article.plan.edit section {
-  padding: 40px 0px 20px 0px;
+  padding: 20px 0 0;
 }
 
 article.plan.edit form {
   margin: 0 40px;
 }
 
-article.plan.edit section:nth-of-type(1) {
-  border-bottom: 1px solid #eee;
+article.plan.edit input.large {
+  width: 852px;
 }
 
 article.plan.edit aside.author {
@@ -271,6 +271,9 @@ article.plan.edit aside.author {
   top: 120px;
 }
 
+article.plan.edit ol.steps > li > div{
+  margin: 0 60px;
+}
 
 .page-title h1 {
   line-height: 80px;
@@ -458,3 +461,71 @@ article ul.plan-menu li a:hover label {
   background: #4C9ED0;
   cursor: pointer;
 }
+
+.preview-uploader-wrapper {
+  float: left;
+  display: block;
+  position: relative;
+  width: 200px;
+  min-height: 150px;
+  margin: 24px 10px 0 0;
+  text-align: center;
+  background: #F9F9F9 url(/assets/camera.png) center no-repeat;
+
+  @include box-shadow(inset 0 0 5px #ccc);
+
+  img {
+    display: inline-block;
+    width: 200px;
+  }
+
+  .reset-btn, .uploder-placeholder {
+    @include background(rgba(0, 0, 0, .4));
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+  }
+
+  .reset-btn {
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: 0;
+  }
+
+  .uploder-placeholder {
+    bottom: 0; left: 0;
+
+    line-height: 30px;
+    width: 200px;
+    height: 30px;
+
+    a{
+      color: white;
+      text-decoration: underline;
+    }
+
+    input {
+      height: 30px;
+      margin: 0;
+      opacity: 0;
+      position: absolute;
+      right: 0px;
+      top: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+.description-wrapper {
+  textarea {
+    width: 640px;
+  }
+}
+
+.user-operation {
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+}
+

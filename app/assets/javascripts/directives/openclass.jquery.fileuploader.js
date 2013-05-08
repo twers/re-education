@@ -1,10 +1,10 @@
 angular.module('openClass.directives')
-  .directive('jqueryFileUploader', function factory() {
+  .directive('jqueryFileUploader', ['eventConstants', function factory(eventConstants) {
 
     var directive = {
       restrict: 'C',
       link: function (scope, element, attrs) {
-        scope.uploader = $(element).fileupload({
+        var uploader = $(element).fileupload({
           url: '/uploads.json',
           type: 'POST',
           sequentialUploads: true,
@@ -13,8 +13,12 @@ angular.module('openClass.directives')
             _method : 'POST'
           }
         });
+
+        uploader.bind('fileuploaddone', function (e, data) {
+          scope.$emit(eventConstants.FILE_UPLOAD_DONE, data.result);
+        });
       }
     };
     return directive;
 
-  });
+  }]);

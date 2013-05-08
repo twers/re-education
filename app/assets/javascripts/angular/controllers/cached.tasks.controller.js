@@ -21,7 +21,18 @@ function CachedTasksController($scope, TaskResource) {
 
   $scope.deleteTask = function(index) {
     if(window.confirm('确定要删除么？')) {
-      $scope.cachedTasks.splice(index, 1);
+
+//      TODO: this line has bug with wysihtml5s
+//      $scope.cachedTasks.splice(index, 1);
+
+      var newCachedTasks = [];
+      $.each($scope.cachedTasks, function (idx, item) {
+        if(index != idx) {
+          newCachedTasks.push({ title: item.title, content: item.content });
+        }
+      });
+
+      $scope.cachedTasks = newCachedTasks;
     }
   };
 }
