@@ -12,7 +12,7 @@ angular.module('openClass.directives')
           stylesheets: '/assets/wysihtml5.editor.inner.css'
         });
 
-        if(ngModelCtrl) {
+        if (ngModelCtrl) {
           editor.on('change', function () {
             ngModelCtrl.$setViewValue(editor.getValue());
           });
@@ -23,11 +23,11 @@ angular.module('openClass.directives')
           var editorBody = currentView.element;
 
           $(editorBody).css({
-            overflow : 'hidden',
-            minHeight : '100px'
+            overflow: 'hidden',
+            minHeight: '100px'
           });
 
-          function resetHeightHandler () {
+          function resetHeightHandler() {
             resetEditorHeight(currentView);
           }
 
@@ -37,7 +37,7 @@ angular.module('openClass.directives')
           resetEditorHeight(currentView);
         });
 
-        function resetEditorHeight (currentView) {
+        function resetEditorHeight(currentView) {
           $timeout(function () {
             $(currentView.focusStylesHost)
               .add(currentView.blurStylesHost)
@@ -49,6 +49,17 @@ angular.module('openClass.directives')
         scope.$on(eventConstants.EDITOR_APPEND_VALUE, function (e, value) {
           editor.setValue(editor.getValue() + value).fire('change');
           resetEditorHeight(editor.currentView);
+        });
+
+        scope.$on(eventConstants.EDITOR_APPEND_IMG, function (e, file) {
+          var image = new Image(), src = file.src, name = file.name;
+          image.onload = function () {
+            $('[data-target="' + name + '"]', editor.currentView.element).remove();
+            scope.$broadcast(eventConstants.EDITOR_APPEND_VALUE, '<img src="' + src + '"/>');
+          };
+          image.src = src;
+          scope.$broadcast(eventConstants.EDITOR_APPEND_VALUE,
+            '<span class="image-loading-placeholder" data-target="' + name + '">正在载入 ' + name + '...</span>');
         });
       }
     };

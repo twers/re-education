@@ -32,6 +32,7 @@ angular.module('openClass.directives')
           $(resultFiles).each(function (idx, item) {
             var baseUrl = qiniuDomain + '/' + item.name;
             files.push({
+              name: item.name,
               url: baseUrl,
               mediumUrl: baseUrl + '?imageView/2/w/400',
               thumbnailUrl: baseUrl + '?imageView/2/w/200'
