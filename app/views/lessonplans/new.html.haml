@@ -23,7 +23,7 @@
           %a.reset-btn{ 'ng-click' => 'reset();', 'ng-show' => 'previewImageUrl' } &times;
           %span.uploder-placeholder
             %a{ href: "javascript:;" } 设置封面
-            %input.jquery-file-uploader{ type: "file", name: "upload[upload]", :accept => "image/*" }
+            %input.jquery-file-uploader{ type: "file", name: "file", :accept => "image/*" }
           %img{ 'ng-src' => "{{previewImageUrl}}", 'ng-show' => "previewImageUrl" }
           = f.text_field :symbol_img_url, 'ng-model' => 'previewImageUrl', class: 'hide'
 

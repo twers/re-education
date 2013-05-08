@@ -14,6 +14,7 @@
 // = require jquery
 // = require jquery_ujs
 // = require file-validate
+// = require base64
 // = require fancybox
 // = require plupload/plupload
 // = require plupload/plupload.flash

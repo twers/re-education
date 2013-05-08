@@ -9,7 +9,7 @@ function PreviewController ($scope, eventConstants) {
   };
 
   $scope.$on(eventConstants.FILE_UPLOAD_DONE, function (e, data) {
-    var url = data.files[0].url;
+    var url = data.files[0].thumbnailUrl;
     $scope.$apply(function () {
       $scope.previewImageUrl = url;
     });
