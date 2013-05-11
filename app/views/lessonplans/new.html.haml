@@ -16,7 +16,7 @@
       = f.text_field :title, :placeholder => '给你的教案起一个名字...', class: "large"
 
     %section
-      %h3 教程介绍
+      %h3 教案介绍
 
       .multi-column-section
         .preview-uploader-wrapper{ 'ng-controller' => 'PreviewController', 'on-load' => 'init();' }
@@ -28,11 +28,12 @@
           = f.text_field :symbol_img_url, 'ng-model' => 'previewImageUrl', class: 'hide'
 
         .description-wrapper
-          = label_tag 'lessonplan[short_description]', '简短描述(140字)'
-          = f.text_area :short_description, :placeholder => '说出这个活动的亮点...', :rows => 4, :maxlength => 140, :cols => 60
-      
-      = label_tag 'lessonplan[content]', '详细内容', class: "clearfix"
-      %small.help-info 简要说明课程年级、学科、学生情况、教学思路等...
+          = label_tag 'lessonplan[short_description]', '说出这个教案的亮点(140字)'
+          = f.text_area :short_description, :rows => 4, :maxlength => 140, :cols => 60
+
+    %section
+      %h3.clearfix 详细内容
+      %label 简要说明年级、学科、学生情况、可能的困难等...
       = description_editor f
 
     %section.plan-step
