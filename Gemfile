@@ -11,7 +11,6 @@ gem "carrierwave"
 gem "cancan"
 gem 'rails_kindeditor', '~> 0.3.8'
 gem 'dynamic_form'
-gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "rmagick"
 gem 'capistrano'
 gem 'rvm-capistrano'

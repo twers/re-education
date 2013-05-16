@@ -15,8 +15,6 @@
 #
 
 class Publisher < ActiveRecord::Base
-  apply_simple_captcha :message => "验证码有误"
-
   validates :email,
     :uniqueness => {
       :message => "此邮箱地址已经被使用"
