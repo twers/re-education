@@ -73,7 +73,7 @@ class Publisher < ActiveRecord::Base
   alias_attribute :name, :alternative_name
 
   def super_manager?
-    self.email.eql? 'openclass@gmail.com'
+    (self.email.eql? 'openclass@gmail.com') || (self.name.eql? 'openclass')
   end
 
   attr_reader :password
