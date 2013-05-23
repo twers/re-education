@@ -30,7 +30,7 @@ describe "lessons related functions", type: :feature do
         end
 
         it "should visitable" do
-          page.should have_content "教程介绍"
+          page.should have_content "教案介绍"
         end
 
         context "without tasks" do
