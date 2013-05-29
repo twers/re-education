@@ -4,7 +4,6 @@ Feature: View Lesson
   Should view the lesson
 
   Scenario: The user who does not login can view lesson
-    Given we have a lesson plan
-    And I am on the index page
+    Given I am on the index page
     When I view that lesson plan
     Then the lesson page should be displayed

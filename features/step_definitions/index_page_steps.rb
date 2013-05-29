@@ -1,20 +1,6 @@
 # encoding: UTF-8
 
-Given /^we have a lesson plan$/ do
-  Lessonplan.create(
-      [
-          {
-              title: 'Ruby on Rails Tutorial',
-              content: "Some Content",
-              short_description: 'Some Description',
-              publisher_id: 1,
-              created_at: 1.year.ago
-          }
-      ]
-  )
-end
-
-And /^I am on the index page$/ do
+Given /^I am on the index page$/ do
   visit "/"
 end
 
