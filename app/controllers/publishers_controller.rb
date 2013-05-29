@@ -8,7 +8,7 @@ class PublishersController < ApplicationController
   def create
     @publisher = Publisher.new publisher_params
 
-    if @publisher.save_with_captcha
+    if @publisher.save()
       self.current_user = @publisher
       redirect_to publisher_path(@publisher)
     else

@@ -10,16 +10,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if simple_captcha_valid?
-      if publisher = Publisher.authenticate(params[:publisher][:email], params[:publisher][:password])
-        self.current_user = publisher
-        redirect_to publisher_path(publisher)
-      else
-        flash.now.alert = '账号或密码错误'
-        render :new
-      end
+    if publisher = Publisher.authenticate(params[:publisher][:email], params[:publisher][:password])
+      self.current_user = publisher
+      redirect_to publisher_path(publisher)
     else
-      flash.now.alert = '验证码有误'
+      flash.now.alert = '账号或密码错误'
       render :new
     end
   end

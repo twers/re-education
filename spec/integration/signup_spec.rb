@@ -16,7 +16,6 @@ describe "the signup process", type: :feature do
       fill_in 'publisher_alternative_name', with: user.username
       fill_in 'publisher_password_confirmation', with: user.password
       fill_in 'publisher_password', with: user.password
-      fill_in 'publisher_captcha', with: SimpleCaptcha::SimpleCaptchaData.first.value
       click_button '保存'
       page.should have_content '个人信息'
       page.should have_content user.username

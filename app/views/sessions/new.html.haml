@@ -17,7 +17,4 @@
         = label_tag 'publisher[password]', '密码'
         = f.password_field :password, :size => 20, :placeholder => '填写密码...'
       %p
-        %label 验证码
-        = show_simple_captcha :label => ""
-      %p
         = f.submit '登录', :class => 'btn btn-primary'

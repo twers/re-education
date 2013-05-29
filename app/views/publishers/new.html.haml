@@ -29,8 +29,5 @@
         = f.password_field :password_confirmation, :size => 20, :placeholder => '再次输入确认密码...', :required => true
         = error_message_on @publisher, :password
 
-        %label 验证码
-        = show_simple_captcha :object => "publisher", :label => ""
-        = error_message_on @publisher, :captcha
       %p
         = f.submit '保存', :class => 'btn btn-primary'

@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include SimpleCaptcha::ControllerHelpers
-
   protect_from_forgery
 
   rescue_from ActionController::RoutingError,       :with => :render_404

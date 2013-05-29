@@ -5,5 +5,5 @@ Feature: View Lesson
 
   Scenario: The user who does not login can view lesson
     Given I am on the index page
-    When I press enter
+    When I view that lesson plan
     Then the lesson page should be displayed
